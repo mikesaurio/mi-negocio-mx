@@ -1,0 +1,1 @@
+json.extract! @inspection_line, :id, :inspection, :line, :created_at, :updated_at

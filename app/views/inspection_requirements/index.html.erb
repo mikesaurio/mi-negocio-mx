@@ -1,0 +1,27 @@
+<h1>Listing procedure_requirements</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @procedure_requirements.each do |procedure_requirement| %>
+      <tr>
+        <td>id: <%= procedure_requirement.id %></td>
+        <td><%= Procedure.find(procedure_requirement.procedure_id).nombre %></td>
+        <td><%= Requirement.find(procedure_requirement.line_id).nombre %></td>
+        <td><%= link_to 'Show', procedure_requirement %></td>
+        <td><%= link_to 'Edit', edit_procedure_requirement_path(procedure_requirement) %></td>
+        <td><%= link_to 'Destroy', procedure_requirement, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Dependency', new_procedure_line_path %>

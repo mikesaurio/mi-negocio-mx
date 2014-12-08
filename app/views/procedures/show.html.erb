@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @procedure.nombre %>
+</p>
+
+<p>
+  <strong>Duracion:</strong>
+  <%= @procedure.duracion %>
+</p>
+
+<p>
+  <strong>Costo:</strong>
+  <%= @procedure.costo %>
+</p>
+
+<p>
+  <strong>Vigencia:</strong>
+  <%= @procedure.vigencia %>
+</p>
+
+<p>
+  <strong>Contacto:</strong>
+  <%= @procedure.contacto %>
+</p>
+
+<p>
+  <strong>Dependency:</strong>
+  <%= @procedure.dependency.nombre %>
+</p>
+
+<%= link_to 'Edit', edit_procedure_path(@procedure) %> |
+<%= link_to 'Back', procedures_path %>

@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= Procedure.find(@procedure_requirement.procedure_id).nombre %>
+       
+</p>
+
+<p>
+  <strong>Nombre:</strong>
+ <%= Requirement.find(@procedure_requirement.requirement_id).nombre %>
+</p>
+<%= link_to 'Edit', edit_procedure_requirement_path(@procedure_requirement) %> |
+<%= link_to 'Back', procedure_requirements_path %>
+

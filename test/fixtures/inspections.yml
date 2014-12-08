@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nombre: MyString
+  materia: MyString
+  duracion: MyString
+  norma: MyString
+  antes: MyString
+  durante: MyString
+  despues: MyString
+  sancion: MyString
+
+two:
+  nombre: MyString
+  materia: MyString
+  duracion: MyString
+  norma: MyString
+  antes: MyString
+  durante: MyString
+  despues: MyString
+  sancion: MyString

@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Procedure:</strong>
+  <%= Procedure.find(@procedure_line.procedure_id).nombre %>
+       
+</p>
+
+<p>
+  <strong>Line:</strong>
+ <%= Line.find(@procedure_line.line_id).nombre %>
+</p>
+<%= link_to 'Edit', edit_procedure_line_path(@procedure_line) %> |
+<%= link_to 'Back', procedure_lines_path %>
+

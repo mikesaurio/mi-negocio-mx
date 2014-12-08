@@ -1,0 +1,13 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @dependency.nombre %>
+</p>
+<p>
+  <strong>Municipio:</strong>
+  <%= @dependency.municipio.nombre %>
+</p>
+
+<%= link_to 'Edit', edit_dependency_path(@dependency) %> |
+<%= link_to 'Back', dependencies_path %>

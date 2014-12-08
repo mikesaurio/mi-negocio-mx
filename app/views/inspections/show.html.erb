@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @inspection.nombre %>
+</p>
+
+<p>
+  <strong>Materia:</strong>
+  <%= @inspection.materia %>
+</p>
+
+<p>
+  <strong>Duracion:</strong>
+  <%= @inspection.duracion %>
+</p>
+
+<p>
+  <strong>Norma:</strong>
+  <%= @inspection.norma %>
+</p>
+
+<p>
+  <strong>Antes:</strong>
+  <%= @inspection.antes %>
+</p>
+
+<p>
+  <strong>Durante:</strong>
+  <%= @inspection.durante %>
+</p>
+
+<p>
+  <strong>Despues:</strong>
+  <%= @inspection.despues %>
+</p>
+
+<p>
+  <strong>Sancion:</strong>
+  <%= @inspection.sancion %>
+</p>
+
+
+<p>
+  <strong>Dependency:</strong>
+  <%= @inspection.dependency.nombre %>
+</p>
+
+<%= link_to 'Edit', edit_inspection_path(@inspection) %> |
+<%= link_to 'Back', inspections_path %>

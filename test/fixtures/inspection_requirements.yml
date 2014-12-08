@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  inspection_id: 1
+  requirement_id: 1
+
+two:
+  inspection_id: 1
+  requirement_id: 1

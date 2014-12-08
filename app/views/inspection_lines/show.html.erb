@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= Inspection.find(@inspection_line.inspection_id).nombre %>
+       
+</p>
+
+<p>
+  <strong>Nombre:</strong>
+ <%= Line.find(@inspection_line.line_id).nombre %>
+</p>
+<%= link_to 'Edit', edit_inspection_line_path(@inspection_line) %> |
+<%= link_to 'Back', inspection_lines_path %>
+

@@ -1,0 +1,2 @@
+module InspectionRequirementsHelper
+end

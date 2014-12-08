@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @inspector.nombre %>
+</p>
+
+<p>
+  <strong>Vigencia:</strong>
+  <%= @inspector.vigencia %>
+</p>
+
+<p>
+  <strong>Materia:</strong>
+  <%= @inspector.materia %>
+</p>
+
+<p>
+  <strong>Supervisor:</strong>
+  <%= @inspector.supervisor %>
+</p>
+
+<p>
+  <strong>Contacto:</strong>
+  <%= @inspector.contacto %>
+</p>
+
+<p>
+  <strong>Foto:</strong>
+  <%= @inspector.foto %>
+</p>
+
+<p>
+  <strong>Dependency:</strong>
+  <%= @inspector.dependency.nombre %>
+</p>
+<%= link_to 'Edit', edit_inspector_path(@inspector) %> |
+<%= link_to 'Back', inspectors_path %>

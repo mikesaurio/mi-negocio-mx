@@ -1,0 +1,41 @@
+<%= form_for(@procedure) do |f| %>
+<% if @procedure.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(@procedure.errors.count, "error") %> prohibited this procedure from being saved:</h2>
+
+  <ul>
+    <% @procedure.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
+<div class="field">
+  <%= f.label :nombre %><br>
+  <%= f.text_field :nombre %>
+</div>
+<div class="field">
+  <%= f.label :duracion %><br>
+  <%= f.text_field :duracion %>
+</div>
+<div class="field">
+  <%= f.label :costo %><br>
+  <%= f.text_field :costo %>
+</div>
+<div class="field">
+  <%= f.label :vigencia %><br>
+  <%= f.text_field :vigencia %>
+</div>
+<div class="field">
+  <%= f.label :contacto %><br>
+  <%= f.text_field :contacto %>
+</div>
+<div class="field">
+ <%= f.label :dependency %><br />
+ <%= collection_select(:procedure, :dependency_id, Dependency.all, :id, :nombre, {:prompt => false}) %> 
+</div>
+<div class="actions">
+  <%= f.submit %>
+</div>
+<% end %>

@@ -1,0 +1,27 @@
+<%= form_for(@inspection_line) do |f| %>
+<% if @inspection_line.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(@inspection_line.errors.count, "error") %> prohibited this inspection_line from being saved:</h2>
+
+  <ul>
+    <% @inspection_line.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
+
+<div class="field">
+  <%= f.label :procedure %><br>
+  <%= collection_select(:inspection_line, :inspection_id, Inspection.all, :id, :nombre, {:prompt => false}) %> 
+</div>
+
+<div class="field">
+  <%= f.label  :line%><br>
+  <%= collection_select(:inspection_line, :line_id, Line.all, :id, :nombre, {:prompt => false}) %> 
+</div>
+<div class="actions">
+  <%= f.submit %>
+</div>
+<% end %>
