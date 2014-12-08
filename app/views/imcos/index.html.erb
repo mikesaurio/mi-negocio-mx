@@ -1,0 +1,19 @@
+<%= form_for :post, :url => { :action => :nuevo } do |f| %>
+  <p>
+    <%= f.label :municipio %><br>
+     <%= collection_select(:municipio, :municipio_id, Municipio.all, :id, :nombre, {:prompt => false}) %>
+  </p>
+ 
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
+
+
+
+
+
+
+
+ 

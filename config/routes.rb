@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'imcos/index'
+
+  post "posts" => "imcos#nuevo"
+
   get 'inspection_lines/index'
 
   get 'inspection_lines/show'
@@ -60,11 +64,16 @@ Rails.application.routes.draw do
 
   resources :municipios
 
+  resources :imcos
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  root 'imcos#index'
+
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
