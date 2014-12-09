@@ -1,1 +1,1 @@
-json.extract! @procedure_line, :id, :procedure, :requirement, :created_at, :updated_at
+json.extract! @inspection_requirement, :inspection, :requirement, :created_at, :updated_at

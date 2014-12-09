@@ -1,10 +1,10 @@
-<%= form_for(@procedure_requirement) do |f| %>
-<% if @procedure_requirement.errors.any? %>
+<%= form_for(@inspection_requirement) do |f| %>
+<% if @inspection_requirement.errors.any? %>
 <div id="error_explanation">
-  <h2><%= pluralize(@procedure_requirement.errors.count, "error") %> prohibited this procedure_requirement from being saved:</h2>
+  <h2><%= pluralize(@inspection_requirement.errors.count, "error") %> prohibited this inspection_requirement from being saved:</h2>
 
   <ul>
-    <% @procedure_requirement.errors.full_messages.each do |message| %>
+    <% @inspection_requirement.errors.full_messages.each do |message| %>
     <li><%= message %></li>
     <% end %>
   </ul>
@@ -13,13 +13,13 @@
 
 
 <div class="field">
-  <%= f.label :procedure %><br>
-  <%= collection_select(:procedure_requirement, :procedure_id, Procedure.all, :id, :nombre, {:prompt => false}) %> 
+  <%= f.label :inspection %><br>
+  <%= collection_select(:inspection_requirement, :inspection_id, Inspection.all, :id, :nombre, {:prompt => false}) %> 
 </div>
 
 <div class="field">
   <%= f.label  :requirement%><br>
-  <%= collection_select(:procedure_requirement, :requirement_id, Requirement.all, :id, :nombre, {:prompt => false}) %> 
+  <%= collection_select(:inspection_requirement, :requirement_id, Requirement.all, :id, :nombre, {:prompt => false}) %> 
 </div>
 <div class="actions">
   <%= f.submit %>

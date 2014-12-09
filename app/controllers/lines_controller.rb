@@ -5,6 +5,7 @@ class LinesController < ApplicationController
   # GET /lines.json
   def index
     @lines = Line.all
+     @municipio = Municipio.all
   end
 
   # GET /lines/1
@@ -15,6 +16,7 @@ class LinesController < ApplicationController
   # GET /lines/new
   def new
     @line = Line.new
+     @municipio = Municipio.all
   end
 
   # GET /lines/1/edit
@@ -69,6 +71,6 @@ class LinesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def line_params
-      params.require(:line).permit(:nombre, :descripcion)
+      params.require(:line).permit(:nombre, :descripcion,:municipio_id)
     end
 end

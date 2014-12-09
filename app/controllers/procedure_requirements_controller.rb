@@ -8,19 +8,19 @@ class ProcedureRequirementsController < ApplicationController
  def show
   @procedure_requirements =  ProcedureRequirement.all
     @procedure = Procedure.all
-  @Requirement = Requirement.all
+  @requirement = Requirement.all
  end
 
  def new
   @procedure_requirement = ProcedureRequirement.new
   @procedure = Procedure.all
-  @Requirement = Requirement.all
+  @requirement = Requirement.all
 
 end
 
 def edit
   @procedure = Procedure.all
-  @Requirement = Requirement.all
+  @requirement = Requirement.all
 end
 
 def create

@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-get 'imcos/tramite'
+  get 'imcos/tramite'
 
   get 'imcos/index'
 
@@ -51,6 +51,8 @@ get 'imcos/tramite'
   resources :procedure_lines
 
   resources :procedure_requirements
+
+  resources :inspection_requirements
 
   resources :inspections
 

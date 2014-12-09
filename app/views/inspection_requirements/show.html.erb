@@ -1,15 +1,16 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Procedure:</strong>
-  <%= Procedure.find(@procedure_requirement.procedure_id).nombre %>
+  <strong>Inspection:</strong>
+  <%= Inspection.find(@inspection_requirement.inspection_id).nombre %>
        
+
 </p>
 
 <p>
   <strong>Requirement:</strong>
- <%= Line.find(@procedure_requirement.requirement_id).nombre %>
+ <%= Requirement.find(@inspection_requirement.requirement_id).nombre %>
 </p>
-<%= link_to 'Edit', edit_procedure_lrequirement_path(@procedure_requirement) %> |
-<%= link_to 'Back', procedure_requirements_path %>
+<%= link_to 'Edit', edit_inspection_requirement_path(@inspection_requirement) %> |
+<%= link_to 'Back', inspection_requirements_path %>
 

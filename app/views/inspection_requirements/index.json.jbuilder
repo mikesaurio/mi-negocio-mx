@@ -1,4 +1,4 @@
-json.array!(@procedure_requirements) do |procedure_requirement|
-  json.extract! procedure_requirement, :id, :procedure, :requirement
-  json.url procedure_line_url(procedure_requirement, format: :json)
+json.array!(@inspection_requirements) do |inspection_requirement|
+  json.extract! inspection_requirement, :id, :inspection, :requirement
+  json.url procedure_line_url(inspection_requirement, format: :json)
 end

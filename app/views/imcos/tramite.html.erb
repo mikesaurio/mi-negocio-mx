@@ -1,1 +1,11 @@
-hola
+<%= form_for :post, :url => { :action => :nuevo } do |f| %>
+  <p>
+    <%= f.label :lines %><br>
+     <%= collection_select(:lines, :line_id, Line.where(dependency_id: 1), :id, :nombre, {:prompt => false}) %>
+  </p>
+ 
+  <p>
+    <%= f.submit 'Continuar'%>
+  </p>
+<% end %>
+
