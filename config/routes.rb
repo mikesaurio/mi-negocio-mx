@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+get 'imcos/tramite'
+
   get 'imcos/index'
 
   post "posts" => "imcos#nuevo"
