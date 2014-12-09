@@ -6,6 +6,6 @@ class Inspection < ActiveRecord::Base
   has_many :lines, through: :inspection_lines
 
   has_many :inspection_requirements
-  has_many :requirement, through: :inspection_requirements
+  has_many :requirements, through: :inspection_requirements
   
 end
