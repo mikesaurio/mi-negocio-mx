@@ -13,11 +13,8 @@
 
 ActiveRecord::Schema.define(version: 20141209182034) do
 
-  create_table "dependencia", force: true do |t|
-    t.string   "nombre"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "dependencies", force: true do |t|
     t.string   "nombre"
@@ -26,7 +23,7 @@ ActiveRecord::Schema.define(version: 20141209182034) do
     t.integer  "municipio_id"
   end
 
-  add_index "dependencies", ["municipio_id"], name: "index_dependencies_on_municipio_id"
+  add_index "dependencies", ["municipio_id"], name: "index_dependencies_on_municipio_id", using: :btree
 
   create_table "inspection_lines", force: true do |t|
     t.integer  "inspection_id"
@@ -73,7 +70,6 @@ ActiveRecord::Schema.define(version: 20141209182034) do
     t.string   "descripcion"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "dependency_id"
     t.integer  "municipio_id"
   end
 
