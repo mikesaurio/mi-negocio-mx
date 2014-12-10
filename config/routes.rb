@@ -1,9 +1,16 @@
 Rails.application.routes.draw do
+
+  get 'pages/quiere'
+
+  get 'pages/encuesta'
+
+  get 'pages/paso'
+
   get 'imcos/tramite'
 
   get 'imcos/index'
 
-  post "posts" => "imcos#nuevo"
+  post "pages/quiere" 
 
   get 'inspection_lines/index'
 
