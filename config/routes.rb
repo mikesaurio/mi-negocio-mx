@@ -11,7 +11,9 @@ Rails.application.routes.draw do
   get 'imcos/index'
 
   post "pages/quiere" 
-  
+    
+  post "pages/paso" 
+
   get 'pages/encuesta'
 
   get 'inspection_lines/index'
@@ -78,6 +80,8 @@ Rails.application.routes.draw do
   resources :municipios
 
   resources :imcos
+
+  resources :pages
 
 
   # The priority is based upon order of creation: first created -> highest priority.
