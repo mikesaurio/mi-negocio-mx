@@ -33,8 +33,9 @@ group :development do
   gem 'spring',        group: :development
 end
 
-group :staging, :production do
+group :production do
   gem 'unicorn'
+  gem 'rails_12factor'
 end
 
 # Use debugger
