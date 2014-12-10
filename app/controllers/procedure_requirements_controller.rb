@@ -1,4 +1,5 @@
 class ProcedureRequirementsController < ApplicationController
+   layout 'blanco'
  before_action :set_line, only: [:show, :edit, :update, :destroy]
 
  def index

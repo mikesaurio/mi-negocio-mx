@@ -1,4 +1,5 @@
 class MunicipiosController < ApplicationController
+  layout 'blanco'
   before_action :set_municipio, only: [:show, :edit, :update, :destroy]
 
   # GET /municipios

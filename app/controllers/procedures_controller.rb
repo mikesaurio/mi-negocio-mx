@@ -1,4 +1,5 @@
 class ProceduresController < ApplicationController
+    layout 'blanco'
   before_action :set_procedure, only: [:show, :edit, :update, :destroy]
 
   # GET /procedures

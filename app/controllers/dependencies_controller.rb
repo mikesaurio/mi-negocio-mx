@@ -1,4 +1,5 @@
 class DependenciesController < ApplicationController
+   layout 'blanco'
   before_action :set_dependency, only: [:show, :edit, :update, :destroy]
 
   # GET /dependencies
