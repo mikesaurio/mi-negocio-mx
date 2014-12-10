@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   get 'imcos/index'
 
   post "pages/quiere" 
+  
+  get 'pages/encuesta'
 
   get 'inspection_lines/index'
 
