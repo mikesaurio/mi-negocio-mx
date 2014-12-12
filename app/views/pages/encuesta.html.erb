@@ -1,6 +1,6 @@
 <%= form_for :post, :url => { :action => :paso , :controller => :pages} do |f| %>
 <p>
-	<%= f.label :lines %><br>
+	<%= f.label 'Giro que quieres tener' %>
 <%= collection_select(:lines, :line_id, Line.where(municipio_id: $id_del_municipio), :id, :nombre, {:prompt => false}) %>
 </p>
 <p>

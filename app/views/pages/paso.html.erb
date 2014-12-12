@@ -1,2 +1,19 @@
+<%= form_for :post, :url => { :action => :paso , :controller => :pages} do |f| %>
+<p>
+	<%= f.label 'Giro que quieres tener' %>
+	<% a = Line.find($id_del_giro) %>
+<%= collection_select(:lines, :line_id, a.procedures.includes(:procedure_lines).where("line_id = #{$id_del_giro}"), :id, :nombre, {:prompt => false}) %>
+</p>
+<p>
+	<aside class="call-to-action bg-primary">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12 text-center">
+					<%= f.submit 'Continuar', :class => 'btn btn-lg btn-light' %>
+				</div>
+			</div>
+		</div>
+	</aside>
 
-     <%= collection_select(:lines, :line_id, Line.find($id_del_municipio).procedures, :id, :nombre, {:prompt => false}) %>
+</p>
+<% end %>     
