@@ -4,26 +4,31 @@
  			<div class="col-lg-10 col-lg-offset-1">
  				<hr class="small">
  				<div class="row">
-
  					<%= form_for :post, :url => { :action => :paso , :controller => :pages} do |f| %>
  					<p>
- 						<% a = Line.find($id_del_giro) %>
- 						<% b = a.procedures.includes(:procedure_lines).where("line_id = #{$id_del_giro}") %>
- 						<% b.each do |t| %>
-						<p><%= t.nombre %></p>
- 							<% c = Procedure.find(t.id) %>
- 							<% d = c.requirements.includes(:procedure_requirements).where("procedure_id = #{t.id}") %>
- 							<% d.each do |j| %>
-		 						<div class="col-md-3 col-sm-6">
-		 							<div class="service-item">
-		 								<%= fa_stacked_icon "cloud" %>
-		 								<p><%= j.nombre %></p>
-		 								<a href="#" class="btn btn-light">¿Cómo Tramitar?</a>
-		 							</div>
-		 						</div>
- 							<% end %>
+ 						<% @tramites_del_giro.each_with_index do |t, i| %>
+ 							<p><button type="button" class="btn btn-danger" data-toggle="collapse" data-target=<%="#flag#{i}" %>>
+ 							<%= t.nombre %></button></p>
+ 							<div id=<%="flag#{i}"%> class="collapse in">
+ 								<div class="accordion" id="accordion2">
+ 									<% tramites_giro(t.id).each do |j| %>
+ 									<div class="accordion-group">
+ 										<div id="collapseOne" class="accordion-body collapse in">
+ 											<div class="accordion-inner">
+ 												<div class="col-md-3 col-sm-6">
+ 													<div class="service-item">
+ 														<%= fa_stacked_icon "cloud" %>
+ 														<p><%= j.nombre %></p>
+ 														<a href="#" class="btn btn-light">¿Cómo Tramitar?</a>
+ 													</div>
+ 												</div>
+ 											</div>
+ 										</div>
+ 									</div>
+ 									<% end %>
+ 								</div>
+ 							</div>
  						<% end %>
- 						<!--<%= collection_select(:lines, :line_id, b, :id, :nombre, {:prompt => false}) %>-->
  					</p>
  					<% end %>     
  				</div>
@@ -35,4 +40,3 @@
  	</div>
  	<!-- /.container -->
  </section>
-
