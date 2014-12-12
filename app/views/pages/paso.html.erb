@@ -2,7 +2,17 @@
 <p>
 	<%= f.label 'Giro que quieres tener' %>
 	<% a = Line.find($id_del_giro) %>
-<%= collection_select(:lines, :line_id, a.procedures.includes(:procedure_lines).where("line_id = #{$id_del_giro}"), :id, :nombre, {:prompt => false}) %>
+	<% b = a.procedures.includes(:procedure_lines).where("line_id = #{$id_del_giro}") %>
+	<% b.each do |t| %>
+		<%= t.nombre %>
+		<%= t.id %><br/>
+		<% c = Procedure.find(t.id) %>
+		<% d = c.requirements.includes(:procedure_requirements).where("procedure_id = #{t.id}") %>
+		<% d.each do |j| %>
+			<%= j.nombre %><br/>
+		<% end %>
+	<% end %>
+	<!--<%= collection_select(:lines, :line_id, b, :id, :nombre, {:prompt => false}) %>-->
 </p>
 <p>
 	<aside class="call-to-action bg-primary">
