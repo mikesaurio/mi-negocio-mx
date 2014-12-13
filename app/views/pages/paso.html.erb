@@ -7,36 +7,36 @@
  					<%= form_for :post, :url => { :action => :paso , :controller => :pages} do |f| %>
  					<p>
  						<% @tramites_del_giro.each_with_index do |t, i| %>
- 							<p><button type="button" class="btn btn-danger" data-toggle="collapse" data-target=<%="#flag#{i}" %>>
+ 						<p><button type="button" class="btn btn-danger" data-toggle="collapse" data-target=<%="#flag#{i}" %>>
  							<%= t.nombre %></button></p>
- 							<div id=<%="flag#{i}"%> class="collapse in">
+ 							<div id=<%="flag#{i}"%> class="collapse">
  								<div class="accordion" id="accordion2">
- 									<% tramites_giro(t.id).each do |j| %>
- 									<div class="accordion-group">
- 										<div id="collapseOne" class="accordion-body collapse in">
- 											<div class="accordion-inner">
- 												<div class="col-md-3 col-sm-6">
- 													<div class="service-item">
- 														<%= fa_stacked_icon "cloud" %>
- 														<p><%= j.nombre %></p>
- 														<a href="#" class="btn btn-light">¿Cómo Tramitar?</a>
- 													</div>
- 												</div>
- 											</div>
- 										</div>
- 									</div>
+ 									<% tramites_giro(t.id).each_with_index do |j,k| %>
+ 									<button type="button" class="btn btn-light" title=<%="No.#{k+1} #{j.nombre}" %>  
+ 										data-container="body" data-toggle="popover" data-placement="top"
+ 										data-content= <%= j.nombre %> >
+ 										<%=k+1 %>
+ 									</button>
  									<% end %>
+ 									<BR/>
+ 									<BR/>
  								</div>
  							</div>
- 						<% end %>
- 					</p>
- 					<% end %>     
+ 							<% end %>
+ 						</p>
+ 						<% end %>     
+ 					</div>
+ 					<!-- /.row (nested) -->
  				</div>
- 				<!-- /.row (nested) -->
+ 				<!-- /.col-lg-10 -->
  			</div>
- 			<!-- /.col-lg-10 -->
+ 			<!-- /.row -->
  		</div>
- 		<!-- /.row -->
- 	</div>
- 	<!-- /.container -->
- </section>
+
+
+ 		<script>$(function () 
+ 			{ $("[data-toggle='popover']").popover({ html : true });
+ 		});
+ 		</script>
+ 		<!-- /.container -->
+ 	</section>
