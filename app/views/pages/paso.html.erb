@@ -12,10 +12,10 @@
  							<div id=<%="flag#{i}"%> class="collapse">
  								<div class="accordion" id="accordion2">
  									<% tramites_giro(t.id).each_with_index do |tramite, k| %>
-	 									<button type="button" class="btn btn-light" title="No. <%= k+1 %>"  
+	 									<button type="button" class="btn btn-light" title='<%= tramite.nombre %>'  
 	 										data-container="body" data-toggle="popover" data-placement="top"
-	 										data-content="<%= tramite.nombre %>" >
-	 										<%=k+1 %>
+	 										data-content='Para obtener da click <a href="#">aquí</a>'>
+	 										Paso <%=k+1 %>
 	 									</button>
  									<% end %>
  									<BR/>
@@ -32,7 +32,7 @@
  			</div>
  			<!-- /.row -->
  		</div>
- 		
+
  		<script>$(function () 
  			{ $("[data-toggle='popover']").popover({ html : true });
  		});
