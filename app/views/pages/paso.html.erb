@@ -6,12 +6,12 @@
  				<div class="row">
  					<%= form_for :post, :url => { :action => :paso , :controller => :pages} do |f| %>
  					<p>
- 						<% @tramites_del_giro.each_with_index do |t, i| %>
+ 						<% @tramites_del_giro.each_with_index do |tramite_de_giro, i| %>
  						<p><button type="button" class="btn btn-danger" data-toggle="collapse" data-target=<%="#flag#{i}" %>>
- 							<%= t.nombre %></button></p>
+ 							<%= tramite_de_giro.nombre %></button></p>
  							<div id=<%="flag#{i}"%> class="collapse">
  								<div class="accordion" id="accordion2">
- 									<% tramites_giro(t.id).each_with_index do |tramite, k| %>
+ 									<% tramites_giro(tramite_de_giro.id).each_with_index do |tramite, k| %>
 	 									<button type="button" class="btn btn-light" title='<%= tramite.nombre %>'  
 	 										data-container="body" data-toggle="popover" data-placement="top"
 	 										data-content='Para obtener da click <a href="#">aquí</a>'>
@@ -37,6 +37,4 @@
  			{ $("[data-toggle='popover']").popover({ html : true });
  		});
  		</script>
-
- 		<!-- /.container -->
  	</section>
