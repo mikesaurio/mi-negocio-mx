@@ -1,50 +1,39 @@
-<p id="notice"><%= notice %></p>
+<h3 class="title"><%= @inspection.nombre %></h3>
 
-<p>
-  <strong>Nombre:</strong>
-  <%= @inspection.nombre %>
-</p>
+<div style="border: 1px solid white;background-color: white;">
+  <table class="table">
+    <tbody>
+      <tr>
+        <td>Materia</td>
+        <td><%= @inspection.materia %></td>
+      </tr>
+      <tr>
+        <td>Duracion</td>
+        <td><%= @inspection.duracion %></td>
+      </tr>
+      <tr>
+        <td>Norma</td>
+        <td><%= @inspection.norma %></td>
+      </tr>
+      <tr>
+        <td>Antes</td>
+        <td><%= @inspection.antes %></td>
+      </tr>
+      <tr>
+        <td>Durante</td>
+        <td><%= @inspection.durante %></td>
+      </tr>
+      <tr>
+        <td>Despues</td>
+        <td><%= @inspection.despues %></td>
+      </tr>
+      <tr>
+        <td>Sancion</td>
+        <td><%= @inspection.sancion %></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
-<p>
-  <strong>Materia:</strong>
-  <%= @inspection.materia %>
-</p>
-
-<p>
-  <strong>Duracion:</strong>
-  <%= @inspection.duracion %>
-</p>
-
-<p>
-  <strong>Norma:</strong>
-  <%= @inspection.norma %>
-</p>
-
-<p>
-  <strong>Antes:</strong>
-  <%= @inspection.antes %>
-</p>
-
-<p>
-  <strong>Durante:</strong>
-  <%= @inspection.durante %>
-</p>
-
-<p>
-  <strong>Despues:</strong>
-  <%= @inspection.despues %>
-</p>
-
-<p>
-  <strong>Sancion:</strong>
-  <%= @inspection.sancion %>
-</p>
-
-
-<p>
-  <strong>Dependency:</strong>
-  <%#= @inspection.dependency.nombre %>
-</p>
-
-<%= link_to 'Edit', edit_inspection_path(@inspection) %> |
-<%= link_to 'Back', inspections_path %>
+<!-- <%#= link_to 'Edit', edit_inspection_path(@inspection) %> | -->
+<%#= link_to 'Back', inspections_path %>

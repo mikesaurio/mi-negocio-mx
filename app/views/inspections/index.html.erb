@@ -1,10 +1,8 @@
-<h1 class="title">Inspections</h1>
-
 <div class="deck">
   <div class="actions__card">
-    <div class="action--title"></div>
+    <div class="action--title"><h3 class="title">Inspections</h3></div>
     <div class="action--list">
-      <%= link_to 'New Inspection', new_inspection_path, class: 'btn btn-default pull-right' %>
+      <%= link_to 'New Inspection', new_inspection_path, class: 'btn btn-default action-element' %>
     </div>
   </div>
 
@@ -12,11 +10,13 @@
     <div class="table__card">
       <ul>
         <% @inspections.each do |inspection| %>
-        <li class="table--row">
-          <div class="row--title"><%= inspection.nombre %></div>
-          <div class="row--subtitle"><%= inspection.materia %></div>
-          <div class="row--footer">Duraci&oacute;n: <%= inspection.duracion %></div>
-        </li>
+          <%= link_to inspection_path(inspection) do %>
+          <li class="table--row">
+            <div class="row--title"><%= inspection.nombre %></div>
+            <div class="row--subtitle"><%= inspection.materia %></div>
+            <div class="row--footer">Duraci&oacute;n: <%= inspection.duracion %></div>
+          </li>
+          <% end %>
         <% end %>
       </ul>
     </div>
