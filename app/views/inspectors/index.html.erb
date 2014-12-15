@@ -1,40 +1,4 @@
-<!-- <h1>Listing inspectors</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Nombre</th>
-      <th>Vigencia</th>
-      <th>Materia</th>
-      <th>Supervisor</th>
-      <th>Contacto</th>
-      <th>Foto</th>
-      <th>Dependencia</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <%# @inspectors.each do |inspector| %>
-      <tr>
-        <td><%#= inspector.nombre %></td>
-        <td><%#= inspector.vigencia %></td>
-        <td><%#= inspector.materia %></td>
-        <td><%#= inspector.supervisor %></td>
-        <td><%#= inspector.contacto %></td>
-        <td><%#= inspector.foto %></td>
-        <td><%#= inspector.dependency.nombre %></td>
-        <td><%#= link_to 'Show', inspector %></td>
-        <td><%#= link_to 'Edit', edit_inspector_path(inspector) %></td>
-        <td><%#= link_to 'Destroy', inspector, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <%# end %>
-  </tbody>
-</table>
-
-<br>
-
-<%#= link_to 'New Inspector', new_inspector_path %> -->
+<!-- <td><%#= inspector.dependency.nombre %></td> -->
 <h3 class="title">Inspectors</h3>
 
 <div class="row">
@@ -57,12 +21,12 @@
     <% end %>
   </div>
 
-  <% (1..4).each do %>
+  <% @inspectors.each do |inspector| %>
     <div class="col-sm-6 col-md-3">
       <div class="thumbnail">
         <%= image_tag "missing-image.gif" %>
         <div class="caption">
-          <h4 class="title">Thumbnail label</h4>
+          <h4 class="title"><%= inspector.nombre %></h4>
         </div>
       </div>
     </div>
