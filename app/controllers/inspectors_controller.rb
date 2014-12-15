@@ -1,4 +1,5 @@
 class InspectorsController < ApplicationController
+  layout 'blanco'
   before_action :set_inspector, only: [:show, :edit, :update, :destroy]
 
   # GET /inspectors

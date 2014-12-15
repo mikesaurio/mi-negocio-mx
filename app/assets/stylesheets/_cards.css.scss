@@ -20,6 +20,20 @@ h3.title {
   margin-bottom: $base_margin;
 }
 
+h4.title {
+  color: $grey-600;
+  font-weight: 300;
+  margin-top: $base_margin;
+  margin-bottom: $base_margin;
+}
+
+h5.title {
+  color: $grey-600;
+  font-weight: 300;
+  margin-top: $base_margin;
+  margin-bottom: $base_margin;
+}
+
 
 .card--column {
   float: left;
