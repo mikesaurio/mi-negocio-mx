@@ -22,6 +22,7 @@
   </div>
 
   <% @inspectors.each do |inspector| %>
+    <%= link_to inspector_path(inspector) do %>
     <div class="col-sm-6 col-md-3">
       <div class="thumbnail">
         <%= image_tag "missing-image.gif" %>
@@ -30,5 +31,6 @@
         </div>
       </div>
     </div>
+    <% end %>
   <% end %>
 </div>
