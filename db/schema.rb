@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141209182034) do
+ActiveRecord::Schema.define(version: 20141214223226) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,11 +43,11 @@ ActiveRecord::Schema.define(version: 20141209182034) do
     t.string   "nombre"
     t.string   "materia"
     t.string   "duracion"
-    t.string   "norma"
-    t.string   "antes"
-    t.string   "durante"
-    t.string   "despues"
-    t.string   "sancion"
+    t.text     "norma"
+    t.text     "antes"
+    t.text     "durante"
+    t.text     "despues"
+    t.text     "sancion"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "dependency_id"

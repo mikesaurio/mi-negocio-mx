@@ -1,10 +1,16 @@
 class InspectorsController < ApplicationController
+  layout 'blanco'
   before_action :set_inspector, only: [:show, :edit, :update, :destroy]
 
   # GET /inspectors
   # GET /inspectors.json
   def index
-    @inspectors = Inspector.all
+    if params[:q]
+      @inspectors = Inspector.search(params[:q]).order("created_at DESC")
+    else
+      @inspectors = Inspector.all
+    end
+
     @dependency = Dependency.all
   end
 
