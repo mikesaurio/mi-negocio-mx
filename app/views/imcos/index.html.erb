@@ -1,7 +1,6 @@
 <%= form_for :post, :url => { :action => :quiere , :controller => :pages } do |f| %>
 <p>
-	<%= f.label :municipio %><br>
-	<%= collection_select(:municipio, :municipio_id, Municipio.all, :id, :nombre, {:prompt => false}) %>
+			<%= collection_select(:municipio, :municipio_id, Municipio.all, :id, :nombre, {:prompt => false})%>
 </p>
 
 <p>
