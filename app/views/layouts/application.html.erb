@@ -23,59 +23,57 @@
       <![endif]-->
 
 
-</head>
+  </head>
 
-    <body>
+  <body>
 
-    	<!-- Navigation -->
-    	<a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle"><i class="fa fa-bars"></i></a>
-    	<nav id="sidebar-wrapper">
-    		<ul class="sidebar-nav">
-    			<a id="menu-close" href="#" class="btn btn-light btn-lg pull-right toggle"><i class="fa fa-times"></i></a>
-    			<li class="sidebar-brand">
-    				<a href="#top">MiNegocio</a>
-    			</li>
-    			<li>
-    				<a href="#top">Home</a>
-    			</li>
-    			<li>
-    				<a href="#about">Municipio</a>
-    			</li>
-    		</ul>
-    	</nav>
+   <!-- Navigation -->
+   <a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle"><i class="fa fa-bars"></i></a>
+   <nav id="sidebar-wrapper">
+      <ul class="sidebar-nav">
+         <a id="menu-close" href="#" class="btn btn-light btn-lg pull-right toggle"><i class="fa fa-times"></i></a>
+         <li class="sidebar-brand">
+            <a href="#top">MiNegocio</a>
+        </li>
+        <li>
+            <a href="#top">Home</a>
+        </li>
+        <li>
+            <a href="#about">Municipio</a>
+        </li>
+    </ul>
+</nav>
 
-    	<!-- Header -->
-    	<header id="top" class="header">
-    		<div class="text-vertical-center">
-    			<H1> MiNegocio </H1>
-    			<h3> México </H1>
-    				<br>
-    				<a href="#about" class="btn btn-dark btn-lg">Quiero saber más</a>
-    			</div>
-    		</header>
+<!-- Header -->
+<header id="top" class="header">
+    <div class="text-vertical-center">
+        <img src="assets/logo.png" class="img-responsive center-block" alt="">
+       <a href="#about" class="btn btn-dark btn-lg"><span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span> </a>
+   </div>
+</header>
 
 
 
-    		<!-- Ubicación de negocio -->
-    		<section id="about" class="services bg-primary">
-    			<div class="container">
-    					<div class="text-vertical-center">
-							<H1><%= @titulo %></H1>
-    						<h3><%= @subtitulo %></H1>
-    						<%= yield %>
-    				</div>
-    				<!-- /.row -->
-    			</div>
-    			<!-- /.container -->
-    		</section>
+<!-- Ubicación de negocio -->
+<section id="about" class="services bg-primary">
+ <div class="container">
+   <div class="text-vertical-center">
+     <H1><%= @titulo %></H1>
+     <h3><%= @subtitulo %></H1>
+      <%= yield %>
+  </div>
+  <!-- /.row -->
+</div>
+<!-- /.container -->
+</section>
 
-    		
-    		<!-- Footer -->
-    		<footer>
-    		</footer>
 
-    <!-- Custom Theme JavaScript -->
-    <script>
+<!-- Footer -->
+<footer>
+</footer>
+
+<!-- Custom Theme JavaScript -->
+<script>
     // Closes the sidebar menu
     $("#menu-close").click(function(e) {
     	e.preventDefault();
