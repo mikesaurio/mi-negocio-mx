@@ -14,10 +14,11 @@ class PagesController < ApplicationController
  end
 
  def paso
-  @param_paso = params[:lines]
-  $id_del_giro = @param_paso[:line_id]
-  @subtitulo = "Para tu negocio  de  #{Line.find($id_del_giro).nombre} necesitas"
-  @tramites_del_giro = Line.find($id_del_giro).procedures.includes(:procedure_lines).where("line_id = #{$id_del_giro}")
+  @tramites_del_giro = Line.all
+  #@param_paso = params[:lines]
+  #$id_del_giro = @param_paso[:line_id]
+  #@subtitulo = "Para tu negocio  de  #{Line.find($id_del_giro).nombre} necesitas"
+ # @tramites_del_giro = Line.find($id_del_giro).procedures.includes(:procedure_lines).where("line_id = #{$id_del_giro}")
 end
 
 
@@ -33,6 +34,8 @@ end
 def tramites_giro(num)
   Procedure.find(num).requirements.includes(:procedure_requirements).where("procedure_id = #{num}")
 end
+
+
 helper_method :tramites_giro
 
 end
