@@ -12,6 +12,8 @@ Rails.application.routes.draw do
 
   post "pages/quiere" 
     
+   get "pages/inspec" 
+
   post "pages/paso" 
 
   get 'pages/encuesta'
