@@ -1,0 +1,9 @@
+es:
+  inspections:
+    index:
+      title: Inspecciones
+      search_inspections: Buscar inspecciones...
+  inspectors:
+    index:
+      title: Inspectores
+      search_inspectors: Buscar inspectores...
