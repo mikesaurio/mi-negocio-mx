@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
   get 'imcos/index'
 
+  get "pages/nuevo_negocio" 
+
   post "pages/quiere" 
     
   post "pages/paso" 

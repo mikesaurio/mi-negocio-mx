@@ -21,11 +21,9 @@ class PagesController < ApplicationController
 end
 
 
-def nuevo
-  @titulo = "¿Qué quieres saber?"
-  @subtitulo= "Encuentra toda la información para tu negocio"
-  @param = params[:municipio]
-  $id_del_municipio = @param[:municipio_id]
+def nuevo_negocio
+  @titulo_fisico = "Crear un negocio como persona fisica"
+  @titulo_moral = "Crear un negocio como persona moral"
 end
 
 def tramite
