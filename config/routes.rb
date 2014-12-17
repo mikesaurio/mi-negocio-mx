@@ -6,12 +6,14 @@ Rails.application.routes.draw do
 
   get 'pages/paso'
 
-  get 'imcos/tramite'
-
   get 'imcos/index'
+
+  get "pages/nuevo_negocio" 
 
   post "pages/quiere" 
     
+   get "pages/inspec" 
+
   post "pages/paso" 
 
   get 'pages/encuesta'

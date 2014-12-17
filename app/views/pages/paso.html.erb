@@ -1,3 +1,10 @@
+<%= form_for :post, :url => { :action => :paso , :controller => :pages} do |f| %>
+<p>
+	<%= f.label '¿Que giro tiene tu negocio?' %>
+	<%= collection_select(:lines, :line_id, Line.where(municipio_id: $id_del_municipio), :id, :nombre, {:prompt => false}) %>
+</p>
+
+
  <section id="services" class="services bg-primary">
  	<div class="container">
  		<div class="row text-center">
@@ -38,3 +45,5 @@
  		});
  		</script>
  	</section>
+			 
+<%end%>
