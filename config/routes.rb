@@ -6,8 +6,6 @@ Rails.application.routes.draw do
 
   get 'pages/paso'
 
-  get 'imcos/tramite'
-
   get 'imcos/index'
 
   post "pages/quiere" 

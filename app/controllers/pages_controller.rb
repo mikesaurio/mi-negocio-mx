@@ -1,11 +1,12 @@
 class PagesController < ApplicationController
- layout 'paginas'
+ layout 'blanco'
 
  def quiere
    @titulo = "¿Qué quieres saber?"
    @subtitulo= "Encuentra toda la información para tu negocio"
    @param = params[:municipio]
    $id_del_municipio = @param[:municipio_id]
+   @nombre_municipio = Municipio.find($id_del_municipio).nombre
  end
 
  def encuesta
@@ -17,8 +18,6 @@ class PagesController < ApplicationController
   $id_del_giro = @param_paso[:line_id]
   @subtitulo = "Para tu negocio  de  #{Line.find($id_del_giro).nombre} necesitas"
   @tramites_del_giro = Line.find($id_del_giro).procedures.includes(:procedure_lines).where("line_id = #{$id_del_giro}")
-
-
 end
 
 
