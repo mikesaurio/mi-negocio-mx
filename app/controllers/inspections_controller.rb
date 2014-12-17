@@ -5,7 +5,11 @@ class InspectionsController < ApplicationController
   # GET /inspections
   # GET /inspections.json
   def index
-    @inspections = Inspection.all
+    if params[:q]
+      @inspections = Inspection.search(params[:q]).order("created_at DESC")
+    else
+      @inspections = Inspection.all
+    end
   end
 
   # GET /inspections/1

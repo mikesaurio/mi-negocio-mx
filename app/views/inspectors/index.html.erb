@@ -1,25 +1,9 @@
 <!-- <td><%#= inspector.dependency.nombre %></td> -->
-<h3 class="title">Inspectors</h3>
+<h3 class="title"><%= t('.title') %></h3>
 
 <div class="row">
-  <div class="col-sm-12">
-    <%= form_tag inspectors_path, method: :get do %>
-      <div class="row">
-        <div class="col-sm-10">
-          <div class="form-group">
-            <div class="input-group">
-              <%= label_tag :q, "Search for:", class: 'sr-only' %>
-              <div class="input-group-addon"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></div>
-              <%= text_field_tag :q, nil, class: 'form-control', placeholder: 'Buscar inspectores...' %>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-2">
-          <%= submit_tag "Buscar", class: 'btn btn-block btn-default' %>
-        </div>
-      </div>
-    <% end %>
-  </div>
+  <%= render "shared/search", custom_path: inspectors_path, search_placeholder: t('.search_inspectors') %>
+
 
   <% @inspectors.each do |inspector| %>
     <%= link_to inspector_path(inspector) do %>
