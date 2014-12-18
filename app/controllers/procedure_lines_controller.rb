@@ -7,9 +7,13 @@ class ProcedureLinesController < ApplicationController
  end
 
  def show
+  @procedure_requirements = ProcedureRequirement.all
   @procedure_lines=  ProcedureLine.all
-    @procedure = Procedure.all
-  @Line = Line.all
+@requirements = Requirement.all
+@line = Line.find(@procedure_line.line_id).nombre
+@procedure = Procedure.find(@procedure_line.procedure_id).nombre 
+@procedure_requirement = @procedure_requirements.where(procedure_id: Procedure.find(@procedure_line.procedure_id).id ) 
+
  end
 
  def new

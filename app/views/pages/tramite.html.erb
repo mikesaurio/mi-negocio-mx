@@ -1,17 +1,22 @@
 <%= form_for :post, :url => { :action => :tramite , :controller => :pages} do |f| %>
 <p>
 	<%= f.label '¿Cual es el giro de tu negocio?' %>
+  <% if @id_del_giro == "0" %>
+<%= collection_select(:lines, :line_id, Line.where(municipio_id: $id_del_municipio), :id,
+                 :nombre, :onchange =>"alert_me_test()", :prompt => 'Selecciona uno' )%>
+  <% else %>
 	<%= collection_select(:lines, :line_id, Line.where(municipio_id: $id_del_municipio), :id,
-                 :nombre, :onchange =>"alert_me_test()", :prompt => 'Selecciona uno' ) %>
+                 :nombre, :onchange =>"alert_me_test()", :prompt => 'Selecciona uno' , :selected => @id_del_giro  )%>
+<% end %>
 
-
+<div class="deck">
 <% unless @tramites_del_giro.nil? %>
     <div class="table__card">
       <ul>
         <% @tramites_del_giro.each_with_index do |tramite_de_giro, i| %>
           <%= link_to procedure_line_path(tramite_de_giro) do %>
           <li class="table--row">
-            <div class="row--title"><%= tramite_de_giro.nombre %></div>
+            <div class="row--"><%= tramite_de_giro.nombre %></div>
           </li>
           <% end %>
         <% end %>
@@ -23,9 +28,12 @@
     </div>
   <% end %>
     <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Aceptar' %>
   </div>
 <%end%>
+</div>
+
+
 
 <script type="text/javascript">
   $('select').change(alert_me_test);

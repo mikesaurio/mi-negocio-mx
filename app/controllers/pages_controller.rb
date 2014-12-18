@@ -17,14 +17,12 @@ end
 def tramite
   @procedure = Procedure.all
   #@tramites_del_giro = Line.all
-
+@id_del_giro = "0"
 unless params[:lines].nil?
   @param_paso = params[:lines]
+  puts @param_paso.methods
   @id_del_giro = @param_paso[:line_id]
-  @tramites_del_giro = Line.find($id_del_giro).procedures.includes(:procedure_lines).where("line_id = #{@id_del_giro}")   
-  puts '*****************************************'
-else
-   puts '¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿'
+  @tramites_del_giro = Line.find(@id_del_giro).procedures.includes(:procedure_lines).where("line_id = #{@id_del_giro}") 
 end
 
 
