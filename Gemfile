@@ -31,7 +31,9 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'bootstrap-sass', '~> 3.3.1'
 gem 'autoprefixer-rails'
 
+# authentication and authorization
 gem 'devise'
+gem "pundit"
 
 group :development do
   # Thin server
