@@ -1,8 +1,8 @@
 class InspectionsController < ApplicationController
-  layout 'blanco', only: [:index, :show]
-  layout 'user', only: [:new, :create, :edit, :update, :destroy]
   before_action :set_inspection, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  layout 'user', only: [:new, :create, :edit, :update, :destroy]
+  layout 'blanco', only: [:index, :show]
 
   # GET /inspections
   # GET /inspections.json

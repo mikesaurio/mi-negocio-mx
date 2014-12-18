@@ -1,7 +1,8 @@
 class InspectorsController < ApplicationController
-  layout 'blanco'
   before_action :set_inspector, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  layout 'user', only: [:new, :create, :edit, :update, :destroy]
+  layout 'blanco', only: [:index, :show]
 
   # GET /inspectors
   # GET /inspectors.json

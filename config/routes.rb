@@ -9,13 +9,13 @@ Rails.application.routes.draw do
 
   get 'imcos/index'
 
-  get "pages/nuevo_negocio" 
+  get "pages/nuevo_negocio"
 
-  post "pages/quiere" 
-    
-   get "pages/inspec" 
+  post "pages/quiere"
 
-  post "pages/paso" 
+   get "pages/inspec"
+
+  post "pages/paso"
 
   get 'pages/encuesta'
 
@@ -80,7 +80,7 @@ Rails.application.routes.draw do
 
   resources :dependencies
 
-  resources :municipios
+  # resources :municipios
 
   resources :imcos
 
