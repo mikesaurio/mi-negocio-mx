@@ -68,10 +68,6 @@ Rails.application.routes.draw do
 
   resources :inspection_requirements
 
-  resources :inspections
-
-  resources :inspectors
-
   resources :lines
 
   resources :requirements
@@ -85,6 +81,14 @@ Rails.application.routes.draw do
   resources :imcos
 
   resources :pages
+
+  namespace :dashboard do
+    resources :inspections, only: [:new, :create, :edit, :update, :destroy]
+    resources :inspectors, only: [:new, :create, :edit, :update, :destroy]
+  end
+
+  resources :inspections, only: [:index, :show]
+  resources :inspectors, only: [:index, :show]
 
 
   # The priority is based upon order of creation: first created -> highest priority.
