@@ -1,4 +1,14 @@
 es:
+  devise:
+    sessions:
+      new:
+        title: Inicia sesión
+        email: Correo electrónico
+        password: Contraseña
+        log_in: Entrar
+    failure:
+      user:
+        not_found_in_database: Revisa que el correo y contraseña sean correctos.
   inspections:
     index:
       title: Inspecciones
