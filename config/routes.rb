@@ -4,7 +4,8 @@ Rails.application.routes.draw do
 
   get 'pages/encuesta'
 
-  get 'pages/paso'
+  get 'pages/tramite'
+  post 'pages/tramite'
 
   get 'imcos/index'
 

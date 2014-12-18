@@ -12,26 +12,28 @@
               <%#= link_to 'New Inspection', new_inspection_path, class: 'btn btn-default action-element' %>
           </div>
       </div>
-
-      <% if @inspections.any? %>
-      <div class="table__card">
-          <ul>
-            <% @inspections.each do |inspection| %>
-            <%= link_to inspection_path(inspection) do %>
-            <li class="table--row">
-                <div class="row--title"><%= inspection.nombre %></div>
-                <div class="row--subtitle"><%= inspection.materia %></div>
-                <div class="row--footer">Duraci&oacute;n: <%= inspection.duracion %></div>
-            </li>
-            <% end %>
-            <% end %>
-        </ul>
+<%= render "shared/search", custom_path: inspections_path, search_placeholder: t('.search_inspections') %>
+<div class="deck">
+  <% if @inspections.any? %>
+    <div class="table__card">
+      <ul>
+        <% @inspections.each do |inspection| %>
+          <%= link_to inspection_path(inspection) do %>
+          <li class="table--row">
+            <div class="row--title"><%= inspection.nombre %></div>
+            <div class="row--subtitle"><%= inspection.materia %></div>
+            <div class="row--footer">Duraci&oacute;n: <%= inspection.duracion %></div>
+          </li>
+          <% end %>
+        <% end %>
+      </ul>
     </div>
-    <% else %>
+  <% else %>
     <div class="alert alert-info">
       <%= t('.no-inspections') %>
-  </div>
+    </div>
   <% end %>
+</div>
 </div>
 
 </div>
@@ -62,7 +64,7 @@
   <div class="thumbnail">
     <%= image_tag "missing-image.gif" %>
     <div class="caption">
-      <h4 class="title"></h4>
+          <h4 class="title"><%= inspector.nombre %></h4>
   </div>
 </div>
 </div>

@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
  layout 'blanco'
+ $id_del_giro = 0 
 
  def quiere
    @titulo = "¿Qué quieres saber?"
@@ -11,14 +12,22 @@ class PagesController < ApplicationController
 
  def encuesta
   @titulo = 'Encuesta de entrada'
- end
+end
 
- def paso
-  @tramites_del_giro = Line.all
-  #@param_paso = params[:lines]
-  #$id_del_giro = @param_paso[:line_id]
-  #@subtitulo = "Para tu negocio  de  #{Line.find($id_del_giro).nombre} necesitas"
- # @tramites_del_giro = Line.find($id_del_giro).procedures.includes(:procedure_lines).where("line_id = #{$id_del_giro}")
+def tramite
+  @procedure = Procedure.all
+  #@tramites_del_giro = Line.all
+
+unless params[:lines].nil?
+  @param_paso = params[:lines]
+  @id_del_giro = @param_paso[:line_id]
+  @tramites_del_giro = Line.find($id_del_giro).procedures.includes(:procedure_lines).where("line_id = #{@id_del_giro}")   
+  puts '*****************************************'
+else
+   puts '¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿'
+end
+
+
 end
 
 
@@ -27,9 +36,7 @@ def nuevo_negocio
   @titulo_moral = "Crear un negocio como persona moral"
 end
 
-def tramite
- @titulo = Municipio.find($id_del_municipio).nombre    
-end
+
 
 def tramites_giro(num)
   Procedure.find(num).requirements.includes(:procedure_requirements).where("procedure_id = #{num}")
@@ -37,14 +44,23 @@ end
 
 
 def inspec
-@inspections = Inspection.all
- if params[:q]
-      @inspectors = Inspector.search(params[:q]).order("created_at DESC")
-    else
-      @inspectors = Inspector.all
-    end
+  @inspections = Inspection.all
+  if params[:q]
+    @inspectors = Inspector.search(params[:q]).order("created_at DESC")
+  else
+    @inspectors = Inspector.all
+  end
 
-    @dependency = Dependency.all
+  @dependency = Dependency.all
+
+
+  if params[:q]
+    @inspections = Inspection.search(params[:q]).order("created_at DESC")
+  else
+    @inspections = Inspection.all
+  end
+
+
 end 
 
 

@@ -1,0 +1,39 @@
+<%= form_for :post, :url => { :action => :tramite , :controller => :pages} do |f| %>
+<p>
+	<%= f.label '¿Cual es el giro de tu negocio?' %>
+	<%= collection_select(:lines, :line_id, Line.where(municipio_id: $id_del_municipio), :id,
+                 :nombre, :onchange =>"alert_me_test()", :prompt => 'Selecciona uno' ) %>
+
+
+<% unless @tramites_del_giro.nil? %>
+    <div class="table__card">
+      <ul>
+        <% @tramites_del_giro.each_with_index do |tramite_de_giro, i| %>
+          <%= link_to procedure_line_path(tramite_de_giro) do %>
+          <li class="table--row">
+            <div class="row--title"><%= tramite_de_giro.nombre %></div>
+          </li>
+          <% end %>
+        <% end %>
+      </ul>
+    </div>
+  <% else %>
+    <div class="alert alert-info">
+      <%= t('.ningun-tramites') %>
+    </div>
+  <% end %>
+    <div class="actions">
+    <%= f.submit %>
+  </div>
+<%end%>
+
+<script type="text/javascript">
+  $('select').change(alert_me_test);
+  function alert_me_test(){
+    var e = document.getElementById("lines_line_id");
+    var strUser = e.options[e.selectedIndex].value;
+    if (strUser != "") {
+
+    };
+  }
+</script>
