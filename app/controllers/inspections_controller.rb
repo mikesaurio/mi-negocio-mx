@@ -1,5 +1,6 @@
 class InspectionsController < ApplicationController
-  layout 'blanco'
+  layout 'blanco', only: [:index, :show]
+  layout 'user', only: [:new, :create, :edit, :update, :destroy]
   before_action :set_inspection, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 

@@ -1,0 +1,36 @@
+<% if user_signed_in? %>
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <!-- brand -->
+      <%#= image_tag "logos-horizontal/retos_logo_horizontal-04.png", class: "navbar-brand" %>
+      <span class="navbar-brand">MiNegocio | <%= current_user.municipio.nombre %></span>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <!-- left side of the navbar -->
+      <ul class="nav navbar-nav">
+        <li><%#= link_to 'Evaluaciones', evaluations_path, class: tab_class('evaluations') %></li>
+      </ul>
+      <!-- right side of the navbar -->
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><%= current_user.email %> <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><%#= link_to 'Perfil', edit_judge_path(current_user.userable) %></li>
+            <li><%= link_to 'Cerrar sesión', destroy_user_session_path, method: :delete %></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<% else %>
+  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- brand -->
+        <%#= image_tag "logos-horizontal/retos_logo_horizontal-04.png", class: "navbar-brand" %>
+        <span class="navbar-brand">MiNegocio</span>
+      </div>
+  </nav>  
+<% end %>
