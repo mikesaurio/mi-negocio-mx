@@ -1,4 +1,4 @@
-class InspectorPolicy < ApplicationPolicy
+class InspectionPolicy < ApplicationPolicy
   def create?
     record.dependency.municipio_id == user.municipio_id
   end

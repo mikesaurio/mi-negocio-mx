@@ -6,15 +6,16 @@ module Dashboard
 
     def new
       @inspection = Inspection.new
-      @dependency = Dependency.all
+      @dependency = Dependency.where(municipio_id: current_user.municipio_id)
     end
 
     def edit
-      @dependency = Dependency.all
+      @dependency = Dependency.where(municipio_id: current_user.municipio_id)
     end
 
     def create
       @inspection = Inspection.new(inspection_params)
+      authorize @inspection
 
       respond_to do |format|
         if @inspection.save
@@ -28,6 +29,8 @@ module Dashboard
     end
 
     def update
+      authorize @inspection
+
       respond_to do |format|
         if @inspection.update(inspection_params)
           format.html { redirect_to @inspection, notice: 'Inspection was successfully updated.' }
@@ -40,6 +43,8 @@ module Dashboard
     end
 
     def destroy
+      authorize @inspection
+      
       @inspection.destroy
       respond_to do |format|
         format.html { redirect_to inspections_url, notice: 'Inspection was successfully destroyed.' }

@@ -6,13 +6,13 @@ module Dashboard
 
     def new
       @inspector = Inspector.new
-      authorize @inspector
+      # authorize @inspector
 
-      @dependency = Dependency.all
+      @dependency = Dependency.where(municipio_id: current_user.municipio_id)
     end
 
     def edit
-      authorize @inspector
+      # authorize @inspector
     end
 
     def create
