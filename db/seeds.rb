@@ -1,10 +1,64 @@
+Dependency.create!([
+  {nombre: "Centro Municipal de Atencion Empresarial", municipio_id: 1}
+])
 Inspection.create!([
-  {nombre: "Notficaciones", materia: "Desarrollo Metropolitano y Económico", duracion: "15", norma: "Deconformidadconarticulo32delreglamentodelaActividadComercial,IndustrialydeServiciosdelMunicipiodeChalco", antes: "1identificarelestablecimiento*-giro", durante: "1- presentarse ante el titular del negocio portando la credencial que nos identifica como servidores públicos activos/2- dirigirse de manera respetuosa y cortes durante todo el tiempo que dure la notificacion/3- se indica el motivo de la visita y se procede a llenar el acta circunstanciada", despues: "1 Se notifica a la persona que atiende la diligencia cuales son las observaciones finales/2 Se solicita la firma de la persona visitada/3 se despide de manera cortes y se recuerda que tienen que asistir a la Dirección de Desarrollo Metropolitano y Económico que se le elabore su licencia de funcionamiento", sancion: "Procedimiento administrativo de confirmad con el artículo 106  del código de procedimientos administrativos, señala diversos aspectos al usuario, por no cumplir con sus obligaciones municipales, al igual otorgarle su garantía de audiencia lo que a derecho convenga, ", dependency_id: nil}
+  {nombre: "Notficaciones", materia: "Desarrollo Metropolitano y Economico", duracion: "15 MIN", norma: "Deconformidadconarticulo32delreglamentodelaActividadComercial,IndustrialydeServiciosdelMunicipiodeChalco", antes: "1 identificar el establecimiento*- giro *- motivo de la /verificación/2 tener un historial que respalde dos invitaciones para acudir a la Dirección de Desarrollo Metropolitano y Económico", durante: "1- presentarse ante el titular del negocio portando la credencial que nos identifica como servidores públicos activos/2- dirigirse de manera respetuosa y cortes durante todo el tiempo que dure la notificacion/3- se indica el motivo de la visita y se procede a llenar el acta circunstanciada", despues: "1 Se notifica a la persona que atiende la diligencia cuales son las observaciones finales/2 Se solicita la firma de la persona visitada/3 se despide de manera cortes y se recuerda que tienen que asistir a la Dirección de Desarrollo Metropolitano y Económico que se le elabore su licencia de funcionamiento", sancion: "Procedimiento administrativo de confirmad con el artículo 106  del código de procedimientos administrativos, señala diversos aspectos al usuario, por no cumplir con sus obligaciones municipales, al igual otorgarle su garantía de audiencia lo que a derecho convenga, ", dependency_id: 1},
+  {nombre: "Verificacion", materia: "Desarrollo Metropolitano y Economico", duracion: "15 MIN", norma: "articulo128delcodigodeprocedimientosadministrativos", antes: "1 identificar el establecimiento*- giro *- motivo de la /verificación/2 tener un historial que respalde dos invitaciones para acudir a la Dirección de Desarrollo Metropolitano y Económico", durante: "1- presentarse ante el titular del negocio portando la credencial que nos identifica como servidores públicos activos/2- dirigirse de manera respetuosa y cortes durante todo el tiempo que dure la notificacion/3- se indica el motivo de la visita y se procede a llenar el acta circunstanciada", despues: "1 Se notifica a la persona que atiende la diligencia cuales son las observaciones finales/2 Se solicita la firma de la persona visitada/3 se despide de manera cortes y se recuerda que tienen que asistir a la Dirección de Desarrollo Metropolitano y Económico que se le elabore su licencia de funcionamiento", sancion: "Procedimiento administrativo de confirmad con el artículo 106  del código de procedimientos administrativos, señala diversos aspectos al usuario, por no cumplir con sus obligaciones municipales, al igual otorgarle su garantía de audiencia lo que a derecho convenga, ", dependency_id: 1}
 ])
 Inspector.create!([
-  {nombre: "Bertha Camerina Alvarez Bautista", vigencia: "2013-2015", materia: "DesarrolloMetropolitanoyEconomico", supervisor: "MonicaGuadalupePoblanoGil", contacto: "CalleSantiagoNo.61erpisoTel:59733565", foto: "", dependency_id: nil},
-  {nombre: "", vigencia: "", materia: "", supervisor: "", contacto: "", foto: "", dependency_id: nil}
+  {nombre: "Bertha Camerina Alvarez Bautista", vigencia: "2013-2015", materia: "Desarrollo Metropolitano y Economico", supervisor: "Monica Guadalupe Poblano Gil", contacto: "Calle Santiago No. 6 1er piso Tel:59733565", foto: "fotos\\Bertha Camerina Alvarez Bautista.jpg", dependency_id: 1},
+  {nombre: "Corrales Lopez Israel", vigencia: "2013-2015", materia: "Desarrollo Metropolitano y Economico", supervisor: "Monica Guadalupe Poblano Gil", contacto: "Calle Santiago No. 6 1er piso Tel:59733565", foto: "fotos\\Corrales Lopez Israel.jpg", dependency_id: 1}
+])
+Line.create!([
+  {nombre: "ARTICULOS MAGNETOFONICOS Y MUSICALES", descripcion: "venta de equipos y aditamentos", municipio_id: 1},
+  {nombre: "ABARROTES AL POR MENOR (TIENDITAS MISCELANEAS)", descripcion: "Abarrotes", municipio_id: 1},
+  {nombre: "ACUARIO", descripcion: "venta de peces y aditamentos", municipio_id: 1},
+  {nombre: "AGENCIA DE TELEFONIA CELULAR", descripcion: "venta de equipos y aditamentos", municipio_id: 1},
+  {nombre: "ALIMENTO PARA GANADO Y AVES", descripcion: "venta de alimentos", municipio_id: 1}
 ])
 Municipio.create!([
-  {nombre: "Chalco"}
+  {nombre: "Chalco"},
+  {nombre: "Huixquilucan"},
+  {nombre: "Lerma"},
+  {nombre: "Metepec"},
+  {nombre: "Tenango del Valle"},
+  {nombre: "Toluca"}
+])
+Procedure.create!([
+  {nombre: "Procedimiento para la Expedición de Licencias de Funcionamiento(ALTAS) (persona moral)", duracion: "3 diasHabiles", costo: "511pesos", vigencia: "1 año fiscal", contacto: "Calle Santiago No.6 1er piso Tel: 59733565", dependency_id: 1},
+  {nombre: "Procedimiento para la Expedici¢n de Licencias de Funcionamiento (REVALIDACIONES)(persona moral)", duracion: "3 dias Habiles", costo: "511pesos", vigencia: "1 año fiscal", contacto: "Calle Santiago No.6 1er piso Tel: 59733565", dependency_id: 1},
+  {nombre: "Procedimiento para la Expedici¢n de Licencias de Funcionamiento(CAMBIO DE DOMICILIO)(persona moral)", duracion: "3 dias Habiles", costo: "511pesos", vigencia: "1 año fiscal", contacto: "Calle Santiago No.6 1er piso Tel: 59733565", dependency_id: 1},
+  {nombre: "Procedimiento para la Expedici¢n de Licencias de Funcionamiento(BAJA) (persona moral)", duracion: "3 dias Habiles", costo: "511pesos", vigencia: "1 año fiscal", contacto: "Calle Santiago No.6 1er piso Tel: 59733565", dependency_id: 1},
+  {nombre: "Procedimiento para la Expedici¢n de Licencias de Funcionamiento(SUSPENSIàN DE ACTIVIDADES TEMPORALES) (persona moral)", duracion: "3 dias Habiles", costo: "511 pesos", vigencia: "1 año fiscal", contacto: "Calle Santiago No.6 1er piso Tel: 59733565", dependency_id: 1},
+  {nombre: "Procedimiento para la Expedici¢n de Licencias de Funcionamiento(REANUDACION DE ACTIVIDADES) (persona moral)", duracion: "3 dias Habiles", costo: "511 pesos", vigencia: "1 año fiscal", contacto: "Calle Santiago No.6 1er piso Tel: 59733565", dependency_id: 1}
+])
+ProcedureLine.create!([
+  {procedure_id: 1, line_id: 1},
+  {procedure_id: 2, line_id: 1},
+  {procedure_id: 3, line_id: 1},
+  {procedure_id: 4, line_id: 1},
+  {procedure_id: 5, line_id: 1},
+  {procedure_id: 6, line_id: 1},
+  {procedure_id: 1, line_id: 2},
+  {procedure_id: 4, line_id: 2}
+])
+ProcedureRequirement.create!([
+  {procedure_id: 1, requirement_id: 1},
+  {procedure_id: 1, requirement_id: 2},
+  {procedure_id: 1, requirement_id: 3},
+  {procedure_id: 1, requirement_id: 4},
+  {procedure_id: 1, requirement_id: 5},
+  {procedure_id: 1, requirement_id: 6},
+  {procedure_id: 2, requirement_id: 1},
+  {procedure_id: 2, requirement_id: 2},
+  {procedure_id: 2, requirement_id: 3},
+  {procedure_id: 4, requirement_id: 1}
+])
+Requirement.create!([
+  {nombre: "Solicitud (proporcionada por la Dirección)", descripcion: "copia"},
+  {nombre: "Acta constitutiva", descripcion: "copia"},
+  {nombre: "Poder notarial (con identificaci¢n oficial del apoderado/a legal) ", descripcion: "copia"},
+  {nombre: "Comprobante de domicilio", descripcion: "copia"},
+  {nombre: "Croquis de localización", descripcion: "impreso"},
+  {nombre: "Licencia de uso de suelo", descripcion: "copia"}
 ])
