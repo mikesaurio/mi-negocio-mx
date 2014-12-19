@@ -7,10 +7,11 @@
 					<%j = 0%>
 					<% @requirements.each do |requirement| %>
 					<% if requirement.tipo == 'AF' %>
-						<%j += 1%>
-						<button   data-original-title="<%=requirement.descripcion%>" data-placement="left" data-toggle="tooltip" class="btn btn-default" type="button" id="tooltip<%=j%>"> 
-							<%=requirement.nombre%>
-						</button><br>
+					<%j += 1%>
+					<a href="<%=requirement.path%>"  data-original-title="<%=requirement.descripcion%>" data-placement="left" data-toggle="tooltip" class="btn btn-default"   type="button" id="tooltip<%=j%>" target="_blank">
+						<%=requirement.nombre%>
+					</a>
+					<br>
 					<%end%>
 					<% end %>
 				</div>
@@ -20,10 +21,11 @@
 				<div class="btn-group btn-group-vertical">
 					<% @requirements.each do |requirement| %>
 					<% if requirement.tipo == 'AM' %>
-						<%j += 1%>
-						<button   data-original-title="<%=requirement.descripcion%>" data-placement="right" data-toggle="tooltip" class="btn btn-default" type="button" id="tooltip<%=j%>"> 
-							<%=requirement.nombre%>
-						</button><br>
+					<%j += 1%>
+					<a href="<%=requirement.path%>"  data-original-title="<%=requirement.descripcion%>" data-placement="right" data-toggle="tooltip" class="btn btn-default"   type="button" id="tooltip<%=j%>" target="_blank">
+						<%=requirement.nombre%>
+					</a>
+					<br>
 					<%end%>
 					<% end %>
 				</div>
