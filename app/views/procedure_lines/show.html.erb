@@ -6,8 +6,7 @@
   <table class="table">
     <tbody>
       <% @procedure_requirement.each_with_index do |procedure, k| %>
-      <% @requirements.where(id: procedure.requirement_id).each_with_index do |tramite, j| %>
-
+      <% @requirements.where(id: procedure.requirement_id).each do |tramite| %>
       <tr>
         <td>Tramite <%= k+1%>:</td>
         <td><%= tramite.nombre %></td>

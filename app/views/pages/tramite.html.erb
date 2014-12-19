@@ -12,12 +12,10 @@
 
   <div class= "field">
     <%tipos = {'Físico' => 'TF', 'Moral' => 'TM', 'Ambos' => 'A'}%>
-    <fieldset>
       Mostrar para personas:
       <%=  radio_button_tag :rating, 'TF', @tipo=='TF' %>Fisica
       <%=  radio_button_tag :rating, 'TM', @tipo=='TM'%>Moral
       <%=  radio_button_tag :rating, 'A', @tipo=='A' %>Ambas
-    </fieldset>
   </div>
 
   <div class="deck">
@@ -25,15 +23,15 @@
     <div class="table__card">
       <ul>
         <% @tramites_del_giro.each_with_index do |tramite_de_giro, i| %>
+        
+
         <%= link_to procedure_line_path(tramite_de_giro) do %>
         <li class="table--row">
-          <%= puts tramite_de_giro.tipo%>
-          <%= puts @tipo%>
           <%if tramite_de_giro.tipo == @tipo %>
-          <div class="row--"><%= tramite_de_giro.nombre %></div>
+            <div class="row--"><%= tramite_de_giro.nombre %></div>
           <%end%>
           <%if @tipo == 'A' %>
-          <div class="row--"><%= tramite_de_giro.nombre %></div>
+            <div class="row--"><%= tramite_de_giro.nombre %></div>
           <%end%>
         </li>
         <% end %>
