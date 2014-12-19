@@ -16,7 +16,7 @@ gem 'coffee-rails', '~> 4.0.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
 
-gem "font-awesome-rails"
+gem 'font-awesome-rails'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -33,13 +33,16 @@ gem 'autoprefixer-rails'
 
 # authentication and authorization
 gem 'devise'
-gem "pundit"
+gem 'pundit'
 
 group :development do
   # Thin server
   gem 'thin'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring',        group: :development
+  # Better debugging
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
 group :production do

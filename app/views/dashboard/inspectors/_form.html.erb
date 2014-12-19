@@ -1,4 +1,4 @@
-<%= form_for(@inspector) do |f| %>
+<%= form_for @inspector, url: dashboard_inspectors_path do |f| %>
   <% if @inspector.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@inspector.errors.count, "error") %> prohibited this inspector from being saved:</h2>
@@ -37,7 +37,7 @@
   </div>
    <div class="field">
  <%= f.label :dependencia %><br />
- <%= collection_select(:inspector, :dependency_id, Dependency.all, :id, :nombre, {:prompt => false}) %> 
+ <%= collection_select(:inspector, :dependency_id, Dependency.all, :id, :nombre, {:prompt => false}) %>
  </div>
   <div class="actions">
     <%= f.submit %>

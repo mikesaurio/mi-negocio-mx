@@ -12,6 +12,7 @@ es:
     failure:
       user:
         invalid: Revisa que el correo y contraseña sean correctos.
+        already_authenticated: Ya has sido autentificado.
         not_found_in_database: Revisa que el correo y contraseña sean correctos.
         unauthenticated: Necesitas iniciar sesión primero.
   inspections:

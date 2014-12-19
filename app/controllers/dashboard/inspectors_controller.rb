@@ -6,14 +6,18 @@ module Dashboard
 
     def new
       @inspector = Inspector.new
+      authorize @inspector
+
       @dependency = Dependency.all
     end
 
     def edit
+      authorize @inspector
     end
 
     def create
       @inspector = Inspector.new(inspector_params)
+      authorize @inspector
 
       respond_to do |format|
         if @inspector.save
@@ -27,6 +31,8 @@ module Dashboard
     end
 
     def update
+      authorize @inspector
+
       respond_to do |format|
         if @inspector.update(inspector_params)
           format.html { redirect_to @inspector, notice: 'Inspector was successfully updated.' }
@@ -39,6 +45,8 @@ module Dashboard
     end
 
     def destroy
+      authorize @inspector
+
       @inspector.destroy
       respond_to do |format|
         format.html { redirect_to inspectors_url, notice: 'Inspector was successfully destroyed.' }
