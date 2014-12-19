@@ -1,3 +1,11 @@
+Municipio.create!([
+  {nombre: "Chalco"},
+  {nombre: "Huixquilucan"},
+  {nombre: "Lerma"},
+  {nombre: "Metepec"},
+  {nombre: "Tenango del Valle"},
+  {nombre: "Toluca"}
+  ])
 Dependency.create!([
   {nombre: "Centro Municipal de Atencion Empresarial", municipio_id: 1}
 ])
@@ -15,14 +23,6 @@ Line.create!([
   {nombre: "ACUARIO", descripcion: "venta de peces y aditamentos", municipio_id: 1},
   {nombre: "AGENCIA DE TELEFONIA CELULAR", descripcion: "venta de equipos y aditamentos", municipio_id: 1},
   {nombre: "ALIMENTO PARA GANADO Y AVES", descripcion: "venta de alimentos", municipio_id: 1}
-])
-Municipio.create!([
-  {nombre: "Chalco"},
-  {nombre: "Huixquilucan"},
-  {nombre: "Lerma"},
-  {nombre: "Metepec"},
-  {nombre: "Tenango del Valle"},
-  {nombre: "Toluca"}
 ])
 Procedure.create!([
   {nombre: "Procedimiento para la Expedición de Licencias de Funcionamiento(ALTAS) (persona moral)", duracion: "3 diasHabiles", costo: "511pesos", vigencia: "1 año fiscal", contacto: "Calle Santiago No.6 1er piso Tel: 59733565", dependency_id: 1},
@@ -42,6 +42,14 @@ ProcedureLine.create!([
   {procedure_id: 1, line_id: 2},
   {procedure_id: 4, line_id: 2}
 ])
+Requirement.create!([
+  {nombre: "Solicitud (proporcionada por la Dirección)", descripcion: "copia"},
+  {nombre: "Acta constitutiva", descripcion: "copia"},
+  {nombre: "Poder notarial (con identificaci¢n oficial del apoderado/a legal) ", descripcion: "copia"},
+  {nombre: "Comprobante de domicilio", descripcion: "copia"},
+  {nombre: "Croquis de localización", descripcion: "impreso"},
+  {nombre: "Licencia de uso de suelo", descripcion: "copia"}
+  ])
 ProcedureRequirement.create!([
   {procedure_id: 1, requirement_id: 1},
   {procedure_id: 1, requirement_id: 2},
@@ -53,12 +61,4 @@ ProcedureRequirement.create!([
   {procedure_id: 2, requirement_id: 2},
   {procedure_id: 2, requirement_id: 3},
   {procedure_id: 4, requirement_id: 1}
-])
-Requirement.create!([
-  {nombre: "Solicitud (proporcionada por la Dirección)", descripcion: "copia"},
-  {nombre: "Acta constitutiva", descripcion: "copia"},
-  {nombre: "Poder notarial (con identificaci¢n oficial del apoderado/a legal) ", descripcion: "copia"},
-  {nombre: "Comprobante de domicilio", descripcion: "copia"},
-  {nombre: "Croquis de localización", descripcion: "impreso"},
-  {nombre: "Licencia de uso de suelo", descripcion: "copia"}
 ])
