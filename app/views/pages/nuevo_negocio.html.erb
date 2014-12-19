@@ -4,30 +4,28 @@
 			<div class="col-md-6">
 				<h1><%= @titulo_fisico %></h1><br>
 				<div class="btn-group btn-group-vertical">
-					<button   data-original-title="Tramite necesario para ...." data-placement="left" data-toggle="tooltip" class="btn btn-default" type="button" id="tooltip1"> 
-						Inscripción al RFC
-					</button><br>
-					<button  data-original-title="Tramite necesario para ...." data-placement="left" data-toggle="tooltip" class="btn btn-default" type="button" id="tooltip2">
-						 Registro de la Empresa IMSS, persona física
-					</button><br>
-					<button  data-original-title="Tramite necesario para ...." data-placement="left" data-toggle="tooltip" class="btn btn-default" type="button" id="tooltip3">
-					 	Licencia COFEPRIS
-					</button><br>
-					<button  data-original-title="Tramite necesario para ...." data-placement="left" data-toggle="tooltip" class="btn btn-default" type="button" id="tooltip4">
-						 Padrón de importadores
-					</button><br>
+					<%j = 0%>
+					<% @requirements.each do |requirement| %>
+					<% if requirement.tipo == 'AF' %>
+						<%j += 1%>
+						<button   data-original-title="<%=requirement.descripcion%>" data-placement="left" data-toggle="tooltip" class="btn btn-default" type="button" id="tooltip<%=j%>"> 
+							<%=requirement.nombre%>
+						</button><br>
+					<%end%>
+					<% end %>
 				</div>
 			</div>
 			<div class="col-md-6">
 				<h1><%= @titulo_moral %></h1><br>
 				<div class="btn-group btn-group-vertical">
-					<button  data-original-title="Tramite necesario para ...." data-placement="right" data-toggle="tooltip" class="btn btn-default" type="button" id="tooltip5"> Constitución de sociedades ante la SE</i></button><br>
-					<button  data-original-title="Tramite necesario para ...." data-placement="right" data-toggle="tooltip" class="btn btn-default" type="button" id="tooltip6"> Aviso de uso de los permisos para la constitución de sociedades</i></button><br>
-					<button  data-original-title="Tramite necesario para ...." data-placement="right" data-toggle="tooltip" class="btn btn-default" type="button" id="tooltip7"> Registro público de la propiedad y el comercio</i></button><br>
-					<button  data-original-title="Tramite necesario para ...." data-placement="right" data-toggle="tooltip" class="btn btn-default" type="button" id="tooltip8"> Inscripción al RFC</i></button><br>
-					<button  data-original-title="Tramite necesario para ...." data-placement="right" data-toggle="tooltip" class="btn btn-default" type="button" id="tooltip9"> Registro de la Empresa IMSS, persona moral</i></button><br>
-					<button  data-original-title="Tramite necesario para ...." data-placement="right" data-toggle="tooltip" class="btn btn-default" type="button" id="tooltip10"> Licencia COFEPRIS</i></button><br>
-					<button  data-original-title="Tramite necesario para ...." data-placement="right" data-toggle="tooltip" class="btn btn-default" type="button" id="tooltip11"> Padrón de importadores</i></button><br>
+					<% @requirements.each do |requirement| %>
+					<% if requirement.tipo == 'AM' %>
+						<%j += 1%>
+						<button   data-original-title="<%=requirement.descripcion%>" data-placement="right" data-toggle="tooltip" class="btn btn-default" type="button" id="tooltip<%=j%>"> 
+							<%=requirement.nombre%>
+						</button><br>
+					<%end%>
+					<% end %>
 				</div>
 			</div>
 		</div>
@@ -35,18 +33,9 @@
 	
 	<script id="bsJs" type="text/javascript">
 	$(document).ready(function() {
-		$('#tooltip1').tooltip();
-		$('#tooltip2').tooltip();
-		$('#tooltip3').tooltip();
-		$('#tooltip4').tooltip();
-		$('#tooltip5').tooltip();
-		$('#tooltip6').tooltip();
-		$('#tooltip7').tooltip();
-		$('#tooltip8').tooltip();
-		$('#tooltip9').tooltip();
-		$('#tooltip10').tooltip();
-		$('#tooltip11').tooltip();
-
+		for (i = 1; i < 12; i++) { 
+			$('#tooltip'+i).tooltip();
+		}
 	});
 	</script> 
 

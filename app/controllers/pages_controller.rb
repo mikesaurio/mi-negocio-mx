@@ -32,6 +32,7 @@ end
 def nuevo_negocio
   @titulo_fisico = "Crear un negocio como persona fisica"
   @titulo_moral = "Crear un negocio como persona moral"
+  @requirements = Requirement.all
 end
 
 
