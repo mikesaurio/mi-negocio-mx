@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  devise_for :users
   get 'pages/quiere'
 
   get 'pages/encuesta'
@@ -8,13 +9,13 @@ Rails.application.routes.draw do
 
   get 'imcos/index'
 
-  get "pages/nuevo_negocio" 
+  get "pages/nuevo_negocio"
 
-  post "pages/quiere" 
-    
-   get "pages/inspec" 
+  post "pages/quiere"
 
-  post "pages/paso" 
+   get "pages/inspec"
+
+  post "pages/paso"
 
   get 'pages/encuesta'
 
@@ -67,10 +68,6 @@ Rails.application.routes.draw do
 
   resources :inspection_requirements
 
-  resources :inspections
-
-  resources :inspectors
-
   resources :lines
 
   resources :requirements
@@ -79,11 +76,19 @@ Rails.application.routes.draw do
 
   resources :dependencies
 
-  resources :municipios
+  # resources :municipios
 
   resources :imcos
 
   resources :pages
+
+  namespace :dashboard do
+    resources :inspections, only: [:new, :create, :edit, :update, :destroy]
+    resources :inspectors, only: [:new, :create, :edit, :update, :destroy]
+  end
+
+  resources :inspections, only: [:index, :show]
+  resources :inspectors, only: [:index, :show]
 
 
   # The priority is based upon order of creation: first created -> highest priority.
