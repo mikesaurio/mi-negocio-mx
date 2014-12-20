@@ -1,3 +1,11 @@
+Municipio.create!([
+  {nombre: "Chalco"},
+  {nombre: "Huixquilucan"},
+  {nombre: "Lerma"},
+  {nombre: "Metepec"},
+  {nombre: "Tenango del Valle"},
+  {nombre: "Toluca"}
+  ])
 Dependency.create!([
   {nombre: "Centro Municipal de Atencion Empresarial", municipio_id: 1},
   {nombre: "Externa", municipio_id: 1}
@@ -16,14 +24,6 @@ Line.create!([
   {nombre: "ACUARIO", descripcion: "venta de peces y aditamentos", municipio_id: 1},
   {nombre: "AGENCIA DE TELEFONIA CELULAR", descripcion: "venta de equipos y aditamentos", municipio_id: 1},
   {nombre: "ALIMENTO PARA GANADO Y AVES", descripcion: "venta de alimentos", municipio_id: 1}
-])
-Municipio.create!([
-  {nombre: "Chalco"},
-  {nombre: "Huixquilucan"},
-  {nombre: "Lerma"},
-  {nombre: "Metepec"},
-  {nombre: "Tenango del Valle"},
-  {nombre: "Toluca"}
 ])
 Procedure.create!([
   {nombre: "Procedimiento para la Expedición de Licencias de Funcionamiento(ALTAS) (persona moral)", duracion: "3 diasHabiles", costo: "511pesos", vigencia: "1 año fiscal", contacto: "Calle Santiago No.6 1er piso Tel: 59733565", dependency_id: 1, tipo: "TM"},
@@ -45,19 +45,6 @@ ProcedureLine.create!([
   {procedure_id: 4, line_id: 2},
   {procedure_id: 18, line_id: 1}
 ])
-ProcedureRequirement.create!([
-  {procedure_id: 1, requirement_id: 1},
-  {procedure_id: 1, requirement_id: 2},
-  {procedure_id: 1, requirement_id: 3},
-  {procedure_id: 1, requirement_id: 4},
-  {procedure_id: 1, requirement_id: 5},
-  {procedure_id: 1, requirement_id: 6},
-  {procedure_id: 2, requirement_id: 1},
-  {procedure_id: 2, requirement_id: 2},
-  {procedure_id: 2, requirement_id: 3},
-  {procedure_id: 4, requirement_id: 1},
-  {procedure_id: 18, requirement_id: 2}
-])
 Requirement.create!([
   {nombre: "Solicitud (proporcionada por la Dirección)", descripcion: "copia", path: "http://www.ine.mx/archivos2/portal/credencial/realizarTramite.html", tipo: "N"},
   {nombre: "Poder notarial (con identificaci¢n oficial del apoderado/a legal) ", descripcion: "copia", path: "http://www.ine.mx/archivos2/portal/credencial/realizarTramite.html", tipo: "N"},
@@ -76,4 +63,17 @@ Requirement.create!([
   {nombre: "Registro de la Empresa IMSS, persona moral", descripcion: "Alta del documento, se debe contar con copia", path: "http://www.ine.mx/archivos2/portal/credencial/realizarTramite.html", tipo: "AM"},
   {nombre: "Licencia COFEPRIS", descripcion: "En caso de que se vaya a vender cigarros debes contemplarlo", path: "http://www.ine.mx/archivos2/portal/credencial/realizarTramite.html", tipo: "AM"},
   {nombre: "Padrón de importadores", descripcion: "Alta del documento, se debe contar con copia", path: "http://www.ine.mx/archivos2/portal/credencial/realizarTramite.html", tipo: "AM"}
+  ])
+ProcedureRequirement.create!([
+  {procedure_id: 1, requirement_id: 1},
+  {procedure_id: 1, requirement_id: 2},
+  {procedure_id: 1, requirement_id: 3},
+  {procedure_id: 1, requirement_id: 4},
+  {procedure_id: 1, requirement_id: 5},
+  {procedure_id: 1, requirement_id: 6},
+  {procedure_id: 2, requirement_id: 1},
+  {procedure_id: 2, requirement_id: 2},
+  {procedure_id: 2, requirement_id: 3},
+  {procedure_id: 4, requirement_id: 1},
+  {procedure_id: 18, requirement_id: 2}
 ])
