@@ -1,38 +1,23 @@
-<p id="notice"><%= notice %></p>
+<h3 class="title"><%= @inspector.nombre %></h3>
 
-<p>
-  <strong>Nombre:</strong>
-  <%= @inspector.nombre %>
-</p>
-
-<p>
-  <strong>Vigencia:</strong>
-  <%= @inspector.vigencia %>
-</p>
-
-<p>
-  <strong>Materia:</strong>
-  <%= @inspector.materia %>
-</p>
-
-<p>
-  <strong>Supervisor:</strong>
-  <%= @inspector.supervisor %>
-</p>
-
-<p>
-  <strong>Contacto:</strong>
-  <%= @inspector.contacto %>
-</p>
-
-<p>
-  <strong>Foto:</strong>
-  <%= @inspector.foto %>
-</p>
-
-<p>
-  <strong>Dependency:</strong>
-  <%= @inspector.dependency.nombre %>
-</p>
-<%= link_to 'Edit', edit_inspector_path(@inspector) %> |
-<%= link_to 'Back', inspectors_path %>
+<div style="border: 1px solid white;background-color: white;">
+  <table class="table">
+    <tbody>
+      <tr>
+        <td>Vigencia</td>
+        <td><%= @inspector.vigencia %></td>
+      </tr>
+      <tr>
+        <td>Materia</td>
+        <td><%= @inspector.materia %></td>
+      </tr>
+      <tr>
+        <td>Supervisor</td>
+        <td><%= @inspector.supervisor %></td>
+      </tr>
+      <tr>
+        <td>Contacto</td>
+        <td><%= @inspector.contacto %></td>
+      </tr>
+  </table>
+</div>

@@ -7,5 +7,8 @@ class Inspection < ActiveRecord::Base
 
   has_many :inspection_requirements
   has_many :requirements, through: :inspection_requirements
-  
+
+  def self.search(query)
+    where("nombre ILIKE ?", "%#{query}%")
+  end
 end

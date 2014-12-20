@@ -1,0 +1,29 @@
+es:
+  devise:
+    sessions:
+      user:
+        signed_in: Has iniciado sesión.
+        signed_out: Has terminado tu sesión.
+      new:
+        title: Inicia sesión
+        email: Correo electrónico
+        password: Contraseña
+        log_in: Entrar
+    failure:
+      user:
+        invalid: Revisa que el correo y contraseña sean correctos.
+        already_authenticated: Ya has sido autentificado.
+        not_found_in_database: Revisa que el correo y contraseña sean correctos.
+        unauthenticated: Necesitas iniciar sesión primero.
+  inspections:
+    index:
+      title: Inspecciones
+      search_inspections: Buscar inspecciones...
+  inspectors:
+    index:
+      title: Inspectores
+      search_inspectors: Buscar inspectores...
+  pages:
+    inspec:
+      title: Inspecciones
+      search_inspections: Buscar inspecciones...

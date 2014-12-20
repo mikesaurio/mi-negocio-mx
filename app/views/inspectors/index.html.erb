@@ -1,37 +1,20 @@
-<h1>Listing inspectors</h1>
+<!-- <td><%#= inspector.dependency.nombre %></td> -->
+<h3 class="title"><%= t('.title') %></h3>
 
-<table>
-  <thead>
-    <tr>
-      <th>Nombre</th>
-      <th>Vigencia</th>
-      <th>Materia</th>
-      <th>Supervisor</th>
-      <th>Contacto</th>
-      <th>Foto</th>
-      <th>Dependencia</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class="row">
+  <%= render "shared/search", custom_path: inspectors_path, search_placeholder: t('.search_inspectors') %>
 
-  <tbody>
-    <% @inspectors.each do |inspector| %>
-      <tr>
-        <td><%= inspector.nombre %></td>
-        <td><%= inspector.vigencia %></td>
-        <td><%= inspector.materia %></td>
-        <td><%= inspector.supervisor %></td>
-        <td><%= inspector.contacto %></td>
-        <td><%= inspector.foto %></td>
-        <td><%= inspector.dependency.nombre %></td>
-        <td><%= link_to 'Show', inspector %></td>
-        <td><%= link_to 'Edit', edit_inspector_path(inspector) %></td>
-        <td><%= link_to 'Destroy', inspector, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+
+  <% @inspectors.each do |inspector| %>
+    <%= link_to inspector_path(inspector) do %>
+    <div class="col-sm-6 col-md-3">
+      <div class="thumbnail">
+        <%= image_tag "missing-image.gif" %>
+        <div class="caption">
+          <h4 class="title"><%= inspector.nombre %></h4>
+        </div>
+      </div>
+    </div>
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Inspector', new_inspector_path %>
+  <% end %>
+</div>
