@@ -28,5 +28,7 @@ module PruebaDB
       Devise::UnlocksController.layout "user.html.erb"
       Devise::PasswordsController.layout "user.html.erb"
     end
+
+    config.serve_static_assets = true
   end
 end
