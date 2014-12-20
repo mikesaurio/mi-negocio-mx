@@ -32,6 +32,10 @@
   <%= f.text_field :contacto %>
 </div>
 <div class="field">
+  <%= f.label :tipo %><br>
+  <%= f.text_field :tipo %>
+</div>
+<div class="field">
  <%= f.label :dependency %><br />
  <%= collection_select(:procedure, :dependency_id, Dependency.all, :id, :nombre, {:prompt => false}) %> 
 </div>

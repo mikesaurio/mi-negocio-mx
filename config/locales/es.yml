@@ -23,3 +23,7 @@ es:
     index:
       title: Inspectores
       search_inspectors: Buscar inspectores...
+  pages:
+    inspec:
+      title: Inspecciones
+      search_inspections: Buscar inspecciones...
