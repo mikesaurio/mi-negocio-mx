@@ -43,6 +43,8 @@ group :development do
   # Better debugging
   gem 'better_errors'
   gem 'binding_of_caller'
+  # Seeds
+  gem 'seed_dump'
 end
 
 group :production do
