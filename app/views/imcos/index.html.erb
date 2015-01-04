@@ -4,10 +4,6 @@
 </p>
 
 <% @municipios.each_with_index do |municipio, i| %>
-	<%if i == 5 %>
-		<a href="url" class='text-info'> ver más</a>
-		<%break%>
-	<%end%>
 	<%=municipio.nombre%>|
 <%end%>
 
