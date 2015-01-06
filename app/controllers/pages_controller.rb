@@ -5,9 +5,9 @@ class PagesController < ApplicationController
  def quiere
    @titulo = "¿Qué quieres saber?"
    @subtitulo= "Encuentra toda la información para tu negocio"
-   @param = params[:municipio]
-   $id_del_municipio = @param[:municipio_id]
-   $nombre_municipio = Municipio.find($id_del_municipio).nombre
+   $nombre_municipio = params[:query]
+   puts @param
+   $id_del_municipio = Municipio.find_by nombre: $nombre_municipio
  end
 
  def encuesta
