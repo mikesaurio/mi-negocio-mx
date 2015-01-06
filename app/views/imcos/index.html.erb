@@ -1,11 +1,11 @@
 <%= form_for :post, :url => { :action => :quiere , :controller => :pages } do |f| %>
 <p>
-			<%= collection_select(:municipio, :municipio_id, Municipio.all, :id, :nombre, {:prompt => false})%>
+	<%= collection_select(:municipio, :municipio_id, Municipio.all, :id, :nombre, {:prompt => false})%>
 </p>
 
-<% @municipios.each_with_index do |municipio, i| %>
-	<%=municipio.nombre%>|
-<%end%>
+<!--<% @municipios.each_with_index do |municipio, i| %>
+<%=municipio.nombre%>|
+<%end%>-->
 
 <p>
 	<aside class="call-to-action bg-primary">
@@ -18,4 +18,15 @@
 		</div>
 	</aside>
 </p>
+
+
+
+
+<%= text_field_tag :query, params[:query], class: "form-control", id: "result_search", autocomplete: "off",:style => "color:#000;" %>
+
 <% end %>
+
+
+
+  
+
