@@ -50,25 +50,11 @@
 <header id="top" class="header">
     <div class="text-vertical-center">
 			 <%= image_tag "logo.png", class: "img-responsive center-block" %>
-       <a href="#about" class="btn btn-dark btn-lg"><span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span> </a>
+        <H1><%= @titulo %></H1>
+        <h3><%= @subtitulo %></H1>
+        <%= yield %>
    </div>
 </header>
-
-
-
-<!-- Ubicación de negocio -->
-<section id="about" class="services bg-primary">
- <div class="container">
-   <div class="text-vertical-center">
-     <H1><%= @titulo %></H1>
-     <h3><%= @subtitulo %></H1>
-      <%= yield %>
-  </div>
-  <!-- /.row -->
-</div>
-<!-- /.container -->
-</section>
-
 
 <!-- Footer -->
 <footer>
