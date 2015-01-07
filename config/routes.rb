@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
   devise_for :users
+
+
+
   get 'pages/quiere'
 
   get 'pages/encuesta'
@@ -89,8 +92,13 @@ Rails.application.routes.draw do
     resources :inspectors, only: [:new, :create, :edit, :update, :destroy]
   end
 
+
   resources :inspections, only: [:index, :show]
   resources :inspectors, only: [:index, :show]
+
+  
+
+  get 'autocompletar' => 'imcos#autocomplete'
 
 
   # The priority is based upon order of creation: first created -> highest priority.
