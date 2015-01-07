@@ -6,7 +6,7 @@
 					<div class="input-group-addon">
 						<H3><%=f.label 'Ingresa tu municipio' %></H3>
 						<BR>
-						<%= text_field_tag :query, params[:query], class: "form-control", id: "result_search", autocomplete: "off" %><BR><BR>
+						<%= text_field_tag :query, params[:query], class: "form-control", id: "result_search", autocomplete: "off" , :autofocus => true %><BR><BR>
 						<% @municipios.each_with_index do |municipio, i| %>
 							<%= municipio.nombre %>|
 						<%end%>
