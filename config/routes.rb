@@ -46,9 +46,9 @@ Rails.application.routes.draw do
   resources :dependencies
   # resources :municipios
   resources :pages
+  resources :imcos
 
   namespace :dashboard do
-    resources :imcos
     resources :inspections, only: [:new, :create, :edit, :update, :destroy]
     resources :inspectors, only: [:new, :create, :edit, :update, :destroy]
   end
