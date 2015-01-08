@@ -5,89 +5,50 @@ Rails.application.routes.draw do
 
 
   get 'pages/quiere'
-
   get 'pages/encuesta'
-
   get 'pages/tramite'
-  
   post 'pages/tramite'
-
-  get 'imcos/index'
-
+  # get 'imcos/index'
   get "pages/nuevo_negocio"
-
   post "pages/quiere"
-
-   get "pages/inspec"
-
+  get "pages/inspec"
   post "pages/paso"
-
   get 'pages/encuesta'
-
-  get 'inspection_lines/index'
-
-  get 'inspection_lines/show'
-
-  get 'inspection_lines/edit'
-
-  get 'inspection_lines/new'
-
-  get 'inspection_requirements/index'
-
-  get 'inspection_requirements/show'
-
-  get 'inspection_requirements/edit'
-
-  get 'inspection_requirements/new'
-
-  get 'procedure_lines/index'
-
-  get 'procedure_lines/show'
-
-  get 'procedure_lines/edit'
-
-  get 'procedure_lines/new'
-
-  get 'procedure_requirements/index'
-
-  get 'procedure_requirements/show'
-
-  get 'procedure_requirements/edit'
-
-  get 'procedure_requirements/new'
-
- # get 'procedure_requirements/edit'
-
-  #get 'procedure_requirements/index'
-
-  #get 'procedure_requirements/new'
-
-  #get 'procedure_requirements/show'
+  # get 'inspection_lines/index'
+  # get 'inspection_lines/show'
+  # get 'inspection_lines/edit'
+  # get 'inspection_lines/new'
+  # get 'inspection_requirements/index'
+  # get 'inspection_requirements/show'
+  # get 'inspection_requirements/edit'
+  # get 'inspection_requirements/new'
+  # get 'procedure_lines/index'
+  # get 'procedure_lines/show'
+  # get 'procedure_lines/edit'
+  # get 'procedure_lines/new'
+  # get 'procedure_requirements/index'
+  # get 'procedure_requirements/show'
+  # get 'procedure_requirements/edit'
+  # get 'procedure_requirements/new'
+  # get 'procedure_requirements/edit'
+  # get 'procedure_requirements/index'
+  # get 'procedure_requirements/new'
+  # get 'procedure_requirements/show'
 
 
   resources :inspection_lines
-
   resources :procedure_lines
-
   resources :procedure_requirements
-
   resources :inspection_requirements
-
   resources :lines
-
   resources :requirements
-
   resources :procedures
-
   resources :dependencies
-
   # resources :municipios
-
-  resources :imcos
-
   resources :pages
 
   namespace :dashboard do
+    resources :imcos
     resources :inspections, only: [:new, :create, :edit, :update, :destroy]
     resources :inspectors, only: [:new, :create, :edit, :update, :destroy]
   end
@@ -99,8 +60,8 @@ Rails.application.routes.draw do
   
 
   get 'autocompletar' => 'imcos#autocomplete'
-
-
+  #http://localhost:3000/autocompletar?query=ch
+    
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
