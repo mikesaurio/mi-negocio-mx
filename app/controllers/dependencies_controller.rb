@@ -2,31 +2,23 @@
      layout 'blanco'
     before_action :set_dependency, only: [:show, :edit, :update, :destroy]
 
-    # GET /dependencies
-    # GET /dependencies.json
     def index
       @dependencies = Dependency.all
     end
 
-    # GET /dependencies/1
-    # GET /dependencies/1.json
     def show
           @municipio = Municipio.all 
     end
 
-    # GET /dependencies/new
     def new
       @dependency = Dependency.new
       @municipio = Municipio.all 
     end
 
-    # GET /dependencies/1/edit
     def edit
           @municipio = Municipio.all 
     end
 
-    # POST /dependencies
-    # POST /dependencies.json
     def create
       @dependency = Dependency.new(dependency_params)
 
@@ -41,8 +33,6 @@
       end
     end
 
-    # PATCH/PUT /dependencies/1
-    # PATCH/PUT /dependencies/1.json
     def update
       respond_to do |format|
         if @dependency.update(dependency_params)
@@ -55,8 +45,6 @@
       end
     end
 
-    # DELETE /dependencies/1
-    # DELETE /dependencies/1.json
     def destroy
       @dependency.destroy
       respond_to do |format|

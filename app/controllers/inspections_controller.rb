@@ -3,13 +3,14 @@ class InspectionsController < ApplicationController
   layout 'blanco'
 
   def index
-    # raise params.inspect
+
     @municipio = Municipio.find(params[:municipio_id])
     if params[:q]
       @inspections = Inspection.search(params[:q]).order("created_at DESC")
     else
       @inspections = Inspection.all
     end
+    
   end
 
   def show

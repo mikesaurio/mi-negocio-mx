@@ -8,7 +8,7 @@ class MunicipiosController < ApplicationController
 
   def show
     if request.post?
-      @municipio = Municipio.find_by(nombre: params[:query]) #guardamos el id del municipio
+      @municipio = Municipio.find_by(nombre:  params[:query]) #guardamos el id del municipio
     else
       set_municipio
     end

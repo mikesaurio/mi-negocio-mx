@@ -3,6 +3,8 @@ class InspectorsController < ApplicationController
   layout 'blanco'
 
   def index
+    @municipio = Municipio.find(params[:municipio_id])
+   
     if params[:q]
       @inspectors = Inspector.search(params[:q]).order("created_at DESC")
     else
