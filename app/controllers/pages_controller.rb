@@ -3,10 +3,11 @@ class PagesController < ApplicationController
  $id_del_giro = 0 
 
  def quiere
-   @titulo = "¿Qué quieres saber?"
-   @subtitulo= "Encuentra toda la información para tu negocio"
-   $nombre_municipio = params[:query] #recibimos el nombre 
-   $id_del_municipio = Municipio.find_by nombre: $nombre_municipio #guardamos el id del municipio
+  # @titulo = "¿Qué quieres saber?"
+  # @subtitulo= "Encuentra toda la información para tu negocio"
+  # $nombre_municipio = params[:query] #recibimos el nombre 
+  # $id_del_municipio = Municipio.find_by nombre: $nombre_municipio #guardamos el id del municipio
+  # raise 1.inspect
  end
 
  def encuesta

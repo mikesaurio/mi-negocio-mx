@@ -14,27 +14,6 @@ Rails.application.routes.draw do
   get "pages/inspec"
   post "pages/paso"
   get 'pages/encuesta'
-  # get 'inspection_lines/index'
-  # get 'inspection_lines/show'
-  # get 'inspection_lines/edit'
-  # get 'inspection_lines/new'
-  # get 'inspection_requirements/index'
-  # get 'inspection_requirements/show'
-  # get 'inspection_requirements/edit'
-  # get 'inspection_requirements/new'
-  # get 'procedure_lines/index'
-  # get 'procedure_lines/show'
-  # get 'procedure_lines/edit'
-  # get 'procedure_lines/new'
-  # get 'procedure_requirements/index'
-  # get 'procedure_requirements/show'
-  # get 'procedure_requirements/edit'
-  # get 'procedure_requirements/new'
-  # get 'procedure_requirements/edit'
-  # get 'procedure_requirements/index'
-  # get 'procedure_requirements/new'
-  # get 'procedure_requirements/show'
-
 
   resources :inspection_lines
   resources :procedure_lines
@@ -44,9 +23,10 @@ Rails.application.routes.draw do
   resources :requirements
   resources :procedures
   resources :dependencies
-  # resources :municipios
-  resources :pages
   resources :imcos
+  
+  resources :municipios, only: [:show]
+  post "municipios/show"
 
   namespace :dashboard do
     resources :inspections, only: [:new, :create, :edit, :update, :destroy]

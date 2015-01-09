@@ -1,29 +1,26 @@
 class MunicipiosController < ApplicationController
   layout 'blanco'
-  before_action :set_municipio, only: [:show, :edit, :update, :destroy]
+  before_action :set_municipio, only: [:edit, :update, :destroy]
 
-  # GET /municipios
-  # GET /municipios.json
   def index
     @municipios = Municipio.all
   end
 
-  # GET /municipios/1
-  # GET /municipios/1.json
   def show
+    if request.post?
+      @municipio = Municipio.find_by(nombre: params[:query]) #guardamos el id del municipio
+    else
+      set_municipio
+    end
   end
 
-  # GET /municipios/new
   def new
     @municipio = Municipio.new
   end
 
-  # GET /municipios/1/edit
   def edit
   end
 
-  # POST /municipios
-  # POST /municipios.json
   def create
     @municipio = Municipio.new(municipio_params)
 
@@ -38,8 +35,6 @@ class MunicipiosController < ApplicationController
     end
   end
 
-  # PATCH/PUT /municipios/1
-  # PATCH/PUT /municipios/1.json
   def update
     respond_to do |format|
       if @municipio.update(municipio_params)
@@ -52,8 +47,6 @@ class MunicipiosController < ApplicationController
     end
   end
 
-  # DELETE /municipios/1
-  # DELETE /municipios/1.json
   def destroy
     @municipio.destroy
     respond_to do |format|
