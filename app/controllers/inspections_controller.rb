@@ -4,7 +4,7 @@ class InspectionsController < ApplicationController
 
   def index
 
-    @municipio = Municipio.find(params[:municipio_id])
+    $municipio = Municipio.find(params[:municipio_id])
     if params[:q]
       @inspections = Inspection.search(params[:q]).order("created_at DESC")
     else
