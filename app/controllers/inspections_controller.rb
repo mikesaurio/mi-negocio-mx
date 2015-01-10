@@ -1,16 +1,14 @@
 class InspectionsController < ApplicationController
   before_action :set_inspection, only: :show
+  before_action :set_municipio, only: [:index, :show]
   layout 'blanco'
 
   def index
-
-    $municipio = Municipio.find(params[:municipio_id])
     if params[:q]
       @inspections = Inspection.search(params[:q]).order("created_at DESC")
     else
       @inspections = Inspection.all
     end
-    
   end
 
   def show
@@ -23,5 +21,9 @@ class InspectionsController < ApplicationController
 
     def inspection_params
       params.require(:inspection).permit(:nombre, :materia, :duracion, :norma, :antes, :durante, :despues, :sancion, :dependency_id)
+    end
+
+    def set_municipio
+       @municipio = Municipio.find(params[:municipio_id])
     end
 end
