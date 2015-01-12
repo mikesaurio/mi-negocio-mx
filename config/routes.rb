@@ -6,14 +6,15 @@ Rails.application.routes.draw do
 
   get 'pages/quiere'
   get 'pages/encuesta'
-  get 'pages/tramite'
-  post 'pages/tramite'
+  #get 'pages/tramite'
+  #post 'pages/tramite'
   # get 'imcos/index'
  # get "pages/nuevo_negocio"
   post "pages/quiere"
   get "pages/inspec"
   post "pages/paso"
   get 'pages/encuesta'
+  post "municipios/show"
 
   resources :inspection_lines
   resources :procedure_lines
@@ -29,8 +30,13 @@ Rails.application.routes.draw do
     resources :inspections, only: [:index, :show]
     resources :inspectors, only: [:index, :show]
     get 'open'
+    post 'open'
+     get 'tramite'
+    post 'tramite'
   end
-  post "municipios/show"
+
+
+
 
   namespace :dashboard do
     resources :inspections, only: [:new, :create, :edit, :update, :destroy]

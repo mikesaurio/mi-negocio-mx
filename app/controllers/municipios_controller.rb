@@ -10,7 +10,7 @@ class MunicipiosController < ApplicationController
     if request.post?
       @municipio = Municipio.find_by(nombre:  params[:query]) #guardamos el id del municipio
     else
-      set_municipio
+      set_municipio(:id)
     end
   end
 
@@ -22,10 +22,34 @@ class MunicipiosController < ApplicationController
   end
 
   def open
-  @titulo_fisico = "Crear un negocio como persona fisica"
-  @titulo_moral = "Crear un negocio como persona moral"
-  @requirements = Requirement.all
-end
+    @titulo_fisico = "Crear un negocio como persona fisica"
+    @titulo_moral = "Crear un negocio como persona moral"
+    set_municipio(:municipio_id)
+    @requirements = Requirement.all
+  end
+
+
+  def tramite
+    set_municipio(:municipio_id)
+    @procedure = Procedure.all
+
+    @id_del_giro = "0"
+    @tipo  = 'A'
+    
+    unless params[:lines].nil?
+      @param_paso = params[:lines]
+      puts @param_paso.methods
+      @id_del_giro = @param_paso[:line_id]
+      @tramites_del_giro = Line.find(@id_del_giro).procedures.includes(:procedure_lines).where("line_id = #{@id_del_giro}") 
+      @tipo = params[:rating]
+    end
+
+  end
+
+
+
+
+
 
   def create
     @municipio = Municipio.new(municipio_params)
@@ -63,12 +87,12 @@ end
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_municipio
-      @municipio = Municipio.find(params[:id])
+    def set_municipio(val)
+      @municipio = Municipio.find(params[val])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def municipio_params
       params.require(:municipio).permit(:nombre)
     end
-end
+  end
