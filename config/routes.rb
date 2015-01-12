@@ -6,10 +6,6 @@ Rails.application.routes.draw do
 
   get 'pages/quiere'
   get 'pages/encuesta'
-  #get 'pages/tramite'
-  #post 'pages/tramite'
-  # get 'imcos/index'
- # get "pages/nuevo_negocio"
   post "pages/quiere"
   get "pages/inspec"
   post "pages/paso"
@@ -29,6 +25,7 @@ Rails.application.routes.draw do
   resources :municipios, only: [:show] do
     resources :inspections, only: [:index, :show]
     resources :inspectors, only: [:index, :show]
+    resources :procedure_lines, only: [:show]
     get 'open'
     post 'open'
      get 'tramite'

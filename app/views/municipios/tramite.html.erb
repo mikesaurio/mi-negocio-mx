@@ -2,10 +2,10 @@
 <p>
   ¿Cual es el giro de tu negocio?
   <% if @id_del_giro == "0" %>
-  <%= collection_select(:lines, :line_id, Line.where(municipio_id: $id_del_municipio), :id,
+  <%= collection_select(:lines, :line_id, Line.where(municipio_id: @municipio.id), :id,
   :nombre, :onchange =>"alert_me_test()", :prompt => 'Selecciona uno' )%>
   <% else %>
-  <%= collection_select(:lines, :line_id, Line.where(municipio_id: $id_del_municipio), :id,
+  <%= collection_select(:lines, :line_id, Line.where(municipio_id: @municipio.id), :id,
   :nombre, :onchange =>"alert_me_test()", :prompt => 'Selecciona uno' , :selected => @id_del_giro  )%>
   <% end %>
 
@@ -23,9 +23,7 @@
     <div class="table__card">
       <ul>
         <% @tramites_del_giro.each_with_index do |tramite_de_giro, i| %>
-        
-
-        <%= link_to procedure_line_path(tramite_de_giro) do %>
+        <%= link_to municipio_procedure_line_path(@municipio.id,tramite_de_giro) do %>
         <li class="table--row">
           <%if tramite_de_giro.tipo == @tipo %>
             <div class="row--"><%= tramite_de_giro.nombre %></div>

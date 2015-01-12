@@ -38,17 +38,11 @@ class MunicipiosController < ApplicationController
     
     unless params[:lines].nil?
       @param_paso = params[:lines]
-      puts @param_paso.methods
       @id_del_giro = @param_paso[:line_id]
       @tramites_del_giro = Line.find(@id_del_giro).procedures.includes(:procedure_lines).where("line_id = #{@id_del_giro}") 
       @tipo = params[:rating]
     end
-
   end
-
-
-
-
 
 
   def create
