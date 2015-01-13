@@ -21,6 +21,11 @@ class MunicipiosController < ApplicationController
   def edit
   end
 
+  def nuevo_negocio
+       set_municipio(:municipio_id)
+      @lines =  Line.where(municipio_id: '1')
+  end
+
   def open
     @titulo_fisico = "Crear un negocio como persona fisica"
     @titulo_moral = "Crear un negocio como persona moral"
@@ -101,6 +106,9 @@ end
       format.json { head :no_content }
     end
   end
+
+
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

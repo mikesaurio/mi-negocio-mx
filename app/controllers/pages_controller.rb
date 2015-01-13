@@ -52,7 +52,6 @@ def inspec
 
   @dependency = Dependency.all
 
-
   if params[:q]
     @inspections = Inspection.search(params[:q]).order("created_at DESC")
   else
@@ -61,10 +60,6 @@ def inspec
 
 
 end 
-
-
-
-
 
 helper_method :tramites_giro
 

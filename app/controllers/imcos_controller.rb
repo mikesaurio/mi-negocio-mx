@@ -13,7 +13,13 @@ class ImcosController < ApplicationController
   end
 
    def autocomplete
+    val = params[:val]
+    if val == 'municipio'
+      render json: Municipio.search(params[:query], autocomplete: true).map(&:nombre)
+    else
     render json: Municipio.search(params[:query], autocomplete: true).map(&:nombre)
+    end
+       
   end
 
 end

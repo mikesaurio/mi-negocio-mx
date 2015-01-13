@@ -8,4 +8,6 @@ class Line < ActiveRecord::Base
 
  belongs_to :municipio
 
+ searchkick autocomplete: ['nombre']
+
 end

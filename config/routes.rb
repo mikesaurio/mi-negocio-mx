@@ -25,12 +25,13 @@ Rails.application.routes.draw do
     resources :inspections, only: [:index, :show]
     resources :inspectors, only: [:index, :show]
     resources :procedure_lines, only: [:show]
-    get 'open'
-    post 'open'
+    get 'nuevo_negocio'
+    post 'nuevo_negocio'
      get 'tramite'
     post 'tramite'
     get 'inspeccion'
     post 'inspeccion'
+    get 'nuevo_negocio/autocompletargiro' => 'nuevo_negocio#autocompletargiro' 
   end
 
 
@@ -43,6 +44,5 @@ Rails.application.routes.draw do
 
   get 'autocompletar' => 'imcos#autocomplete'
   #http://localhost:3000/autocompletar?query=ch
-    
   root 'imcos#index'
 end
