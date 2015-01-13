@@ -4,6 +4,5 @@ class Municipio < ActiveRecord::Base
   has_many :users
 
 
-searchkick autocomplete: ['nombre']
 
 end
