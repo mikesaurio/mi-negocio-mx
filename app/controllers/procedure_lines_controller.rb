@@ -8,14 +8,16 @@ class ProcedureLinesController < ApplicationController
 
  def show
 
-    @municipio = Municipio.find(params[:id])
-  @procedure_requirements = ProcedureRequirement.all
-  @procedure_lines=  ProcedureLine.all
+@municipio = Municipio.find(params[:id])
+
+@procedure_requirements = ProcedureRequirement.all
+@procedure_lines=  ProcedureLine.all
 @requirements = Requirement.all
 @line = Line.find(@procedure_line.line_id).nombre
 @procedure = Procedure.find(@procedure_line.procedure_id).nombre 
-@procedure_requirement = @procedure_requirements.where(procedure_id: Procedure.find(@procedure_line.procedure_id).id) 
 
+
+@procedure_requirement = @procedure_requirements.where(procedure_id: Procedure.find(@procedure_line.procedure_id).id) 
  end
 
  def new
@@ -58,6 +60,8 @@ end
 private
     # Use callbacks to share common setup or constraints between actions.
     def set_line
+      puts '***************'
+      puts params[:id]
       @procedure_line = ProcedureLine.find(params[:id])
     end
 

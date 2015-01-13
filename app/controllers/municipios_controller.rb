@@ -45,6 +45,29 @@ class MunicipiosController < ApplicationController
   end
 
 
+  def inspeccion
+        set_municipio(:municipio_id)
+  @inspections = Inspection.all
+
+  if params[:q]
+    @inspectors = Inspector.search(params[:q]).order("created_at DESC")
+  else
+    @inspectors = Inspector.all
+  end
+
+  @dependency = Dependency.all
+
+
+  if params[:q]
+    @inspections = Inspection.search(params[:q]).order("created_at DESC")
+  else
+    @inspections = Inspection.all
+  end
+
+
+end 
+
+
   def create
     @municipio = Municipio.new(municipio_params)
 

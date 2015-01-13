@@ -7,7 +7,6 @@ Rails.application.routes.draw do
   get 'pages/quiere'
   get 'pages/encuesta'
   post "pages/quiere"
-  get "pages/inspec"
   post "pages/paso"
   get 'pages/encuesta'
   post "municipios/show"
@@ -30,6 +29,8 @@ Rails.application.routes.draw do
     post 'open'
      get 'tramite'
     post 'tramite'
+    get 'inspeccion'
+    post 'inspeccion'
   end
 
 
