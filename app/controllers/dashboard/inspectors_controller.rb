@@ -2,7 +2,7 @@ module Dashboard
   class InspectorsController < ApplicationController
     before_action :set_inspector, only: [:edit, :update, :destroy]
     before_action :authenticate_user!
-    layout 'user'
+    layout 'dashboard'
 
     def new
       @inspector = Inspector.new

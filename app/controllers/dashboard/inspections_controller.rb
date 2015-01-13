@@ -2,7 +2,7 @@ module Dashboard
   class InspectionsController < ApplicationController
     before_action :set_inspection, only: [:edit, :update, :destroy]
     before_action :authenticate_user!
-    layout 'user'
+    layout 'dashboard'
 
     def new
       @inspection = Inspection.new
@@ -44,7 +44,7 @@ module Dashboard
 
     def destroy
       authorize @inspection
-      
+
       @inspection.destroy
       respond_to do |format|
         format.html { redirect_to inspections_url, notice: 'Inspection was successfully destroyed.' }
