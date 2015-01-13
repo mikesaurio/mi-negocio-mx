@@ -3,10 +3,11 @@ class PagesController < ApplicationController
  $id_del_giro = 0 
 
  def quiere
-   @titulo = "¿Qué quieres saber?"
-   @subtitulo= "Encuentra toda la información para tu negocio"
-   $nombre_municipio = params[:query] #recibimos el nombre 
-   $id_del_municipio = Municipio.find_by nombre: $nombre_municipio #guardamos el id del municipio
+  # @titulo = "¿Qué quieres saber?"
+  # @subtitulo= "Encuentra toda la información para tu negocio"
+  # $nombre_municipio = params[:query] #recibimos el nombre 
+  # $id_del_municipio = Municipio.find_by nombre: $nombre_municipio #guardamos el id del municipio
+  # raise 1.inspect
  end
 
  def encuesta
@@ -18,17 +19,15 @@ def tramite
   #@tramites_del_giro = Line.all
 @id_del_giro = "0"
 @tipo  = 'A'
-unless params[:lines].nil?
-  @param_paso = params[:lines]
-  puts @param_paso.methods
-  @id_del_giro = @param_paso[:line_id]
-  @tramites_del_giro = Line.find(@id_del_giro).procedures.includes(:procedure_lines).where("line_id = #{@id_del_giro}") 
-  @tipo = params[:rating]
+  unless params[:lines].nil?
+    @param_paso = params[:lines]
+    puts @param_paso.methods
+    @id_del_giro = @param_paso[:line_id]
+    @tramites_del_giro = Line.find(@id_del_giro).procedures.includes(:procedure_lines).where("line_id = #{@id_del_giro}") 
+    @tipo = params[:rating]
+  end
+
 end
-
-
-end
-
 
 def nuevo_negocio
   @titulo_fisico = "Crear un negocio como persona fisica"

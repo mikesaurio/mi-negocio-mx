@@ -1,5 +1,6 @@
 class InspectionsController < ApplicationController
   before_action :set_inspection, only: :show
+  before_action :set_municipio, only: [:index, :show]
   layout 'blanco'
 
   def index
@@ -20,5 +21,9 @@ class InspectionsController < ApplicationController
 
     def inspection_params
       params.require(:inspection).permit(:nombre, :materia, :duracion, :norma, :antes, :durante, :despues, :sancion, :dependency_id)
+    end
+
+    def set_municipio
+       @municipio = Municipio.find(params[:municipio_id])
     end
 end
