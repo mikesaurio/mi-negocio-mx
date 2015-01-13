@@ -5,7 +5,7 @@
 					<div class="input-group-addon">
 						<H3>Ingresa tu Giro</H3>
 						<BR>
-						<%= text_field_tag :query, params[:query,:val =>'min'], class: "form-control", id: "result_search", autocomplete: "off" , :focus => true %><BR><BR>
+						<%= text_field_tag :query, params[:query], class: "form-control", id: "result_search", autocomplete: "off" , :focus => true %><BR><BR>
 						<% @lines.each_with_index do |line, i| %>
 							<%= line.nombre %>|
 						<%end%>
