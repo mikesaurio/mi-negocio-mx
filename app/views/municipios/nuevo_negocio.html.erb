@@ -6,7 +6,7 @@
 					<div class="input-group-addon">
 						<H3><%=f.label '¿Iniciaras un nuevo negocio?' %></H3>
 						<BR>
-						<%= f.select :lines, Line.where(municipio_id: @municipio).map { |u| [u.nombre, u.id] },{ include_blank: true }, { class: 'chosen-select' }%>
+						<%= f.select :lines, Line.where(municipio_id: @municipio).map { |u| [u.nombre, u.id] },{ include_blank: true ,:selected => @line}, { class: 'chosen-select' }%>
 						</br>
 							<H3><%=f.label '¿Qué tipo de persona eres?' %></H3>
 						<br>
@@ -16,36 +16,42 @@
 					      <%=  radio_button_tag :rating, 'AM', @tipo=='AM'%>Moral
 					  	</div>
 			  			<br>
+			  											  <br>
+				            <%= f.submit 'Aceptar', :class => 'btn btn-lg btn-light' %>
 					</div>
 				</div>
-			  <br>
-				<%= f.submit 'Aceptar', :class => 'btn btn-lg btn-light' %>
 			</div>
 		</div>
 	</div>
 	
 	<!--seccion paso a paso -->
  <% unless @line.nil? %>
+ <br><br>
+ <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Paso a Paso</h2>
+                    <h3 class="section-subheading text-muted">Apertura de un negocio</h3>
+                     <br><br>
+                </div>
+            </div>
             <div class="row">
                 <div class="col-lg-12">
                     <ul class="timeline">
+                        <% count = 0 %>
                     		<% @requirements.each_with_index do |requirement,index| %>
-                    		<%= puts '***************' %>
-                    		    <%= puts @tipo %>
-                    		    <%= puts requirement.tipo%>
-                    	    <%= puts '***************' %>
                     		<% if requirement.tipo == @tipo %>
-                        		 <%if index%2 == 0 %>
+                    		   <% count += 1 %>
+                        		 <%if index % 2 == 0 %>
                                 	<li>
                                 <%else %>
                                 	<li class="timeline-inverted">
                                 <%end %>
                             	<div class="timeline-image">
-                                	<%= image_tag "1.jpg", class: "img-circle img-responsive" %>
+                                	<%= image_tag "bolita.png", class: "img-circle img-responsive" %>
                                 </div>
                    	 			<div class="timeline-panel">
                                     <div class="timeline-heading">
-                                        <h4>Tramite <%=index + 1%></h4>
+                                        <h4>Paso <%=count%></h4>
                                         <h4 class="subheading"> <%= requirement.nombre %></h4>
                                     </div>
                                     <div class="timeline-body">
@@ -56,18 +62,17 @@
                         <% end %>
                         
                         <% end %>
+                        
                         <li class="timeline-inverted">
                             <div class="timeline-image">
-                                <h4>Ya 
-                                    <br>tienes tu
-                                    <br>empresa</h4>
+                                <h4>Ya <br>tienes tu <br>empresa</h4>
                             </div>
                         </li>
                     </ul>
                 </div>
             </div>
 	<% end %>
-		<!--termina paso a paso -->
+<!--termina paso a paso -->
 <% end %>
 
 
