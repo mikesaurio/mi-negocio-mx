@@ -24,8 +24,7 @@ class MunicipiosController < ApplicationController
   
   
   def nuevo_negocio
-     @lines = Line.all
-
+       set_municipio(:municipio_id)
   end
 
   def open
