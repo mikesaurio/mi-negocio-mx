@@ -29,8 +29,6 @@ Rails.application.routes.draw do
     post 'nuevo_negocio'
     get 'tramite'
     post 'tramite'
-    get 'inspeccion'
-    post 'inspeccion'
   end
   
 

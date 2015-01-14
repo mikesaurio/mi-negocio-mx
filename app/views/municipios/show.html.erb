@@ -28,10 +28,16 @@
                     <div class="service-item">
                   <h4>
                     <%= image_tag "inspecciones.png", class: "img-responsive center-block" %>
-                    <strong>Inspecciones</strong>
+                    <strong>Inspecciones e Inspectores</strong>
                 </h4>
                 <p>Ya tengo un negocio ¿Qué inspecciones me pueden realizar? y ¿Quien las puede realizar?</p>
-                <%= button_to "Continuar",municipio_inspeccion_path(@municipio), class: "btn btn-light"%>
+                <ul class="text-left">
+                    <li><%= link_to "Prepárate para la inspección", municipio_inspections_path(@municipio) %></li>
+                    <li><%= link_to "Conoce a los inspectores", municipio_inspectors_path(@municipio) %></li>
+                </ul>
+                <%#= link_to "Prepárate para la inspección", municipio_inspections_path(@municipio), class: 'btn btn-default' %>
+                <%#= link_to "Conoce a los inspectores", municipio_inspectors_path(@municipio), class: 'btn btn-default' %>
+                <%#= button_to "Continuar",municipio_inspeccion_path(@municipio), class: "btn btn-light"%>
             </div>
         </div>
     </div>
