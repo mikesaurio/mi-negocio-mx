@@ -37,8 +37,8 @@ Rails.application.routes.draw do
   # end
 
   resource :dashboard, only: :show, controller: :dashboard do
-    resources :inspections, only: [:new, :create, :edit, :update, :destroy]
-    resources :inspectors, only: [:new, :create, :edit, :update, :destroy]
+    resources :inspections, only: [:new, :create, :edit, :update, :destroy], controller: 'dashboard/inspections'
+    resources :inspectors, only: [:new, :create, :edit, :update, :destroy], controller: 'dashboard/inspectors'
   end
 
   get 'autocompletar' => 'imcos#autocomplete'

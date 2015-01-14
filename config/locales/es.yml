@@ -1,4 +1,10 @@
 es:
+  dashboard:
+    inspections:
+      new:
+        title: Nueva inspección
+      form:
+        create_inspection: Crear
   devise:
     sessions:
       user:
