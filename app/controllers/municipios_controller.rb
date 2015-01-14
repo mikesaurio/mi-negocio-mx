@@ -28,9 +28,11 @@ class MunicipiosController < ApplicationController
        
        unless params[:post].nil?
           unless params[:post][:lines].nil?
-              @select = 'true'
+              @line = params[:post][:lines]
+              @persona = params[:post][:rating]
           end
       end
+      @requirements = Requirement.all
   
         
     
