@@ -25,6 +25,15 @@ class MunicipiosController < ApplicationController
   
   def nuevo_negocio
        set_municipio(:municipio_id)
+       
+       unless params[:post].nil?
+          unless params[:post][:lines].nil?
+              @select = 'true'
+          end
+      end
+  
+        
+    
   end
 
   def open

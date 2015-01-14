@@ -1,20 +1,103 @@
-
-
 <%= form_for :post, :url => { :controller => :municipios, :action => :nuevo_negocio } do |f| %>
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12 text-center">
 				<div class="input-group">
 					<div class="input-group-addon">
-						<H3><%=f.label 'Ingresa el giro' %></H3>
+						<H3><%=f.label '¿Iniciaras un nuevo negocio?' %></H3>
 						<BR>
-						<%= f.select :line, Line.where(municipio_id: @municipio).map { |u| [u.nombre, u.id] },{ include_blank: true }, { class: 'chosen-select' }%>
+						<%= f.select :lines, Line.where(municipio_id: @municipio).map { |u| [u.nombre, u.id] },{ include_blank: true }, { class: 'chosen-select' }%>
 						</br>
+							<H3><%=f.label '¿Qué tipo de persona eres?' %></H3>
+						<br>
+						<div class= "field">
+					    <%tipos = {'Físico' => 'TF', 'Moral' => 'TM'}%>
+					      <%=  radio_button_tag :rating, 'TF', @tipo=='TF' %>Fisica
+					      <%=  radio_button_tag :rating, 'TM', @tipo=='TM'%>Moral
+					  	</div>
+			  			<br>
 					</div>
 				</div>
-				<br>
-				<%= f.submit 'Continuar', :class => 'btn btn-lg btn-light' %>
+			  <br>
+				<%= f.submit 'Aceptar', :class => 'btn btn-lg btn-light' %>
 			</div>
 		</div>
 	</div>
+	
+	<!--seccion paso a paso -->
+ <% unless @select.nil? %>
+            <div class="row">
+                <div class="col-lg-12">
+                    <ul class="timeline">
+                        <li>
+                            <div class="timeline-image">
+                            		 <%= image_tag "1.jpg", class: "img-circle img-responsive" %>
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h4>2009-2011</h4>
+                                    <h4 class="subheading">Our Humble Beginnings</h4>
+                                </div>
+                                <div class="timeline-body">
+                                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="timeline-inverted">
+                            <div class="timeline-image">
+                                 <%= image_tag "2.jpg", class: "img-circle img-responsive" %>
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h4>March 2011</h4>
+                                    <h4 class="subheading">An Agency is Born</h4>
+                                </div>
+                                <div class="timeline-body">
+                                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="timeline-image">
+                               <%= image_tag "3.jpg", class: "img-circle img-responsive" %>
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h4>December 2012</h4>
+                                    <h4 class="subheading">Transition to Full Service</h4>
+                                </div>
+                                <div class="timeline-body">
+                                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="timeline-inverted">
+                            <div class="timeline-image">
+                                <%= image_tag "4.jpg", class: "img-circle img-responsive" %>
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h4>July 2014</h4>
+                                    <h4 class="subheading">Phase Two Expansion</h4>
+                                </div>
+                                <div class="timeline-body">
+                                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="timeline-inverted">
+                            <div class="timeline-image">
+                                <h4>Be Part
+                                    <br>Of Our
+                                    <br>Story!</h4>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+	<% end %>
+		<!--termina paso a paso -->
 <% end %>
+
+
+
