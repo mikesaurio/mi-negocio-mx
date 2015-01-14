@@ -11,9 +11,4 @@ class ImcosController < ApplicationController
     end
 
   end
-
-   def autocomplete
-    render json: Municipio.search(params[:query], autocomplete: true).map(&:nombre)
-  end
-
 end

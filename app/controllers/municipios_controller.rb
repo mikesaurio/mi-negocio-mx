@@ -7,11 +7,12 @@ class MunicipiosController < ApplicationController
   end
 
   def show
-    if request.post?
-      @municipio = Municipio.find(params[:post][:municipio]) #guardamos el municipio por el ID
-    else
-      set_municipio(:id)
-    end
+    set_municipio(:id)
+  end
+  
+  def search
+    @municipio = Municipio.find(params[:post][:municipio])
+    redirect_to municipio_path(@municipio)
   end
 
   def new
@@ -19,6 +20,12 @@ class MunicipiosController < ApplicationController
   end
 
   def edit
+  end
+  
+  
+  def nuevo_negocio
+     @lines = Line.all
+
   end
 
   def open
