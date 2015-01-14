@@ -12,8 +12,8 @@
 						<br>
 						<div class= "field">
 					    <%tipos = {'Físico' => 'TF', 'Moral' => 'TM'}%>
-					      <%=  radio_button_tag :rating, 'TF', @tipo=='TF' %>Fisica
-					      <%=  radio_button_tag :rating, 'TM', @tipo=='TM'%>Moral
+					      <%=  radio_button_tag :rating, 'AF', @tipo=='AF' %>Fisica
+					      <%=  radio_button_tag :rating, 'AM', @tipo=='AM'%>Moral
 					  	</div>
 			  			<br>
 					</div>
@@ -30,24 +30,31 @@
                 <div class="col-lg-12">
                     <ul class="timeline">
                     		<% @requirements.each_with_index do |requirement,index| %>
-                    		 <%if index%2 == 0 %>
-                            	<li>
-                            <%else %>
-                            	<li class="timeline-inverted">
-                            <%end %>
-                        	<div class="timeline-image">
-                            	<%= image_tag "1.jpg", class: "img-circle img-responsive" %>
-                            </div>
-               	 			<div class="timeline-panel">
-                                <div class="timeline-heading">
-                                    <h4>Tramite <%=index + 1%></h4>
-                                    <h4 class="subheading"> <%= requirement.nombre %></h4>
+                    		<%= puts '***************' %>
+                    		    <%= puts @tipo %>
+                    		    <%= puts requirement.tipo%>
+                    	    <%= puts '***************' %>
+                    		<% if requirement.tipo == @tipo %>
+                        		 <%if index%2 == 0 %>
+                                	<li>
+                                <%else %>
+                                	<li class="timeline-inverted">
+                                <%end %>
+                            	<div class="timeline-image">
+                                	<%= image_tag "1.jpg", class: "img-circle img-responsive" %>
                                 </div>
-                                <div class="timeline-body">
-                                    <p class="text-muted"><%= requirement.descripcion %></p>
+                   	 			<div class="timeline-panel">
+                                    <div class="timeline-heading">
+                                        <h4>Tramite <%=index + 1%></h4>
+                                        <h4 class="subheading"> <%= requirement.nombre %></h4>
+                                    </div>
+                                    <div class="timeline-body">
+                                        <p class="text-muted"><%= requirement.descripcion %></p>
+                                    </div>
                                 </div>
-                            </div>
-                        </li>
+                            </li>
+                        <% end %>
+                        
                         <% end %>
                         <li class="timeline-inverted">
                             <div class="timeline-image">

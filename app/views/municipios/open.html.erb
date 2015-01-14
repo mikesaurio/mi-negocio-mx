@@ -7,12 +7,12 @@
 					<%j = 0%>
 					<% @requirements.each do |requirement| %>
 					<% if requirement.tipo == 'AF' %>
-					<%j += 1%>
-					<a href="<%=requirement.path%>"  data-original-title="<%=requirement.descripcion%>" data-placement="left" data-toggle="tooltip" class="btn btn-default"   type="button" id="tooltip<%=j%>" target="_blank">
-						<%=requirement.nombre%>
-					</a>
-					<br>
-					<%end%>
+						<%j += 1%>
+						<a href="<%=requirement.path%>"  data-original-title="<%=requirement.descripcion%>" data-placement="left" data-toggle="tooltip" class="btn btn-default"   type="button" id="tooltip<%=j%>" target="_blank">
+							<%=requirement.nombre%>
+						</a>
+						<br>
+						<% end %>
 					<% end %>
 				</div>
 			</div>
