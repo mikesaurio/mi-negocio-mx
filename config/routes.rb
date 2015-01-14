@@ -27,22 +27,18 @@ Rails.application.routes.draw do
     resources :procedure_lines, only: [:show]
     get 'open'
     post 'open'
-     get 'tramite'
+    get 'tramite'
     post 'tramite'
     get 'inspeccion'
     post 'inspeccion'
   end
-
-
-
+  
 
   namespace :dashboard do
     resources :inspections, only: [:new, :create, :edit, :update, :destroy]
     resources :inspectors, only: [:new, :create, :edit, :update, :destroy]
   end
 
-  get 'autocompletar' => 'imcos#autocomplete'
-  #http://localhost:3000/autocompletar?query=ch
     
   root 'imcos#index'
 end
