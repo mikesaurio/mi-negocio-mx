@@ -5,12 +5,6 @@ Rails.application.routes.draw do
   devise_for :users
 
 
-
-  get 'pages/quiere'
-  get 'pages/encuesta'
-  post "pages/quiere"
-  post "pages/paso"
-  get 'pages/encuesta'
   post "municipios/search"
 
   resources :inspection_lines
@@ -26,16 +20,10 @@ Rails.application.routes.draw do
   resources :municipios, only: [:show] do
     resources :inspections, only: [:index, :show]
     resources :inspectors, only: [:index, :show]
-    resources :procedure_lines, only: [:show]
+    resources :procedure_lines, only: [:index,:show]
+      post 'procedure_lines/index'
     resources :business, only: [:index]
-    
-    resources :procedures, only: [:index, :show] do
-      resources :requirements, only: [:index, :show]
-    end
-    post 'business/steps'
-    
-    get 'tramite'
-    post 'tramite'
+      post 'business/steps'
   end
   
 

@@ -22,15 +22,6 @@ class MunicipiosController < ApplicationController
   def edit
   end
   
-  
-
-
-  def open
-    @titulo_fisico = "Crear un negocio como persona fisica"
-    @titulo_moral = "Crear un negocio como persona moral"
-    set_municipio(:municipio_id)
-    @requirements = Requirement.all
-  end
 
 
   def tramite

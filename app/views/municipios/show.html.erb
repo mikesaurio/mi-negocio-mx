@@ -21,20 +21,20 @@
                         <strong>Tramites</strong>
                     </h4>
                     <p>Ya tengo un negocio ¿Qué tramites puedo realizar?</p>
-                    <%= button_to "Continuar",municipio_tramite_path(@municipio), class: "btn btn-light"%>
+                    <%= link_to "Consultar",municipio_procedure_lines_path(@municipio), class: "btn btn-light"%>
                 </div>
             </div>
             <div class="col-md-3 col-sm-6">
                     <div class="service-item">
                   <h4>
                     <%= image_tag "inspecciones.png", class: "img-responsive center-block" %>
-                    <strong>Inspecciones e Inspectores</strong>
+                    <strong>Inspección</strong>
                 </h4>
                 <p>Ya tengo un negocio ¿Qué inspecciones me pueden realizar? y ¿Quien las puede realizar?</p>
-                <ul class="text-left">
-                    <li><%= link_to "Prepárate para la inspección", municipio_inspections_path(@municipio) %></li>
-                    <li><%= link_to "Conoce a los inspectores", municipio_inspectors_path(@municipio) %></li>
-                </ul>
+                
+                    <%= link_to "Inspecciones", municipio_inspections_path(@municipio) ,class: 'btn btn-default'%>
+                <%= link_to "Inspectores", municipio_inspectors_path(@municipio) ,class: 'btn btn-default'%>
+                
                 <%#= link_to "Prepárate para la inspección", municipio_inspections_path(@municipio), class: 'btn btn-default' %>
                 <%#= link_to "Conoce a los inspectores", municipio_inspectors_path(@municipio), class: 'btn btn-default' %>
                 <%#= button_to "Continuar",municipio_inspeccion_path(@municipio), class: "btn btn-light"%>
