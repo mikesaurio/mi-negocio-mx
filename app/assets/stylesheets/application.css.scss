@@ -43,7 +43,6 @@ body.info {
   background-color: $admin_default_color;
 }
 
-
 .navbar-default .navbar-brand {
   color: $default_text_color;
 }
@@ -52,6 +51,11 @@ body.info {
   color: $default_text_color;
 }
 
+.link_image {
+  background-color: white;
+  border: 1px white solid;
+  margin: 15px;
+}
 
 .col-md-3 {
 width: 33%;
