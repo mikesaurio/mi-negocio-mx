@@ -1,6 +1,6 @@
 <%= form_for :get, :html => {:method => :get}, :url => { :controller => :procedure_lines, :action => :index }  do |f| %>
 <p>
-  ¿Cual es el giro de tu negocio.....?
+  ¿Cual es el giro de tu negocio?
   	<%= f.select :lines, Line.where(municipio_id: @municipio).map { |u| [u.nombre, u.id] },{ include_blank: true ,:selected =>@line  }, 
   	{ class: 'chosen-select' }%>
 
