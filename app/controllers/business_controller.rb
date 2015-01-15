@@ -9,7 +9,7 @@ class BusinessController < ApplicationController
   def steps
       set_municipio(:municipio_id)
       @requirements = Requirement.all
-    valores  if params[:post][:lines]
+      valores  if params[:post][:lines]
     
   end
   

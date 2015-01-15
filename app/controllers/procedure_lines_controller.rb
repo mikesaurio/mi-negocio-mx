@@ -7,19 +7,17 @@ class ProcedureLinesController < ApplicationController
      @procedure = Procedure.all
      @id_del_giro = "0"
      @tipo  = 'A'
+     valores  if params[:get]
     
-    unless params[:lines].nil?
-      @param_paso = params[:lines]
-      @id_del_giro = @param_paso[:line_id]
-      @tramites_del_giro = Line.find(@id_del_giro).procedures.includes(:procedure_lines).where("line_id = #{@id_del_giro}") 
-      @tipo = params[:rating]
-    end
  end
+  def valores
+     @line = params[:get][:lines]
+     @tipo = params[:rating]
+     @tramites_del_giro = Line.find(@line).procedures.includes(:procedure_lines).where("line_id = #{@line}") 
+  end
 
  def show
-
     @municipio = Municipio.find(params[:id])
-    
     @procedure_requirements = ProcedureRequirement.all
     @procedure_lines=  ProcedureLine.all
     @requirements = Requirement.all
