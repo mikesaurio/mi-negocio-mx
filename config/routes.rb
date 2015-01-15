@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'business/pasos'
+
   devise_for :users
 
 
@@ -25,12 +27,18 @@ Rails.application.routes.draw do
     resources :inspections, only: [:index, :show]
     resources :inspectors, only: [:index, :show]
     resources :procedure_lines, only: [:show]
-    get 'nuevo_negocio'
-    post 'nuevo_negocio'
+    resources :business, only: [:index]
+    
+    resources :procedures, only: [:index, :show] do
+      resources :requirements, only: [:index, :show]
+    end
+    post 'business/steps'
+    
     get 'tramite'
     post 'tramite'
   end
   
+
 
   namespace :dashboard do
     resources :inspections, only: [:new, :create, :edit, :update, :destroy]

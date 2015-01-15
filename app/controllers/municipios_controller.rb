@@ -23,20 +23,7 @@ class MunicipiosController < ApplicationController
   end
   
   
-  def nuevo_negocio
-       set_municipio(:municipio_id)
-       
-       unless params[:post].nil?
-          unless params[:post][:lines].nil?
-              @line = params[:post][:lines]
-              @tipo = params[:rating]
-          end
-      end
-      @requirements = Requirement.all
-  
-        
-    
-  end
+
 
   def open
     @titulo_fisico = "Crear un negocio como persona fisica"
