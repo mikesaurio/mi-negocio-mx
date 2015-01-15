@@ -36,7 +36,7 @@ gem 'autoprefixer-rails'
 gem 'devise'
 gem 'pundit'
 
-gem "searchkick"#autocompletar
+gem 'chosen-rails' #autocompletar
 
 group :development do
   # Thin server

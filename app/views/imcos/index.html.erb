@@ -1,4 +1,4 @@
-<%= form_for :post, :url => { :controller => :municipios, :action => :show } do |f| %>
+<%= form_for :post, :url => { :controller => :municipios, :action => :search } do |f| %>
 
 	<div class="container">
 		<div class="row">
@@ -7,10 +7,8 @@
 					<div class="input-group-addon">
 						<H3><%=f.label 'Ingresa tu municipio' %></H3>
 						<BR>
-						<%= text_field_tag :query, params[:query], class: "form-control", id: "result_search", autocomplete: "off" , :focus => true %><BR><BR>
-						<% @municipios.each_with_index do |municipio, i| %>
-							<%= municipio.nombre %>|
-						<%end%>
+						<%= f.select :municipio, Municipio.all.map { |u| [u.nombre, u.id] },{ include_blank: true }, { class: 'chosen-select' }%>
+						</br>
 					</div>
 				</div>
 				<br>
@@ -19,7 +17,6 @@
 		</div>
 	</div>
 <% end %>
-<%= javascript_tag "$('group_name').focus()" %>
 
 
 
