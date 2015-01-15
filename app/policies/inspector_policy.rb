@@ -1,6 +1,6 @@
 class InspectorPolicy < ApplicationPolicy
   def create?
-    record.dependency.municipio_id == user.municipio_id
+    record.dependency.municipio_id == user.municipio_id && user.admin?
   end
 
   # def new?

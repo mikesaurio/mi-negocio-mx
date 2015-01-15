@@ -10,8 +10,8 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
  *= require font-awesome
+ *= require_tree .
  *= require_self
  *= require chosen
  */
@@ -26,6 +26,10 @@
 $grey-200: #EEEEEE;
 $teal-500: #009688;
 
+$user_default_color: #009688;
+$admin_default_color: #3B3C3C;
+$default_text_color: #fff;
+
 body.info {
  min-height: 2000px;
  padding-top: 70px;
@@ -33,11 +37,25 @@ body.info {
 }
 
 .navbar-default {
-  background-color: #009688;
+  background-color: $user_default_color;
+}
+
+.navbar-admin {
+  background-color: $admin_default_color;
 }
 
 .navbar-default .navbar-brand {
-  color: #fff;
+  color: $default_text_color;
+}
+
+.navbar-admin .navbar-brand {
+  color: $default_text_color;
+}
+
+.link_image {
+  background-color: white;
+  border: 1px white solid;
+  margin: 15px;
 }
 
 .col-md-3 {

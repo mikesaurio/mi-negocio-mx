@@ -1,10 +1,6 @@
 Rails.application.routes.draw do
 
-  get 'business/pasos'
-
   devise_for :users
-
-
   post "municipios/search"
 
   resources :inspection_lines
@@ -16,7 +12,7 @@ Rails.application.routes.draw do
   resources :procedures
   resources :dependencies
   resources :imcos
-  
+
   resources :municipios, only: [:show] do
     resources :inspections, only: [:index, :show]
     resources :inspectors, only: [:index, :show]
@@ -24,14 +20,11 @@ Rails.application.routes.draw do
     resources :business, only: [:index]
       post 'business/steps'
   end
-  
 
-
-  namespace :dashboard do
-    resources :inspections, only: [:new, :create, :edit, :update, :destroy]
-    resources :inspectors, only: [:new, :create, :edit, :update, :destroy]
+  resource :dashboard, only: :show, controller: :dashboard do
+    resources :inspections, only: [:new, :create, :edit, :update, :destroy], controller: 'dashboard/inspections'
+    resources :inspectors, only: [:new, :create, :edit, :update, :destroy], controller: 'dashboard/inspectors'
   end
 
-    
   root 'imcos#index'
 end
