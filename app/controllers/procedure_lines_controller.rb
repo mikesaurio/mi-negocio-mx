@@ -10,6 +10,7 @@ class ProcedureLinesController < ApplicationController
      valores  if params[:get]
     
  end
+ 
   def valores
      @line = params[:get][:lines]
      @tipo = params[:rating]
@@ -17,7 +18,8 @@ class ProcedureLinesController < ApplicationController
   end
 
  def show
-    @municipio = Municipio.find(params[:id])
+     set_municipio(:municipio_id)
+     
     @procedure_requirements = ProcedureRequirement.all
     @procedure_lines=  ProcedureLine.all
     @requirements = Requirement.all
