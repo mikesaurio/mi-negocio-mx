@@ -1,4 +1,12 @@
 es:
+  titles:
+    inspections: Inspecciones
+  form:
+    actions:
+      edit: Editar
+      destroy: Borrar
+    confirmations:
+      delete_inspection: ¿Estás seguro que deseas borrar esta inspección?
   dashboard:
     inspections:
       new:
