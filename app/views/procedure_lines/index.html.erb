@@ -19,10 +19,7 @@
         <% @tramites_del_giro.each_with_index do |tramite_de_giro, i| %>
         <%= link_to municipio_procedure_line_path(@municipio,tramite_de_giro) do %>
         <li class="table--row">
-          <%if tramite_de_giro.tipo == @tipo %>
-            <div class="row--"><%= tramite_de_giro.nombre %></div>
-          <%end%>
-          <%if @tipo == 'A' %>
+          <%if tramite_de_giro.tipo == @tipo || @tipo == 'A' %>
             <div class="row--"><%= tramite_de_giro.nombre %></div>
           <%end%>
         </li>
