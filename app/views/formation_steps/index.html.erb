@@ -1,0 +1,31 @@
+<h1>Listing formation_Steps</h1>
+
+<table>
+	<% if @formation_steps.any? %>
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Description</th>
+			<th>Path</th>
+			<th>Type</th>
+		</tr>
+	</thead>
+	<tbody>
+		
+		<% @formation_steps.each do |formation_step| %>
+		<tr>
+			<td><%= formation_step.name %></td>
+			<td><%= formation_step.description %></td>
+			<td><%= formation_step.path %></td>
+			<td><%= formation_step.type %></td>
+		</tr>
+		<% end %>
+		<% else %>
+		<div class="alert alert-info">
+			<%= t('.no-formation_steps') %>
+		</div>
+		<% end %>
+	</tbody>
+</table>
+<br>
+

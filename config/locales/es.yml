@@ -10,6 +10,11 @@ es:
         title: Nuevo inspector
       form:
         create_inspector: Crear
+    formation_steps:
+      new:
+        title: Nuevo inspector
+      form:
+        create_formation_steps: Crear
   devise:
     sessions:
       user:
