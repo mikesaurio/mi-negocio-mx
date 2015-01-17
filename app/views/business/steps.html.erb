@@ -12,8 +12,8 @@
                 <div class="col-lg-12">
                     <ul class="timeline">
                         <% count = 0 %>
-                    		<% @requirements.each_with_index do |requirement,index| %>
-                    		<% if requirement.tipo == @tipo %>
+                    		<% @formation_steps.each_with_index do |formation_step,index| %>
+                    		<% if formation_step.type == @tipo %>
                     		   <% count += 1 %>
                         		 <%if index % 2 == 0 %>
                                 	<li>
@@ -26,10 +26,10 @@
                    	 			<div class="timeline-panel">
                                     <div class="timeline-heading">
                                         <h4>Paso <%=count%></h4>
-                                        <h4 class="subheading"> <%= requirement.nombre %></h4>
+                                        <h4 class="subheading"> <%= formation_step.name %></h4>
                                     </div>
                                     <div class="timeline-body">
-                                        <p class="text-muted"><%= requirement.descripcion %></p>
+                                        <p class="text-muted"><%= formation_step.description %></p>
                                     </div>
                                 </div>
                             </li>
