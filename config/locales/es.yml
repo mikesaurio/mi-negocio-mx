@@ -1,12 +1,14 @@
 es:
   titles:
     inspections: Inspecciones
+    inspectors: Inspectores
   form:
     actions:
       edit: Editar
       destroy: Borrar
     confirmations:
       delete_inspection: ¿Estás seguro que deseas borrar esta inspección?
+      delete_inspector: ¿Estás seguro que deseas borrar a este inspector?
   dashboard:
     inspections:
       index:
@@ -16,13 +18,22 @@ es:
         new_inspection: Nueva Inspección
       new:
         title: Nueva inspección
+      edit:
+        title: Editar inspección
       form:
-        create_inspection: Crear
+        create_inspection: Guardar cambios
     inspectors:
+      index:
+        name: Nombre
+        dependency: Dependencia
+        actions: Acciones
+        new_inspector: Nuevo Inspector
       new:
         title: Nuevo inspector
+      edit:
+        title: Editar inspector
       form:
-        create_inspector: Crear
+        create_inspector: Guardar cambios
   devise:
     sessions:
       user:

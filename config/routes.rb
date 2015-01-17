@@ -22,8 +22,8 @@ Rails.application.routes.draw do
   end
 
   resource :dashboard, only: :show, controller: :dashboard do
-    resources :inspections, only: [:index, :show, :new, :create, :edit, :update, :destroy], controller: 'dashboard/inspections'
-    resources :inspectors, only: [:index, :show, :new, :create, :edit, :update, :destroy], controller: 'dashboard/inspectors'
+    resources :inspections, only: [:index, :new, :create, :edit, :update, :destroy], controller: 'dashboard/inspections'
+    resources :inspectors, only: [:index, :new, :create, :edit, :update, :destroy], controller: 'dashboard/inspectors'
   end
 
   root 'imcos#index'
