@@ -9,6 +9,11 @@ es:
       delete_inspection: ¿Estás seguro que deseas borrar esta inspección?
   dashboard:
     inspections:
+      index:
+        name: Nombre
+        dependency: Dependencia
+        actions: Acciones
+        new_inspection: Nueva Inspección
       new:
         title: Nueva inspección
       form:

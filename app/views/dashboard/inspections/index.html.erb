@@ -1,4 +1,5 @@
-<%= content_tag :h2, t('titles.inspections') %>
+<h2> <%= t('titles.inspections') %></h2>
+<%= link_to t('.new_inspection'), new_dashboard_inspection_path, class: 'btn btn-default pull-right' %>
 
 <table class="table">
    <thead>
