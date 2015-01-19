@@ -22,13 +22,18 @@
  @import "cards";
 
 
-
+// colors
 $grey-200: #EEEEEE;
+$grey-400: #BDBDBD;
+$grey-500: #9E9E9E;
+
 $teal-500: #009688;
 
 $user_default_color: #009688;
 $admin_default_color: #3B3C3C;
 $default_text_color: #fff;
+
+// styles
 
 body.info {
  min-height: 2000px;
@@ -94,9 +99,6 @@ padding-top: 70px;
 // background-color: #3F9B63;
 }
 
-
-
-
 .input-group-addon {
 padding: 6px 12px;
 font-size: 14px;
@@ -107,4 +109,9 @@ text-align: center;
 background-color: #A7A9AB;
 border: 1px solid #00B26E;
 border-radius: 4px;
+}
+
+.empty-resource {
+  text-align: center;
+  color: $grey-500;
 }
