@@ -4,16 +4,17 @@ class InspectorsController < ApplicationController
   layout 'blanco'
 
   def index
+    @inspectors = Inspector.by_city(@municipio)
+
     if params[:q]
-      @inspectors = Inspector.search(params[:q]).order("created_at DESC")
+      @inspectors = @inspectors.search_by_city(@municipio, params[:q])
     else
-      @inspectors = Inspector.all
+      @inspectors
     end
-    @dependency = Dependency.all
   end
 
   def show
-
+    @dependency = Dependency.by_city(@municipio)
   end
 
   private
