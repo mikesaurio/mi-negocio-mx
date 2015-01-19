@@ -4,12 +4,10 @@ class InspectorsController < ApplicationController
   layout 'blanco'
 
   def index
-    @inspectors = Inspector.by_city(@municipio)
-
     if params[:q]
-      @inspectors = @inspectors.search_by_city(@municipio, params[:q])
+      @inspectors = Inspector.search_by_city(@municipio, params[:q])
     else
-      @inspectors
+      @inspectors = Inspector.by_city(@municipio)
     end
   end
 
