@@ -54,10 +54,12 @@ es:
     index:
       title: Inspecciones
       search_inspections: Buscar inspecciones...
+      no_inspections_available: No encontramos inspecciones en este municipio
   inspectors:
     index:
       title: Inspectores
       search_inspectors: Buscar inspectores...
+      no_inspectors_available: No encontramos inspectores en este municipio
   pages:
     inspec:
       title: Inspecciones
