@@ -14,7 +14,6 @@ Rails.application.routes.draw do
   resources :imcos
 
   resources :municipios, only: [:show] do
-    resources :formation_steps, only: [:index, :show]
     resources :inspections, only: [:index, :show]
     resources :inspectors, only: [:index, :show]
     resources :procedure_lines, only: [:index,:show]
@@ -23,9 +22,8 @@ Rails.application.routes.draw do
   end
 
   resource :dashboard, only: :show, controller: :dashboard do
-    resources :inspections, only: [:new, :create, :edit, :update, :destroy], controller: 'dashboard/inspections'
-    resources :inspectors, only: [:new, :create, :edit, :update, :destroy], controller: 'dashboard/inspectors'
-    resources :formation_steps, only: [:new, :create, :edit, :update, :destroy], controller: 'dashboard/formation_steps'
+    resources :inspections, only: [:index, :new, :create, :edit, :update, :destroy], controller: 'dashboard/inspections'
+    resources :inspectors, only: [:index, :new, :create, :edit, :update, :destroy], controller: 'dashboard/inspectors'
   end
 
   root 'imcos#index'

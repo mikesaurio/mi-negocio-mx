@@ -44,12 +44,29 @@ body.info {
   background-color: $admin_default_color;
 }
 
-.navbar-default .navbar-brand {
+nav {
   color: $default_text_color;
 }
 
-.navbar-admin .navbar-brand {
-  color: $default_text_color;
+.navbar-nav > li > a {
+  &:link {
+    color: $default_text_color;
+  }
+
+  /* visited link */
+  &:visited {
+    color: $default_text_color;
+  }
+
+  /* mouse over link */
+  &:hover {
+    color: $admin_default_color;
+  }
+
+  /* selected link */
+  &:active {
+    color: $admin_default_color;
+  }
 }
 
 .link_image {
@@ -77,6 +94,20 @@ padding-top: 70px;
 // background-color: #3F9B63;
 }
 
+
+
+
+.input-group-addon {
+padding: 6px 12px;
+font-size: 14px;
+font-weight: normal;
+line-height: 1;
+color: #555555;
+text-align: center;
+background-color: #A7A9AB;
+border: 1px solid #00B26E;
+border-radius: 4px;
+}
 
 
 
