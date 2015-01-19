@@ -5,9 +5,9 @@ class InspectionsController < ApplicationController
 
   def index
     if params[:q]
-      @inspections = Inspection.search(params[:q]).order("created_at DESC")
+      @inspections = Inspection.search_by_city(@municipio, params[:q])
     else
-      @inspections = Inspection.all
+      @inspections = Inspection.by_city(@municipio)
     end
   end
 
