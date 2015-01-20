@@ -3,14 +3,10 @@ class BusinessController < ApplicationController
   
   def index
       set_municipio(:municipio_id)
-      
+      @tipo = 'AF'
        valores  if params[:get]
 
  end
-  
-  def steps
-      #set_municipio(:municipio_id)
-  end
   
   def valores
     if params[:get][:lines]

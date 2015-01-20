@@ -1,3 +1,9 @@
+<div class="row text-center">
+            <div class="col-lg-10 col-lg-offset-1">
+                <%= content_tag :h1,"Tramites", class: 'text-center' %>
+                <hr class="small">
+            </div>
+</div>
 <%= form_for :get, :html => {:method => :get}, :url => { :controller => :procedure_lines, :action => :index }  do |f| %>
 <p>
   ¿Cual es el giro de tu negocio?
@@ -11,6 +17,10 @@
     <%=  radio_button_tag :rating, 'TM', @tipo=='TM'%>Moral
     <%=  radio_button_tag :rating, 'A', @tipo=='A' %>Ambas
   </div>
+  <br>
+      <div class="actions">
+      <%= f.submit 'Aceptar' %>
+    </div>
   <div class="deck">
     <% unless @tramites_del_giro.nil? || @tramites_del_giro.empty?%>
     <div class="table__card">
@@ -36,14 +46,9 @@
         <%= t('.ningun-tramites') %>
       </div>
     <%end%>
-    <div class="actions">
-      <%= f.submit 'Aceptar' %>
-    </div>
+
     <%end%>
   </div>
-
-
-
 
   <script>
   $(document).ready(function(){ 

@@ -1,3 +1,9 @@
+<div class="row text-center">
+    <div class="col-lg-10 col-lg-offset-1">
+        <%= content_tag :h1,"Nuevo Negocio", class: 'text-center' %>
+        <hr class="small">
+    </div>
+</div>
 <%= form_for :get, :html => {:method => :get}, :url => { :controller => :business, :action => :index }  do |f| %>
 <p>
 	¿Iniciaras un nuevo negocio?'
@@ -9,6 +15,7 @@
 		<%=  radio_button_tag :rating, 'AF', @tipo=='AF' %>Fisica
 		<%=  radio_button_tag :rating, 'AM', @tipo=='AM'%>Moral
 	</div>
+	<br>
 	<div class="actions">
 				<%= f.submit 'Aceptar' %>
 			</div>

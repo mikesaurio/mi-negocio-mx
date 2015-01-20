@@ -1,16 +1,31 @@
 class FormationStepsController < ApplicationController
-   layout 'blanco'
-    before_action :set_formation_steps, only: [:show]
+ layout 'blanco'
+ before_action :set_formation_steps, only: [:show]
 
-    def index
-      @formation_steps = FormationStep.all
-    end
+ def index
+  set_municipio(:municipio_id)
+  @tipo = 'AF'
+  valores  if params[:get]
 
-    def show
-    end
+end
 
-    private
+def valores
+  if params[:get][:lines]
+   @line = params[:get][:lines]
+   @tipo = params[:rating]
+   @formation_steps = FormationStep.all
+ end
+end
+
+def show
+end
+
+private
       # Use callbacks to share common setup or constraints between actions.
+      def set_municipio(val)
+        @municipio = Municipio.find(params[val])
+      end
+
       def set_formation_steps
         @formation_step = FormationStep.find(params[:id])
       end
