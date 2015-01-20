@@ -1,7 +1,7 @@
 class FormationStepPolicy < ApplicationPolicy
   def create?
-    true
-   # record.dependency.municipio_id == user.municipio_id && user.admin?
+   # raise record.inspect
+    record.municipio_id == user.municipio_id && user.admin?
   end
 
   # def new?

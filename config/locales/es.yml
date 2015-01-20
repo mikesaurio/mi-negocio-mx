@@ -34,6 +34,18 @@ es:
         title: Editar inspector
       form:
         create_inspector: Guardar cambios
+    formation_steps:
+      index:
+        name: Nombre
+        dependency: Dependencia
+        actions: Acciones
+        new_inspector: Nuevo Tramite Apertura
+      new:
+        title: Nuevo Tramite de Apertura
+      edit:
+        title: Editar Tramite de Apertura
+      form:
+        create_formation_steps: Guardar cambios
   devise:
     sessions:
       user:

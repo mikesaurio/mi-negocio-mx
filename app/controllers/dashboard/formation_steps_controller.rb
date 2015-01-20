@@ -4,6 +4,9 @@ module Dashboard
     before_action :authenticate_user!
     layout 'dashboard'
 
+    def index
+      @formation_steps = policy_scope(FormationStep)
+    end
 
     def new
       @formation_step = FormationStep.new
@@ -11,16 +14,17 @@ module Dashboard
     end
 
     def edit
-      #@municipio_id =  current_user.municipio_id
+          @dependency = Dependency.where(municipio_id: current_user.municipio_id)
     end
 
     def create
       @formation_step = FormationStep.new(formation_steps_params)
+      @formation_step.municipio = current_user.municipio
       authorize @formation_step
 
       respond_to do |format|
         if @formation_step.save
-          format.html { redirect_to @formation_step, notice: 'formation step was successfully created.' }
+          format.html { redirect_to edit_dashboard_formation_step_url(@formation_step), notice: 'formation step was successfully created.' }
           format.json { render :show, status: :created, location: @formation_step }
         else
           format.html { render :new }
@@ -32,7 +36,7 @@ module Dashboard
      def update
     respond_to do |format|
       if @formation_step.update(formation_steps_params)
-        format.html { redirect_to edit_dashboard_formation_step_path(@formation_step), notice: 'formation_step was successfully updated.' }
+        format.html { redirect_to edit_dashboard_formation_step_url(@formation_step), notice: 'formation_step was successfully updated.' }
         format.json { render :show, status: :ok, location: @formation_step }
       else
         format.html { render :edit }
@@ -43,10 +47,9 @@ module Dashboard
 
    def destroy
       authorize @formation_step
-
       @formation_step.destroy
       respond_to do |format|
-        format.html { redirect_to iformation_steps_url, notice: 'Inspection was successfully destroyed.' }
+        format.html { redirect_to dashboard_formation_steps_path, notice: 'Inspection was successfully destroyed.' }
         format.json { head :no_content }
       end
     end
@@ -57,7 +60,7 @@ module Dashboard
     end
 
     def formation_steps_params
-      params.require(:formation_step).permit(:name, :description, :type, :path)
+      params.require(:formation_step).permit(:name, :description, :type, :path, :municipio_id )
     end
   end
 end
