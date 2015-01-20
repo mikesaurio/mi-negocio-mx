@@ -3,6 +3,8 @@ class BusinessController < ApplicationController
   
   def index
      set_municipio(:municipio_id)
+   cargar_menus
+     
   end 
   
   
@@ -10,6 +12,7 @@ class BusinessController < ApplicationController
       set_municipio(:municipio_id)
       @formation_steps = FormationStep.all
       valores  if params[:post][:lines]
+      cargar_menus
   end
   
   def valores
@@ -25,6 +28,16 @@ class BusinessController < ApplicationController
     end
     def municipio_params
       params.require(:municipio).permit(:nombre)
+    end
+
+
+    def cargar_menus
+      @link_1 ="/dashboard"
+     @texto_link_1 = "Tramites"
+      @link_2="/dashboard"
+     @texto_link_2 = "Inspecciones"
+      @link_3 ="/dashboard"
+     @texto_link_3 = "Inspectores"
     end
 
 end

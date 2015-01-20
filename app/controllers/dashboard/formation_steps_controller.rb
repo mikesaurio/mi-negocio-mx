@@ -4,6 +4,7 @@ module Dashboard
     before_action :authenticate_user!
     layout 'dashboard'
 
+
     def new
       @formation_step = FormationStep.new
       @dependency = Dependency.where(municipio_id: current_user.municipio_id)

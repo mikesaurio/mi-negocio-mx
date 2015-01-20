@@ -8,6 +8,8 @@ class ProcedureLinesController < ApplicationController
      @id_del_giro = "0"
      @tipo  = 'A'
      valores  if params[:get]
+
+      cargar_menus
     
  end
  
@@ -27,6 +29,8 @@ class ProcedureLinesController < ApplicationController
     @line = Line.find(@procedure_line.line_id).nombre
     @procedure = Procedure.find(@procedure_line.procedure_id).nombre 
     @procedure_requirement = @procedure_requirements.where(procedure_id: Procedure.find(@procedure_line.procedure_id).id) 
+
+     cargar_menus
  end
  
 
@@ -35,6 +39,8 @@ class ProcedureLinesController < ApplicationController
   @procedure_line = ProcedureLine.new
   @procedure = Procedure.all
   @Line = Line.all
+
+  
 end
 
 def edit
@@ -67,6 +73,15 @@ def update
   end
 end
 
+
+    def cargar_menus
+      @link_1 ="/dashboard"
+     @texto_link_1 = "Apertura"
+      @link_2="/dashboard"
+     @texto_link_2 = "Inspecciones"
+      @link_3 ="/dashboard"
+     @texto_link_3 = "Inspectores"
+    end
 
 private
     # Use callbacks to share common setup or constraints between actions.
