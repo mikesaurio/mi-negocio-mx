@@ -18,7 +18,6 @@ Rails.application.routes.draw do
     resources :inspectors, only: [:index, :show]
     resources :procedure_lines, only: [:index,:show]
     resources :business, only: [:index]
-      post 'business/steps'
   end
 
   resource :dashboard, only: :show, controller: :dashboard do

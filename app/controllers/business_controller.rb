@@ -2,22 +2,22 @@ class BusinessController < ApplicationController
     layout 'blanco'
   
   def index
-     set_municipio(:municipio_id)
-   cargar_menus
-     
-  end 
-  
+      set_municipio(:municipio_id)
+      
+       valores  if params[:get]
+
+ end
   
   def steps
-      set_municipio(:municipio_id)
-      @formation_steps = FormationStep.all
-      valores  if params[:post][:lines]
-      cargar_menus
+      #set_municipio(:municipio_id)
   end
   
   def valores
-     @line = params[:post][:lines]
-     @tipo = params[:rating]
+    if params[:get][:lines]
+       @line = params[:get][:lines]
+        @tipo = params[:rating]
+        @formation_steps = FormationStep.all
+    end
   end
   
   
@@ -31,13 +31,5 @@ class BusinessController < ApplicationController
     end
 
 
-    def cargar_menus
-      @link_1 ="/dashboard"
-     @texto_link_1 = "Tramites"
-      @link_2="/dashboard"
-     @texto_link_2 = "Inspecciones"
-      @link_3 ="/dashboard"
-     @texto_link_3 = "Inspectores"
-    end
 
 end
