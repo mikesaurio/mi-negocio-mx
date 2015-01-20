@@ -1,5 +1,5 @@
 class MunicipiosController < ApplicationController
-  layout 'blanco'
+  layout 'menu'
   before_action :set_municipio, only: [:edit, :update, :destroy]
 
   def index

@@ -62,3 +62,6 @@ es:
     inspec:
       title: Inspecciones
       search_inspections: Buscar inspecciones...
+  municipios:
+    index:
+      title: Selecciona una opción
