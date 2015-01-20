@@ -2,6 +2,7 @@ es:
   titles:
     inspections: Inspecciones
     inspectors: Inspectores
+    formation_steps: Tramites de Apertura
   form:
     actions:
       edit: Editar
@@ -9,6 +10,7 @@ es:
     confirmations:
       delete_inspection: ¿Estás seguro que deseas borrar esta inspección?
       delete_inspector: ¿Estás seguro que deseas borrar a este inspector?
+      delete_formation_step: ¿Estás seguro que deseas borrar a este trámite?
   dashboard:
     inspections:
       index:
@@ -39,7 +41,7 @@ es:
         name: Nombre
         dependency: Dependencia
         actions: Acciones
-        new_inspector: Nuevo Tramite Apertura
+        new_formation_step: Nuevo Tramite Apertura
       new:
         title: Nuevo Tramite de Apertura
       edit:
@@ -70,6 +72,9 @@ es:
     index:
       title: Inspectores
       search_inspectors: Buscar inspectores...
+  formation_steps:
+    index:
+      title: Nuevo negocio
   pages:
     inspec:
       title: Inspecciones
@@ -77,3 +82,9 @@ es:
   municipios:
     index:
       title: Selecciona una opción
+  layouts:
+    blanco:
+      new: NUEVO NEGOCIO
+      tramite: TRAMITES
+      inspections: INSPECCIONES
+      inspectors: INSPECTORES

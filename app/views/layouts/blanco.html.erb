@@ -16,11 +16,11 @@
         <%end%>
       </div>
       <div id="navbar" class="nav nav-pills topnav">
-      <ul class="nav navbar-nav">
-        <li> <%= link_to "NUEVO NEGOCIO",municipio_formation_steps_path(@municipio), class: "nav navbar-nav"%></li>
-        <li> <%= link_to "TRAMITES",municipio_procedure_lines_path(@municipio), class: "nav navbar-nav"%></li>
-        <li> <%= link_to "INSPECCIONES",municipio_inspections_path(@municipio), class: "nav navbar-nav"%></li>
-        <li> <%= link_to "INSPECTORES",municipio_inspectors_path(@municipio), class: "nav navbar-nav"%></li>
+      <ul class="nav navbar-nav navbar-left">
+        <li> <%= link_to t('.new'),municipio_formation_steps_path(@municipio), class: "nav navbar-nav"%></li>
+        <li> <%= link_to t('.tramite'),municipio_procedure_lines_path(@municipio), class: "nav navbar-nav"%></li>
+        <li> <%= link_to t('.inspections'),municipio_inspections_path(@municipio), class: "nav navbar-nav"%></li>
+        <li> <%= link_to t('.inspectors'),municipio_inspectors_path(@municipio), class: "nav navbar-nav"%></li>
         </ul>
       </div>
     </div>
