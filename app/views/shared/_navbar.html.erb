@@ -6,12 +6,11 @@
       <%#= image_tag "logos-horizontal/retos_logo_horizontal-04.png", class: "navbar-brand" %>
       <span class="navbar-brand"><%= navbar_title(current_user.municipio.nombre) %> </span>
     </div>
-    <div id="navbar" class="navbar-collapse collapse">
-      <!-- left side of the navbar -->
-      <ul class="nav navbar-nav">
+
+    <div id="navbar" class="nav nav-pills topnav">
+    <ul class="nav navbar-nav navbar-left">
         <li><%= link_to 'Dashboard', dashboard_path %></li>
       </ul>
-      <!-- right side of the navbar -->
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><%= current_user.email %> <span class="caret"></span></a>
@@ -21,6 +20,11 @@
           </ul>
         </li>
       </ul>
+      </div>
+      <!-- left side of the navbar -->
+     
+      <!-- right side of the navbar -->
+      
     </div>
   </div>
 </nav>
