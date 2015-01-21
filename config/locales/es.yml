@@ -77,6 +77,7 @@ es:
   formation_steps:
     index:
       title: Nuevo negocio
+      no_formation_steps_available: No encontramos trámites para apertura
   pages:
     inspec:
       title: Inspecciones

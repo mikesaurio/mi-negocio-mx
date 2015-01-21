@@ -5,10 +5,9 @@
     </div>
 </div>
 <%= form_for :get, :html => {:method => :get}, :url => { :controller => :formation_steps, :action => :index }  do |f| %>
-<p>
-	¿Iniciaras un nuevo negocio?'
-	<%= f.select :lines, Line.where(municipio_id: @municipio).map { |u| [u.nombre, u.id] },{ include_blank: true ,:selected =>@line }, { class: 'chosen-select' }%>
-
+	<p>¿Iniciaras un nuevo negocio?'
+		<%= f.select :lines, Line.where(municipio_id: @municipio).map { |u| [u.nombre, u.id] },{ include_blank: true ,:selected =>@line }, { class: 'chosen-select' }%>
+	</p>
 	<div class= "field">
 		<%tipos = {'Físico' => 'TF', 'Moral' => 'TM'}%>
 		Mostrar para personas:
@@ -17,62 +16,59 @@
 	</div>
 	<br>
 	<div class="actions">
-				<%= f.submit 'Aceptar' %>
-			</div>
+		<%= f.submit 'Aceptar' %>
+	</div>
 	<div class="deck">
 		<% unless @line.nil? %>
-		<br><br>
-		<div class="row">
-			<div class="col-lg-12 text-center">
-				<h2 class="section-heading">Apertura de <%=Line.find(@line).nombre.downcase %></h2>
-				<h3 class="section-subheading text-muted">Para persona <%= @tipo == 'AF'? 'física' : 'moral'%>  </h3>
-				<br><br>
+			<br><br>
+			<div class="row">
+				<div class="col-lg-12 text-center">
+					<h2 class="section-heading">Apertura de <%=Line.find(@line).nombre.downcase %></h2>
+					<h3 class="section-subheading text-muted">Para persona <%= @tipo == 'AF'? 'física' : 'moral'%>  </h3>
+					<br><br>
+				</div>
 			</div>
-		</div>
-		<div class="row">
-			<div class="col-lg-12">
-				<ul class="timeline">
-					<% count = 0 %>
-					<% @formation_steps.each_with_index do |formation_step,index| %>
-					<% if formation_step.type == @tipo %>
-					<% count += 1 %>
-					<%if index % 2 == 0 %>
-					<li>
-						<%else %>
-						<li class="timeline-inverted">
-							<%end %>
-							<div class="timeline-image">
-								<%= image_tag "bolita.png", class: "img-circle img-responsive" %>
-							</div>
-							<div class="timeline-panel">
-								<div class="timeline-heading">
-									<h4>Paso <%=count%></h4>
-									<h4 class="subheading"> <%= formation_step.name %></h4>
+			<div class="row">
+				<div class="col-lg-12">
+					<ul class="timeline">
+						<% count = 0 %>
+						<% @formation_steps.each_with_index do |formation_step,index| %>
+							<% if formation_step.type == @tipo %>
+								<% count += 1 %>
+								<%if index % 2 == 0 %>
+									<li/>
+								<%else %>
+									<li class="timeline-inverted">
+								<%end %>
+								<div class="timeline-image">
+									<%= image_tag "bolita.png", class: "img-circle img-responsive" %>
 								</div>
-								<div class="timeline-body">
-									<p class="text-muted"><%= formation_step.description %></p>
+								<div class="timeline-panel">
+									<div class="timeline-heading">
+										<h4>Paso <%=count%></h4>
+										<h4 class="subheading"> <%= formation_step.name %></h4>
+									</div>
+									<div class="timeline-body">
+										<p class="text-muted"><%= formation_step.description %></p>
+									</div>
 								</div>
-							</div>
-						</li>
+							<% end %>
 						<% end %>
-
-						<% end %>
-
-						<li class="timeline-inverted">
-							<div class="timeline-image">
-								<h4>Ya <br>tienes tu <br>empresa</h4>
-							</div>
-						</li>
+						<%if(count != 0)%>
+							<li class="timeline-inverted">
+								<div class="timeline-image">
+									<h4>Lo <br>haz<br>logrado</h4>
+								</div>
+							</li>
+						<%else%>
+							<%= render "shared/empty_resource", message: t('.no_formation_steps_available') %>
+						<%end%>
+						
 					</ul>
 				</div>
 			</div>
 			<% else %>
-			<% dialogo_sin_tramites = 'false'%>
+			<%= render "shared/empty_resource", message: t('.no_formation_steps_available') %>
 			<% end %>
-			<% if dialogo_sin_tramites == 'false'%>
-			<div class="alert alert-info">
-				<%= t('.ningun-tramites') %>
-			</div>
-	<%end%>
 			
 <%end%>
