@@ -13,7 +13,7 @@ def valores
   if params[:get][:lines]
    @line = params[:get][:lines]
    @tipo = params[:rating]
-   @formation_steps = FormationStep.all
+   @formation_steps = FormationStep.search_by_city(@municipio)
  end
 end
 
