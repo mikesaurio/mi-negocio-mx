@@ -17,3 +17,15 @@
 //= require bootstrap-sprockets
 //= require chosen-jquery
 //= require_tree .
+
+var ready = function(){ 
+    $('.chosen-select').chosen({
+       allow_single_deselect: true,
+       no_results_text: 'No hay resultados',
+       placeholder_text: 'Selecciona una opción',
+       width: '500px'
+    });
+};
+
+$(document).ready(ready);
+$(document).on('page:load',ready);
