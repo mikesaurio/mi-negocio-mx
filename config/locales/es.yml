@@ -77,11 +77,13 @@ es:
   formation_steps:
     index:
       title: Nuevo negocio
-      no_formation_steps_available: No encontramos trámites para apertura
-  pages:
-    inspec:
-      title: Inspecciones
-      search_inspections: Buscar inspecciones...
+      no_formation_steps_available: No encontramos trámites para apertura con estos parámetros
+      no_formation_steps_selected: Selecciona las opciones de busqueda 
+  procedure_lines:
+    index:
+      title: Tramites
+      no_proceure_lines_available: No encontramos trámites  con estos parámetros
+      no_procedure_lines_selected: Selecciona las opciones de busqueda 
   municipios:
     index:
       title: Selecciona una opción

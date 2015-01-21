@@ -1,15 +1,12 @@
 <div class="row text-center">
-            <div class="col-lg-10 col-lg-offset-1">
-                <%= content_tag :h1,"Tramites", class: 'text-center' %>
-                <hr class="small">
-            </div>
+  <div class="col-lg-10 col-lg-offset-1">
+    <%= content_tag :h1,t('.title'), class: 'text-center' %>
+    <hr class="small">
+  </div>
 </div>
 <%= form_for :get, :html => {:method => :get}, :url => { :controller => :procedure_lines, :action => :index }  do |f| %>
-<p>
-  ¿Cual es el giro de tu negocio?
-  <%= f.select :lines, Line.where(municipio_id: @municipio).map { |u| [u.nombre, u.id] },{ include_blank: true ,:selected =>@line  }, 
-  { class: 'chosen-select' }%>
-
+  <p>¿Cual es el giro de tu negocio?
+    <%= f.select :lines, Line.where(municipio_id: @municipio).map { |u| [u.nombre, u.id] },{ include_blank: true ,:selected =>@line  },{ class: 'chosen-select' }%></p>
   <div class= "field">
     <%tipos = {'Físico' => 'TF', 'Moral' => 'TM', 'Ambos' => 'A'}%>
     Mostrar para personas:
@@ -18,34 +15,32 @@
     <%=  radio_button_tag :rating, 'A', @tipo=='A' %>Ambas
   </div>
   <br>
-      <div class="actions">
-      <%= f.submit 'Aceptar' %>
-    </div>
+  <div class="actions">
+    <%= f.submit 'Aceptar' %>
+  </div>
   <div class="deck">
     <% unless @tramites_del_giro.nil? || @tramites_del_giro.empty?%>
-    <div class="table__card">
-      <ul>
-        <% dialogo_sin_tramites = 'false'%>
-        <% @tramites_del_giro.each do |tramite_de_giro| %>
-          <%if tramite_de_giro.tipo == @tipo || @tipo == 'A' %>
+      <div class="table__card">
+        <ul>
+          <% count = 0 %>
+          <% @tramites_del_giro.each do |tramite_de_giro| %>
+            <%if tramite_de_giro.tipo == @tipo || @tipo == 'A' %>
+              <% count +=1 %>
               <%= link_to municipio_procedure_line_path(@municipio,tramite_de_giro) do %>
-              <li class="table--row">
-                <div class="row--"><%= tramite_de_giro.nombre %></div>
-                <% dialogo_sin_tramites = 'true'%>
-              </li>
-            <%end%>
+                <li class="table--row">
+                  <div class="row--"><%= tramite_de_giro.nombre %></div>
+                  <% dialogo_sin_tramites = 'true'%>
+                </li>
+              <%end%>
+            <% end %>
           <% end %>
-        <% end %>
-      </ul>
-    </div>
-    <% else %>
-      <% dialogo_sin_tramites = 'false'%>
-    <% end %>
-    <% if dialogo_sin_tramites == 'false'%>
-      <div class="alert alert-info">
-        <%= t('.ningun-tramites') %>
+          <%if count == 0 %>
+            <%= render "shared/empty_resource", message: t('.no_procedure_lines_available') %>
+          <%end%>
+        </ul>
       </div>
-    <%end%>
-
-    <%end%>
+    <% else %>
+      <%= render "shared/empty_resource", message: t('.no_procedure_lines_selected') %>
+    <% end %>
   </div>
+<%end%>
