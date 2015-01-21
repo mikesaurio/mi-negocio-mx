@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150115211255) do
+ActiveRecord::Schema.define(version: 20150120204017) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,16 @@ ActiveRecord::Schema.define(version: 20150115211255) do
   end
 
   add_index "dependencies", ["municipio_id"], name: "index_dependencies_on_municipio_id", using: :btree
+
+  create_table "formation_steps", force: true do |t|
+    t.text     "name"
+    t.text     "description"
+    t.string   "type"
+    t.text     "path"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "municipio_id"
+  end
 
   create_table "inspection_lines", force: true do |t|
     t.integer  "inspection_id"
@@ -111,7 +121,6 @@ ActiveRecord::Schema.define(version: 20150115211255) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "path"
-    t.text     "tipo"
   end
 
   create_table "users", force: true do |t|

@@ -8,13 +8,14 @@ class ProcedureLinesController < ApplicationController
      @id_del_giro = "0"
      @tipo  = 'A'
      valores  if params[:get]
-    
+
  end
  
   def valores
      @line = params[:get][:lines]
      @tipo = params[:rating]
      @tramites_del_giro = Line.find(@line).procedures.includes(:procedure_lines).where("line_id = #{@line}") 
+
   end
 
  def show
@@ -26,6 +27,8 @@ class ProcedureLinesController < ApplicationController
     @line = Line.find(@procedure_line.line_id).nombre
     @procedure = Procedure.find(@procedure_line.procedure_id).nombre 
     @procedure_requirement = @procedure_requirements.where(procedure_id: Procedure.find(@procedure_line.procedure_id).id) 
+
+
  end
  
 
@@ -34,6 +37,8 @@ class ProcedureLinesController < ApplicationController
   @procedure_line = ProcedureLine.new
   @procedure = Procedure.all
   @Line = Line.all
+
+  
 end
 
 def edit

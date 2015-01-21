@@ -26,4 +26,8 @@ class InspectionsController < ApplicationController
     def set_municipio
        @municipio = Municipio.find(params[:municipio_id])
     end
+
+
+  
+
 end

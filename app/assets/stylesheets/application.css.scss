@@ -73,6 +73,9 @@ nav {
     color: $admin_default_color;
   }
 }
+.navbar-default .navbar-brand {
+    color: #ffffff;
+}
 
 .link_image {
   background-color: white;
@@ -104,10 +107,24 @@ padding: 6px 12px;
 font-size: 14px;
 font-weight: normal;
 line-height: 1;
-color: #555555;
+color: #fff;
 text-align: center;
-background-color: #A7A9AB;
-border: 1px solid #00B26E;
+background-color: rgba(0,0,0,0);
+border: 0px solid #00B26E;
+border-radius: 4px;
+}
+
+
+
+.input-group-addon {
+padding: 6px 12px;
+font-size: 14px;
+font-weight: normal;
+line-height: 1;
+color: #fff;
+text-align: center;
+background-color: rgba(0,0,0,0);
+border: 0px solid #00B26E;
 border-radius: 4px;
 }
 
@@ -115,3 +132,12 @@ border-radius: 4px;
   text-align: center;
   color: $grey-500;
 }
+
+// @media (min-width: 768px){
+//     .navbar-nav{
+//         margin: 0 auto;
+//         display: table;
+//         table-layout: fixed;
+//         float:none;
+//     }
+// }
