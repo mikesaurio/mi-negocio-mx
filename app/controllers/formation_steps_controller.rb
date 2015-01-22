@@ -14,8 +14,8 @@ def valores
    @line = params[:get][:lines]
    @tipo = params[:rating]
    @formation_steps = FormationStep.by_city(@municipio)
-   @heading = view_context.heading_search(Line.find(@line).nombre.downcase)
-   @subheading = view_context.subheading_search(@tipo)
+   # @heading = view_context.heading_search(Line.find(@line).nombre.downcase)
+   # @subheading = view_context.subheading_search(@tipo)
  end
 end
 
