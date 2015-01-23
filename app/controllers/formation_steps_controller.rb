@@ -1,19 +1,21 @@
 class FormationStepsController < ApplicationController
  layout 'blanco'
  before_action :set_formation_steps, only: [:show]
+helper :formation_steps
 
  def index
   set_municipio(:municipio_id)
   @tipo = 'AF'
   valores  if params[:get]
-
 end
 
 def valores
   if params[:get][:lines]
    @line = params[:get][:lines]
    @tipo = params[:rating]
-   @formation_steps = FormationStep.all
+   @formation_steps = FormationStep.by_city(@municipio)
+   # @heading = view_context.heading_search(Line.find(@line).nombre.downcase)
+   # @subheading = view_context.subheading_search(@tipo)
  end
 end
 
