@@ -4,6 +4,8 @@ es:
     inspectors: Inspectores
     formation_steps: Tramites de Apertura
     lines: Giros
+  buttons:
+    ok: Aceptar
   form:
     actions:
       edit: Editar
@@ -93,6 +95,10 @@ es:
       title: Nuevo negocio
       no_formation_steps_available: No encontramos trámites para apertura con estos parámetros
       no_formation_steps_selected: Selecciona las opciones de busqueda 
+      formation_steps_select_name: ¿Iniciaras un nuevo negocio?
+      formation_steps_radio_name: Mostrar para personas
+      radio_fisica: Física
+      radio_moral: Moral
   procedure_lines:
     index:
       title: Tramites
