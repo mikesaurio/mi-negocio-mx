@@ -32,15 +32,16 @@
 									<li class="timeline-inverted">
 								<%end %>
 								<div class="timeline-image">
-									<br>
-									<h1>Paso<br><%=count%></h1>
+									<br><br>
+									<h1><%=t('.pasos', parameter: count)%></h1>
 								</div>
 								<div class="timeline-panel">
 									<div class="timeline-heading">
 										<h4 class="subheading"> <%= formation_step.name %></h4>
 									</div>
 									<div class="timeline-body">
-										<p class="text-muted"><%= formation_step.description %></p>
+										<p class="text-muted"><%= formation_step.description %><br>
+											<%=link_to t('.link'),formation_step.path, :target => "_blank"%></p>
 									</div>
 								</div>
 							<% end %>
@@ -48,7 +49,7 @@
 						<%if(count != 0)%>
 							<li class="timeline-inverted">
 								<div class="timeline-image">
-									<h4>haz<br>terminado</h4>
+									<br><h2><%=t('.fin_steps')%></h2>
 								</div>
 							</li>
 						<%else%>

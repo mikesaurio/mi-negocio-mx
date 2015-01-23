@@ -99,6 +99,9 @@ es:
       formation_steps_radio_name: Mostrar para personas
       radio_fisica: Física
       radio_moral: Moral
+      pasos: Paso %{parameter}
+      fin_steps: Has terminado
+      link: Obtener aquí
   procedure_lines:
     index:
       title: Tramites
