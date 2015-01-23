@@ -18,12 +18,14 @@ Rails.application.routes.draw do
     resources :inspectors, only: [:index, :show]
     resources :procedure_lines, only: [:index,:show]
     resources :formation_steps, only: [:index]
+    resources :lines, only: [:index]
   end
 
   resource :dashboard, only: :show, controller: :dashboard do
     resources :inspections, only: [:index, :new, :create, :edit, :update, :destroy], controller: 'dashboard/inspections'
     resources :inspectors, only: [:index, :new, :create, :edit, :update, :destroy], controller: 'dashboard/inspectors'
     resources :formation_steps, only: [:index, :new, :create, :edit, :update, :destroy], controller: 'dashboard/formation_steps'
+    resources :lines, only: [:index, :new, :create, :edit, :update, :destroy], controller: 'dashboard/lines'
   end
 
   root 'imcos#index'

@@ -1,0 +1,24 @@
+<h2> <%= t('titles.lines') %></h2>
+<%= link_to t('.new_lines'), new_dashboard_line_path, class: 'btn btn-default pull-right' %>
+
+<table class="table">
+   <thead>
+     <th>#</th>
+     <th><%= t('.name') %></th>
+     <th><%= t('.municipio') %></th>
+     <th><%= t('.actions') %></th>
+   </thead>
+   <tbody>
+     <% @lines.all.each_with_index do |line, idx| %>
+       <%= content_tag :tr do %>
+            <%= content_tag :td, idx + 1 %>
+            <%= content_tag :td, line.nombre %>
+            <%= content_tag :td, line.municipio.nombre %>
+            <%= content_tag :td do %>
+              <%= link_to t('form.actions.edit'), edit_dashboard_line_path(line) %> |
+              <%= link_to t('form.actions.destroy'), dashboard_line_path(line), method: :delete, data: { confirm: t('form.confirmations.delete_line') } %>
+            <% end %>
+       <% end %>
+     <% end %>
+   </tbody>
+</table>
