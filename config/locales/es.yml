@@ -3,6 +3,7 @@ es:
     inspections: Inspecciones
     inspectors: Inspectores
     formation_steps: Tramites de Apertura
+    lines: Giros
   form:
     actions:
       edit: Editar
@@ -11,6 +12,7 @@ es:
       delete_inspection: ¿Estás seguro que deseas borrar esta inspección?
       delete_inspector: ¿Estás seguro que deseas borrar a este inspector?
       delete_formation_step: ¿Estás seguro que deseas borrar a este trámite?
+      delete_line: ¿Estás seguro que deseas borrar a este giro?
   dashboard:
     inspections:
       index:
@@ -48,6 +50,18 @@ es:
         title: Editar Tramite de Apertura
       form:
         create_formation_steps: Guardar cambios
+    lines:
+      index:
+        name: Nombre
+        municipio: Municipio
+        actions: Acciones
+        new_line: Nuevo Tramite Apertura
+      new:
+        title: Nuevo Giro
+      edit:
+        title: Editar Giro
+      form:
+        create_lines: Guardar cambios
   devise:
     sessions:
       user:

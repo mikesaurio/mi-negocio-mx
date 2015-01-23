@@ -1,10 +1,10 @@
 module Dashboard
   class LinesController < ApplicationController
-    before_action :set_inspection, only: [:edit, :update, :destroy]
+    before_action :set_line, only: [:edit, :update, :destroy]
     before_action :authenticate_user!
     layout 'dashboard'
 
-    def index
+    def index 
       @lines = policy_scope(Line)
     end
 
@@ -19,11 +19,12 @@ module Dashboard
 
     def create
       @line = Line.new(line_params)
+      @line.municipio = current_user.municipio
       authorize @line
 
       respond_to do |format|
         if @line.save
-          format.html { redirect_to edit_dashboard_iline_url(@line), notice: 'El giro fue creado satisfactoriamente.' }
+          format.html { redirect_to edit_dashboard_line_url(@line), notice: 'El giro fue creado satisfactoriamente.' }
           format.json { render :show, status: :created, location: @line }
         else
           format.html { render :new }
@@ -51,7 +52,7 @@ module Dashboard
 
       @line.destroy
       respond_to do |format|
-        format.html { redirect_to dashboard_line_url, notice: 'El giro fue borrado satisfactoriamente.' }
+        format.html { redirect_to dashboard_lines_path notice: 'El giro fue borrado satisfactoriamente.' }
         format.json { head :no_content }
       end
     end

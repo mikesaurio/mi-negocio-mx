@@ -9,14 +9,14 @@
      <th><%= t('.actions') %></th>
    </thead>
    <tbody>
-     <% @lines.each_with_index do |line, idx| %>
+     <% @lines.all.each_with_index do |line, idx| %>
        <%= content_tag :tr do %>
             <%= content_tag :td, idx + 1 %>
             <%= content_tag :td, line.nombre %>
             <%= content_tag :td, line.municipio.nombre %>
             <%= content_tag :td do %>
               <%= link_to t('form.actions.edit'), edit_dashboard_line_path(line) %> |
-              <%= link_to t('form.actions.destroy'), dashboard_line_path(line), method: :delete, data: { confirm: t('form.confirmations.delete_inspection') } %>
+              <%= link_to t('form.actions.destroy'), dashboard_line_path(line), method: :delete, data: { confirm: t('form.confirmations.delete_line') } %>
             <% end %>
        <% end %>
      <% end %>
