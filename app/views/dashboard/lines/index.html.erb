@@ -9,7 +9,7 @@
      <th><%= t('.actions') %></th>
    </thead>
    <tbody>
-     <% @lines.all.each_with_index do |line, idx| %>
+     <% @lines.each_with_index do |line, idx| %>
        <%= content_tag :tr do %>
             <%= content_tag :td, idx + 1 %>
             <%= content_tag :td, truncate(line.nombre, :length => 70)%>

@@ -1,69 +1,67 @@
 module Dashboard
   class DependenciesController < ApplicationController
-    before_action :set_line, only: [:edit, :update, :destroy]
+    before_action :set_dependency, only: [:edit, :update, :destroy]
     before_action :authenticate_user!
     layout 'dashboard'
 
     def index 
-      @dependencies = policy_scope(Dependency)
+      @dependencies = policy_scope(Dependency).where(municipio_id: current_user.municipio)
     end
 
     def new
-      @line = Line.new
-      @dependency = Dependency.where(municipio_id: current_user.municipio_id)
+      @dependency = Dependency.new
     end
 
     def edit
-      @dependency = Dependency.where(municipio_id: current_user.municipio_id)
     end
 
     def create
-      @line = Line.new(line_params)
-      @line.municipio = current_user.municipio
-      authorize @line
+      @dependency = Dependency.new(dependency_params)
+      @dependency.municipio = current_user.municipio
+      authorize @dependency
 
       respond_to do |format|
-        if @line.save
-          format.html { redirect_to edit_dashboard_line_url(@line), notice: 'El giro fue creado satisfactoriamente.' }
-          format.json { render :show, status: :created, location: @line }
+        if @dependency.save
+          format.html { redirect_to edit_dashboard_dependency_url(@dependency), notice: 'La dependencia fue creada satisfactoriamente.' }
+          format.json { render :show, status: :created, location: @dependency }
         else
           format.html { render :new }
-          format.json { render json: @line.errors, status: :unprocessable_entity }
+          format.json { render json: @dependency.errors, status: :unprocessable_entity }
         end
       end
     end
 
     def update
-      authorize @line
+      authorize @dependency
 
       respond_to do |format|
-        if @line.update(line_params)
-          format.html { redirect_to edit_dashboard_line_url(@line), notice: 'El giro fue actualizado satisfactoriamente.' }
-          format.json { render :show, status: :ok, location: @line }
+        if @dependency.update(dependency_params)
+          format.html { redirect_to edit_dashboard_dependency_url(@dependency), notice: 'La dependencia fue actualizada satisfactoriamente.' }
+          format.json { render :show, status: :ok, location: @dependency }
         else
           format.html { render :edit }
-          format.json { render json: @line.errors, status: :unprocessable_entity }
+          format.json { render json: @dependency.errors, status: :unprocessable_entity }
         end
       end
     end
 
     def destroy
-      authorize @line
+      authorize @dependency
 
-      @line.destroy
+      @dependency.destroy
       respond_to do |format|
-        format.html { redirect_to dashboard_lines_path notice: 'El giro fue borrado satisfactoriamente.' }
+        format.html { redirect_to dashboard_dependencies_path notice: 'La dependencia fue borrada satisfactoriamente.' }
         format.json { head :no_content }
       end
     end
 
     private
-    def set_line
-      @line = Line.find(params[:id])
+    def set_dependency
+      @dependency = Dependency.find(params[:id])
     end
 
-    def line_params
-      params.require(:line).permit(:nombre, :descripcion, :municipio_id)
+    def dependency_params
+      params.require(:dependency).permit(:nombre, :municipio_id)
     end
   end
 end
