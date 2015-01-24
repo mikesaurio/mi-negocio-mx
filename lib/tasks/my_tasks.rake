@@ -16,6 +16,10 @@ def controllers(val)
      Line
     when  'FormationSteps'   
       FormationSteps
+     when  'Inspectors'   
+      Inspectors
+    when 'inspections'
+      Inspections
     else
       nil
   end

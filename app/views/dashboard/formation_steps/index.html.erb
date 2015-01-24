@@ -9,7 +9,7 @@
      <th><%= t('.actions') %></th>
    </thead>
    <tbody>
-     <% @formation_steps.all.each_with_index do |formation, idx| %>
+     <% @formation_steps.each_with_index do |formation, idx| %>
        <%= content_tag :tr do %>
             <%= content_tag :td, idx + 1 %>
             <%= content_tag :td, formation.name %>
