@@ -8,7 +8,6 @@ Rails.application.routes.draw do
   resources :procedure_requirements
   resources :inspection_requirements
   resources :lines
-  resources :requirements
   resources :procedures
   resources :imcos
 
@@ -25,6 +24,7 @@ Rails.application.routes.draw do
     resources :formation_steps, only: [:index, :new, :create, :edit, :update, :destroy], controller: 'dashboard/formation_steps'
     resources :lines, only: [:index, :new, :create, :edit, :update, :destroy], controller: 'dashboard/lines'
     resources :dependencies, only: [:index, :new, :create, :edit, :update, :destroy], controller: 'dashboard/dependencies'
+    resources :requirements, only: [:index, :new, :create, :edit, :update, :destroy], controller: 'dashboard/requirements'
   end
 
   root 'imcos#index'

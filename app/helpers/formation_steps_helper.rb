@@ -1,11 +1,7 @@
 module FormationStepsHelper
 
 def type(tipo)
-  if tipo == 'AF'
-    'Física'
-  else
-    'Moral'
-  end
+  tipo == 'AF'? 'Física' : 'Moral'
 end
 
 
