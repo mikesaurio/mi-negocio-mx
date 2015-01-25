@@ -4,6 +4,7 @@ es:
     inspectors: Inspectores
     formation_steps: Tramites de Apertura
     lines: Giros
+    dependencies: Dependencias
   buttons:
     ok: Aceptar
   form:
@@ -13,8 +14,9 @@ es:
     confirmations:
       delete_inspection: ¿Estás seguro que deseas borrar esta inspección?
       delete_inspector: ¿Estás seguro que deseas borrar a este inspector?
-      delete_formation_step: ¿Estás seguro que deseas borrar a este trámite?
+      delete_formation_step: ¿Estás seguro que deseas borrar este trámite?
       delete_line: ¿Estás seguro que deseas borrar a este giro?
+      delete_dependency: ¿Estás seguro que deseas borrar esta dependencia?
   dashboard:
     inspections:
       index:
@@ -64,6 +66,18 @@ es:
         title: Editar Giro
       form:
         create_lines: Guardar cambios
+    dependencies:
+      index:
+        name: Nombre
+        municipio: Municipio
+        actions: Acciones
+        new_dependency: Nueva dependencia
+      new:
+        title: Nueva dependencia
+      edit:
+        title: Editar dependencia
+      form:
+        create_dependency: Guardar cambios
   devise:
     sessions:
       user:
