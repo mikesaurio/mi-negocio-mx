@@ -15,11 +15,13 @@ def controllers(val)
     when 'Lines'    
      Line
     when  'FormationSteps'   
-      FormationSteps
+      FormationStep
      when  'Inspectors'   
-      Inspectors
-    when 'inspections'
-      Inspections
+      Inspector
+    when 'Inspections'
+      Inspection
+    when 'Dependencies'
+      Dependency
     else
       nil
   end
