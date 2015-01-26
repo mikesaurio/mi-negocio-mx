@@ -6,4 +6,6 @@ class Requirement < ActiveRecord::Base
   has_many :inspection_requirements
   has_many :inspections, through: :inspection_requirements
 
+ belongs_to :municipio
+
 end

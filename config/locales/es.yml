@@ -5,6 +5,7 @@ es:
     formation_steps: Tramites de Apertura
     lines: Giros
     dependencies: Dependencias
+    requirements: Requerimiento
   buttons:
     ok: Aceptar
   form:
@@ -17,6 +18,7 @@ es:
       delete_formation_step: ¿Estás seguro que deseas borrar este trámite?
       delete_line: ¿Estás seguro que deseas borrar a este giro?
       delete_dependency: ¿Estás seguro que deseas borrar esta dependencia?
+      delete_requirement: ¿Estás seguro que deseas borrar este requierimiento?
   dashboard:
     inspections:
       index:
@@ -66,6 +68,18 @@ es:
         title: Editar Giro
       form:
         create_lines: Guardar cambios
+    requirements:
+      index:
+        name: Nombre
+        municipio: Municipio
+        actions: Acciones
+        new_requirement: Nuevo requerimiento
+      new:
+        title: Nuevo requerimiento
+      edit:
+        title: Editar requerimiento
+      form:
+        create_requirements: Guardar cambios
     dependencies:
       index:
         name: Nombre
