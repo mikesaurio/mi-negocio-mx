@@ -8,3 +8,6 @@ rake task_class_name:task_method[param1,paramn]
 
 *****************ver rutas de un modelo*****************
 rake routes | grep nombre_controlador
+
+*****************llamar helper desde controller*****************
+view_context.heading_search(@value)
