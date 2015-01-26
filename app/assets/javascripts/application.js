@@ -15,6 +15,7 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap-sprockets
+//= require bootstrap-switch
 //= require chosen-jquery
 //= require_tree .
 
@@ -25,6 +26,7 @@ var ready = function(){
        placeholder_text: 'Selecciona una opción',
        width: '500px'
     });
+     $('input:checkbox').bootstrapSwitch('setOffClass', 'danger');
 };
 
 $(document).ready(ready);

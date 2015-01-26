@@ -8,12 +8,20 @@
 	<p><%=t('.formation_steps_select_name')%>
 		<%= f.select :lines, Line.where(municipio_id: @municipio).map { |u| [u.nombre, u.id] },{ include_blank: true ,selected: @line }, { class: 'chosen-select' }%>
 	</p>
-	<div class= "field">
-		<%=t('.formation_steps_radio_name')%>
-		<%= t('.radio_fisica')%> <%= radio_button_tag :rating, 'AF', @tipo=='AF' %>
-		<%=t('.radio_moral')%> <%= radio_button_tag :rating, 'AM', @tipo=='AM'%>
-	</div>
+
 	<br>
+	<%= t('.formation_steps_radio_name')%>
+	<div class="btn-group btn-toggle" data-toggle="buttons">
+		<%if @tipo == 'AF'%>
+	    	<label class= "btn btn-default active"><%= t('.radio_fisica')%> <%= radio_button_tag :rating, 'AF'%></label>
+	    	<label class= "btn btn-default"><%= t('.radio_moral')%> <%= radio_button_tag :rating, 'AM'%></label>
+	    <%else%>
+			<label class= "btn btn-default "><%= t('.radio_fisica')%> <%= radio_button_tag :rating, 'AF'%></label>
+	    	<label class= "btn btn-default active"><%= t('.radio_moral')%> <%= radio_button_tag :rating, 'AM'%></label>
+	    <%end%>
+  </div>
+
+
 	<div class="actions">
 		<%= f.submit t('buttons.ok'),:class => 'btn btn-lg btn-light' %>
 	</div>
@@ -61,6 +69,5 @@
 			</div>
 			<% else %>
 			<%= render "shared/empty_resource", message: t('.no_formation_steps_selected') %>
-			<% end %>
-			
+			<% end %>	
 <%end%>
