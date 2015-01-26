@@ -26,7 +26,6 @@ var ready = function(){
        placeholder_text: 'Selecciona una opción',
        width: '500px'
     });
-     $('input:checkbox').bootstrapSwitch('setOffClass', 'danger');
 };
 
 $(document).ready(ready);

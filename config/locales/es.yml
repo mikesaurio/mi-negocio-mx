@@ -148,7 +148,11 @@ es:
     index:
       title: Tramites
       no_proceure_lines_available: No encontramos trámites  con estos parámetros
-      no_procedure_lines_selected: Selecciona las opciones de busqueda 
+      no_procedure_lines_selected: Selecciona las opciones de busqueda
+      radio_fisica: Física
+      radio_moral: Moral
+      radio_ambas: Ambos
+      procedure_lines_radio_name: Mostrar para personas
   dependencies:
     index:
       no_dependencies: No encontramos ninguna dependencia
