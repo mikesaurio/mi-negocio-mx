@@ -5,7 +5,7 @@ module Dashboard
     layout 'dashboard'
 
     def index 
-      @lines = policy_scope(Line)
+      @lines = policy_scope(Line).where(municipio_id: current_user.municipio)
     end
 
     def new

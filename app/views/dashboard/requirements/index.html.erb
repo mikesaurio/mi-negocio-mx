@@ -1,0 +1,24 @@
+<h2> <%= t('titles.requirements') %></h2>
+<%= link_to t('.new_requirements'), new_dashboard_requirement_path, class: 'btn btn-default pull-right' %>
+
+<table class="table">
+   <thead>
+     <th>#</th>
+     <th><%= t('.name') %></th>
+     <th><%= t('.municipio') %></th>
+     <th><%= t('.actions') %></th>
+   </thead>
+   <tbody>
+     <% @requirements.each_with_index do |requirement, idx| %>
+       <%= content_tag :tr do %>
+            <%= content_tag :td, idx + 1 %>
+            <%= content_tag :td, truncate(requirement.nombre, :length => 70)%>
+            <%= content_tag :td, requirement.municipio.nombre  %>
+            <%= content_tag :td do %>
+              <%= link_to t('form.actions.edit'), edit_dashboard_requirement_path(requirement) %> |
+              <%= link_to t('form.actions.destroy'), dashboard_requirement_path(requirement), method: :delete, data: { confirm: t('form.confirmations.delete_requirement') } %>
+            <% end %>
+       <% end %>
+     <% end %>
+   </tbody>
+</table>

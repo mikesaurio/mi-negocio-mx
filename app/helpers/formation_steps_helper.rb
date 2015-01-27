@@ -1,5 +1,10 @@
 module FormationStepsHelper
 
+def type(tipo)
+  tipo == 'AF'? 'Física' : 'Moral'
+end
+
+
   # def heading_search(name)
   #    "Apertura de #{name}"
   #  end

@@ -5,7 +5,7 @@ module Dashboard
     layout 'dashboard'
 
     def index
-      @formation_steps = policy_scope(FormationStep)
+      @formation_steps = policy_scope(FormationStep).where(municipio_id: current_user.municipio)
     end
 
     def new

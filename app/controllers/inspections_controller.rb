@@ -12,6 +12,7 @@ class InspectionsController < ApplicationController
   end
 
   def show
+    @inspection_requirement= InspectionRequirement.where(inspection_id: params[:id])
   end
 
   private

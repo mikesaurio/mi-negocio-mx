@@ -4,6 +4,11 @@ es:
     inspectors: Inspectores
     formation_steps: Tramites de Apertura
     lines: Giros
+    dependencies: Dependencias
+    requirements: Requerimientos
+    procedures: Requerimientos
+  buttons:
+    ok: Aceptar
   form:
     actions:
       edit: Editar
@@ -11,8 +16,11 @@ es:
     confirmations:
       delete_inspection: ¿Estás seguro que deseas borrar esta inspección?
       delete_inspector: ¿Estás seguro que deseas borrar a este inspector?
-      delete_formation_step: ¿Estás seguro que deseas borrar a este trámite?
+      delete_formation_step: ¿Estás seguro que deseas borrar este trámite?
       delete_line: ¿Estás seguro que deseas borrar a este giro?
+      delete_dependency: ¿Estás seguro que deseas borrar esta dependencia?
+      delete_requirement: ¿Estás seguro que deseas borrar este requierimiento?
+      delete_procedure: ¿Estás seguro que deseas borrar este trámite?
   dashboard:
     inspections:
       index:
@@ -62,6 +70,42 @@ es:
         title: Editar Giro
       form:
         create_lines: Guardar cambios
+    requirements:
+      index:
+        name: Nombre
+        municipio: Municipio
+        actions: Acciones
+        new_requirement: Nuevo requerimiento
+      new:
+        title: Nuevo requerimiento
+      edit:
+        title: Editar requerimiento
+      form:
+        create_requirements: Guardar cambios
+    procedures:
+      index:
+        name: Nombre
+        dependency: Dependencia
+        actions: Acciones
+        new_procedures: Nuevo trámite
+      new:
+        title: Nuevo trámite
+      edit:
+        title: Editar trámite
+      form:
+        create_procedures: Guardar cambios
+    dependencies:
+      index:
+        name: Nombre
+        municipio: Municipio
+        actions: Acciones
+        new_dependency: Nueva dependencia
+      new:
+        title: Nueva dependencia
+      edit:
+        title: Editar dependencia
+      form:
+        create_dependency: Guardar cambios
   devise:
     sessions:
       user:
@@ -93,11 +137,25 @@ es:
       title: Nuevo negocio
       no_formation_steps_available: No encontramos trámites para apertura con estos parámetros
       no_formation_steps_selected: Selecciona las opciones de busqueda 
+      formation_steps_select_name: ¿Iniciaras un nuevo negocio?
+      formation_steps_radio_name: Mostrar para personas
+      radio_fisica: Física
+      radio_moral: Moral
+      pasos: Paso %{parameter}
+      fin_steps: Has terminado
+      link: Obtener aquí
   procedure_lines:
     index:
       title: Tramites
-      no_proceure_lines_available: No encontramos trámites  con estos parámetros
-      no_procedure_lines_selected: Selecciona las opciones de busqueda 
+      no_procedure_lines_available: No encontramos trámites  con estos parámetros
+      no_procedure_lines_selected: Selecciona las opciones de busqueda
+      radio_fisica: Física
+      radio_moral: Moral
+      radio_ambas: Ambos
+      procedure_lines_radio_name: Mostrar para personas
+  dependencies:
+    index:
+      no_dependencies: No encontramos ninguna dependencia
   municipios:
     index:
       title: Selecciona una opción

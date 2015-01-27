@@ -5,14 +5,16 @@
    <thead>
      <th>#</th>
      <th><%= t('.name') %></th>
+     <th><%= t('.tipo') %></th>
      <th><%= t('.dependency') %></th>
      <th><%= t('.actions') %></th>
    </thead>
    <tbody>
-     <% @formation_steps.all.each_with_index do |formation, idx| %>
+     <% @formation_steps.each_with_index do |formation, idx| %>
        <%= content_tag :tr do %>
             <%= content_tag :td, idx + 1 %>
             <%= content_tag :td, formation.name %>
+            <%= content_tag :td, type(formation.type) %>
             <%= content_tag :td, formation.municipio.nombre %>
             <%= content_tag :td do %>
               <%= link_to t('form.actions.edit'), edit_dashboard_formation_step_path(formation) %> |
