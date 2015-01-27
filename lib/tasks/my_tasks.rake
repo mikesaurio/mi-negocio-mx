@@ -10,6 +10,27 @@ namespace :my_tasks do
     end
   end
 
+
+  desc "cargar giros chalco"
+  task :giros_chalco  => :environment do |t, args| 
+    CSV.foreach('lib/datasets/giros_chalco.csv', :headers => true, :encoding => 'ISO-8859-1:UTF-8') do |row|
+      if row.to_hash['municipio_id']
+        user
+      end
+    end
+  end
+
+
+
+
+
+
+
+
+
+
+
+
 def controllers(val)
  case val
     when 'Lines'    
