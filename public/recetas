@@ -11,3 +11,12 @@ rake routes | grep nombre_controlador
 
 *****************llamar helper desde controller*****************
 view_context.heading_search(@value)
+
+*****************ver todos los parametros enviados*****************
+Rails.logger.debug params.inspect
+
+
+*****************ver todos los parametros en template*****************
+raise params.inspect
+
+*****************eliminar todo de una tabla*****************

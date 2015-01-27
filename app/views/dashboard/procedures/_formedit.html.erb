@@ -1,8 +1,8 @@
 <div id="form-container">
-  <%= form_for [:dashboard, @procedure], html: { class: 'form-horizontal', :method => :post} do |f| %>
+  <%= form_for [:dashboard, @procedure], html: { class: 'form-horizontal' } do |f| %>
     <% if @procedure.errors.any? %>
       <div id="error_explanation">
-        <h2><%= pluralize(@requirements.errors.count, "error") %> prohibited this procedure from being saved:</h2>
+        <h2><%= pluralize(@requirements.errors.count, "error") %> prohibited this lines from being saved:</h2>
 
         <ul>
         <% @procedure.errors.full_messages.each do |message| %>
@@ -60,16 +60,10 @@
         <%= f.select :dependency_id, @dependencies.map { |u| [u.nombre, u.id] },{ include_blank: true }, { class: 'chosen-select' }%>
       </div>
     </div>
-
-     <div class="form-group">
-      <%=f.label :requirement_ids, class: 'col-sm-2 control-label' %>
-      <div class="col-sm-10">
-        <%= f.select :requirement_ids, @requirements.map { |u| [u.nombre, u.id] },{ include_blank: true },{ class: 'chosen-select', :multiple=>true, :data => { :placeholder => ' ' }}%>
-      </div>
-    </div>
-
+   
     <div class="actions">
       <%= f.submit t('.create_procedures'), class: 'btn btn-default pull-right' %>
     </div>
   <% end %>
 </div>
+

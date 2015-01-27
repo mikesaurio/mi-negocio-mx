@@ -21,10 +21,14 @@ module Dashboard
     def create
       @procedure = Procedure.new(procedure_params)
       authorize @procedure
-
       respond_to do |format|
         if @procedure.save
-            #guardar tantas veces @procedure, params[]
+          params[:procedure][:requirement_ids].each do |par|
+              if par.present?
+              @procedure_requirement = ProcedureRequirement.create(procedure_id: @procedure.id, requirement_id: par)
+              @procedure_requirement.save
+              end
+          end
           format.html { redirect_to edit_dashboard_procedure_url(@procedure), notice: 'El trámite fue creado satisfactoriamente.' }
           format.json { render :show, status: :created, location: @procedure }
         else
@@ -32,16 +36,10 @@ module Dashboard
           format.json { render json: @procedure.errors, status: :unprocessable_entity }
         end
       end
-
-
-
-
-
     end
 
     def update
       authorize @procedure
-
       respond_to do |format|
         if @procedure.update(procedure_params)
           format.html { redirect_to edit_dashboard_procedure_url(@procedure), notice: 'El trámite fue actualizado satisfactoriamente.' }
@@ -69,7 +67,13 @@ module Dashboard
     end
 
     def procedure_params
-      params.require(:procedure).permit(:nombre, :duracion, :costo, :vigencia, :contacto, :tipo, :dependency_id)
+      params.require(:procedure).permit(:nombre, :duracion, :costo, :vigencia, :contacto, :tipo, :dependency_id, :procedure=>{:requirement_ids => []})
+    end
+
+    def procedure_requirement_params
+      params.require(:procedure_requirement).permit(:id, :procedure_id, :requirement_id)
     end
   end
+
+
 end
