@@ -10,18 +10,21 @@ module Dashboard
 
     def new
       @procedure = Procedure.new
+     @dependencies= Dependency.where(municipio_id: current_user.municipio_id)
+     @requirements = Requirement.where(municipio_id: current_user.municipio_id)
     end
 
     def edit
+      @dependencies= Dependency.where(municipio_id: current_user.municipio_id)
     end
 
     def create
       @procedure = Procedure.new(procedure_params)
-      @procedure.municipio = current_user.municipio
       authorize @procedure
 
       respond_to do |format|
         if @procedure.save
+            #guardar tantas veces @procedure, params[]
           format.html { redirect_to edit_dashboard_procedure_url(@procedure), notice: 'El trámite fue creado satisfactoriamente.' }
           format.json { render :show, status: :created, location: @procedure }
         else
@@ -29,6 +32,11 @@ module Dashboard
           format.json { render json: @procedure.errors, status: :unprocessable_entity }
         end
       end
+
+
+
+
+
     end
 
     def update
@@ -56,12 +64,12 @@ module Dashboard
     end
 
     private
-    def set_requirement
+    def set_procedure
       @procedure = Procedure.find(params[:id])
     end
 
-    def requirement_params
-      params.require(:procedure).permit(:nombre, :descripcion, :path, :type, :municipio_id)
+    def procedure_params
+      params.require(:procedure).permit(:nombre, :duracion, :costo, :vigencia, :contacto, :tipo, :dependency_id)
     end
   end
 end

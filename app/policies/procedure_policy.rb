@@ -1,5 +1,6 @@
 class ProcedurePolicy < ApplicationPolicy
   def create?
+    #raise record.inspect
     record.dependency.municipio_id == user.municipio_id && user.admin?
   end
 
