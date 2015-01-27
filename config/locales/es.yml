@@ -1,4 +1,111 @@
 es:
+  titles:
+    inspections: Inspecciones
+    inspectors: Inspectores
+    formation_steps: Tramites de Apertura
+    lines: Giros
+    dependencies: Dependencias
+    requirements: Requerimientos
+    procedures: Requerimientos
+  buttons:
+    ok: Aceptar
+  form:
+    actions:
+      edit: Editar
+      destroy: Borrar
+    confirmations:
+      delete_inspection: ¿Estás seguro que deseas borrar esta inspección?
+      delete_inspector: ¿Estás seguro que deseas borrar a este inspector?
+      delete_formation_step: ¿Estás seguro que deseas borrar este trámite?
+      delete_line: ¿Estás seguro que deseas borrar a este giro?
+      delete_dependency: ¿Estás seguro que deseas borrar esta dependencia?
+      delete_requirement: ¿Estás seguro que deseas borrar este requierimiento?
+      delete_procedure: ¿Estás seguro que deseas borrar este trámite?
+  dashboard:
+    inspections:
+      index:
+        name: Nombre
+        dependency: Dependencia
+        actions: Acciones
+        new_inspection: Nueva Inspección
+      new:
+        title: Nueva inspección
+      edit:
+        title: Editar inspección
+      form:
+        create_inspection: Guardar cambios
+    inspectors:
+      index:
+        name: Nombre
+        dependency: Dependencia
+        actions: Acciones
+        new_inspector: Nuevo Inspector
+      new:
+        title: Nuevo inspector
+      edit:
+        title: Editar inspector
+      form:
+        create_inspector: Guardar cambios
+    formation_steps:
+      index:
+        name: Nombre
+        dependency: Dependencia
+        actions: Acciones
+        new_formation_step: Nuevo Tramite Apertura
+      new:
+        title: Nuevo Tramite de Apertura
+      edit:
+        title: Editar Tramite de Apertura
+      form:
+        create_formation_steps: Guardar cambios
+    lines:
+      index:
+        name: Nombre
+        municipio: Municipio
+        actions: Acciones
+        new_line: Nuevo Tramite Apertura
+      new:
+        title: Nuevo Giro
+      edit:
+        title: Editar Giro
+      form:
+        create_lines: Guardar cambios
+    requirements:
+      index:
+        name: Nombre
+        municipio: Municipio
+        actions: Acciones
+        new_requirement: Nuevo requerimiento
+      new:
+        title: Nuevo requerimiento
+      edit:
+        title: Editar requerimiento
+      form:
+        create_requirements: Guardar cambios
+    procedures:
+      index:
+        name: Nombre
+        dependency: Dependencia
+        actions: Acciones
+        new_procedures: Nuevo trámite
+      new:
+        title: Nuevo trámite
+      edit:
+        title: Editar trámite
+      form:
+        create_procedures: Guardar cambios
+    dependencies:
+      index:
+        name: Nombre
+        municipio: Municipio
+        actions: Acciones
+        new_dependency: Nueva dependencia
+      new:
+        title: Nueva dependencia
+      edit:
+        title: Editar dependencia
+      form:
+        create_dependency: Guardar cambios
   devise:
     sessions:
       user:
@@ -19,11 +126,52 @@ es:
     index:
       title: Inspecciones
       search_inspections: Buscar inspecciones...
+      no_inspections_available: No encontramos inspecciones en este municipio
+    show:
+      subject: Materia
+      period: Duracion
+      norm: Norma
+      before_tips: Tips (antes)
+      during_tips: Tips (durante)
+      after_tips: Tips (después)
+      sanctions_tips: Sanciones
+      more_info: Más información
+
   inspectors:
     index:
       title: Inspectores
       search_inspectors: Buscar inspectores...
-  pages:
-    inspec:
-      title: Inspecciones
-      search_inspections: Buscar inspecciones...
+      no_inspectors_available: No encontramos inspectores en este municipio
+  formation_steps:
+    index:
+      title: Nuevo negocio
+      no_formation_steps_available: No encontramos trámites para apertura con estos parámetros
+      no_formation_steps_selected: Selecciona las opciones de busqueda
+      formation_steps_select_name: ¿Iniciaras un nuevo negocio?
+      formation_steps_radio_name: Mostrar para personas
+      radio_fisica: Física
+      radio_moral: Moral
+      pasos: Paso %{parameter}
+      fin_steps: Has terminado
+      link: Obtener aquí
+  procedure_lines:
+    index:
+      title: Tramites
+      no_procedure_lines_available: No encontramos trámites  con estos parámetros
+      no_procedure_lines_selected: Selecciona las opciones de busqueda
+      radio_fisica: Física
+      radio_moral: Moral
+      radio_ambas: Ambos
+      procedure_lines_radio_name: Mostrar para personas
+  dependencies:
+    index:
+      no_dependencies: No encontramos ninguna dependencia
+  municipios:
+    index:
+      title: Selecciona una opción
+  layouts:
+    blanco:
+      new: NUEVO NEGOCIO
+      tramite: TRAMITES
+      inspections: INSPECCIONES
+      inspectors: INSPECTORES

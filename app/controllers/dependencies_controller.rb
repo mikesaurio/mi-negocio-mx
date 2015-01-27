@@ -1,32 +1,25 @@
-class DependenciesController < ApplicationController
+  class DependenciesController < ApplicationController
    layout 'blanco'
-  before_action :set_dependency, only: [:show, :edit, :update, :destroy]
+   before_action :set_dependency, only: [:show, :edit, :update, :destroy]
 
-  # GET /dependencies
-  # GET /dependencies.json
-  def index
+   def index
+    set_municipio(:municipio_id)
     @dependencies = Dependency.all
   end
 
-  # GET /dependencies/1
-  # GET /dependencies/1.json
   def show
-        @municipio = Municipio.all 
+    @municipio = Municipio.all 
   end
 
-  # GET /dependencies/new
   def new
     @dependency = Dependency.new
     @municipio = Municipio.all 
   end
 
-  # GET /dependencies/1/edit
   def edit
-        @municipio = Municipio.all 
+    @municipio = Municipio.all 
   end
 
-  # POST /dependencies
-  # POST /dependencies.json
   def create
     @dependency = Dependency.new(dependency_params)
 
@@ -41,8 +34,6 @@ class DependenciesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /dependencies/1
-  # PATCH/PUT /dependencies/1.json
   def update
     respond_to do |format|
       if @dependency.update(dependency_params)
@@ -55,8 +46,6 @@ class DependenciesController < ApplicationController
     end
   end
 
-  # DELETE /dependencies/1
-  # DELETE /dependencies/1.json
   def destroy
     @dependency.destroy
     respond_to do |format|
@@ -66,14 +55,17 @@ class DependenciesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_dependency
-      @dependency = Dependency.find(params[:id])
+      # Use callbacks to share common setup or constraints between actions.
+      def set_dependency
+        @dependency = Dependency.find(params[:id])
+      end
+      
+      def set_municipio(val)
+        @municipio = Municipio.find(params[val])
+      end
 
+      # Never trust parameters from the scary internet, only allow the white list through.
+      def dependency_params
+        params.require(:dependency).permit(:nombre, :municipio_id)
+      end
     end
-
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def dependency_params
-      params.require(:dependency).permit(:nombre, :municipio_id)
-    end
-end

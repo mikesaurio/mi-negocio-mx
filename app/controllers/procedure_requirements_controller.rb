@@ -4,6 +4,7 @@ class ProcedureRequirementsController < ApplicationController
 
  def index
    @procedure_requirements =  ProcedureRequirement.all
+   @municipio = current_user.municipio
  end
 
  def show

@@ -2,16 +2,26 @@ module Dashboard
   class InspectionsController < ApplicationController
     before_action :set_inspection, only: [:edit, :update, :destroy]
     before_action :authenticate_user!
-    layout 'user'
+    layout 'dashboard'
+
+    def index
+      @inspections = policy_scope(Inspection)
+    end
 
     def new
       @inspection = Inspection.new
       @dependency = Dependency.where(municipio_id: current_user.municipio_id)
+      @lines = Line.where(municipio_id: current_user.municipio_id)
+        @requirements = Requirement.where(municipio_id: current_user.municipio_id)
     end
 
     def edit
       @dependency = Dependency.where(municipio_id: current_user.municipio_id)
-    end
+      @lines = Line.where(municipio_id: current_user.municipio_id)
+      @inspection_line= InspectionLine.where(inspection_id: @inspection)
+      @inspection_requirement= InspectionRequirement.where(inspection_id: @inspection)
+      @requirements = Requirement.where(municipio_id: current_user.municipio_id)
+      end
 
     def create
       @inspection = Inspection.new(inspection_params)
@@ -19,7 +29,9 @@ module Dashboard
 
       respond_to do |format|
         if @inspection.save
-          format.html { redirect_to @inspection, notice: 'Inspection was successfully created.' }
+          create_relation_inspection_requirements
+          create_relation_inspection_lines
+          format.html { redirect_to edit_dashboard_inspection_url(@inspection), notice: 'La inspección fue creada satisfactoriamente.' }
           format.json { render :show, status: :created, location: @inspection }
         else
           format.html { render :new }
@@ -33,7 +45,11 @@ module Dashboard
 
       respond_to do |format|
         if @inspection.update(inspection_params)
-          format.html { redirect_to @inspection, notice: 'Inspection was successfully updated.' }
+           delete_relation_inspection_lines
+          create_relation_inspection_lines
+          delete_relation_inspection_requirements
+          create_relation_inspection_requirements
+          format.html { redirect_to edit_dashboard_inspection_url(@inspection), notice: 'La inspección fue actualizada satisfactoriamente.' }
           format.json { render :show, status: :ok, location: @inspection }
         else
           format.html { render :edit }
@@ -44,10 +60,11 @@ module Dashboard
 
     def destroy
       authorize @inspection
-      
+     delete_relation_inspection_lines
+      delete_relation_inspection_requirements
       @inspection.destroy
       respond_to do |format|
-        format.html { redirect_to inspections_url, notice: 'Inspection was successfully destroyed.' }
+        format.html { redirect_to dashboard_inspections_url, notice: 'La inspección fue borrada satisfactoriamente.' }
         format.json { head :no_content }
       end
     end
@@ -58,7 +75,41 @@ module Dashboard
     end
 
     def inspection_params
-      params.require(:inspection).permit(:nombre, :materia, :duracion, :norma, :antes, :durante, :despues, :sancion, :dependency_id)
+      params.require(:inspection).permit(:nombre, :materia, :duracion, :norma, :antes, :durante, :despues, :sancion, :dependency_id, :inspection=>{:line_ids => []},:inspection=>{:requirement_ids => []})
     end
+    
+    def create_relation_inspection_lines
+        params[:inspection][:line_ids].each do |par|
+              if par.present?
+              @inspection_line = InspectionLine.create(inspection_id: @inspection.id, line_id: par)
+              @inspection_line.save
+              end
+          end
+    end
+
+    def delete_relation_inspection_lines
+      InspectionLine.all.each do |par|
+            @id = InspectionLine.where(inspection_id: @inspection.id, line_id: par.line_id).pluck(:id)
+            @inspection_line = InspectionLine.destroy(@id)
+        end
+    end
+
+def create_relation_inspection_requirements
+        params[:inspection][:requirement_ids].each do |par|
+              if par.present?
+              @inspection_requirement = InspectionRequirement.create(inspection_id: @inspection.id, requirement_id: par)
+              @inspection_requirement.save
+              end
+          end
+    end
+
+    def delete_relation_inspection_requirements
+      InspectionRequirement.all.each do |par|
+            @id = InspectionRequirement.where(inspection_id: @inspection.id, requirement_id: par.requirement_id).pluck(:id)
+            @inspection_requirement = InspectionRequirement.destroy(@id)
+        end
+    end
+
+
   end
 end
