@@ -46,7 +46,7 @@
           <li class="table--row">
             <div class="row--title"><%= requirement.nombre %></div>
             <div class="row--subtitle"><%= requirement.descripcion %></div>
-            <div class="row--footer"><%= requirement.path %></div>
+            <div class="row--footer"><%= link_to t('.more_info'), requirement.path, target: '_blank' %></div>
           </li>
         <% end %>
       </ul>
