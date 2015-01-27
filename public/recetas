@@ -20,3 +20,4 @@ Rails.logger.debug params.inspect
 raise params.inspect
 
 *****************eliminar todo de una tabla*****************
+model.delete_all
