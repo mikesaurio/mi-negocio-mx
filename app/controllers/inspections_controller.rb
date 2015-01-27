@@ -12,7 +12,6 @@ class InspectionsController < ApplicationController
   end
 
   def show
-    @inspection_requirement= InspectionRequirement.where(inspection_id: params[:id])
   end
 
   private
@@ -27,8 +26,4 @@ class InspectionsController < ApplicationController
     def set_municipio
        @municipio = Municipio.find(params[:municipio_id])
     end
-
-
-  
-
 end

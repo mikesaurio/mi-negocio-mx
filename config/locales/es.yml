@@ -127,6 +127,15 @@ es:
       title: Inspecciones
       search_inspections: Buscar inspecciones...
       no_inspections_available: No encontramos inspecciones en este municipio
+    show:
+      subject: Materia
+      period: Duracion
+      norm: Norma
+      before_tips: Tips (antes)
+      during_tips: Tips (durante)
+      after_tips: Tips (después)
+      sanctions_tips: Sanciones
+
   inspectors:
     index:
       title: Inspectores
@@ -136,7 +145,7 @@ es:
     index:
       title: Nuevo negocio
       no_formation_steps_available: No encontramos trámites para apertura con estos parámetros
-      no_formation_steps_selected: Selecciona las opciones de busqueda 
+      no_formation_steps_selected: Selecciona las opciones de busqueda
       formation_steps_select_name: ¿Iniciaras un nuevo negocio?
       formation_steps_radio_name: Mostrar para personas
       radio_fisica: Física
