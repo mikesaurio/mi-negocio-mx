@@ -1,41 +1,73 @@
 <h3 class="title"><%= @inspection.nombre %></h3>
 
-<div style="border: 1px solid white;background-color: white;">
+<div style="border: 1px solid white;background-color:white;">
   <table class="table">
     <tbody>
       <tr>
-        <td>Materia</td>
+        <td><%= t('.subject') %></td>
         <td><%= @inspection.materia %></td>
       </tr>
       <tr>
-        <td>Duracion</td>
+        <td><%= t('.period') %></td>
         <td><%= @inspection.duracion %></td>
       </tr>
       <tr>
-        <td>Norma</td>
+        <td><%= t('.norm') %></td>
         <td><%= @inspection.norma %></td>
       </tr>
       <tr>
-        <td>Antes</td>
+        <td><%= t('.before_tips') %></td>
         <td><%= @inspection.antes %></td>
       </tr>
       <tr>
-        <td>Durante</td>
+        <td><%= t('.during_tips') %></td>
         <td><%= @inspection.durante %></td>
       </tr>
       <tr>
-        <td>Despues</td>
+        <td><%= t('.after_tips') %></td>
         <td><%= @inspection.despues %></td>
       </tr>
       <tr>
-        <td>Sancion</td>
+        <td><%= t('.sanctions_tips') %></td>
         <td><%= @inspection.sancion %></td>
       </tr>
-      
-      
-      
     </tbody>
   </table>
 </div>
 
 
+
+<div class="deck">
+  <% if @inspection.requirements.any? %>
+    <h4>Requisitos</h4>
+    <div class="table__card">
+      <ul>
+        <% @inspection.requirements.each do |requirement| %>
+          <li class="table--row">
+            <div class="row--title"><%= requirement.nombre %></div>
+            <div class="row--subtitle"><%= requirement.descripcion %></div>
+            <div class="row--footer"><%= requirement.path %></div>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+</div>
+
+
+<div class="deck">
+  <% if @inspection.lines.any? %>
+    <h4>Giros</h4>
+    <div class="table__card">
+      <ul>
+        <% @inspection.lines.each do |line| %>
+        <li class="table--row">
+          <div class="row--title"><%= line.nombre %></div>
+          <div class="row--subtitle"><%= line.descripcion %></div>
+          <div class="row--footer"></div>
+        </li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+</div>
