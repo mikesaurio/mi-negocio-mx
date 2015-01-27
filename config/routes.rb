@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   devise_for :users
   post "municipios/search"
-   resources :procedure_requirements, only: [:index]
+   resources :procedure_requirements, only: [:index]#Para pruebas
 
   resources :municipios, only: [:show] do
     resources :inspections, only: [:index, :show]

@@ -16,6 +16,8 @@ module Dashboard
 
     def edit
       @dependencies= Dependency.where(municipio_id: current_user.municipio_id)
+      @procedure_requirement= ProcedureRequirement.where(procedure_id: @procedure)
+      @requirements = Requirement.where(municipio_id: current_user.municipio_id)
     end
 
     def create
@@ -23,12 +25,7 @@ module Dashboard
       authorize @procedure
       respond_to do |format|
         if @procedure.save
-          params[:procedure][:requirement_ids].each do |par|
-              if par.present?
-              @procedure_requirement = ProcedureRequirement.create(procedure_id: @procedure.id, requirement_id: par)
-              @procedure_requirement.save
-              end
-          end
+          create_relation_procedure_requirements
           format.html { redirect_to edit_dashboard_procedure_url(@procedure), notice: 'El trámite fue creado satisfactoriamente.' }
           format.json { render :show, status: :created, location: @procedure }
         else
@@ -42,12 +39,9 @@ module Dashboard
       authorize @procedure
       respond_to do |format|
         if @procedure.update(procedure_params)
-          params[:procedure][:requirement_ids].each do |par|
-              if par.present?
-              @procedure_requirement = ProcedureRequirement.update(ProcedureRequirement.where(procedure_id: @procedure.id, requirement_id: par.id))
-              end
-          end
-          format.html { redirect_to edit_dashboard_procedure_url(@procedure), notice: 'El trámite fue actualizado satisfactoriamente.' }
+          delete_relation_procedure_requirements
+          create_relation_procedure_requirements
+          format.html { redirect_to edit_dashboard_procedure_url(@procedure), notice: 'El trámite fue actualizádo satisfactoriamente.' }
           format.json { render :show, status: :ok, location: @procedure}
         else
           format.html { render :edit }
@@ -58,18 +52,7 @@ module Dashboard
 
     def destroy
       authorize @procedure
-        ProcedureRequirement.all.each do |par|
-            @id = ProcedureRequirement.where(procedure_id: @procedure.id, requirement_id: par.requirement_id).pluck(:id)
-            puts '**********************'
-            puts 'id:'
-            puts @id
-            puts 'procedure:'
-            puts @procedure.id
-            puts 'par:'
-            puts par.requirement_id
-            @procedure_requirement = ProcedureRequirement.destroy(@id)
-            puts '^^^^^^^^^^^^^^^^^^^^^^'
-        end
+      delete_relation_procedure_requirements
       @procedure.destroy
       respond_to do |format|
         format.html { redirect_to dashboard_procedures_path notice: 'El trámite fue borrado satisfactoriamente.' }
@@ -84,6 +67,22 @@ module Dashboard
 
     def procedure_params
       params.require(:procedure).permit(:nombre, :duracion, :costo, :vigencia, :contacto, :tipo, :dependency_id, :procedure=>{:requirement_ids => []})
+    end
+
+    def create_relation_procedure_requirements
+        params[:procedure][:requirement_ids].each do |par|
+              if par.present?
+              @procedure_requirement = ProcedureRequirement.create(procedure_id: @procedure.id, requirement_id: par)
+              @procedure_requirement.save
+              end
+          end
+    end
+
+    def delete_relation_procedure_requirements
+      ProcedureRequirement.all.each do |par|
+            @id = ProcedureRequirement.where(procedure_id: @procedure.id, requirement_id: par.requirement_id).pluck(:id)
+            @procedure_requirement = ProcedureRequirement.destroy(@id)
+        end
     end
 
   end

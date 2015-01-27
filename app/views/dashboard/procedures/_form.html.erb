@@ -1,5 +1,5 @@
 <div id="form-container">
-  <%= form_for [:dashboard, @procedure], html: { class: 'form-horizontal', :method => :post} do |f| %>
+  <%= form_for [:dashboard, @procedure], html: { class: 'form-horizontal' } do |f| %>
     <% if @procedure.errors.any? %>
       <div id="error_explanation">
         <h2><%= pluralize(@requirements.errors.count, "error") %> prohibited this procedure from being saved:</h2>
