@@ -147,7 +147,7 @@ es:
   procedure_lines:
     index:
       title: Tramites
-      no_proceure_lines_available: No encontramos trámites  con estos parámetros
+      no_procedure_lines_available: No encontramos trámites  con estos parámetros
       no_procedure_lines_selected: Selecciona las opciones de busqueda
       radio_fisica: Física
       radio_moral: Moral

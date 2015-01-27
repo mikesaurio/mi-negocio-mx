@@ -12,12 +12,14 @@ module Dashboard
       @procedure = Procedure.new
      @dependencies= Dependency.where(municipio_id: current_user.municipio_id)
      @requirements = Requirement.where(municipio_id: current_user.municipio_id)
+     @lines = Line.where(municipio_id: current_user.municipio_id)
     end
 
     def edit
       @dependencies= Dependency.where(municipio_id: current_user.municipio_id)
       @procedure_requirement= ProcedureRequirement.where(procedure_id: @procedure)
       @requirements = Requirement.where(municipio_id: current_user.municipio_id)
+      @lines = Line.where(municipio_id: current_user.municipio_id)
     end
 
     def create
@@ -66,7 +68,7 @@ module Dashboard
     end
 
     def procedure_params
-      params.require(:procedure).permit(:nombre, :duracion, :costo, :vigencia, :contacto, :tipo, :dependency_id, :procedure=>{:requirement_ids => []})
+      params.require(:procedure).permit(:nombre, :duracion, :costo, :vigencia, :contacto, :tipo, :dependency_id, :procedure=>{:requirement_ids => []}, :procedure=>{:lines => []})
     end
 
     def create_relation_procedure_requirements

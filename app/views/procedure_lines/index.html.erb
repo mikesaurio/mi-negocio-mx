@@ -14,15 +14,15 @@
     <%if @tipo == 'TF'%>
         <label class= "btn btn-default active"><%= t('.radio_fisica')%> <%= radio_button_tag :rating, 'TF'%></label>
         <label class= "btn btn-default"><%= t('.radio_moral')%> <%= radio_button_tag :rating, 'TM'%></label>
-        <label class= "btn btn-default"><%= t('.radio_ambas')%> <%= radio_button_tag :rating, 'TM'%></label>
+        <label class= "btn btn-default"><%= t('.radio_ambas')%> <%= radio_button_tag :rating, 'A'%></label>
     <%elsif @tipo == 'TM'%>
         <label class= "btn btn-default "><%= t('.radio_fisica')%> <%= radio_button_tag :rating, 'TF'%></label>
         <label class= "btn btn-default active"><%= t('.radio_moral')%> <%= radio_button_tag :rating, 'TM'%></label>
-        <label class= "btn btn-default"><%= t('.radio_ambas')%> <%= radio_button_tag :rating, 'TM'%></label>
+        <label class= "btn btn-default"><%= t('.radio_ambas')%> <%= radio_button_tag :rating, 'A'%></label>
     <%else%>
         <label class= "btn btn-default "><%= t('.radio_fisica')%> <%= radio_button_tag :rating, 'TF'%></label>
         <label class= "btn btn-default "><%= t('.radio_moral')%> <%= radio_button_tag :rating, 'TM'%></label>
-        <label class= "btn btn-default active"><%= t('.radio_ambas')%> <%= radio_button_tag :rating, 'TM'%></label>
+        <label class= "btn btn-default active"><%= t('.radio_ambas')%> <%= radio_button_tag :rating, 'A'%></label>
     <%end%>
   </div>
 
