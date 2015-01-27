@@ -20,6 +20,7 @@ module Dashboard
       @procedure_requirement= ProcedureRequirement.where(procedure_id: @procedure)
       @requirements = Requirement.where(municipio_id: current_user.municipio_id)
       @lines = Line.where(municipio_id: current_user.municipio_id)
+      @procedure_line= ProcedureLine.where(procedure_id: @procedure)
     end
 
     def create
@@ -28,6 +29,7 @@ module Dashboard
       respond_to do |format|
         if @procedure.save
           create_relation_procedure_requirements
+          create_relation_procedure_lines
           format.html { redirect_to edit_dashboard_procedure_url(@procedure), notice: 'El trámite fue creado satisfactoriamente.' }
           format.json { render :show, status: :created, location: @procedure }
         else
@@ -43,6 +45,8 @@ module Dashboard
         if @procedure.update(procedure_params)
           delete_relation_procedure_requirements
           create_relation_procedure_requirements
+          delete_relation_procedure_lines
+          create_relation_procedure_lines
           format.html { redirect_to edit_dashboard_procedure_url(@procedure), notice: 'El trámite fue actualizádo satisfactoriamente.' }
           format.json { render :show, status: :ok, location: @procedure}
         else
@@ -55,6 +59,7 @@ module Dashboard
     def destroy
       authorize @procedure
       delete_relation_procedure_requirements
+      delete_relation_procedure_lines
       @procedure.destroy
       respond_to do |format|
         format.html { redirect_to dashboard_procedures_path notice: 'El trámite fue borrado satisfactoriamente.' }
@@ -68,7 +73,7 @@ module Dashboard
     end
 
     def procedure_params
-      params.require(:procedure).permit(:nombre, :duracion, :costo, :vigencia, :contacto, :tipo, :dependency_id, :procedure=>{:requirement_ids => []}, :procedure=>{:lines => []})
+      params.require(:procedure).permit(:nombre, :duracion, :costo, :vigencia, :contacto, :tipo, :dependency_id, :procedure=>{:requirement_ids => []}, :procedure=>{:line_ids => []})
     end
 
     def create_relation_procedure_requirements
@@ -84,6 +89,23 @@ module Dashboard
       ProcedureRequirement.all.each do |par|
             @id = ProcedureRequirement.where(procedure_id: @procedure.id, requirement_id: par.requirement_id).pluck(:id)
             @procedure_requirement = ProcedureRequirement.destroy(@id)
+        end
+    end
+
+
+     def create_relation_procedure_lines
+        params[:procedure][:line_ids].each do |par|
+              if par.present?
+              @procedure_line = ProcedureLine.create(procedure_id: @procedure.id, line_id: par)
+              @procedure_line.save
+              end
+          end
+    end
+
+    def delete_relation_procedure_lines
+      ProcedureLine.all.each do |par|
+            @id = ProcedureLine.where(procedure_id: @procedure.id, line_id: par.line_id).pluck(:id)
+            @procedure_line = ProcedureLine.destroy(@id)
         end
     end
 

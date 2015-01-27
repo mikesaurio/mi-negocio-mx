@@ -13,10 +13,8 @@ class ProcedureLinesController < ApplicationController
  
   def valores
      @line = params[:get][:lines]
-     puts @line
      @tipo = params[:rating]
-     puts @tipo
-     @tramites_del_giro =  ProcedureLine.all#Line.find(@line).procedures.includes(:procedure_lines).where("line_id = #{@line}") 
+     @tramites_del_giro =  ProcedureLine.where(line_id: @line)
   end
 
  def show
