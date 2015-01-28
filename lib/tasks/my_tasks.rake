@@ -18,7 +18,7 @@ namespace :my_tasks do
     cities_files = ['lib/datasets/giros_chalco.csv', 'lib/datasets/giros_metepec.csv']
     
     cities_files.each do |city_file|
-      CSV.foreach(city_file, :headers => true, :encoding => 'ISO-8859-1:UTF-8') do |row|
+      CSV.foreach(city_file, :headers => true) do |row|
         city = Municipio.find_by(nombre: row.to_hash['municipio_id'])
         name = row.to_hash['nombre']
         description = row.to_hash['descripcion']
@@ -33,12 +33,12 @@ namespace :my_tasks do
   desc "Load dependencies to the db"
   task :load_dependencies  => :environment do |t, args| 
       
-    clean_db(Dependecy) # let's erase everyone from the db
+    clean_db(Dependency) # let's erase everyone from the db
     
     cities_files = ['lib/datasets/dependencias_chalco.csv', 'lib/datasets/dependencias_metepec.csv']
     
     cities_files.each do |city_file|
-      CSV.foreach(city_file, :headers => true, :encoding => 'ISO-8859-1:UTF-8') do |row|
+      CSV.foreach(city_file, :headers => true) do |row|
         city = Municipio.find_by(nombre: row.to_hash['municipio_id'])
         name = row.to_hash['nombre']
 
@@ -59,7 +59,7 @@ namespace :my_tasks do
     cities_files.each do |city_file|
       # init variables
       number_of_successfully_created_rows = 0
-      CSV.foreach(city_file, :headers => true, :encoding => 'ISO-8859-1:UTF-8') do |row|
+      CSV.foreach(city_file, :headers => true) do |row|
         
         dependency = Dependency.find_by(nombre: row.to_hash['dependency_name'])
         name = row.to_hash['nombre']
@@ -103,7 +103,7 @@ namespace :my_tasks do
     cities_files.each do |city_file|
       # init variables
       number_of_successfully_created_rows = 0
-      CSV.foreach(city_file, :headers => true, :encoding => 'ISO-8859-1:UTF-8') do |row|
+      CSV.foreach(city_file, :headers => true) do |row|
         city = Municipio.find_by(nombre: row.to_hash['municipio'])
         name = row.to_hash['nombre']
         description = row.to_hash['descripcion']
@@ -124,14 +124,14 @@ namespace :my_tasks do
   desc "Load inspections to the db"
   task :load_inspections  => :environment do |t, args| 
     
-    cities_files = ['lib/datasets/notificaciones_chalco.csv', 'lib/datasets/notificaciones_metepec.csv']
+    cities_files = ['lib/datasets/verificaciones_chalco.csv', 'lib/datasets/verificaciones_metepec.csv']
     
     clean_db(Inspection) # let's erase everyone from the db
     
     cities_files.each do |city_file|
       # init variables
       number_of_successfully_created_rows = 0
-      CSV.foreach(city_file, :headers => true, :encoding => 'ISO-8859-1:UTF-8') do |row|
+      CSV.foreach(city_file, :headers => true) do |row|
         
         dependency = Dependency.find_by(nombre: row.to_hash['dependency_name'])
         name = row.to_hash['nombre']
@@ -145,7 +145,7 @@ namespace :my_tasks do
         certification = row.to_hash['documento_acredita']
         
         row_values = { 
-          dependecy: dependency,
+          dependency: dependency,
           nombre: name,
           materia: subject,
           duracion: period,
@@ -161,9 +161,40 @@ namespace :my_tasks do
           Inspection.create!(row_values)
           number_of_successfully_created_rows = number_of_successfully_created_rows + 1
         else
+            # puts "#{ row_values[:nombre]} | #{row_values[:materia]} | #{row_values[:duracion]}"
             puts "#{ row_values.inspect }"
         end
         
+      end
+      puts "Number of successfully created rows is (#{city_file}): #{number_of_successfully_created_rows}"
+    end
+  end
+  
+  
+  desc "Load requirements to the db"
+  task :load_formation_steps  => :environment do |t, args| 
+      
+    clean_db(FormationStep) # let's erase everyone from the db
+    
+    cities_files = ['lib/datasets/apertura_chalco.csv', 'lib/datasets/apertura_metepec.csv']
+    
+    cities_files.each do |city_file|
+      # init variables
+      number_of_successfully_created_rows = 0
+      CSV.foreach(city_file, :headers => true) do |row|
+        city = Municipio.find_by(nombre: row.to_hash['municipio_name'])
+        name = row.to_hash['name']
+        description = row.to_hash['description']
+        path = row.to_hash['path']
+        type = row.to_hash['type']
+
+        row_values = { name: name, municipio: city, description: description, path: path, type: type }
+        if city.present? && row_does_not_exist_in_the_db(FormationStep, row_values)
+          FormationStep.create!(row_values)
+          number_of_successfully_created_rows = number_of_successfully_created_rows + 1
+        else
+          puts "#{row_values.inspect}"
+        end
       end
       puts "Number of successfully created rows is (#{city_file}): #{number_of_successfully_created_rows}"
     end
