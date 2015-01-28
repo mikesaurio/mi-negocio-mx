@@ -19,6 +19,7 @@ namespace :my_tasks do
     clean_db(Requirement)
     clean_db(Inspection) 
     clean_db(FormationStep)
+    clean_db(Procedure)
     
     cities_files = ['lib/datasets/giros_chalco.csv', 'lib/datasets/giros_metepec.csv']
     
@@ -131,7 +132,7 @@ namespace :my_tasks do
     
     cities_files = ['lib/datasets/verificaciones_chalco.csv', 'lib/datasets/verificaciones_metepec.csv']
     
-    clean_db(Inspection) # let's erase everyone from the db
+   # clean_db(Inspection) # let's erase everyone from the db
     
     cities_files.each do |city_file|
       # init variables
@@ -204,6 +205,51 @@ namespace :my_tasks do
       puts "Number of successfully created rows is (#{city_file}): #{number_of_successfully_created_rows}"
     end
   end
+
+
+   desc "Load procedures to the db"
+  task :load_procedures  => :environment do |t, args| 
+    
+    cities_files = ['lib/datasets/tramites_chalco.csv', 'lib/datasets/tramites_metepec.csv']
+    
+    clean_db(Procedure) # let's erase everyone from the db
+    
+    cities_files.each do |city_file|
+      # init variables
+      number_of_successfully_created_rows = 0
+      CSV.foreach(city_file, :headers => true) do |row|
+        
+        dependency = Dependency.find_by(nombre: row.to_hash['dependency_name'])
+        name = row.to_hash['nombre']
+        time = row.to_hash['duracion']
+        cost = row.to_hash['costo']
+        supervisor = row.to_hash['vigencia']
+        contact = row.to_hash['contacto']
+
+        if dependency.present? && row_does_not_exist_in_the_db(Procedure, { 
+            nombre: name,
+            dependency: dependency
+          })
+          Procedure.create!(
+             dependency: dependency,
+             nombre: name,
+             duracion: time,
+             costo: cost,
+             vigencia: supervisor,
+             contacto: contact,
+             tipo: 'A'
+          )
+          number_of_successfully_created_rows = number_of_successfully_created_rows + 1
+        else
+            puts "#{name} | #{time} | #{cost} | #{dependency.nombre} | #{contact} | #{supervisor} | #{}"
+        end
+        
+      end
+      puts "Number of successfully created rows is (#{city_file}): #{number_of_successfully_created_rows}"
+    end
+  end
+
+
   
   def row_does_not_exist_in_the_db(model, search_values)
     !model.where(search_values).present?
