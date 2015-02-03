@@ -4,12 +4,19 @@ class InspectionsController < ApplicationController
   layout 'blanco'
 
   def index
-    if params[:q]
+     valores  if params[:get]
+ end
+ 
+  def valores
+     @line = params[:get][:lines]
+     if params[:q]
       @inspections = Inspection.search_by_city(@municipio, params[:q])
+      @inspection_line = InspectionLine.where(line_id: @line)
     else
-      @inspections = Inspection.by_city(@municipio)
-    end
-  end
+        @inspections =  Inspection.by_city(@municipio)
+         @inspection_line = InspectionLine.where(line_id: @line)
+      end
+ end 
 
   def show
   end

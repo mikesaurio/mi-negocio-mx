@@ -1,28 +1,43 @@
 <div class="row text-center">
-            <div class="col-lg-10 col-lg-offset-1">
-                <%= content_tag :h1, t('.title'), class: 'text-center' %>
-                <hr class="small">
-            </div>
+  <div class="col-lg-10 col-lg-offset-1">
+    <%= content_tag :h1, t('.title'), class: 'text-center' %>
+    <hr class="small">
+  </div>
 </div>
 
-<%= render "shared/search", custom_path: municipio_inspections_path(@municipio), search_placeholder: t('.search_inspections') %>
+<%= form_for :get, :html => {:method => :get}, :url => { :controller => :inspections, :action => :index }  do |f| %>
+<p>¿Cual es el giro de tu negocio?
+  <%= f.select :lines, Line.where(municipio_id: @municipio).map { |u| [u.nombre, u.id] },{ include_blank: true ,:selected =>@line  },{ class: 'chosen-select' }%></p>
 
-<div class="deck">
-  <% if @inspections.any? %>
-    <div class="table__card">
-      <ul>
-        <% @inspections.each do |inspection| %>
-          <%= link_to municipio_inspection_path(@municipio, inspection) do %>
-          <li class="table--row">
-            <div class="row--title"><%= inspection.nombre %></div>
-            <div class="row--subtitle"><%= inspection.materia %></div>
-            <div class="row--footer">Duraci&oacute;n: <%= inspection.duracion %></div>
-          </li>
-          <% end %>
-        <% end %>
-      </ul>
-    </div>
+  <br>
+  <div class="actions">
+   <%= f.submit t('buttons.ok'),:class => 'btn btn-lg btn-light' %>
+ </div>
+ <br>
+ <% unless @inspections.nil? || @inspections.empty? %>
+
+ <%= render "shared/search", custom_path: municipio_inspections_path(@municipio), search_placeholder: t('.search_inspections') %>
+ <div class="deck">
+  <div class="table__card">
+    <ul>
+      <% @inspections.each do |inspection| %>
+      <%if @inspection_line.where(inspection_id: inspection.id).present?%>
+      <%= link_to municipio_inspection_path(@municipio, inspection) do %>
+      <li class="table--row">
+        <div class="row--title"><%= inspection.nombre %></div>
+        <div class="row--subtitle"><%= inspection.materia %></div>
+        <div class="row--footer">Duraci&oacute;n: <%= inspection.duracion %></div>
+      </li>
+      <% end %>
+      <%end%>
+      
+      <% end %>
+    </ul>
+  </div>
   <% else %>
-    <%= render "shared/empty_resource", message: t('.no_inspections_available') %>
+  <%= render "shared/empty_resource", message: t('.no_inspections_available') %>
   <% end %>
 </div>
+
+
+<%end%>
