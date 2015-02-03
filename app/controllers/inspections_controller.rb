@@ -9,6 +9,7 @@ class InspectionsController < ApplicationController
  
   def valores
      @line = params[:get][:lines]
+     @first_time = true
      if params[:q]
       @inspections = Inspection.search_by_city(@municipio, params[:q])
       @inspection_line = InspectionLine.where(line_id: @line)
