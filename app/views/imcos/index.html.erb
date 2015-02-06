@@ -20,3 +20,29 @@
 
 
 
+
+<%= link_to "Facebook", "/auth/facebook", class: "fb-login-button"%>  
+
+<%= link_to "Linkdin", "https://www.linkedin.com/uas/oauth2/authorization?response_type=code&client_id=787qz1t8qct0ym&scope=r_basicprofile%20r_emailaddress&state=STATE&redirect_uri=http://localhost:3000/"%>  
+
+<%= button_to_function "✓", '$(this).toggleClass("buttonGrey buttonGreen");', :class => "buttonGrey"%>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&appId=1499379517003281&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<script type="text/javascript" src="http://platform.linkedin.com/in.js">    
+	api_key: 787qz1t8qct0ym    
+	onLoad: onLinkedInLoad    
+	authorize: true
+</script>
+
+<script src="//platform.linkedin.com/in.js" type="text/javascript">
+  lang: en_US
+</script>
+<script type="IN/Share" data-counter="top"></script>

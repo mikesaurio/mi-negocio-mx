@@ -5,7 +5,7 @@ Rails.application.routes.draw do
    resources :procedure_requirements, only: [:index]#Para pruebas
 
    get 'auth/:provider/callback', to: 'sessions#create'
-  get 'logout', to: 'sessions#destroy'
+    get 'logout', to: 'sessions#destroy'
 
   resources :municipios, only: [:show] do
     resources :inspections, only: [:index, :show]
