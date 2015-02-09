@@ -18,16 +18,19 @@
 	</div>
 <% end %>
 
-
+<p>
+  Download:
+  <%= link_to "CSV", imcos_path(format: "csv") %> |
+  <%= link_to "Excel", imcos_path(format: "xls") %>
+</p>
 
 
 <%= link_to "Facebook", "/auth/facebook", class: "fb-login-button"%>  
 
-<%= link_to "Linkdin", "https://www.linkedin.com/uas/oauth2/authorization?response_type=code&client_id=787qz1t8qct0ym&scope=r_basicprofile%20r_emailaddress&state=STATE&redirect_uri=http://localhost:3000/"%>  
-
-<%= button_to_function "✓", '$(this).toggleClass("buttonGrey buttonGreen");', :class => "buttonGrey"%>
-
+<%= link_to "Linkdin", "https://www.linkedin.com/uas/oauth2/authorization?response_type=code&client_id=787qz1t8qct0ym&scope=r_basicprofile%20r_emailaddress&state=STATE&redirect_uri=http://localhost:3000/auth/linkedin/callback" %>  
 <div id="fb-root"></div>
+
+
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) return;
@@ -36,13 +39,23 @@
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 
-<script type="text/javascript" src="http://platform.linkedin.com/in.js">    
-	api_key: 787qz1t8qct0ym    
-	onLoad: onLinkedInLoad    
-	authorize: true
-</script>
+<div id="buttonControl">
+  <input type="button" id="showLinkedIn" value="Show LinkedIn" onclick="showLinkedIn();" />
+</div>
+<div id="buttonContent" style="display: none;"></div>
 
-<script src="//platform.linkedin.com/in.js" type="text/javascript">
-  lang: en_US
+<script type="text/javascript">
+function showLinkedIn() {
+  // insert the SignIn plugin
+  $('#buttonContent').html('<script type="IN/Login" data-onauth="loadData"><\/script>');
+
+  // tell the LinkedIn JavaScript code to re-parse the element containing the SignIn plugin
+  IN.parse($('#buttonContent')[0]);
+
+  // hide button trigger, if needed
+  $('#buttonControl').hide();
+
+  // show the LinkedIn control
+  $('#buttonContent').show();
+}
 </script>
-<script type="IN/Share" data-counter="top"></script>

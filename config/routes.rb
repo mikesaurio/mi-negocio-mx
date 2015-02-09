@@ -7,6 +7,10 @@ Rails.application.routes.draw do
    get 'auth/:provider/callback', to: 'sessions#create'
     get 'logout', to: 'sessions#destroy'
 
+    resources :imcos
+
+    
+
   resources :municipios, only: [:show] do
     resources :inspections, only: [:index, :show]
     resources :inspectors, only: [:index, :show]
