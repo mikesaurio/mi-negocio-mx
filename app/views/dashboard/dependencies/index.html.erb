@@ -21,3 +21,9 @@
      <% end %>
    </tbody>
 </table>
+<p>
+  Descargar:
+  <%= link_to "CSV", dashboard_dependencies_path( format: "csv") %>
+   <%= link_to "XLS", dashboard_dependencies_path( format: "xls") %>
+</p>
+

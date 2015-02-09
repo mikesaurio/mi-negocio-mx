@@ -12,9 +12,9 @@ class Line < ActiveRecord::Base
 
  def self.to_csv(options = {})
     CSV.generate(options) do |csv|
-      csv << ["nombre", "municipio_id"]#column_names
+      csv << ["nombre", "descripcion","municipio_id"]#column_names
       all.each do |product|
-        csv << [product.nombre, Municipio.find(product.municipio_id).nombre] 
+        csv << [product.nombre,product.descripcion, Municipio.find(product.municipio_id).nombre] 
       end
     end
   end

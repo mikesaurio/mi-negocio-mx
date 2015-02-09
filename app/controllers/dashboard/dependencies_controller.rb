@@ -5,7 +5,13 @@ module Dashboard
     layout 'dashboard'
 
     def index 
-      @dependencies = policy_scope(Dependency).where(municipio_id: current_user.municipio)
+      @dependencies = policy_scope(Dependency).where(municipio_id: current_user.municipio).order(:nombre)
+
+        respond_to do |format|
+          format.html
+          format.csv { send_data @dependencies.to_csv }
+          format.xls { send_data @dependencies.to_csv(col_sep: "\t") }
+      end
     end
 
     def new
