@@ -7,7 +7,7 @@ Rails.application.routes.draw do
    get 'auth/:provider/callback', to: 'sessions#create'
     get 'logout', to: 'sessions#destroy'
 
-    resources :imcos
+    resources :imcos #solo la ocupo para generar los xml
 
     
 

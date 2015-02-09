@@ -20,8 +20,7 @@
 
 <p>
   Download:
-  <%= link_to "CSV", imcos_path(format: "csv") %> |
-  <%= link_to "Excel", imcos_path(format: "xls") %>
+  <%= link_to "CSV", imcos_path(format: "csv") %>
 </p>
 
 
@@ -38,24 +37,3 @@
   js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&appId=1499379517003281&version=v2.0";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
-
-<div id="buttonControl">
-  <input type="button" id="showLinkedIn" value="Show LinkedIn" onclick="showLinkedIn();" />
-</div>
-<div id="buttonContent" style="display: none;"></div>
-
-<script type="text/javascript">
-function showLinkedIn() {
-  // insert the SignIn plugin
-  $('#buttonContent').html('<script type="IN/Login" data-onauth="loadData"><\/script>');
-
-  // tell the LinkedIn JavaScript code to re-parse the element containing the SignIn plugin
-  IN.parse($('#buttonContent')[0]);
-
-  // hide button trigger, if needed
-  $('#buttonControl').hide();
-
-  // show the LinkedIn control
-  $('#buttonContent').show();
-}
-</script>

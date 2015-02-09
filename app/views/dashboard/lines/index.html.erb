@@ -22,3 +22,9 @@
      <% end %>
    </tbody>
 </table>
+
+<p>
+  Download:
+  <%= link_to "CSV", dashboard_lines_path( format: "csv") %>
+   <%= link_to "XLS", dashboard_lines_path( format: "xls") %>
+</p>
