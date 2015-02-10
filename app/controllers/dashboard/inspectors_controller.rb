@@ -6,6 +6,11 @@ module Dashboard
 
     def index
       @inspectors = policy_scope(Inspector)
+       respond_to do |format|
+        format.html
+        format.csv { send_data @inspectors.to_csv }
+        format.xls { send_data @inspectors.to_csv(col_sep: "\t") }
+    end
     end
 
     def new

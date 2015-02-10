@@ -5,7 +5,12 @@ module Dashboard
     layout 'dashboard'
 
     def index
-      @formation_steps = policy_scope(FormationStep).where(municipio_id: current_user.municipio)
+      @formation_steps = policy_scope(FormationStep).where(municipio_id: current_user.municipio).order(:name)
+       respond_to do |format|
+        format.html
+        format.csv { send_data @formation_steps.to_csv }
+        format.xls { send_data @formation_steps.to_csv(col_sep: "\t") }
+    end
     end
 
     def new
