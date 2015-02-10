@@ -17,4 +17,16 @@ class Inspection < ActiveRecord::Base
       by_city(city).
       where("inspections.nombre ILIKE ?", "%#{query}%")
     }
+
+
+
+    def self.to_csv(options = {})
+    CSV.generate(options) do |csv|
+      csv << ["nombre", "vigencia","materia","supervisor","contacto","foto","dependencia"]#column_names
+      self.each do |product|
+        csv << [product.nombre,product.vigencia,product.materia, product.contacto,product.foto,product.dependencia.nombre ] 
+      end
+    end
+  end
+
 end
