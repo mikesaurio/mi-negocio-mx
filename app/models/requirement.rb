@@ -11,7 +11,7 @@ class Requirement < ActiveRecord::Base
  
        def self.to_csv(options = {})
     CSV.generate(options) do |csv|
-      csv << ["nombre", "descripcion","path","municipio"]#column_names
+      csv << ["nombre", "descripcion","path","municipio_id"]#column_names
       all.each do |product|
         csv << [product.nombre,product.descripcion, product.path , product.municipio.nombre] 
       end

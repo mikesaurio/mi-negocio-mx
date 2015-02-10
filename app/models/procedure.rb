@@ -9,7 +9,7 @@ class Procedure < ActiveRecord::Base
 
   def self.to_csv(options = {})
     CSV.generate(options) do |csv|
-      csv << ["nombre","duracion","costo", "vigencia","contacto","dependency_id","tipo","giros","tramites"]#column_names
+      csv << ["nombre","duracion","costo", "vigencia","contacto","dependencia_id","tipo","giros","tramites"]#column_names
       all.each do |product|
         csv << [product.nombre, product.duracion, product.costo,product.vigencia, product.contacto, Dependency.find(product.dependency_id).nombre,
           tipo_tramite(product.tipo),  procedure_lines(product.id), procedure_requirements(product.id)] 

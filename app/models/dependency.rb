@@ -11,7 +11,7 @@ class Dependency < ActiveRecord::Base
 
   def self.to_csv(options = {})
     CSV.generate(options) do |csv|
-      csv << ["nombre", "municipio"]#column_names
+      csv << ["nombre", "municipio_id"]#column_names
       all.each do |product|
         csv << [product.nombre,product.municipio.nombre] 
       end

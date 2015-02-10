@@ -17,7 +17,7 @@ class Inspector < ActiveRecord::Base
 
  def self.to_csv(options = {})
     CSV.generate(options) do |csv|
-      csv << ["nombre","vigencia","materia", "supervisor","contacto","foto","dependency_id"]#column_names
+      csv << ["nombre","vigencia","materia", "supervisor","contacto","foto","dependencia_id"]#column_names
       all.each do |product|
         csv << [product.nombre, product.vigencia, product.materia,product.supervisor, product.contacto, product.foto,Dependency.find(product.dependency_id).nombre] 
         end

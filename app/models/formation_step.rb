@@ -8,7 +8,7 @@ class FormationStep < ActiveRecord::Base
 
        def self.to_csv(options = {})
     CSV.generate(options) do |csv|
-      csv << ["name", "description","path","type","municipio"]#column_names
+      csv << ["nombre", "descripcion","path","tipo","municipio_id"]#column_names
       all.each do |product|
         csv << [product.name,product.description, product.path, product.type == 'AF' ? 'Física' : 'Moral' , product.municipio.nombre] 
       end
