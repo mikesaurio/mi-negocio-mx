@@ -4,6 +4,11 @@ Rails.application.routes.draw do
   post "municipios/search"
    resources :procedure_requirements, only: [:index]#Para pruebas
 
+   get 'auth/:provider/callback', to: 'sessions#create'
+    get 'logout', to: 'sessions#destroy'
+
+    
+
   resources :municipios, only: [:show] do
     resources :inspections, only: [:index, :show]
     resources :inspectors, only: [:index, :show]

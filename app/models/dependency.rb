@@ -6,4 +6,15 @@ class Dependency < ActiveRecord::Base
   has_many :inspections
 
   scope :by_city, -> (city) { where(municipio: city) }
+
+
+
+  def self.to_csv(options = {})
+    CSV.generate(options) do |csv|
+      csv << ["nombre", "municipio_id"]#column_names
+      all.each do |product|
+        csv << [product.nombre,product.municipio.nombre] 
+      end
+    end
+  end
 end
