@@ -36,7 +36,7 @@ class Procedure < ActiveRecord::Base
     if aux.blank?
       'N/A' 
     else
-      aux.map(&:inspect).join('; ')
+      aux.map(&:inspect).join('; ').gsub /"/, ''
     end
   end
 
@@ -49,7 +49,7 @@ def procedure_requirements(id_procedure)
   if aux.blank?
     'N/A' 
   else
-    aux.map(&:inspect).join('; ')
+    aux.map(&:inspect).join('; ').gsub /"/, ''
   end
 end
 
