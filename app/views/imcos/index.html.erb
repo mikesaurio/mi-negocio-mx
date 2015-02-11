@@ -20,9 +20,9 @@
 
  <% if current_user %>
     Welcome <strong><%= current_user.name %></strong>!
-    <%= link_to "Sign out", signout_path, id: "sign_out" %>
+    <%= link_to "Terminar sesión", signout_path, id: "sign_out", class: "fb-login-button"%>
   <% else %>
-    <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
+    <%= link_to "Registrate con Facebook", "/auth/facebook", id: "sign_in", class: "fb-login-button" %>
   <% end %>
 
 <%#= link_to "Facebook", "/auth/facebook", class: "fb-login-button"%>  
