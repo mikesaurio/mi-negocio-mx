@@ -18,8 +18,14 @@
 	</div>
 <% end %>
 
+ <% if current_user %>
+    Welcome <strong><%= current_user.name %></strong>!
+    <%= link_to "Sign out", signout_path, id: "sign_out" %>
+  <% else %>
+    <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
+  <% end %>
 
-<%= link_to "Facebook", "/auth/facebook", class: "fb-login-button"%>  
+<%#= link_to "Facebook", "/auth/facebook", class: "fb-login-button"%>  
 
 <%#= link_to "Linkdin", "https://www.linkedin.com/uas/oauth2/authorization?response_type=code&client_id=787qz1t8qct0ym&scope=r_basicprofile%20r_emailaddress&state=STATE&redirect_uri=http://localhost:3000/auth/linkedin/callback" %>  
 <div id="fb-root"></div>
