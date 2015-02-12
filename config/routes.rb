@@ -4,9 +4,10 @@ Rails.application.routes.draw do
   post "municipios/search"
    resources :procedure_requirements, only: [:index]#Para pruebas
 
-   get 'auth/:provider/callback', to: 'sessions#create'
-    get 'auth/failure', to: redirect('/')
-    get 'signout', to: 'sessions#destroy', as: 'signout'
+   match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
+  match 'auth/failure', to: redirect('/'), via: [:get, :post]
+  match 'signout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]
+
     
 
   resources :municipios, only: [:show] do

@@ -18,12 +18,14 @@
 	</div>
 <% end %>
 
- <% if current_user %>
-    Welcome <strong><%= current_user.name %></strong>!
-    <%= link_to "Terminar sesión", signout_path, id: "sign_out", class: "fb-login-button"%>
+ <div id="user_nav">
+  <% if current_user %>
+    Signed in as <strong><%= current_user.name %></strong>!
+    <%= link_to "Sign out", signout_path, id: "sign_out" %>
   <% else %>
-    <%= link_to "Registrate con Facebook", "/auth/facebook", id: "sign_in", class: "fb-login-button" %>
+    <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
   <% end %>
+</div>
 
 <%#= link_to "Facebook", "/auth/facebook", class: "fb-login-button"%>  
 

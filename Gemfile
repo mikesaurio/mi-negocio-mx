@@ -39,8 +39,12 @@ gem 'pundit'
 gem 'chosen-rails' #autocompletar
 gem 'bootstrap-switch-rails', '~> 3.0.0' 
 
+
+gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-linkedin'
+
+
 group :development do
   # Thin server
   gem 'thin'

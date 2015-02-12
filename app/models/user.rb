@@ -7,19 +7,32 @@ class User < ActiveRecord::Base
   validates :municipio_id, presence: true
   belongs_to :municipio
 
-
-  def self.from_omniauth(auth)
+def self.from_omniauth(auth)
     where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
+    puts '*************************'
       user.provider = auth.provider
+       puts user.provider
       user.uid = auth.uid
+        puts user.uid
       user.name = auth.info.name
+        puts user.name
       user.email = auth.info.email
+        puts user.email
       user.password = 'codeandomexico'
+        puts user.password
       user.oauth_token = auth.credentials.token
+        puts user.oauth_token
       #user.oauth_expires_at = Time.at(auth.credentials.expires_at)
       user.municipio_id = '1'  
+        puts user.municipio_id
       user.save!
+        puts '*************************'
     end
   end
 
+
+ 
 end
+
+
+ 
