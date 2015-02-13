@@ -4,9 +4,6 @@ def up
     add_column :visits, :reset_password_token, :string
     add_column :visits, :reset_password_sent_at, :datetime
     add_column :visits, :remember_created_at, :datetime
-    add_column :visits, :current_sign_in_at, :datetime
-    add_column :visits, :current_sign_in_ip, :inet
-    add_column :visits, :last_sign_in_ip, :inet
   end
 
   def down
