@@ -18,28 +18,12 @@
 	</div>
 <% end %>
 
- <div id="user_nav">
-  <%# if current_user %>
-    Signed in as <strong><%#= current_user.name %></strong>!
-    <%#= link_to "Sign out", signout_path, id: "sign_out" %>
-  <%# else %>
-    <%#= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
-  <%# end %>
-</div>
-
 <% if user_signed_in? %>
-Signed in as <%= current_user.email %>. Not you?
-<%= link_to "Sign out", destroy_user_session_path(:authenticity_token => form_authenticity_token()),:method => :delete %>
+	Signed in as <%= current_user.email %>. Not you?
+	<%= link_to "Terminar sesión", destroy_user_session_path(:authenticity_token => form_authenticity_token()),:method => :delete , class: "btn btn-github"%>
 <% else %>
-<%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
-<% end %>
-
-
-<% if user_signed_in? %>
-Signed in as <%= current_user.email %>. Not you?
-<%= link_to "Sign out", destroy_user_session_path(:authenticity_token => form_authenticity_token()),:method => :delete %>
-<% else %>
-<%= link_to "Sign in with Linkedin",user_omniauth_authorize_path(:linkedin) %>
+	<%= link_to "Ingresar con Facebook", user_omniauth_authorize_path(:facebook) ,class: "btn btn-facebook fa fa-facebook"%>
+	<%= link_to "Ingresar con Linkedin",user_omniauth_authorize_path(:linkedin) ,class: "btn btn-linkedin fa fa-linkedin"%>
 <% end %>
 
 <%#= link_to "Facebook", "/auth/facebook", class: "fb-login-button"%>  
