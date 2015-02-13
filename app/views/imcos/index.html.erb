@@ -28,16 +28,16 @@
 </div>
 
 <% if user_signed_in? %>
-Signed in as <%= current_user.name %>. Not you?
-<%= link_to "Sign out", destroy_user_session_path,:method => :delete %>
+Signed in as <%= current_user.email %>. Not you?
+<%= link_to "Sign out", destroy_user_session_path(:authenticity_token => form_authenticity_token()),:method => :delete %>
 <% else %>
 <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
 <% end %>
 
 
 <% if user_signed_in? %>
-Signed in as <%= current_user.name %>. Not you?
-<%= link_to "Sign out", destroy_user_session_path,:method => :delete %>
+Signed in as <%= current_user.email %>. Not you?
+<%= link_to "Sign out", destroy_user_session_path(:authenticity_token => form_authenticity_token()),:method => :delete %>
 <% else %>
 <%= link_to "Sign in with Linkedin",user_omniauth_authorize_path(:linkedin) %>
 <% end %>

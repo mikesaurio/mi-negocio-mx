@@ -12,17 +12,12 @@ def facebook
   end
 
   def linkedin
-    puts '******************link'
     auth = env["omniauth.auth"]
-       puts '******************link'
     @user = User.connect_to_linkedin(request.env["omniauth.auth"],current_user)
-       puts '******************link'
     if @user.persisted?
-         puts '******************if'
-    #  flash[:notice] = I18n.t "devise.omniauth_callbacks.success"
-    redirect_to root_path#  sign_in_and_redirect @user, :event => :authentication
+      flash[:notice] = I18n.t "devise.omniauth_callbacks.success"
+      sign_in_and_redirect @user, :event => :authentication
     else
-         puts '******************else'
       session["devise.linkedin_uid"] = request.env["omniauth.auth"]
       redirect_to root_path
     end
