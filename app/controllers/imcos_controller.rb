@@ -1,6 +1,8 @@
 class ImcosController < ApplicationController
   
 
+#before_filter :authenticate_user! 
+
   def index
     @municipios = Municipio.all
 

@@ -40,7 +40,6 @@ gem 'chosen-rails' #autocompletar
 gem 'bootstrap-switch-rails', '~> 3.0.0' 
 
 
-gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-linkedin'
 

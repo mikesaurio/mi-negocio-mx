@@ -2,36 +2,54 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable,:omniauthable, :omniauth_providers => [:facebook, :linkedin]
 
   validates :municipio_id, presence: true
   belongs_to :municipio
 
-def self.from_omniauth(auth)
-    where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
-    puts '*************************'
-      user.provider = auth.provider
-       puts user.provider
-      user.uid = auth.uid
-        puts user.uid
-      user.name = auth.info.name
-        puts user.name
-      user.email = auth.info.email
-        puts user.email
-      user.password = 'codeandomexico'
-        puts user.password
-      user.oauth_token = auth.credentials.token
-        puts user.oauth_token
-      #user.oauth_expires_at = Time.at(auth.credentials.expires_at)
-      user.municipio_id = '1'  
-        puts user.municipio_id
-      user.save!
-        puts '*************************'
-    end
+
+def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
+    user = User.where(:provider => auth.provider, :uid => auth.uid).first
+    if user
+      return user
+    else
+      registered_user = User.where(:email => auth.info.email).first
+      if registered_user
+        return registered_user
+      else
+        user = User.create(name:auth.extra.raw_info.name,
+                            provider:auth.provider,
+                            uid:auth.uid,
+                            email:auth.info.email,
+                            password:Devise.friendly_token[0,20],
+                            municipio_id:'1'
+                          )
+      end   
+       end
   end
 
+def self.connect_to_linkedin(auth, signed_in_resource=nil)
+    user = User.where(:provider => auth.provider, :uid => auth.uid).first
+    if user
+      return user
+    else
+      registered_user = User.where(:email => auth.info.email).first
+      if registered_user
+        return registered_user
+      else
 
- 
+        user = User.create(name:auth.info.first_name,
+                            provider:auth.provider,
+                            uid:auth.uid,
+                            email:auth.info.email,
+                            password:Devise.friendly_token[0,20],
+                             municipio_id:'1'
+                          )
+      end
+
+    end
+  end   
+
 end
 
 
