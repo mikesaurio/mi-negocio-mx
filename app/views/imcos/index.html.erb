@@ -1,4 +1,16 @@
 <%= form_for :post, :url => { :controller => :municipios, :action => :search } do |f| %>
+ <div class="navbar navbar-fixed-top">
+          <div class="navbar-inner">
+              <div class="container-fluid"> 
+              	<% if user_signed_in? %>
+					<p class="navbar-text pull-right navbar-custom"><%=current_user.email%></p>
+				<% else %>
+					<p class="navbar-text pull-right navbar-custom" data-toggle="modal" data-target="#myModal">Iniciar Sesion</p>
+				<% end %>
+              </div>
+          </div>
+  </div>
+	<%= image_tag "logo.png", class: "img-responsive center-block" %>          
 
 	<div class="container">
 		<div class="row">
@@ -19,16 +31,33 @@
 <% end %>
 
 <% if user_signed_in? %>
-	Signed in as <%= current_user.email %>. Not you?
-	<%= link_to "Terminar sesión", destroy_user_session_path(:authenticity_token => form_authenticity_token()),:method => :delete , class: "btn btn-github"%>
-<% else %>
-	<%= link_to "Ingresar con Facebook", user_omniauth_authorize_path(:facebook) ,class: "btn btn-facebook fa fa-facebook"%>
-	<%= link_to "Ingresar con Linkedin",user_omniauth_authorize_path(:linkedin) ,class: "btn btn-linkedin fa fa-linkedin"%>
-<% end %>
+					Signed in as <%= current_user.email %>. Not you?
+					<%= link_to "Terminar sesión", destroy_user_session_path(:authenticity_token => form_authenticity_token()),:method => :delete , class: "btn btn-github"%>
+				<% else %>
+					
+				<% end %>
 
-<%#= link_to "Facebook", "/auth/facebook", class: "fb-login-button"%>  
 
-<%#= link_to "Linkdin", "https://www.linkedin.com/uas/oauth2/authorization?response_type=code&client_id=787qz1t8qct0ym&scope=r_basicprofile%20r_emailaddress&state=STATE&redirect_uri=http://localhost:3000/auth/linkedin/callback" %>  
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog-center">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Puedes iniciar sesión con:</h4>
+      </div>
+      <div class="modal-body">
+       <%= link_to " | Facebook", user_omniauth_authorize_path(:facebook) ,class: "btn btn-facebook fa fa-facebook btn-lg-social"%>
+       <BR>
+       <BR>
+		<%= link_to " | Linkedin",user_omniauth_authorize_path(:linkedin) ,class: "btn btn-linkedin fa fa-linkedin btn-lg-social"%>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
 <div id="fb-root"></div>
 
 
