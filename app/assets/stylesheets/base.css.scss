@@ -29,33 +29,7 @@ body {
     font-weight: 700;
 }
 
-/* Custom Button Styles */
 
-.btn-dark {
-    border-radius: 0;
-    color: #fff;
-    background-color: rgba(0,0,0,0.4);
-}
-
-.btn-dark:hover,
-.btn-dark:focus,
-.btn-dark:active {
-    color: #fff;
-    background-color: rgba(0,0,0,0.7);
-}
-
-.btn-light {
-    border-radius: 0;
-    color: #333;
-    background-color: rgb(255,255,255);
-}
-
-.btn-light:hover,
-.btn-light:focus,
-.btn-light:active {
-    color: #333;
-    background-color: rgba(255,255,255,0.8);
-}
 
 /* Custom Horizontal Rule */
 
@@ -241,3 +215,39 @@ footer {
           width: 100%;
       height: 10%;
 }
+
+/*buttons*/
+.btn-outline {
+    background-color: transparent;
+    color: inherit;
+    transition: all .5s;
+}
+
+.btn-primary.btn-outline {
+    color: #fff;
+}
+
+.btn-success.btn-outline {
+    color: #fff;
+}
+
+.btn-info.btn-outline {
+    color: #fff;
+}
+
+.btn-warning.btn-outline {
+    color: #fff;
+}
+
+.btn-danger.btn-outline {
+    color: #fff;
+}
+
+.btn-primary.btn-outline:hover,
+.btn-success.btn-outline:hover,
+.btn-info.btn-outline:hover,
+.btn-warning.btn-outline:hover,
+.btn-danger.btn-outline:hover {
+    color: #fff;
+}
+
