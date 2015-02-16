@@ -4,9 +4,9 @@ class CreateVisits < ActiveRecord::Migration
       t.string :provider
       t.string :uid
       t.string :name
-      t.string :image
-      t.string :token
-      t.datetime :expires_at
+      t.string :oauth_token
+      t.datetime :oauth_expires_at
+      t.string :email
 
       t.timestamps
     end

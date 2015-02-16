@@ -12,6 +12,12 @@ Devise.setup do |config|
   # with default "from" parameter.
   config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
 
+  require 'omniauth-linkedin'
+  config.omniauth :linkedin, "787qz1t8qct0ym", "nagKR20Nj0HMyC1J", :scope => 'r_fullprofile r_emailaddress r_network'#
+  require 'omniauth-facebook'
+  config.omniauth :facebook, "1499379517003281", "765e1e8a12163d30156ac198aecf1888"
+
+
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
 
@@ -228,6 +234,7 @@ Devise.setup do |config|
 
   # The default HTTP method used to sign out a resource. Default is :delete.
   config.sign_out_via = :delete
+    #config.sign_out_via = :get
 
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting

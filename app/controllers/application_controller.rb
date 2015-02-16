@@ -9,4 +9,10 @@ class ApplicationController < ActionController::Base
   def set_locale
     I18n.locale = params[:locale] || I18n.default_locale
   end
+
+  #helper_method :current_user
+
+  #def current_user
+    #@current_user ||= User.find(session[:user_id]) if session[:user_id]
+  #end
 end

@@ -4,14 +4,14 @@ one:
   provider: MyString
   uid: MyString
   name: MyString
-  image: MyString
-  token: MyString
-  expires_at: 2015-02-05 17:02:27
+  oauth_token: MyString
+  oauth_expires_at: 2015-02-12 16:07:22
+  email: MyString
 
 two:
   provider: MyString
   uid: MyString
   name: MyString
-  image: MyString
-  token: MyString
-  expires_at: 2015-02-05 17:02:27
+  oauth_token: MyString
+  oauth_expires_at: 2015-02-12 16:07:22
+  email: MyString
