@@ -136,7 +136,6 @@ es:
       after_tips: Tips (después)
       sanctions_tips: Sanciones
       more_info: Más información
-
   inspectors:
     index:
       title: Inspectores
@@ -169,6 +168,13 @@ es:
   municipios:
     index:
       title: Selecciona una opción
+  imcos:
+    index:
+      iniciar_sesion: Iniciar sesión
+      subtitulo: Elige tu municipio
+      salir: Salir
+      no_municipio: ¿No encuentras tu municipio? da
+      click: clic aquí
   layouts:
     blanco:
       new: NUEVO NEGOCIO

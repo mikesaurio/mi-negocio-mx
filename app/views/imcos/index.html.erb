@@ -4,22 +4,22 @@
 		<div class="navbar-inner">
 			<div class="container-fluid"> 
 				<% if user_signed_in? %>
-				<p class="navbar-text pull-right navbar-custom"><%="#{current_user.email}\t"%><%=link_to "Salir", destroy_user_session_path(:authenticity_token => form_authenticity_token()),:method => :delete,class: "navbar-text-blanco"%>
+				<p class="navbar-text pull-right navbar-custom"><%="#{current_user.email}\t"%><%=link_to t('.salir'), destroy_user_session_path(:authenticity_token => form_authenticity_token()),:method => :delete,class: "navbar-text-blanco"%>
 				</p>
 				<% else %>
-				<p class="navbar-text pull-right navbar-custom" data-toggle="modal" data-target="#myModal">Iniciar Sesion</p>
+				<p class="navbar-text pull-right navbar-custom" data-toggle="modal" data-target="#mySocialModal"><%=t('.iniciar_sesion')%></p>
 				<% end %>
 			</div>
 		</div>
 	</div>
-	<%= image_tag "logo.png", class: "img-responsive center-block quarto"%>          
+	<%= image_tag "logo.png", class: "img-responsive center-block"%>          
 
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12 text-center">
 				<div class="input-group">
 					<div class="input-group-addon">
-						<H3><%=f.label 'Elige tu municipio:' %></H3>
+						<H3><%=t('.subtitulo')%></H3>
 						<BR>
 							<%#= f.select :municipio, Municipio.all.map { |u| [u.nombre, u.id] },{ include_blank: true }, { class: 'chosen-select' }%>
 						</br>
@@ -30,26 +30,28 @@
 			</div>
 		</div>
 	</div>
+	<!--Seccion Temporal!-->
 	<div class="row">
 		<div class="col-md-2 col-md-offset-2"><%= link_to 'Chalco', municipio_path('1'),  :class => 'btn btn-success btn-lg outline' %></div>
 		<div class="col-md-2"><%= link_to 'Metepec', municipio_path('4'),  :class => 'btn btn-success btn-lg outline' %></div>
 		<div class="col-md-2"><%= link_to 'Tenango', municipio_path('5'),  :class => 'btn btn-success btn-lg outline' %></div>
 		<div class="col-md-2"><%= link_to 'Toluca', municipio_path('6'),  :class => 'btn btn-success btn-lg outline' %></div>
 	</div>
+	<!--Termina Seccion Temporal!-->
 	<br>
 	<br>
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12  navbar-text-blanco">
-				¿No encuentras tu municipio? da <m class = "m" href="" data-toggle="modal" data-target="#myModal"> clic aquí</m>
+				<%=t('.no_municipio')%> <m class = "m" href="" data-toggle="modal" data-target="#myModal"> <%=t('.click')%></m>
 			</div>
 		</div>
 	</div>
 	<% end %>
 
 
-	<!-- Modal  -->
-	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<!-- Modal para las redes sociales -->
+	<div class="modal fade" id="mySocialModal" tabindex="-1" role="dialog" aria-labelledby="mySocialModalLabel" aria-hidden="true">
 		<div class="modal-dialog-center">
 			<div class="modal-content">
 				<div class="modal-header">
@@ -66,6 +68,8 @@
 				</div>
 			</div>
 		</div>
+
+
 
 
 
