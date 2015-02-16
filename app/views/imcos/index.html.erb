@@ -19,7 +19,7 @@
 			<div class="col-lg-12 text-center">
 				<div class="input-group">
 					<div class="input-group-addon">
-						<H3><%=f.label 'Elige tu municipio' %></H3>
+						<H3><%=f.label 'Elige tu municipio:' %></H3>
 						<BR>
 							<%#= f.select :municipio, Municipio.all.map { |u| [u.nombre, u.id] },{ include_blank: true }, { class: 'chosen-select' }%>
 						</br>
@@ -31,17 +31,17 @@
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-md-2 col-md-offset-2"><%= f.submit 'Chalco', :class => 'btn btn-success btn-lg outline' %></div>
-		<div class="col-md-2"><%= f.submit 'Metepec', :class => 'btn btn-success btn-lg outline' %></div>
-		<div class="col-md-2"><%= f.submit 'Tenango', :class => 'btn btn-success btn-lg outline' %></div>
-		<div class="col-md-2"><%= f.submit 'Toluca', :class => 'btn btn-success btn-lg outline' %></div>
+		<div class="col-md-2 col-md-offset-2"><%= link_to 'Chalco', municipio_path('1'),  :class => 'btn btn-success btn-lg outline' %></div>
+		<div class="col-md-2"><%= link_to 'Metepec', municipio_path('4'),  :class => 'btn btn-success btn-lg outline' %></div>
+		<div class="col-md-2"><%= link_to 'Tenango', municipio_path('5'),  :class => 'btn btn-success btn-lg outline' %></div>
+		<div class="col-md-2"><%= link_to 'Toluca', municipio_path('6'),  :class => 'btn btn-success btn-lg outline' %></div>
 	</div>
 	<br>
 	<br>
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12  navbar-text-blanco">
-				¿No encuentras tu municipio? da clic <m class = "m" href="" data-toggle="modal" data-target="#myModal">aquí</m>
+				¿No encuentras tu municipio? da <m class = "m" href="" data-toggle="modal" data-target="#myModal"> clic aquí</m>
 			</div>
 		</div>
 	</div>
