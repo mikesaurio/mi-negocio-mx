@@ -4,7 +4,7 @@
 		<div class="navbar-inner">
 			<div class="container-fluid"> 
 				<% if user_signed_in? %>
-				<p class="navbar-text pull-right navbar-custom"><%="#{current_user.email}\t"%><%=link_to t('.salir'), destroy_user_session_path(:authenticity_token => form_authenticity_token()),:method => :delete,class: "navbar-text-blanco"%>
+				<p class="navbar-text pull-right navbar-custom"><%="#{current_user.email}\t"%> | <%=link_to t('.salir'), destroy_user_session_path(:authenticity_token => form_authenticity_token()),:method => :delete%>
 				</p>
 				<% else %>
 				<p class="navbar-text pull-right navbar-custom" data-toggle="modal" data-target="#mySocialModal"><%=t('.iniciar_sesion')%></p>

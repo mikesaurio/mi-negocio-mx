@@ -90,7 +90,7 @@ width: 33%;
 }
 
 .bg-primary {
-  background-color: #3F9B63;
+  background-color: #fff;
 }
 
 .container {
@@ -137,3 +137,52 @@ border-radius: 4px;
 
 
 
+
+/*links clase a sobrellamada a */
+/* unvisited link */
+m{
+   color: #469D59;
+   cursor: pointer;
+}
+
+m:link {
+    color: #469D59;
+}
+
+/* visited link */
+m:visited {
+    color: #469D59;
+}
+
+/* mouse over link */
+m:hover {
+    color: #469D59;
+}
+
+/* selected link */
+m:active {
+    color: #469D59;
+}
+
+
+a{
+   color: #ffffff;
+}
+a:link { 
+  color: #ffffff;
+}
+a:visited { 
+  color: #FFFFFF;
+}
+a:hover { 
+  color: #ffffff;
+}
+a:active { 
+  color: #ffffff;
+}
+
+
+
+.navbar-blanco {
+background-color: #469D59;
+}
