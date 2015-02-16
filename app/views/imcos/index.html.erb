@@ -43,7 +43,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12  navbar-text-blanco">
-				<%=t('.no_municipio')%> <m class = "m" href="" data-toggle="modal" data-target="#myModal"> <%=t('.click')%></m>
+				<%=t('.no_municipio')%> <m class = "m" href="" data-toggle="modal" data-target="#myModalDialog"> <%=t('.click')%></m>
 			</div>
 		</div>
 	</div>
@@ -67,6 +67,22 @@
 					</div>
 				</div>
 			</div>
+		</div>
+
+		<!--Modal para explicar porque no hay más municipios-->
+		<!-- Button trigger modal -->
+		<div class="modal fade" id="myModalDialog" tabindex="-1" role="dialog" aria-labelledby="myModalDialogLabel" aria-hidden="true">
+		  <div class="modal-dialog-center">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <h4 class="modal-title" id="myModalLabel"><%=t('.titulo_modal')%></h4>
+		      </div>
+		      <div class="modal-body">
+		        <%=t('.contenido_modal')%>
+		      </div>
+		    </div>
+		  </div>
 		</div>
 
 

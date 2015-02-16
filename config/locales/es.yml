@@ -170,11 +170,14 @@ es:
       title: Selecciona una opción
   imcos:
     index:
+      titulo_modal: Mi Negocio México
+      contenido_modal: Estamos trabajando con diversos municipios para poder darle más información de como puede abrir y mentener al día un negocio. Si tiene alguna duda porfavor escribanos a contacto@minegociomexico.mx 
       iniciar_sesion: Iniciar sesión
       subtitulo: Elige tu municipio
       salir: Salir
       no_municipio: ¿No encuentras tu municipio? da
       click: clic aquí
+      Aceptar: Aceptar
   layouts:
     blanco:
       new: NUEVO NEGOCIO
