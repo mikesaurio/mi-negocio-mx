@@ -8,6 +8,7 @@ class ProcedureLinesController < ApplicationController
      @id_del_giro = "0"
      @tipo  = 'A'
      valores  if params[:get]
+         @municipios = Municipio.all
 
  end
  

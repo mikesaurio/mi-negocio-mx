@@ -7,41 +7,9 @@
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
   <%= csrf_meta_tags %>
 </head>
-<body class="info">
-  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
-      <div class="navbar-header">
-        <%unless @municipio.nil?%>
-        <%= link_to "MiNegocio #{@municipio.nombre}",municipio_path(@municipio),  class:"navbar-brand"%>
-        <%end%>
-      </div>
-      <div id="navbar" class="nav nav-pills topnav">
-      <ul class="nav navbar-nav navbar-left">
-        <li> <%= link_to t('.new'),municipio_formation_steps_path(@municipio), class: "nav navbar-nav"%></li>
-        <li> <%= link_to t('.tramite'),municipio_procedure_lines_path(@municipio), class: "nav navbar-nav"%></li>
-        <li> <%= link_to t('.inspections'),municipio_inspections_path(@municipio), class: "nav navbar-nav"%></li>
-        <li> <%= link_to t('.inspectors'),municipio_inspectors_path(@municipio), class: "nav navbar-nav"%></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
-  <div class="container">
-    <% if alert %>
-    <div class="alert alert-danger">
-      <%= alert %>
-    </div>
-    <% end %>
-
-    <% if notice %>
-    <div class="alert alert-success">
-      <%= notice %>
-    </div>
-    <% end %>
-
-    <%= yield %>
-  </div>
-
-
+ <body class="info">
+  <%= render "shared/navbar_all_menus" %>
+  <%= yield %>
+  <%= render "shared/footer" %>
 </body>
 </html>

@@ -7,6 +7,7 @@ class MunicipiosController < ApplicationController
   end
 
   def show
+    @municipios = Municipio.all
     set_municipio(:id)
   end
   

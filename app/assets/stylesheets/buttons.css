@@ -110,6 +110,10 @@
 	background: none;
 	padding: 12px 22px;
 }
+.btn.outlineverde {
+	background: none;
+	padding: 12px 22px;
+}
 .btn-primary.outline {
 	border: 2px solid #fff;
 	color: #fff;
@@ -136,6 +140,21 @@
 	color: #fff;
 	box-shadow: none;
 }
+
+.btn-success.outlineverde {
+	border: 2px solid #469D59;
+	color: #469D59;
+}
+.btn-success.outlineverde:hover, .btn-success.outlineverde:focus, .btn-success.outlineverde:active, .btn-success.outlineverde.active, .open > .dropdown-toggle.btn-success {
+	border-color: #469D59;
+	color: #fff;
+}
+.btn-success.outlineverde:active, .btn-success.outlineverde.active {
+	border-color: #469D59;
+	color: #fff;
+	box-shadow: none;
+}
+
 .btn-info.outline {
 	border: 2px solid #fff;
 	color: #fff;

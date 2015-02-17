@@ -8,28 +8,6 @@ max-width: 70%; /* or to whatever you want here */
 max-height: auto; /* or to whatever you want here */
 }
 
-/*links clase a sobrellamada a */
-/* unvisited link */
-m{
-	 color: #469D59;
+.modal-backdrop {
+   background-color: red;
 }
-
-m:link {
-    color: #469D59;
-}
-
-/* visited link */
-m:visited {
-    color: #469D59;
-}
-
-/* mouse over link */
-m:hover {
-    color: #469D59;
-}
-
-/* selected link */
-m:active {
-    color: #469D59;
-}
-
