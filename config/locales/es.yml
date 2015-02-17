@@ -1,4 +1,11 @@
 es:
+  views:
+    pagination:
+      first: "&laquo; Primero"
+      last: "último &raquo;"
+      previous: "&lsaquo; Anterior"
+      next: "Siguiente &rsaquo;"
+      truncate: "&hellip;"
   titles:
     inspections: Inspecciones
     inspectors: Inspectores

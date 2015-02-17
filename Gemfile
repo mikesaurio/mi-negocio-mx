@@ -43,6 +43,8 @@ gem 'bootstrap-switch-rails', '~> 3.0.0'
 gem 'omniauth-facebook'
 gem 'omniauth-linkedin'
 
+gem 'kaminari' #para paginar
+
 
 group :development do
   # Thin server
