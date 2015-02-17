@@ -7,6 +7,7 @@ helper :formation_steps
   set_municipio(:municipio_id)
   @tipo = 'AF'
   valores  if params[:get]
+    @municipios = Municipio.all
 end
 
 def valores

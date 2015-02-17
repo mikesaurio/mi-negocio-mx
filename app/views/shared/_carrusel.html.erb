@@ -1,0 +1,52 @@
+<section id="carousel" class="bg-primary-negro">           
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+          <div class="carousel-indicators row">
+              <div class="col-md-4"><p class="text-left"></p></div>
+              <div class="col-md-4 col-md-offset-4"><p class="text-right">Terminar</p></div>
+          </div> 
+        <div class="carousel slide" id="fade-quote-carousel" data-ride="carousel" data-interval="false">
+          <!-- Carousel indicators -->
+          <ol class="carousel-indicators">
+            <% count = 0 %>
+            <% @formation_steps.each_with_index do |formation_step,index| %>
+              <% if formation_step.type == @tipo %>
+                <% count += 1 %>
+                <%if count == 1%>
+                  <li data-target="#fade-quote-carousel" data-slide-to="0" class="active"></li>
+                <%else%>
+                  <li data-target="#fade-quote-carousel" data-slide-to=<%=count-1%>></li>
+                <%end%>
+              <%end%>
+            <%end%>
+          </ol>
+          <!-- Carousel items -->
+          <div class="carousel-inner">
+            <% count = 0 %>
+            <% @formation_steps.each_with_index do |formation,index| %>
+              <% if formation.type == @tipo %>
+                <% count += 1 %>
+                <%if count == 1 %>
+                  <div class="active item">
+                <%else %>
+                  <div class="item">
+                <%end %>
+                    <blockquote>
+                      <H1><%=formation.name%></H1>
+                      <p style="font-size:15px" class="bg-primary-nergro "><%=formation.description %></p>
+                      <%=link_to t('.obtener_aqui'), formation.path , {:style => 'color: #418F61'}%>
+                    </blockquote>
+                  </div>
+              <% end %>
+            <% end %>
+            <%if(count == 0)%>
+              <%= render "shared/empty_resource", message: t('.no_formation_steps_available') %>
+            <%end%>
+          </div>
+        </div>             
+      </div>
+    </div>
+  </div>
+</section>
+              
