@@ -141,27 +141,28 @@ border-radius: 4px;
 /*links clase a sobrellamada a */
 /* unvisited link */
 m{
-   color: #469D59;
+   color: #5FB56F;
    cursor: pointer;
+    width:100%;
 }
 
 m:link {
-    color: #469D59;
+    color: #5FB56F;
 }
 
 /* visited link */
 m:visited {
-    color: #469D59;
+    color: #5FB56F;
 }
 
 /* mouse over link */
 m:hover {
-    color: #469D59;
+    color: #5FB56F;
 }
 
 /* selected link */
 m:active {
-    color: #469D59;
+    color: #5FB56F;
 }
 
 
@@ -184,5 +185,9 @@ a:active {
 
 
 .navbar-blanco {
-background-color: #469D59;
+background-color: #418F61;
 }
+.footer-above {
+    background-color: #418F61;
+}
+
