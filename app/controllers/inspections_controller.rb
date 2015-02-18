@@ -21,6 +21,7 @@ class InspectionsController < ApplicationController
  end 
 
   def show
+        @municipios = Municipio.all
   end
 
   private

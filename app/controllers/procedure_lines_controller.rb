@@ -9,7 +9,6 @@ class ProcedureLinesController < ApplicationController
      @tipo  = 'A'
      valores  if params[:get]
          @municipios = Municipio.all
-
  end
  
   def valores
@@ -19,8 +18,9 @@ class ProcedureLinesController < ApplicationController
   end
 
  def show
+
+     @municipios = Municipio.all
      set_municipio(:municipio_id)
-     
     @procedure_requirements = ProcedureRequirement.all
     @procedure_lines=  ProcedureLine.all
     @requirements = Requirement.all
@@ -70,6 +70,8 @@ def update
     end
   end
 end
+
+
 
 
 private

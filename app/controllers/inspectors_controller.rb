@@ -16,6 +16,7 @@ class InspectorsController < ApplicationController
   end
 
   def show
+         @municipios = Municipio.all
     @dependency = Dependency.by_city(@municipio)
   end
 
