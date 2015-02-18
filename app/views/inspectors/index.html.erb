@@ -22,9 +22,9 @@
       </div>
       <% end %>
     <% end %>
-    <div class ="bg-primary-nergro">
-    <%=paginate @inspectors, :window => 2, :theme => 'my_custom_theme'%>
-  </div>
+        <div class="row text-center">
+          <%=paginate @inspectors, :window => 2%>
+      </div>
   <% else %>
     <%= render "shared/empty_resource", message: t('.no_inspectors_available') %>
   <% end %>

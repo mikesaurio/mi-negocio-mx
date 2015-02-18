@@ -1,16 +1,42 @@
+.pagination a{
+	color: #000;
+}
 
-a{
-   color: #000;
+.pagination a, .pagination span.current, .pagination span.gap {
+    float: left;
+    padding: 0 14px;
+    line-height: 38px;
+    text-decoration: none;
+    background-color: #5FB56F;
+    border: 1px solid #DDD;
+    border-left-width: 0;
 }
-a:link { 
-  color: #000;
-}
-a:visited { 
-  color: #000;
-}
-a:hover { 
-  color: #000;
-}
-a:active { 
-  color: #000;
+
+.pagination {
+    border-left: 1px solid #fff;
+    .first{
+        padding : 0;
+        float: none;
+        border: none;
+    }
+    .prev {
+        padding : 0;
+        float: none;
+        border: none;
+    }
+    .page{
+        padding : 0;
+        float: none;
+        border: none;
+    }
+    .next{
+        padding : 0;
+        float: none;
+        border: none;
+    }
+    .last{
+        padding : 0;
+        float: none;
+        border: none;
+    }
 }
