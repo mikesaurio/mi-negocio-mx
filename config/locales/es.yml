@@ -27,6 +27,8 @@ es:
     municipio: Municipios
     acerca_de: Acerca de
     aviso: Aviso de privacidad
+  search:
+    buscar: Buscar
   form:
     actions:
       edit: Editar
@@ -186,6 +188,15 @@ es:
   municipios:
     index:
       title: Selecciona una opción
+    show:
+      nuevo: Nuevo negocio
+      tramite: Trámites
+      inspecciones: Inspecciones
+      inspeccion: Inspecciones
+      inspector: Inspectores
+      texto_nuevo: ¿Cómo puedo crear mi negocio?
+      texto_tramite: Ya tengo un negocio ¿Qué tramites puedo realizar?
+      texto_inspeccion: Ya tengo un negocio ¿Qué inspecciones me pueden realizar? y ¿Quien las puede realizar?
   imcos:
     index:
       titulo_modal: Mi Negocio México
