@@ -7,6 +7,7 @@ es:
       next: "Siguiente &rsaquo;"
       truncate: "&hellip;"
   titles:
+    titulo: MiNegocio
     inspections: Inspecciones
     inspectors: Inspectores
     formation_steps: Tramites de Apertura
@@ -16,6 +17,16 @@ es:
     procedures: Requerimientos
   buttons:
     ok: Aceptar
+  navbar:
+    new: Nuevo negocio
+    tramite: Trámites
+    inspections: Inspecciones
+    inspectors: Inspectores
+    inicio: Inicio
+  footer:
+    municipio: Municipios
+    acerca_de: Acerca de
+    aviso: Aviso de privacidad
   form:
     actions:
       edit: Editar
