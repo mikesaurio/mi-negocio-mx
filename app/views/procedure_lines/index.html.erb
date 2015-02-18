@@ -35,10 +35,10 @@
     <% unless @tramites_del_giro.nil? || @tramites_del_giro.empty?%>
      <br>
   <br>
-    <div class="col-xs-6 col-sm-3"><p class="text-center">Nombre</p></div>
-          <div class="col-xs-6 col-sm-3"><p class="text-center">Tipo</p></div>
-          <div class="col-xs-6 col-sm-3"><p class="text-center">Costo</p></div>
-          <div class="col-xs-6 col-sm-3"><p class="text-center">Vigencia</p></div>
+    <div class="col-xs-6 col-sm-3"><p class="text-center"><%= t('.nombre')%></p></div>
+          <div class="col-xs-6 col-sm-3"><p class="text-center"><%= t('.tipo')%></p></div>
+          <div class="col-xs-6 col-sm-3"><p class="text-center"><%= t('.costo')%></p></div>
+          <div class="col-xs-6 col-sm-3"><p class="text-center"><%= t('.vigencia')%></p></div>
       <div class="table__card">
         <ul>
           <% count = 0 %>

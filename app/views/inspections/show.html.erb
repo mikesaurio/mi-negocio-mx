@@ -39,13 +39,13 @@
 
 <div class="deck">
   <% if @inspection.requirements.any? %>
-    <h4>Requisitos</h4>
+    <h4><%= t('.requisitos') %></h4>
     <div style="border: 1px solid white;background-color: white;">
   <table class="table">
     <tr>
       <th></th>
-      <th>Nombre</th>
-      <th>Descripción</th>
+      <th><%= t('.nombre') %></th>
+      <th><%= t('.descripcion') %></th>
       <th></th>
     </tr>
     <tbody>
