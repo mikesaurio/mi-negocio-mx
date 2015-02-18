@@ -1,6 +1,8 @@
 class DropVisitorsTable < ActiveRecord::Migration
  def up
-    drop_table :visitors table_exists?(:visitors)
+      if !table_exists?("visitors")
+    drop_table :visitors 
+  end
   end
 
   def down
