@@ -31,14 +31,15 @@
   <div class="actions">
    <%= f.submit t('buttons.ok'),:class => "btn btn-success btn-lg outlineverde" %>
   </div>
-  <br>
+ 
+  <div class="deck">
+    <% unless @tramites_del_giro.nil? || @tramites_del_giro.empty?%>
+     <br>
   <br>
     <div class="col-xs-6 col-sm-3"><p class="text-center">Nombre</p></div>
           <div class="col-xs-6 col-sm-3"><p class="text-center">Tipo</p></div>
           <div class="col-xs-6 col-sm-3"><p class="text-center">Costo</p></div>
           <div class="col-xs-6 col-sm-3"><p class="text-center">Vigencia</p></div>
-  <div class="deck">
-    <% unless @tramites_del_giro.nil? || @tramites_del_giro.empty?%>
       <div class="table__card">
         <ul>
           <% count = 0 %>
