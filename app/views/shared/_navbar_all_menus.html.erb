@@ -17,11 +17,11 @@
     </div>
     <div id="navbar" class="nav nav-pills topnav">
       <ul class="nav navbar-nav navbar-right">
-        <li> <m><%= link_to t('.new'),municipio_formation_steps_path(@municipio)%> | </m></li>
-          <li> <m> <%= link_to t('.tramite'),municipio_procedure_lines_path(@municipio)%> | </m></li>
-          <li> <m> <%= link_to t('.inspections'),municipio_inspections_path(@municipio)%> | </m></li> 
-          <li> <m> <%= link_to t('.inspectors'),municipio_inspectors_path(@municipio)%> | </m></li>
-      <li> <%= current_user.email %> | <m><%=link_to "Salir",root_path, class: "m" %></m></li>
+        <li> <m><%= link_to t('.new'),municipio_formation_steps_path(@municipio)%></m></li>
+          <li> <m> <%= link_to t('.tramite'),municipio_procedure_lines_path(@municipio)%></m></li>
+          <li> <m> <%= link_to t('.inspections'),municipio_inspections_path(@municipio)%></m></li> 
+          <li> <m> <%= link_to t('.inspectors'),municipio_inspectors_path(@municipio)%></m></li>
+      <li> | <m><%=link_to "Menú",root_path, class: "m" %></m></li>
      </ul>
    </div>
  </div>
