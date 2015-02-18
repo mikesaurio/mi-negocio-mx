@@ -147,7 +147,12 @@ es:
       title: Inspecciones
       search_inspections: Buscar inspecciones...
       no_inspections_available: No encontramos inspecciones en este municipio
+      nombre: Nombre
+      materia: Materia
+      duracion: Duración
     show:
+      nombre: Nombre
+      Descripcion: Descripción
       subject: Materia
       period: Duracion
       norm: Norma
@@ -156,11 +161,17 @@ es:
       after_tips: Tips (después)
       sanctions_tips: Sanciones
       more_info: Más información
+      requisitos: Requisitos
   inspectors:
     index:
       title: Inspectores
       search_inspectors: Buscar inspectores...
       no_inspectors_available: No encontramos inspectores en este municipio
+    show:
+      vigencia: Vigencia
+      Materia: Materia
+      supervisor: Supervisor
+      Contacto: Contacto
   formation_steps:
     index:
       title: Nuevo negocio
@@ -175,13 +186,18 @@ es:
       link: Obtener aquí
   procedure_lines:
     index:
-      title: Tramites
+      title: Trámites
       no_procedure_lines_available: No encontramos trámites  con estos parámetros
       no_procedure_lines_selected: Selecciona las opciones de busqueda
       radio_fisica: Física
       radio_moral: Moral
       radio_ambas: Ambos
       procedure_lines_radio_name: Mostrar para personas
+      nombre: Nombre
+      descripcion: Descripción
+      tipo: Tipo
+      costo: Costo
+      vigencia: Vigencia
   dependencies:
     index:
       no_dependencies: No encontramos ninguna dependencia

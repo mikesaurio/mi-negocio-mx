@@ -26,9 +26,9 @@
             <br>
             <br>
             <li class="table--row">
-              <div class="row--title">Nombre</div>
-              <div class="row--subtitle">Materia</div>
-              <div class="row--footer">Duraci&oacute;n</div>
+              <div class="row--title"><%=t('.nombre')%> </div>
+              <div class="row--subtitle"><%=t('.materia')%> </div>
+              <div class="row--footer"><%=t('.duracion')%> </div>
             </li>
             <% @first_time = false%>
             <%end%>
@@ -36,7 +36,7 @@
             <li class="table--row">
               <div class="row--title bg-primary-nergro"><%= inspection.nombre %></div>
               <div class="row--subtitle bg-primary-nergro"><%= inspection.materia %></div>
-              <div class="row--footer bg-primary-nergro">Duraci&oacute;n: <%= inspection.duracion %></div>
+              <div class="row--footer bg-primary-nergro"><%= inspection.duracion %></div>
             </li>
             <% end %>
             <%end%>
