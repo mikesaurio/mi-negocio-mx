@@ -29,7 +29,7 @@
 			<% unless @line.nil? %>
 					<%= render "shared/carrusel" %>
 			<% else %>
-			<%= render "shared/empty_resource", message: t('.no_formation_steps_selected') %>
+				<%= render "shared/empty_resource", message: t('.no_formation_steps_selected') %>
 			<% end %>	
 			<%end%>
 		</div>
