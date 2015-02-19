@@ -2,7 +2,6 @@
   <div class="container">
     <div class="row">
       <div class="col-md-8 col-md-offset-2">
-
         <div class="carousel slide" id="fade-quote-carousel" data-ride="carousel" data-interval="false">
           <!-- Carousel indicators -->
           <ol class="verde carousel-indicators">
@@ -40,7 +39,7 @@
                           <%@ruta = "#{request.original_url}&guardado=#{formation.id}" %>
                         <%end%>
                         <%if @tramites_realizados.where(formation_step_id: formation.id).first.nil?%>
-                          <div class="col-md-4"><p class="text-right"> <m><%=link_to 'Terminar', @ruta, :onclick=>"$('.search_form').submit()", :class=> 'm' %> </m></p></div>
+                          <div class="col-md-4"><p class="text-right"> <%=link_to 'Terminar', @ruta,{:style => 'color: #f00'}  %> </p></div>
                         <%else%>
                           <div class="col-md-4"><p class="text-right">Terminado</p></div>
                         <%end%>
