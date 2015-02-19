@@ -185,7 +185,9 @@ a:active {
   color: $blanco;
 }
 
-
+.navbar-default {
+background-color: $verde-obscuro;
+}
 
 .navbar-blanco {
 background-color: $verde-obscuro;
@@ -219,3 +221,4 @@ body,html{
   margin-left:30px;
   margin-right:30px;
 }
+
