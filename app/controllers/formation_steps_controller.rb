@@ -8,6 +8,10 @@ helper :formation_steps
   @tipo = 'AF'
   valores  if params[:get]
     @municipios = Municipio.all
+    if user_signed_in?
+      @tramites_realizados =  @UserFormationStep.find(:user_id current_user)
+    end
+    
 end
 
 def valores
