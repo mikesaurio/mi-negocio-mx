@@ -9,7 +9,7 @@ helper :formation_steps
   valores  if params[:get]
     @municipios = Municipio.all
     if user_signed_in?
-      @tramites_realizados =  UserFormationStep.all
+      @tramites_realizados =  UserFormationStep.where(user_id: current_user.id).all
     end
     
 end

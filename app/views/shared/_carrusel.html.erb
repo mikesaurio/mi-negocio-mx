@@ -5,15 +5,15 @@
 
         <div class="carousel slide" id="fade-quote-carousel" data-ride="carousel" data-interval="false">
           <!-- Carousel indicators -->
-          <ol class="carousel-indicators">
+          <ol class="verde carousel-indicators">
             <% count = 0 %>
             <% @formation_steps.each_with_index do |formation_step,index| %>
               <% if formation_step.type == @tipo %>
                 <% count += 1 %>
-                <%if count == 1%>
-                  <li data-target="#fade-quote-carousel" data-slide-to="0" class="active"></li>
+                <%if @tramites_realizados.where(formation_step_id: formation_step).first.nil?%>
+                  <li data-target="#fade-quote-carousel" data-slide-to=<%=count-1%> ></li>
                 <%else%>
-                  <li data-target="#fade-quote-carousel" data-slide-to=<%=count-1%>></li>
+                  <li data-target="#fade-quote-carousel" data-slide-to=<%=count-1%> class="actives"></li>
                 <%end%>
               <%end%>
             <%end%>
@@ -39,8 +39,8 @@
                         <%else%>
                           <%@ruta = "#{request.original_url}&guardado=#{formation.id}" %>
                         <%end%>
-                        <%if @tramites_realizados.where(user_id: current_user.id, formation_step_id: formation.id).first.nil?%>
-                          <div class="col-md-4"><p class="text-right"><%= link_to 'Terminar', @ruta, :onclick=>"$('.search_form').submit()" %></p></div>
+                        <%if @tramites_realizados.where(formation_step_id: formation.id).first.nil?%>
+                          <div class="col-md-4"><p class="text-right"> <m><%=link_to 'Terminar', @ruta, :onclick=>"$('.search_form').submit()", :class=> 'm' %> </m></p></div>
                         <%else%>
                           <div class="col-md-4"><p class="text-right">Terminado</p></div>
                         <%end%>
