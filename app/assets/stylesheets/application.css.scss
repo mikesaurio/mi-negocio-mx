@@ -206,7 +206,6 @@ background-color: $verde-obscuro;
     height:360px;
 }
 
-
 body,html{
  height:100%;
 }
@@ -222,3 +221,7 @@ body,html{
   margin-right:30px;
 }
 
+.chosen-container ul.chosen-results li.highlighted {
+  background-color: $verde-obscuro;
+  background-image: none;
+}
