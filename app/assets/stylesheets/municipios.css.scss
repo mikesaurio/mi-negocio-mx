@@ -1,3 +1,9 @@
+$verde-claro: #4EB976;
+$verde-obscuro: #46AA6C;
+$teal-500: #009688;
+$blanco: #ffffff;
+$negro: #000000;
+
 .timeline {
     position: relative;
     padding: 0;
@@ -205,7 +211,7 @@
 
 .team-member img {
     margin: 0 auto;
-    border: 7px solid #fff;
+    border: 7px solid $blanco;
 }
 
 .team-member h4 {
@@ -225,7 +231,7 @@ aside.clients img {
 
 /*Para navBar */
 .navbar-custom {
-    color: #FFFFFF;
+    color: $blanco;
 }
 
 .modal-dialog-center {
@@ -240,7 +246,7 @@ aside.clients img {
 }
 .navbar-text-blanco{
 padding-left: 50px;
-     color: #FFFFFF;
+     color: $blanco;
 }
 
 .center-block {
@@ -262,26 +268,26 @@ padding-left: 50px;
 }
 
 .bg-primary-verde {
-  color: #20BD71;
+  color: $verde-obscuro;
 }
 
 .bg-primary-nergro {
-  color: #000;
+  color: $blanco;
 }
 
 ul.dropdown-menu {
-    border-color: #5FB56F;
+    border-color: $verde-claro;
     color: #fff;
 
 }
 .dropdown-menu a{
-    color: #5FB56F !important;
+    color: $verde-obscuro !important;
 }
 
 .divider {
     height: 40px;
     margin: 0 9px;
-    border-color: #5FB56F;
-    border-left: 1px solid #fff;
-    border-right: 1px solid #FFF;
+    border-color: $verde-obscuro;
+    border-left: 1px solid $blanco;
+    border-right: 1px solid $blanco;
 }
