@@ -1,3 +1,5 @@
+$blanco: #ffffff;
+
 /*!
  * Start Bootstrap - Stylish Portfolio Bootstrap Theme (http://startbootstrap.com)
  * Code licensed under the Apache License v2.0.
@@ -224,23 +226,23 @@ footer {
 }
 
 .btn-primary.btn-outline {
-    color: #fff;
+    color: $blanco;
 }
 
 .btn-success.btn-outline {
-    color: #fff;
+    color: $blanco;
 }
 
 .btn-info.btn-outline {
-    color: #fff;
+    color: $blanco;
 }
 
 .btn-warning.btn-outline {
-    color: #fff;
+    color: $blanco;
 }
 
 .btn-danger.btn-outline {
-    color: #fff;
+    color: $blanco;
 }
 
 .btn-primary.btn-outline:hover,
@@ -248,6 +250,6 @@ footer {
 .btn-info.btn-outline:hover,
 .btn-warning.btn-outline:hover,
 .btn-danger.btn-outline:hover {
-    color: #fff;
+    color: $blanco;
 }
 

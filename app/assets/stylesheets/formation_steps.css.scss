@@ -1,3 +1,8 @@
+$verde-claro: #4EB976;
+$verde-obscuro: #46AA6C;
+$teal-500: #009688;
+$blanco: #ffffff;
+$negro: #000000;
 /*-------------------------------*/
 /*      Code snippet by          */
 /*      @maridlcrmn              */
@@ -40,7 +45,7 @@ section {
   bottom: 10px;
 }
 #fade-quote-carousel.carousel .carousel-indicators > li {
-  background-color: #418F61;
+  background-color: $verde-claro;
   border: none;
 }
 #fade-quote-carousel blockquote {

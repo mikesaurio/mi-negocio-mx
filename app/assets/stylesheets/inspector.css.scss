@@ -1,3 +1,10 @@
+$verde-claro: #4EB976;
+$verde-obscuro: #46AA6C;
+$teal-500: #009688;
+$blanco: #ffffff;
+$negro: #000000;
+
+
 .pagination a{
 	color: #000;
 }
@@ -7,13 +14,13 @@
     padding: 0 14px;
     line-height: 38px;
     text-decoration: none;
-    background-color: #5FB56F;
+    background-color: $verde-claro;
     border: 1px solid #DDD;
     border-left-width: 0;
 }
 
 .pagination {
-    border-left: 1px solid #fff;
+    border-left: 1px solid $blanco;
     .first{
         padding : 0;
         float: none;
