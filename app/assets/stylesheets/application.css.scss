@@ -33,6 +33,7 @@ $verde-obscuro: #46AA6C;
 $teal-500: #009688;
 $blanco: #ffffff;
 $negro: #000000;
+$rojo: #ff0000;
 
 $user_default_color: #009688;
 $admin_default_color: #3B3C3C;
@@ -166,6 +167,33 @@ m:hover {
 /* selected link */
 m:active {
     color: $verde-claro;
+}
+
+/*links clase a sobrellamada a */
+/* unvisited link */
+r{
+   color: $rojo;
+   cursor: pointer;
+    width:100%;
+}
+
+r:link {
+    color: $rojo;
+}
+
+/* visited link */
+r:visited {
+    color: $rojo;
+}
+
+/* mouse over link */
+r:hover {
+    color: $rojo;
+}
+
+/* selected link */
+r:active {
+    color: $rojo;
 }
 
 

@@ -10,6 +10,7 @@
               <% if formation_step.type == @tipo %>
                 <% count += 1 %>
                 <%if @tramites_realizados.where(formation_step_id: formation_step).first.nil?%>
+
                   <li data-target="#fade-quote-carousel" data-slide-to=<%=count-1%> ></li>
                 <%else%>
                   <li data-target="#fade-quote-carousel" data-slide-to=<%=count-1%> class="actives"></li>
@@ -39,7 +40,7 @@
                           <%@ruta = "#{request.original_url}&guardado=#{formation.id}" %>
                         <%end%>
                         <%if @tramites_realizados.where(formation_step_id: formation.id).first.nil?%>
-                          <div class="col-md-4"><p class="text-right"> <%=link_to 'Terminar', @ruta,{:style => 'color: #f00'}  %> </p></div>
+                          <div class="col-md-4"><p class="text-right"> <%=link_to 'Ya tengo este tramite', @ruta,{:style => 'color: #f00'}  %> </p></div>
                         <%else%>
                           <div class="col-md-4"><p class="text-right">Terminado</p></div>
                         <%end%>
