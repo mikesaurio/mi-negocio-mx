@@ -132,10 +132,13 @@ namespace :my_tasks do
   desc "Load inspections to the db"
   task :load_inspections  => :environment do |t, args| 
     
-    cities_files = ['lib/datasets/verificaciones_chalco.csv', 'lib/datasets/verificaciones_metepec.csv']
+    cities_files = ['lib/datasets/verificaciones_chalco.csv']#, 'lib/datasets/verificaciones_metepec.csv']
     
-   # clean_db(Inspection) # let's erase everyone from the db
-    
+    clean_db(Inspection) # let's erase everyone from the db
+      clean_db(InspectionLine) 
+        clean_db(InspectionRequirement) 
+
+
     cities_files.each do |city_file|
       # init variables
       number_of_successfully_created_rows = 0
@@ -151,6 +154,8 @@ namespace :my_tasks do
         after_tips = row.to_hash['despues']
         sanctions = row.to_hash['sancion']
         certification = row.to_hash['documento_acredita']
+        giros = row.to_hash['giros']
+        requerimientos = row.to_hash['requerimientos']
         
         row_values = { 
           dependency: dependency,
@@ -166,8 +171,20 @@ namespace :my_tasks do
         }
 
         if dependency.present? && row_does_not_exist_in_the_db(Inspection, row_values)
-          Inspection.create!(row_values)
+         a =  Inspection.create(row_values)
+        
 
+         giros.split('; ').each do |v|
+             unless Line.where(nombre: v).first.nil?
+                 InspectionLine.create(inspection_id: a.id, line_id: Line.where(nombre: v).first.id)
+             end
+           end
+
+          requerimientos.split('; ').each do |v|
+              unless Requirement.where(nombre: v).first.nil?
+                InspectionRequirement.create(inspection_id: a.id, requirement_id: Requirement.where(nombre: v).first.id)
+              end
+           end
 
           number_of_successfully_created_rows = number_of_successfully_created_rows + 1
         else
@@ -218,7 +235,7 @@ namespace :my_tasks do
     
     #clean_db(Procedure) # let's erase everyone from the db
     #clean_db(ProcedureLine)
-    #clean_db(ProcedureRequirement)
+   # clean_db(ProcedureRequirement)
 
     cities_files.each do |city_file|
       # init variables
@@ -237,7 +254,8 @@ namespace :my_tasks do
 
         if dependency.present? && row_does_not_exist_in_the_db(Procedure, { 
             nombre: name,
-            dependency: dependency
+            dependency: dependency,
+            tipo: getTipo(tipo)
           })
          a =  Procedure.create(
              dependency: dependency,
