@@ -49,13 +49,13 @@
 	<% end %>
 	<!-- Modal para las redes sociales -->
 	<div class="modal fade" id="mySocialModal" tabindex="-1" role="dialog" aria-labelledby="mySocialModalLabel" aria-hidden="true">
-		<div class="modal-dialog-center">
-			<div class="modal-content">
+		<div class="modal-dialog">
+			<div class="modal-content ">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 					<h4 class="modal-title" id="myModalLabel">Puedes iniciar sesión con:</h4>
 				</div>
-				<div class="modal-body">
+				<div class="modal-body centered-text">
 					<%= link_to " | Facebook", user_omniauth_authorize_path(:facebook) ,class: "btn btn-facebook fa fa-facebook btn-lg-social"%>
 					<BR>
 						<BR>
@@ -68,7 +68,7 @@
 		<!--Modal para explicar porque no hay más municipios-->
 		<!-- Button trigger modal -->
 		<div class="modal fade" id="myModalDialog" tabindex="-1" role="dialog" aria-labelledby="myModalDialogLabel" aria-hidden="true">
-			<div class="modal-dialog-center">
+			<div class="modal-dialog ">
 				<div class="modal-content">
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>

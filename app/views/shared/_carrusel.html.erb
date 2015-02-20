@@ -9,11 +9,14 @@
             <% @formation_steps.each_with_index do |formation_step,index| %>
               <% if formation_step.type == @tipo %>
                 <% count += 1 %>
-                <%if @tramites_realizados.where(formation_step_id: formation_step).first.nil?%>
-
-                  <li data-target="#fade-quote-carousel" data-slide-to=<%=count-1%> ></li>
-                <%else%>
+                <%if @tramites_realizados.nil?%>
                   <li data-target="#fade-quote-carousel" data-slide-to=<%=count-1%> class="actives"></li>
+                <%else%>
+                  <%if @tramites_realizados.where(formation_step_id: formation_step).first.nil?%>
+                    <li data-target="#fade-quote-carousel" data-slide-to=<%=count-1 %> ></li>
+                  <%else%>
+                    <li data-target="#fade-quote-carousel" data-slide-to=<%=count-1%> class="actives"></li>
+                  <%end%>
                 <%end%>
               <%end%>
             <%end%>
@@ -32,7 +35,9 @@
                     <blockquote>
                       <H1><%=formation.name%></H1>
                       <p style="font-size:15px" class="bg-primary-nergro "><%=formation.description %></p>
+
                       <%=link_to t('.obtener_aqui'), formation.path , {:style => 'color: #418F61'}%>
+                      <%unless @tramites_realizados.nil?%>
                         <%if request.original_url.include? "guardado" %>
                           <%@tamano = "&guardado=#{formation.id}".mb_chars.length%>
                           <%@ruta = "#{request.original_url[0..-@tamano-1]}&guardado=#{formation.id}" %>
@@ -44,6 +49,7 @@
                         <%else%>
                           <div class="col-md-4"><p class="text-right">Terminado</p></div>
                         <%end%>
+                      <%end%>
                       </blockquote>
                   </div>
               <% end %>
