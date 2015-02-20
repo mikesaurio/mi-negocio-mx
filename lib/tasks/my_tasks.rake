@@ -20,11 +20,13 @@ namespace :my_tasks do
     clean_db(Inspection) 
     clean_db(FormationStep)
     clean_db(Procedure)
+    clean_db(ProcedureLine)
+    clean_db(ProcedureRequirement)
     
     cities_files = ['lib/datasets/giros_chalco.csv', 'lib/datasets/giros_metepec.csv']
     
     cities_files.each do |city_file|
-      CSV.foreach(city_file, :headers => true, :encoding => 'ISO-8859-1:UTF-8') do |row|
+      CSV.foreach(city_file, :headers => true) do |row|
         city = Municipio.find_by(nombre: row.to_hash['municipio_id'])
         name = row.to_hash['nombre']
         description = row.to_hash['descripcion']
@@ -38,7 +40,7 @@ namespace :my_tasks do
   
   desc "Load dependencies to the db"
   task :load_dependencies  => :environment do |t, args| 
-      
+
     #clean_db(Dependency) # let's erase everyone from the db
     
     cities_files = ['lib/datasets/dependencias_chalco.csv', 'lib/datasets/dependencias_metepec.csv']
@@ -165,6 +167,8 @@ namespace :my_tasks do
 
         if dependency.present? && row_does_not_exist_in_the_db(Inspection, row_values)
           Inspection.create!(row_values)
+
+
           number_of_successfully_created_rows = number_of_successfully_created_rows + 1
         else
             # puts "#{ row_values[:nombre]} | #{row_values[:materia]} | #{row_values[:duracion]}"
@@ -177,10 +181,10 @@ namespace :my_tasks do
   end
   
   
-  desc "Load requirements to the db"
+  desc "Load formation stsp to the db"
   task :load_formation_steps  => :environment do |t, args| 
       
-    #clean_db(FormationStep) # let's erase everyone from the db
+  #  clean_db(FormationStep) # let's erase everyone from the db
     
     cities_files = ['lib/datasets/apertura_chalco.csv', 'lib/datasets/apertura_metepec.csv']
     
@@ -210,10 +214,12 @@ namespace :my_tasks do
    desc "Load procedures to the db"
   task :load_procedures  => :environment do |t, args| 
     
-    cities_files = ['lib/datasets/tramites_chalco.csv', 'lib/datasets/tramites_metepec.csv']
+    cities_files = ['lib/datasets/tramites_chalco.csv']#, 'lib/datasets/tramites_metepec.csv']
     
-    clean_db(Procedure) # let's erase everyone from the db
-    
+    #clean_db(Procedure) # let's erase everyone from the db
+    #clean_db(ProcedureLine)
+    #clean_db(ProcedureRequirement)
+
     cities_files.each do |city_file|
       # init variables
       number_of_successfully_created_rows = 0
@@ -225,20 +231,36 @@ namespace :my_tasks do
         cost = row.to_hash['costo']
         supervisor = row.to_hash['vigencia']
         contact = row.to_hash['contacto']
+        tipo = row.to_hash['tipo']
+        giros = row.to_hash['giros']
+        tramites = row.to_hash['tramites']
 
         if dependency.present? && row_does_not_exist_in_the_db(Procedure, { 
             nombre: name,
             dependency: dependency
           })
-          Procedure.create!(
+         a =  Procedure.create(
              dependency: dependency,
              nombre: name,
              duracion: time,
              costo: cost,
              vigencia: supervisor,
              contacto: contact,
-             tipo: 'A'
+             tipo: getTipo(tipo)
           )
+
+          giros.split('; ').each do |v|
+             unless Line.where(nombre: v).first.nil?
+                 ProcedureLine.create(procedure_id: a.id, line_id: Line.where(nombre: v).first.id)
+             end
+           end
+
+          tramites.split('; ').each do |v|
+              unless Requirement.where(nombre: v).first.nil?
+                ProcedureRequirement.create(procedure_id: a.id, requirement_id: Requirement.where(nombre: v).first.id)
+              end
+           end
+
           number_of_successfully_created_rows = number_of_successfully_created_rows + 1
         else
             puts "#{name} | #{time} | #{cost} | #{dependency.nombre} | #{contact} | #{supervisor} | #{}"
@@ -249,6 +271,15 @@ namespace :my_tasks do
     end
   end
 
+    def getTipo(tipo)
+      if tipo == 'Física'
+        'TF'
+      elsif tipo == 'Moral'
+        'TM'
+      else
+        'A'
+      end
+    end
 
   
   def row_does_not_exist_in_the_db(model, search_values)
