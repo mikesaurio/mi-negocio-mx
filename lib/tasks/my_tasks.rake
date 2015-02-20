@@ -22,6 +22,8 @@ namespace :my_tasks do
     clean_db(Procedure)
     clean_db(ProcedureLine)
     clean_db(ProcedureRequirement)
+    clean_db(InspectionLine) 
+    clean_db(InspectionRequirement) 
     
     cities_files = ['lib/datasets/giros_chalco.csv', 'lib/datasets/giros_metepec.csv']
     
@@ -60,7 +62,7 @@ namespace :my_tasks do
   desc "Load inspectors to the db"
   task :load_inspectors  => :environment do |t, args| 
     
-    cities_files = ['lib/datasets/notificadores_chalco.csv', 'lib/datasets/notificadores_metepec.csv']
+    cities_files = ['lib/datasets/inspectores_chalco.csv', 'lib/datasets/inspectores_metepec.csv']
     
     #clean_db(Inspector) # let's erase everyone from the db
     
@@ -69,7 +71,7 @@ namespace :my_tasks do
       number_of_successfully_created_rows = 0
       CSV.foreach(city_file, :headers => true) do |row|
         
-        dependency = Dependency.find_by(nombre: row.to_hash['dependency_name'])
+        dependency = Dependency.find_by(nombre: row.to_hash['dependencia_id'])
         name = row.to_hash['nombre']
         valid_through = row.to_hash['vigencia']
         subject = row.to_hash['materia']
@@ -112,7 +114,7 @@ namespace :my_tasks do
       # init variables
       number_of_successfully_created_rows = 0
       CSV.foreach(city_file, :headers => true) do |row|
-        city = Municipio.find_by(nombre: row.to_hash['municipio'])
+        city = Municipio.find_by(nombre: row.to_hash['municipio_id'])
         name = row.to_hash['nombre']
         description = row.to_hash['descripcion']
         path = row.to_hash['path']
@@ -132,13 +134,8 @@ namespace :my_tasks do
   desc "Load inspections to the db"
   task :load_inspections  => :environment do |t, args| 
     
-    cities_files = ['lib/datasets/verificaciones_chalco.csv']#, 'lib/datasets/verificaciones_metepec.csv']
-    
-    clean_db(Inspection) # let's erase everyone from the db
-      clean_db(InspectionLine) 
-        clean_db(InspectionRequirement) 
-
-
+    cities_files = ['lib/datasets/inspecciones_chalco.csv', 'lib/datasets/inspecciones_metepec.csv']
+    #clean_db(Inspection) # let's erase everyone from the db
     cities_files.each do |city_file|
       # init variables
       number_of_successfully_created_rows = 0
@@ -209,11 +206,11 @@ namespace :my_tasks do
       # init variables
       number_of_successfully_created_rows = 0
       CSV.foreach(city_file, :headers => true) do |row|
-        city = Municipio.find_by(nombre: row.to_hash['municipio_name'])
-        name = row.to_hash['name']
-        description = row.to_hash['description']
+        city = Municipio.find_by(nombre: row.to_hash['municipio_id'])
+        name = row.to_hash['nombre']
+        description = row.to_hash['descripcion']
         path = row.to_hash['path']
-        type = row.to_hash['type']
+        type = getTipoApertura(row.to_hash['tipo'])
 
         row_values = { name: name, municipio: city, description: description, path: path, type: type }
         if city.present? && row_does_not_exist_in_the_db(FormationStep, row_values)
@@ -231,7 +228,7 @@ namespace :my_tasks do
    desc "Load procedures to the db"
   task :load_procedures  => :environment do |t, args| 
     
-    cities_files = ['lib/datasets/tramites_chalco.csv']#, 'lib/datasets/tramites_metepec.csv']
+    cities_files = ['lib/datasets/tramites_chalco.csv', 'lib/datasets/tramites_metepec.csv']
     
     #clean_db(Procedure) # let's erase everyone from the db
     #clean_db(ProcedureLine)
@@ -294,6 +291,16 @@ namespace :my_tasks do
         'TF'
       elsif tipo == 'Moral'
         'TM'
+      else
+        'A'
+      end
+    end
+
+        def getTipoApertura(tipo)
+      if tipo == 'Física'
+        'AF'
+      elsif tipo == 'Moral'
+        'AM'
       else
         'A'
       end
