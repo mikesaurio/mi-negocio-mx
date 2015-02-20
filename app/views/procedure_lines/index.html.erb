@@ -33,18 +33,19 @@
  
   <div class="deck">
     <% unless @tramites_del_giro.nil? || @tramites_del_giro.empty?%>
-     <br>
-  <br>
-    <div class="col-xs-6 col-sm-3"><p class="text-center"><%= t('.nombre')%></p></div>
-          <div class="col-xs-6 col-sm-3"><p class="text-center"><%= t('.tipo')%></p></div>
-          <div class="col-xs-6 col-sm-3"><p class="text-center"><%= t('.costo')%></p></div>
-          <div class="col-xs-6 col-sm-3"><p class="text-center"><%= t('.vigencia')%></p></div>
       <div class="table__card">
         <ul>
           <% count = 0 %>
-                  <% @tramites_del_giro.each do |tramite_de_giro| %>
+          <% @tramites_del_giro.each do |tramite_de_giro| %>
             <%if Procedure.find(tramite_de_giro.procedure_id).tipo == @tipo || @tipo == 'A' %>
               <% count +=1 %>
+              <%if count == 1%>
+                 <br><br>
+                <div class="col-xs-6 col-sm-3"><p class="text-center"><%= t('.nombre')%></p></div>
+                 <div class="col-xs-6 col-sm-3"><p class="text-center"><%= t('.tipo')%></p></div>
+                <div class="col-xs-6 col-sm-3"><p class="text-center"><%= t('.costo')%></p></div>
+                <div class="col-xs-6 col-sm-3"><p class="text-center"><%= t('.vigencia')%></p></div>
+              <%end%>
               <%= link_to municipio_procedure_line_path(@municipio,tramite_de_giro) do %>
                 <li class="table--row">
                    <div class="row--">

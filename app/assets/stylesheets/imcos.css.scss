@@ -8,6 +8,10 @@ max-width: 70%; /* or to whatever you want here */
 max-height: auto; /* or to whatever you want here */
 }
 
-.modal-backdrop {
-   background-color: red;
+.centered-text {
+    text-align:center
+}   
+
+.modal-dialog-center {
+    margin-top: 25%;
 }

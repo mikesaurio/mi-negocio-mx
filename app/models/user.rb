@@ -7,6 +7,9 @@ class User < ActiveRecord::Base
   validates :municipio_id, presence: true
   belongs_to :municipio
 
+    has_many :user_formation_step
+    has_many :formation_steps, through: :user_formation_step
+
 
 def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
     user = User.where(:provider => auth.provider, :uid => auth.uid).first
