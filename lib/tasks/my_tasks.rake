@@ -12,7 +12,7 @@ namespace :my_tasks do
   
   desc "Load lines to the db"
   task :load_lines  => :environment do |t, args| 
-    
+    clean_db(UserFormationStep)#al perder las referencias se debe eliminar las relaciones
     clean_db(Line) 
     clean_db(Dependency)# let's erase everyone from the db
     clean_db(Inspector)
