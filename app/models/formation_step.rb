@@ -1,9 +1,12 @@
 class FormationStep < ActiveRecord::Base
-    self.inheritance_column = nil
+    
 
-      belongs_to :municipio
-          has_many :user_formation_step
-    has_many :users, through: :user_formation_step
+        self.inheritance_column = nil
+
+        belongs_to :municipio
+    
+        has_many :user_formation_step
+        has_many :users, through: :user_formation_step
 
       scope :by_city, -> (city) { where(municipio: city) }
 
