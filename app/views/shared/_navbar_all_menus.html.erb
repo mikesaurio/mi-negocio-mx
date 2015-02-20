@@ -7,9 +7,9 @@
         <%=t('titles.titulo')%> | <a href="" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true" ><%=@municipio.nombre%><span class="caret m" ></span></a>
         <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
           <%@municipios.each do |municipio|%>
-            <%unless municipio == @municipio%>
-              <li role="presentation"><%=link_to municipio.nombre,municipio_path(municipio), :role => "menuitem", :tabindex => "-1"%> </li>
-            <%end%>
+          <%unless municipio == @municipio%>
+          <li role="presentation"><%=link_to municipio.nombre,municipio_path(municipio), :role => "menuitem", :tabindex => "-1"%> </li>
+          <%end%>
           <%end%>
         </ul>
         <%end%>
@@ -18,13 +18,13 @@
     <div id="navbar" class="nav nav-pills topnav">
       <ul class="nav navbar-nav navbar-right">
         <li> <m><%= link_to t('navbar.new'),municipio_formation_steps_path(@municipio)%></m></li>
-          <li> <m> <%= link_to t('navbar.tramite'),municipio_procedure_lines_path(@municipio)%></m></li>
-          <li> <m> <%= link_to t('navbar.inspections'),municipio_inspections_path(@municipio)%></m></li> 
-          <li> <m> <%= link_to t('navbar.inspectors'),municipio_inspectors_path(@municipio)%></m></li>
-      <li> | <m><%=link_to t('navbar.inicio'),root_path, class: "m" %></m></li>
-     </ul>
-   </div>
- </div>
+        <li> <m> <%= link_to t('navbar.tramite'),municipio_procedure_lines_path(@municipio)%></m></li>
+        <li> <m> <%= link_to t('navbar.inspections'),municipio_inspections_path(@municipio)%></m></li> 
+        <li> <m> <%= link_to t('navbar.inspectors'),municipio_inspectors_path(@municipio)%></m></li>
+        <li> | <m><%=link_to t('navbar.inicio'),root_path, class: "m" %></m></li>
+      </ul>
+    </div>
+  </div>
 </div>
 </nav> 
 <% else %>
@@ -35,9 +35,14 @@
     </div>
     <div id="navbar" class="nav nav-pills topnav">
       <ul class="nav navbar-nav navbar-right">
-       <m><%=link_to t('navbar.inicio'),root_path, class: "m" %></m>
-     </ul>
-   </div>
+        <li> <m><%= link_to t('navbar.new'),municipio_formation_steps_path(@municipio)%></m></li>
+        <li> <m> <%= link_to t('navbar.tramite'),municipio_procedure_lines_path(@municipio)%></m></li>
+        <li> <m> <%= link_to t('navbar.inspections'),municipio_inspections_path(@municipio)%></m></li> 
+        <li> <m> <%= link_to t('navbar.inspectors'),municipio_inspectors_path(@municipio)%></m></li>
+        <li> | <m><%=link_to t('navbar.inicio'),root_path, class: "m" %></m></li>
+      </ul>
+    </div>
   </div>
-  </nav>
-  <% end %>
+ </div>
+</nav>
+<% end %>
