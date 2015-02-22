@@ -28,10 +28,10 @@
         <div class="footer-col col-md-4">
             <ul class="list-inline">
                 <li>
-                 <a href="#" ><%= link_to t('footer.acerca_de'), destroy_user_session_path, method: :delete %></li></a>
+                 <a href="#" ><%= link_to t('footer.acerca_de'), municipio_about_path(@municipio) %></li></a>
              </li>
              <li>
-               <a href="#" ><%= link_to t('footer.aviso'), destroy_user_session_path, method: :delete %></li></a>
+               <a href="#" ><%= link_to t('footer.aviso'), municipio_aviso_path(@municipio) %></li></a>
            </li>
        </ul>
    </div>

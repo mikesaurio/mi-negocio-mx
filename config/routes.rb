@@ -2,20 +2,19 @@ Rails.application.routes.draw do
 
   #devise_for :users
   post "municipios/search"
-   resources :procedure_requirements, only: [:index]#Para pruebas
+   #resources :procedure_requirements, only: [:index]#Para pruebas
 
-  # match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
-  #match 'auth/failure', to: redirect('/'), via: [:get, :post]
-  #match 'signout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]
-devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks" }
-    
+  devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks" }
+  
+ 
 
   resources :municipios, only: [:show] do
+    get 'about'
+    get 'aviso'
     resources :inspections, only: [:index, :show]
     resources :inspectors, only: [:index, :show]
     resources :procedure_lines, only: [:index,:show]
     resources :formation_steps, only: [:index]
-
   end
 
   resource :dashboard, only: :show, controller: :dashboard do
