@@ -2,10 +2,7 @@ class MunicipiosController < ApplicationController
   layout 'menu'
   before_action :set_municipio, only: [:edit, :update, :destroy]
 
-  def index
-    @municipios = Municipio.all
-  end
-
+  
   def show
     @municipios = Municipio.all
     set_municipio(:id)
@@ -16,52 +13,20 @@ class MunicipiosController < ApplicationController
     redirect_to municipio_path(@municipio)
   end
 
-  def new
-    @municipio = Municipio.new
-  end
+  def about
 
-  def edit
-  end
-  
-
-
-  def tramite
+    @municipios = Municipio.all
     set_municipio(:municipio_id)
-    @procedure = Procedure.all
-
-    @id_del_giro = "0"
-    @tipo  = 'A'
-    
-    unless params[:lines].nil?
-      @param_paso = params[:lines]
-      @id_del_giro = @param_paso[:line_id]
-      @tramites_del_giro = Line.find(@id_del_giro).procedures.includes(:procedure_lines).where("line_id = #{@id_del_giro}") 
-      @tipo = params[:rating]
-    end
+          render layout: 'blanco'
   end
 
+  def aviso
 
-  def inspeccion
-        set_municipio(:municipio_id)
-  @inspections = Inspection.all
-
-  if params[:q]
-    @inspectors = Inspector.search(params[:q]).order("created_at DESC")
-  else
-    @inspectors = Inspector.all
+    @municipios = Municipio.all
+    set_municipio(:municipio_id)
+        render layout: 'blanco'
   end
 
-  @dependency = Dependency.all
-
-
-  if params[:q]
-    @inspections = Inspection.search(params[:q]).order("created_at DESC")
-  else
-    @inspections = Inspection.all
-  end
-
-
-end 
 
 
   def create
