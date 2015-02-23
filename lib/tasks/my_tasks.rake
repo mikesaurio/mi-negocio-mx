@@ -1,18 +1,12 @@
 namespace :my_tasks do
  require 'csv'   
 
-  desc "Importa CSV formation steps a la BD"
-  task :import_csv,  [:first_param, :second_param] => :environment do |t, args|   
-    file = args[:first_param]
-    @controlador = controllers(args[:second_param])
-    CSV.foreach(file, :headers => true) do |row|
-      @controlador.create!(row.to_hash)
-    end
-  end
-  
   desc "Load lines to the db"
   task :load_lines  => :environment do |t, args| 
-    clean_db(UserFormationStep)#al perder las referencias se debe eliminar las relaciones
+
+     cities_files = ['lib/datasets/giros_chalco.csv', 'lib/datasets/giros_metepec.csv','lib/datasets/giros_tenango.csv']
+
+     clean_db(UserFormationStep)#al perder las referencias se debe eliminar las relaciones
     clean_db(Line) 
     clean_db(Dependency)# let's erase everyone from the db
     clean_db(Inspector)
@@ -25,7 +19,7 @@ namespace :my_tasks do
     clean_db(InspectionLine) 
     clean_db(InspectionRequirement) 
     
-    cities_files = ['lib/datasets/giros_chalco.csv', 'lib/datasets/giros_metepec.csv','lib/datasets/giros_metepec.csv']
+   
     
     cities_files.each do |city_file|
       CSV.foreach(city_file, :headers => true) do |row|
@@ -36,6 +30,7 @@ namespace :my_tasks do
         if city.present? && row_does_not_exist_in_the_db(Line, { nombre: name, municipio: city })
           Line.create(nombre: name, descripcion: description , municipio: city)
         end
+
       end
     end
   end
@@ -124,7 +119,7 @@ namespace :my_tasks do
           Requirement.create!(row_values)
           number_of_successfully_created_rows = number_of_successfully_created_rows + 1
         else
-          puts "#{row_values.inspect}"
+          puts "DATO REPETIDO #{row_values.inspect}"
         end
       end
       puts "Number of successfully created rows is (#{city_file}): #{number_of_successfully_created_rows}"
