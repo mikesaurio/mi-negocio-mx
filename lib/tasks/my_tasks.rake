@@ -25,7 +25,7 @@ namespace :my_tasks do
     clean_db(InspectionLine) 
     clean_db(InspectionRequirement) 
     
-    cities_files = ['lib/datasets/giros_chalco.csv', 'lib/datasets/giros_metepec.csv']
+    cities_files = ['lib/datasets/giros_chalco.csv', 'lib/datasets/giros_metepec.csv','lib/datasets/giros_metepec.csv']
     
     cities_files.each do |city_file|
       CSV.foreach(city_file, :headers => true) do |row|
@@ -45,7 +45,7 @@ namespace :my_tasks do
 
     #clean_db(Dependency) # let's erase everyone from the db
     
-    cities_files = ['lib/datasets/dependencias_chalco.csv', 'lib/datasets/dependencias_metepec.csv']
+    cities_files = ['lib/datasets/dependencias_chalco.csv', 'lib/datasets/dependencias_metepec.csv', 'lib/datasets/dependencias_tenango.csv']
     
     cities_files.each do |city_file|
       CSV.foreach(city_file, :headers => true) do |row|
@@ -62,7 +62,7 @@ namespace :my_tasks do
   desc "Load inspectors to the db"
   task :load_inspectors  => :environment do |t, args| 
     
-    cities_files = ['lib/datasets/inspectores_chalco.csv', 'lib/datasets/inspectores_metepec.csv']
+    cities_files = ['lib/datasets/inspectores_chalco.csv', 'lib/datasets/inspectores_metepec.csv','lib/datasets/inspectores_tenango.csv']
     
     #clean_db(Inspector) # let's erase everyone from the db
     
@@ -108,7 +108,7 @@ namespace :my_tasks do
       
     #clean_db(Requirement) # let's erase everyone from the db
     
-    cities_files = ['lib/datasets/requisitos_chalco.csv', 'lib/datasets/requisitos_metepec.csv']
+    cities_files = ['lib/datasets/requisitos_chalco.csv', 'lib/datasets/requisitos_metepec.csv', 'lib/datasets/requisitos_tenango.csv']
     
     cities_files.each do |city_file|
       # init variables
@@ -200,7 +200,7 @@ namespace :my_tasks do
       
   #  clean_db(FormationStep) # let's erase everyone from the db
     
-    cities_files = ['lib/datasets/apertura_chalco.csv', 'lib/datasets/apertura_metepec.csv']
+    cities_files = ['lib/datasets/apertura_chalco.csv', 'lib/datasets/apertura_metepec.csv', 'lib/datasets/apertura_tenango.csv']
     
     cities_files.each do |city_file|
       # init variables
