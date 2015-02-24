@@ -4,6 +4,7 @@
   margin-right: auto;
 }
 .img-responsive {
+padding-top: 15%;
 max-width: 70%; /* or to whatever you want here */
 max-height: auto; /* or to whatever you want here */
 }
@@ -14,4 +15,9 @@ max-height: auto; /* or to whatever you want here */
 
 .modal-dialog-center {
     margin-top: 25%;
+}
+.navbar-text-blanco{
+     color: #ffffff;
+      margin:40px 0px 20px 0px;
+    text-align:center;
 }
