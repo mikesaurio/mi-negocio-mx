@@ -22,11 +22,11 @@
 	<!--Seccion Temporal!-->
 	<div class="row">
 		<div class="col-md-2 col-md-offset-2"><%= link_to 'Chalco', municipio_path('1'),  :class => 'btn btn-success btn-lg outline' %></div>
-		<div class="clearfix visible-xs-block"><br></div>
+		<div class="clearfix visible-xs-block"></div>
 		<div class="col-md-2"><%= link_to 'Metepec', municipio_path('4'),  :class => 'btn btn-success btn-lg outline' %></div>
-		<div class="clearfix visible-xs-block"><br></div>
+		<div class="clearfix visible-xs-block"></div>
 		<div class="col-md-2"><%= link_to 'Tenango', municipio_path('5'),  :class => 'btn btn-success btn-lg outline' %></div>
-		<div class="clearfix visible-xs-block"><br></div>
+		<div class="clearfix visible-xs-block"></div>
 		<div class="col-md-2"><%= link_to 'Toluca', municipio_path('6'),  :class => 'btn btn-success btn-lg outline' %></div>
 	</div>
 	<!--Termina Seccion Temporal!-->
@@ -44,7 +44,7 @@
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 					<h4 class="modal-title" id="myModalLabel">Puedes iniciar sesión con:</h4>
 				</div>
-				<div class="modal-body centered-text">
+				<div class="modal-body center-text">
 					<%= link_to " | Facebook", user_omniauth_authorize_path(:facebook) ,class: "btn btn-facebook fa fa-facebook btn-lg-social"%>
 					<BR>
 						<BR>
