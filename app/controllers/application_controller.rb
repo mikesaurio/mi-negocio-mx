@@ -40,11 +40,9 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource)
-    # raise session[:previous_url].inspect
-    session[:previous_url] || root_path
+    return dashboard_path if resource.admin?
+    root_path
   end
-
-
 
   private
 
