@@ -1,9 +1,11 @@
 <section id="services" class="services bg-primary-verde">
     <div class="col-md-8 col-md-offset-2 text-center">
+        <br>
         <div class="col-md-3">
             <div class="service-item">
-              <h4> <%=t('.nuevo')%> </br></br></br>
+              <h4>
                 <%= image_tag "abrir.png", class: "img-responsive center-block" %>
+                <%=t('.nuevo')%> 
                 </h4>
                 <p class="bg-primary-nergro"><%=t('.texto_nuevo')%> </p></br>
                 <%= link_to "Continuar",municipio_formation_steps_path(@municipio), :class => 'btn btn-success btn-lg outlineverde'%>
@@ -11,8 +13,9 @@
          </div>
         <div class="col-md-3">
             <div class="service-item">
-              <h4><%=t('.tramite')%> </br></br></br>
+              <h4>
                 <%= image_tag "tramites.png", class: "img-responsive center-block" %>
+                <%=t('.tramite')%>
                 </h4>
                 <p class="bg-primary-nergro"><%=t('.texto_tramite')%> </p></br>
                 <%= link_to "Consultar",municipio_procedure_lines_path(@municipio), :class => 'btn btn-success btn-lg outlineverde'%>
@@ -20,8 +23,9 @@
         </div>
         <div class="col-md-3 ">
             <div class="service-item">
-                <h4><%=t('.inspecciones')%> </br></br></br>
+                <h4>
                     <%= image_tag "inspecciones.png", class: "img-responsive center-block" %>
+                    <%=t('.inspecciones')%>
                 </h4>
                 <p class="bg-primary-nergro"><%=t('.texto_inspeccion')%> </p>
                 <div class="dropdown">
