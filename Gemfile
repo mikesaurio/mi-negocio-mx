@@ -60,6 +60,8 @@ group :development do
   gem 'binding_of_caller'
   # Seeds
   gem 'seed_dump'
+  # Load env variables
+  gem 'figaro'
 end
 
 group :production do

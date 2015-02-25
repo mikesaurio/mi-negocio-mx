@@ -13,7 +13,7 @@
       <%= link_to municipio_inspector_path(@municipio,inspector) do %>
       <div class="col-sm-6 col-md-3">
         <div class="thumbnail">
-          <%= image_tag "missing-image.gif" %>
+          <%= image_tag inspector.foto_url || "missing-image.gif" %>
           <div class="caption">
             <h4 class="title text-center"><%= inspector.nombre %></h4>
             <h4 class="subtitle text-center"><%= inspector.vigencia %></h4>

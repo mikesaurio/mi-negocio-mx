@@ -40,3 +40,5 @@ config/database.yml
 
 # Cloud 9
 /.c9/
+
+public/uploads/
