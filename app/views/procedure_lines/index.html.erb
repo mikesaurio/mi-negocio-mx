@@ -1,75 +1,104 @@
-  <div class="container bg-primary-verde">
-<div class="row text-center">
-  <div class="col-lg-10 col-lg-offset-1">
-    <%= content_tag :h1,t('.title'), class: 'text-center' %>
-    <hr class="small">
-  </div>
-</div>
-<%= form_for :get, :html => {:method => :get}, :url => { :controller => :procedure_lines, :action => :index }  do |f| %>
-  <p>¿Cual es el giro de tu negocio?
-    <%= f.select :lines, Line.where(municipio_id: @municipio).map { |u| [u.nombre, u.id] },{ include_blank: true ,:selected =>@line  },{ class: 'chosen-select' }%></p>
-
+<div class="container bg-primary-verde">
   <br>
-  <%= t('.procedure_lines_radio_name')%>
-  <div class="btn-group btn-toggle" data-toggle="buttons">
-    <%if @tipo == 'TF'%>
-        <label class= "btn btn-default active"><%= t('.radio_fisica')%> <%= radio_button_tag :rating, 'TF',true%></label>
-        <label class= "btn btn-default"><%= t('.radio_moral')%> <%= radio_button_tag :rating, 'TM'%></label>
-        <label class= "btn btn-default"><%= t('.radio_ambas')%> <%= radio_button_tag :rating, 'A'%></label>
-    <%elsif @tipo == 'TM'%>
-        <label class= "btn btn-default "><%= t('.radio_fisica')%> <%= radio_button_tag :rating, 'TF'%></label>
-        <label class= "btn btn-default active"><%= t('.radio_moral')%> <%= radio_button_tag :rating, 'TM',true%></label>
-        <label class= "btn btn-default"><%= t('.radio_ambas')%> <%= radio_button_tag :rating, 'A'%></label>
-    <%else%>
-        <label class= "btn btn-default "><%= t('.radio_fisica')%> <%= radio_button_tag :rating, 'TF'%></label>
-        <label class= "btn btn-default "><%= t('.radio_moral')%> <%= radio_button_tag :rating, 'TM'%></label>
-        <label class= "btn btn-default active"><%= t('.radio_ambas')%> <%= radio_button_tag :rating, 'A',true%></label>
-    <%end%>
+  <br>
+  <div class="row text-center">
+    <div class="col-lg-10 col-lg-offset-1">
+      <%= content_tag :h1,t('.title'), class: 'text-center' %>
+      <hr class="small">
+    </div>
   </div>
-
-  <div class="actions">
-   <%= f.submit t('buttons.ok'),:class => "btn btn-success btn-lg outlineverde" %>
+  <%= form_for :get, :html => {:method => :get}, :url => { :controller => :procedure_lines, :action => :index }  do |f| %>
+  <div class="col-md-6 col-md-offset-3 text-center">
+    <div class="row text-left">
+      <div class="row">
+        <div class="col-xs-6 col-sm-3">
+          ¿Cual es el giro de tu negocio?
+        </div>
+        <div class="clearfix visible-xs-block"></div>
+        <div class="col-md-offset-3">
+          <%= f.select :lines, Line.where(municipio_id: @municipio).map { |u| [u.nombre, u.id] },{ include_blank: true ,:selected =>@line  },{ class: 'chosen-select' }%>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-xs-6 col-sm-3">
+          <%= t('.procedure_lines_radio_name')%>
+        </div>
+        <div class="clearfix visible-xs-block"></div>
+        <div class="col-md-offset-3">
+          <div class="btn-group btn-toggle" data-toggle="buttons">
+            <%if @tipo == 'TF'%>
+            <label class= "btn btn-default active"><%= t('.radio_fisica')%> <%= radio_button_tag :rating, 'TF',true%></label>
+            <label class= "btn btn-default"><%= t('.radio_moral')%> <%= radio_button_tag :rating, 'TM'%></label>
+            <label class= "btn btn-default"><%= t('.radio_ambas')%> <%= radio_button_tag :rating, 'A'%></label>
+            <%elsif @tipo == 'TM'%>
+            <label class= "btn btn-default "><%= t('.radio_fisica')%> <%= radio_button_tag :rating, 'TF'%></label>
+            <label class= "btn btn-default active"><%= t('.radio_moral')%> <%= radio_button_tag :rating, 'TM',true%></label>
+            <label class= "btn btn-default"><%= t('.radio_ambas')%> <%= radio_button_tag :rating, 'A'%></label>
+            <%else%>
+            <label class= "btn btn-default "><%= t('.radio_fisica')%> <%= radio_button_tag :rating, 'TF'%></label>
+            <label class= "btn btn-default "><%= t('.radio_moral')%> <%= radio_button_tag :rating, 'TM'%></label>
+            <label class= "btn btn-default active"><%= t('.radio_ambas')%> <%= radio_button_tag :rating, 'A',true%></label>
+            <%end%>
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="row text-left">
+        <div class="col-xs-6 col-sm-3"></div>
+        <div class="clearfix visible-xs-block"></div>
+        <div class="actions col-md-offset-3">
+          <%= f.submit t('buttons.ok'),:class => "btn btn-success btn-lg outlineverde" %>
+        </div>
+      </div>
+    </div>
   </div>
- 
-  <div class="deck">
-    <% unless @tramites_del_giro.nil? || @tramites_del_giro.empty?%>
+  <div class="row text-center">
+    <div class="col-lg-12">
+             <div class="deck">
+      <% unless @tramites_del_giro.nil? || @tramites_del_giro.empty?%>
       <div class="table__card">
         <ul>
           <% count = 0 %>
           <% @tramites_del_giro.each do |tramite_de_giro| %>
-            <%if Procedure.find(tramite_de_giro.procedure_id).tipo == @tipo || @tipo == 'A' %>
-              <% count +=1 %>
-              <%if count == 1%>
-                 <br><br>
-                <div class="col-xs-6 col-sm-3"><p class="text-center"><%= t('.nombre')%></p></div>
-                 <div class="col-xs-6 col-sm-3"><p class="text-center"><%= t('.tipo')%></p></div>
-                <div class="col-xs-6 col-sm-3"><p class="text-center"><%= t('.costo')%></p></div>
-                <div class="col-xs-6 col-sm-3"><p class="text-center"><%= t('.vigencia')%></p></div>
-              <%end%>
-              <%= link_to municipio_procedure_line_path(@municipio,tramite_de_giro) do %>
-                <li class="table--row">
-                   <div class="row--">
-                    <div class="col-xs-6 col-sm-3"><p class="text-left bg-primary-nergro" ><%= Procedure.find(tramite_de_giro.procedure_id).nombre %></p></div>
-                    <div class="col-xs-6 col-sm-3"><p class="text-center bg-primary-nergro"><%= tipo(Procedure.find(tramite_de_giro.procedure_id).tipo) %></p></div>
-                    <div class="col-xs-6 col-sm-3"><p class="text-center bg-primary-nergro"><%= Procedure.find(tramite_de_giro.procedure_id).costo %></p></div>
-                    <div class="col-xs-6 col-sm-3"><p class="text-center bg-primary-nergro"><%= Procedure.find(tramite_de_giro.procedure_id).vigencia %></p></div>
-                  </div> 
-                  <% dialogo_sin_tramites = 'true'%>
-                </li>
-              <%end%>
-            <% end %>
-          <% end %>
-          <%if count == 0 %>
-            <%= render "shared/empty_resource", message: t('.no_procedure_lines_available') %>
+          <%if Procedure.find(tramite_de_giro.procedure_id).tipo == @tipo || @tipo == 'A' %>
+          <% count +=1 %>
+          <%if count == 1%>
+          <br><br>
+          <div class="col-xs-6 col-sm-3"><p class="text-center"><%= t('.nombre')%></p></div>
+          <div class="col-xs-6 col-sm-3"><p class="text-center"><%= t('.tipo')%></p></div>
+          <div class="col-xs-6 col-sm-3"><p class="text-center"><%= t('.costo')%></p></div>
+          <div class="col-xs-6 col-sm-3"><p class="text-center"><%= t('.vigencia')%></p></div>
           <%end%>
+          <%= link_to municipio_procedure_line_path(@municipio,tramite_de_giro) do %>
+          <li class="table--row">
+           <div class="row--">
+            <div class="col-xs-6 col-sm-3"><p class="text-left bg-primary-nergro" ><%= Procedure.find(tramite_de_giro.procedure_id).nombre %></p></div>
+            <div class="col-xs-6 col-sm-3"><p class="text-center bg-primary-nergro"><%= tipo(Procedure.find(tramite_de_giro.procedure_id).tipo) %></p></div>
+            <div class="col-xs-6 col-sm-3"><p class="text-center bg-primary-nergro"><%= Procedure.find(tramite_de_giro.procedure_id).costo %></p></div>
+            <div class="col-xs-6 col-sm-3"><p class="text-center bg-primary-nergro"><%= Procedure.find(tramite_de_giro.procedure_id).vigencia %></p></div>
+          </div> 
+          <% dialogo_sin_tramites = 'true'%>
+        </li>
+        <%end%>
+        <% end %>
+        <% end %>
+        <%if count == 0 %>
+        <br>
+        <br>
+        <%= render "shared/empty_resource", message: t('.no_procedure_lines_available') %>
+        <%end%>
         </ul>
       </div>
-    <% else %>
+      <% else %>
+      <br>
+      <br>
       <%= render "shared/empty_resource", message: t('.no_procedure_lines_selected') %>
-    <% end %>
+      <% end %>
+    </div>
+    </div>
   </div>
-<%end%>
-
+  <%end%>
 </div>
 
 
