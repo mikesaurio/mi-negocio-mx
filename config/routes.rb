@@ -5,8 +5,8 @@ Rails.application.routes.draw do
    #resources :procedure_requirements, only: [:index]#Para pruebas
 
   devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks" }
-  
- 
+
+
 
   resources :municipios, only: [:show] do
     get 'about'

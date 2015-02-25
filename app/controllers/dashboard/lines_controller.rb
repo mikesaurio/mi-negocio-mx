@@ -1,10 +1,9 @@
 module Dashboard
-  class LinesController < ApplicationController
+  class LinesController < Dashboard::BaseController
     before_action :set_line, only: [:edit, :update, :destroy]
-    before_action :authenticate_user!
     layout 'dashboard'
 
-    def index 
+    def index
       @lines = policy_scope(Line).where(municipio_id: current_user.municipio).order(:nombre)
       respond_to do |format|
         format.html

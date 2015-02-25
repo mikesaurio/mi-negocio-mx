@@ -1,7 +1,6 @@
 module Dashboard
-  class FormationStepsController < ApplicationController
+  class FormationStepsController < Dashboard::BaseController
     before_action :set_formation_steps, only: [:edit, :update, :destroy]
-    before_action :authenticate_user!
     layout 'dashboard'
 
     def index

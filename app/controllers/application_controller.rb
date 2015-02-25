@@ -15,4 +15,18 @@ class ApplicationController < ActionController::Base
   #def current_user
     #@current_user ||= User.find(session[:user_id]) if session[:user_id]
   #end
+
+  def verify_admin
+    admin_is_logged_in? || not_found
+  end
+
+  def not_found
+    raise ActionController::RoutingError.new('Not Found')
+  end
+
+  private
+
+  def admin_is_logged_in?
+    authenticate_user! && current_user.admin?
+  end
 end
