@@ -37,7 +37,7 @@ gem 'devise'
 gem 'pundit'
 
 gem 'chosen-rails' #autocompletar
-gem 'bootstrap-switch-rails', '~> 3.0.0' 
+gem 'bootstrap-switch-rails', '~> 3.0.0'
 
 
 gem 'omniauth-facebook'
@@ -45,6 +45,10 @@ gem 'omniauth-linkedin'
 
 gem 'kaminari' #para paginar
 
+# process files
+gem 'mini_magick'
+gem 'carrierwave'
+gem 'fog-aws'
 
 group :development do
   # Thin server
