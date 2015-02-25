@@ -177,8 +177,8 @@ es:
       title: Nuevo negocio
       no_formation_steps_available: No encontramos trámites para apertura con estos parámetros
       no_formation_steps_selected: Selecciona las opciones de busqueda
-      formation_steps_select_name: ¿Iniciaras un nuevo negocio?
-      formation_steps_radio_name: Mostrar para personas
+      formation_steps_select_name: 'Giro del negocio:'
+      formation_steps_radio_name: 'Tipo de persona:'
       radio_fisica: Física
       radio_moral: Moral
       pasos: Paso %{parameter}
