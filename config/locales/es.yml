@@ -192,7 +192,7 @@ es:
       radio_fisica: Física
       radio_moral: Moral
       radio_ambas: Ambos
-      procedure_lines_radio_name: 'Tipo de persona:'
+      procedure_lines_radio_name: Tipo de persona:'
       nombre: Nombre
       descripcion: Descripción
       tipo: Tipo

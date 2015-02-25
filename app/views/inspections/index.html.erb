@@ -32,33 +32,32 @@
    </div>
    <div class="row text-center">
     <div class="col-lg-12">
-     <% unless @inspections.nil? || @inspections.empty? %>
+     <% unless @inspections.nil? || @inspections.empty?%>
      <div class="table__card">
        <div class="deck">
         <div class="table__card">
           <ul>
             <% @inspections.each do |inspection| %>
             <%if @inspection_line.where(inspection_id: inspection.id).present?%>
-            <%if @first_time%>
-            <%= render "shared/search", custom_path: municipio_inspections_path(@municipio), search_placeholder: t('.search_inspections') %>
-            <br>
-            <br>
-            <li class="table--row">
-              <div class="row--title"><%=t('.nombre')%> </div>
-              <div class="row--subtitle"><%=t('.materia')%> </div>
-              <div class="row--footer"><%=t('.duracion')%> </div>
-            </li>
-            <% @first_time = false%>
-            <%end%>
-            <%= link_to municipio_inspection_path(@municipio, inspection) do %>
-            <li class="table--row">
-              <div class="row--title bg-primary-nergro"><%= inspection.nombre %></div>
-              <div class="row--subtitle bg-primary-nergro"><%= inspection.materia %></div>
-              <div class="row--footer bg-primary-nergro"><%= inspection.duracion %></div>
-            </li>
+              <%if @first_time%>
+                <%= render "shared/search", custom_path: municipio_inspections_path(@municipio), search_placeholder: t('.search_inspections') %>
+                <br>
+                <br>
+                <li class="table--row">
+                  <div class="row--title"><%=t('.nombre')%> </div>
+                  <div class="row--subtitle"><%=t('.materia')%> </div>
+                  <div class="row--footer"><%=t('.duracion')%> </div>
+                </li>
+                <% @first_time = false%>
+              <%end%>
+              <%= link_to municipio_inspection_path(@municipio, inspection) do %>
+              <li class="table--row">
+                <div class="row--title bg-primary-nergro"><%= inspection.nombre %></div>
+                <div class="row--subtitle bg-primary-nergro"><%= inspection.materia %></div>
+                <div class="row--footer bg-primary-nergro"><%= inspection.duracion %></div>
+              </li>
             <% end %>
             <%end%>
-
             <% end %>
           </ul>
         </div>
@@ -66,7 +65,10 @@
           <br>
           <br>
           <%= render "shared/empty_resource", message: t('.no_inspections_available') %>
-          <% end %>
+        <% end %>
+        <%if @first_time == true %>
+          <%= render "shared/empty_resource", message: t('.no_inspections_available') %>
+        <%end%>
           </div>
         <%end%>
       </div>
