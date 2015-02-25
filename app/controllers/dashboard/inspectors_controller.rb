@@ -1,7 +1,6 @@
 module Dashboard
-  class InspectorsController < ApplicationController
+  class InspectorsController < Dashboard::BaseController
     before_action :set_inspector, only: [:edit, :update, :destroy]
-    before_action :authenticate_user!
     layout 'dashboard'
 
     def index

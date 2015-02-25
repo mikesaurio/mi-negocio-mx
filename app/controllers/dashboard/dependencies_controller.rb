@@ -1,10 +1,9 @@
 module Dashboard
-  class DependenciesController < ApplicationController
+  class DependenciesController < Dashboard::BaseController
     before_action :set_dependency, only: [:edit, :update, :destroy]
-    before_action :authenticate_user!
     layout 'dashboard'
 
-    def index 
+    def index
       @dependencies = policy_scope(Dependency).where(municipio_id: current_user.municipio).order(:nombre)
 
         respond_to do |format|

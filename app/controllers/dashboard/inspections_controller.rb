@@ -1,7 +1,6 @@
 module Dashboard
-  class InspectionsController < ApplicationController
+  class InspectionsController < Dashboard::BaseController
     before_action :set_inspection, only: [:edit, :update, :destroy]
-    before_action :authenticate_user!
     layout 'dashboard'
 
     def index
@@ -82,7 +81,7 @@ module Dashboard
     def inspection_params
       params.require(:inspection).permit(:nombre, :materia, :duracion, :norma, :antes, :durante, :despues, :sancion, :dependency_id, :inspection=>{:line_ids => []},:inspection=>{:requirement_ids => []})
     end
-    
+
     def create_relation_inspection_lines
         params[:inspection][:line_ids].each do |par|
               if par.present?
