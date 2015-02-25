@@ -5,6 +5,7 @@
     <div class="col-lg-10 col-lg-offset-1">
       <%= content_tag :h1,t('.title'), class: 'text-center' %>
       <hr class="small">
+      <br>
     </div>
   </div>
   <%= form_for :get, :html => {:method => :get}, :url => { :controller => :procedure_lines, :action => :index }  do |f| %>
@@ -12,7 +13,7 @@
     <div class="row text-left">
       <div class="row">
         <div class="col-xs-6 col-sm-3">
-          ¿Cual es el giro de tu negocio?
+          Giro del negocio:
         </div>
         <div class="clearfix visible-xs-block"></div>
         <div class="col-md-offset-3">
