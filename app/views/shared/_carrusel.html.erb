@@ -10,12 +10,12 @@
               <% if formation_step.type == @tipo %>
                 <% count += 1 %>
                 <%if @tramites_realizados.nil?%>
-                  <li data-target="#fade-quote-carousel" data-slide-to=<%=count-1%> class="actives"></li>
+                  <li data-target="#fade-quote-carousel" data-slide-to=<%=count-1%> class="actives" data-toggle="tooltip" data-placement="bottom" data-original-title='<%=formation_step.name%>'></li>
                 <%else%>
                   <%if @tramites_realizados.where(formation_step_id: formation_step,line_id: @line, tipo: @tipo).first.nil?%>
-                    <li data-target="#fade-quote-carousel" data-slide-to=<%=count-1 %> ></li>
+                    <li data-target="#fade-quote-carousel" data-slide-to=<%=count-1 %> data-toggle="tooltip" data-placement="bottom" data-original-title='<%=formation_step.name%>'></li>
                   <%else%>
-                    <li data-target="#fade-quote-carousel" data-slide-to=<%=count-1%> class="actives"></li>
+                    <li data-target="#fade-quote-carousel" data-slide-to=<%=count-1%> class="actives" data-toggle="tooltip" data-placement="bottom" data-original-title='<%=formation_step.name%>'></li>
                   <%end%>
                 <%end%>
               <%end%>
@@ -63,4 +63,19 @@
     </div>
   </div>
 </section>
+
+<script type="text/javascript">
+$(document).ready(function(){
+    $(".tip-top").tooltip({placement : 'top'});
+    $(".tip-right").tooltip({placement : 'right'});
+    $(".tip-bottom").tooltip({placement : 'bottom'});
+    $(".tip-left").tooltip({ placement : 'left'});
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();   
+});
+</script>
               

@@ -1,35 +1,36 @@
 <section id="services" class="services bg-primary-verde">
-    <div class="container">
-        <div class="row text-center">
-            <div class="col-lg-10 col-lg-offset-1">
-                <div class="row">
-                    <div class="col-md-3 col-sm-6">
-                        <div class="service-item">
-                          <h4> <%=t('.nuevo')%> </br></br></br>
-                            <%= image_tag "abrir.png", class: "img-responsive center-block" %>
-                        </h4>
-                        <p class="bg-primary-nergro"><%=t('.texto_nuevo')%> </p><br></br>
-                        <%= link_to "Continuar",municipio_formation_steps_path(@municipio), :class => 'btn btn-success btn-lg outlineverde'%>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <div class="service-item">
-                      <h4><%=t('.tramite')%> </br></br></br>
-                        <%= image_tag "tramites.png", class: "img-responsive center-block" %>
-                    </h4>
-                    <p class="bg-primary-nergro"><%=t('.texto_tramite')%> </p></br>
-                    <%= link_to "Consultar",municipio_procedure_lines_path(@municipio), :class => 'btn btn-success btn-lg outlineverde'%>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6">
-                <div class="service-item">
-                  <h4><%=t('.inspecciones')%> </br></br></br>
-                    <%= image_tag "inspecciones.png", class: "img-responsive center-block" %>
+    <div class="col-md-8 col-md-offset-2 text-center">
+        <br>
+        <div class="col-md-3">
+            <div class="service-item">
+              <h4>
+                <%= image_tag "abrir.png", class: "img-responsive center-block" %>
+                <%=t('.nuevo')%> 
                 </h4>
-                <p class="bg-primary-nergro"><%=t('.texto_inspeccion')%> </p></br>
+                <p class="bg-primary-nergro"><%=t('.texto_nuevo')%> </p></br></br>
+                <%= link_to "Continuar",municipio_formation_steps_path(@municipio), :class => 'btn btn-success btn-lg outlineverde'%>
+            </div>
+         </div>
+        <div class="col-md-3">
+            <div class="service-item">
+              <h4>
+                <%= image_tag "tramites.png", class: "img-responsive center-block" %>
+                <%=t('.tramite')%>
+                </h4>
+                <p class="bg-primary-nergro"><%=t('.texto_tramite')%> </p></br>
+                <%= link_to "Consultar",municipio_procedure_lines_path(@municipio), :class => 'btn btn-success btn-lg outlineverde'%>
+            </div>
+        </div>
+        <div class="col-md-3 ">
+            <div class="service-item">
+                <h4>
+                    <%= image_tag "inspecciones.png", class: "img-responsive center-block" %>
+                    <%=t('.inspecciones')%>
+                </h4>
+                <p class="bg-primary-nergro"><%=t('.texto_inspeccion')%> </p>
                 <div class="dropdown">
-                  <button class="btn btn-success btn-lg outlineverde" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
-                    Consultar
+                <button class="btn btn-success btn-lg outlineverde" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+                Consultar
                     <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
@@ -38,6 +39,6 @@
                     <li role="presentation"><%= link_to t('.inspector'), municipio_inspectors_path(@municipio) %></li>
                 </ul>
             </div>
-        </div>
+         </div>
     </div>
 </section>
