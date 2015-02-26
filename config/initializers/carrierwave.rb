@@ -7,7 +7,8 @@ CarrierWave.configure do |config|
     # :host                   => 's3.example.com',             # optional, defaults to nil
     # :endpoint               => 'https://s3.example.com:8080' # optional, defaults to nil
   }
-  config.fog_directory  = 'minegociomx-staging'                          # required
+  config.fog_directory  = ENV['S3_BUCKET']                          # required
+  config.fog_public     = true
   config.permissions = 0600
   config.storage(Rails.env.test? || Rails.env.development? ? :file : :fog)
   # config.fog_public     = false                                        # optional, defaults to true

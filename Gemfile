@@ -46,9 +46,9 @@ gem 'omniauth-linkedin'
 gem 'kaminari' #para paginar
 
 # process files
-gem 'mini_magick'
-gem 'carrierwave'
 gem 'fog-aws'
+gem 'carrierwave'
+gem 'mini_magick'
 
 group :development do
   # Thin server
