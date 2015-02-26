@@ -34,8 +34,11 @@ build/
 # unless supporting rvm < 1.11.0 or doing something fancy, ignore this:
 .rvmrc
 
+config/application.yml
 config/database.yml
 .DS_Store
 
 # Cloud 9
 /.c9/
+
+public/uploads/

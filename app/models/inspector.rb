@@ -1,5 +1,6 @@
 class Inspector < ActiveRecord::Base
   belongs_to :dependency
+  mount_uploader :foto, InspectorUploader
 
   scope :by_city,
     -> (city) {
@@ -19,9 +20,8 @@ class Inspector < ActiveRecord::Base
     CSV.generate(options) do |csv|
       csv << ["nombre","vigencia","materia", "supervisor","contacto","foto","dependencia_id"]#column_names
       all.each do |product|
-        csv << [product.nombre, product.vigencia, product.materia,product.supervisor, product.contacto, product.foto,Dependency.find(product.dependency_id).nombre] 
+        csv << [product.nombre, product.vigencia, product.materia,product.supervisor, product.contacto, product.foto,Dependency.find(product.dependency_id).nombre]
         end
       end
     end
   end
-
