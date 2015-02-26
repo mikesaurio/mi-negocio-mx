@@ -1,5 +1,5 @@
 <h2> <%= t('titles.dependencies') %></h2>
-<%= link_to t('.new_dependency'), new_dashboard_dependency_path, class: 'btn btn-default pull-right' %>
+<%= link_to t('.new_dependency'), new_dashboard_dependency_path, class: 'btn btn-default pull-right bg-primary-nergro'  %>
 
 <table class="table">
    <thead>
@@ -14,8 +14,8 @@
             <%= content_tag :td, truncate(dependency.nombre, :length => 70)%>
             <%= content_tag :td, dependency.municipio.nombre  %>
             <%= content_tag :td do %>
-              <%= link_to t('form.actions.edit'), edit_dashboard_dependency_path(dependency) %> |
-              <%= link_to t('form.actions.destroy'), dashboard_dependency_path(dependency), method: :delete, data: { confirm: t('form.confirmations.delete_line') } %>
+              <%= link_to t('form.actions.edit'), edit_dashboard_dependency_path(dependency) , :class=> 'bg-primary-nergro'%> |
+              <%= link_to t('form.actions.destroy'), dashboard_dependency_path(dependency), method: :delete, data: { confirm: t('form.confirmations.delete_line') , :class=> 'bg-primary-nergro'} %>
             <% end %>
        <% end %>
      <% end %>
