@@ -36,7 +36,7 @@ build/
 
 config/application.yml
 config/database.yml
-.DS_Store
+*.DS_Store
 
 # Cloud 9
 /.c9/
