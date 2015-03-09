@@ -1,34 +1,81 @@
-<%= form_for :post, :url => { :controller => :municipios, :action => :search } do |f| %>
-
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-12 text-center">
-				<div class="input-group">
-					<div class="input-group-addon">
-						<H3><%=f.label 'Ingresa tu municipio' %></H3>
-						<BR>
-						<%= f.select :municipio, Municipio.all.map { |u| [u.nombre, u.id] },{ include_blank: true }, { class: 'chosen-select' }%>
-						</br>
-					</div>
-				</div>
-				<br>
-				<%= f.submit 'Continuar', :class => 'btn btn-lg btn-light' %>
+<div class="col-lg-12 text-center">
+	<%= form_for :post, :url => { :controller => :municipios, :action => :search } do |f| %>
+	<div class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container-fluid"> 
+				<% if user_signed_in? %>
+				<p class="navbar-text pull-right navbar-custom"><%="#{current_user.email}\t"%> | <%=link_to t('.salir'), destroy_user_session_path(:authenticity_token => form_authenticity_token()),:method => :delete%>
+				</p>
+				<% else %>
+				<p class="navbar-text pull-right navbar-custom manita" data-toggle="modal" data-target="#mySocialModal" style="cursor:pointer;"><%=t('.iniciar_sesion')%></p>
+				<% end %>
 			</div>
 		</div>
 	</div>
-<% end %>
+	<%= image_tag "logo.png", class: "img-responsive center-block"%>          
+	<div class="navbar-text-blanco">
+		<H3><%=t('.subtitulo')%></H3><BR>
+							<%#= f.select :municipio, Municipio.all.map { |u| [u.nombre, u.id] },{ include_blank: true }, { class: 'chosen-select' }%>
+		</br>
+	</div>
 
-
-<%#= link_to "Facebook", "/auth/facebook", class: "fb-login-button"%>  
-
-<%#= link_to "Linkdin", "https://www.linkedin.com/uas/oauth2/authorization?response_type=code&client_id=787qz1t8qct0ym&scope=r_basicprofile%20r_emailaddress&state=STATE&redirect_uri=http://localhost:3000/auth/linkedin/callback" %>  
-<!--<div id="fb-root"></div>
-
-
+	<!--Seccion Temporal!-->
+	<div class="row">
+		<div class="col-md-2 col-md-offset-2"><%= link_to 'Chalco', municipio_path('1'),  :class => 'btn btn-success btn-lg outline' %></div>
+		<div class="clearfix visible-xs-block"></div>
+		<div class="col-md-2"><%= link_to 'Metepec', municipio_path('4'),  :class => 'btn btn-success btn-lg outline' %></div>
+		<div class="clearfix visible-xs-block"></div>
+		<div class="col-md-2"><%= link_to 'Tenango', municipio_path('5'),  :class => 'btn btn-success btn-lg outline' %></div>
+		<div class="clearfix visible-xs-block"></div>
+		<div class="col-md-2"><%= link_to 'Toluca', municipio_path('6'),  :class => 'btn btn-success btn-lg outline' %></div>
+	</div>
+	<!--Termina Seccion Temporal!-->
+	<br>
+	<br>
+		<div class="navbar-text-blanco">
+			<%=t('.no_municipio')%> <m class = "m" href="" data-toggle="modal" data-target="#myModalDialog"> <%=t('.click')%></m>
+		</div>
+	<% end %>
+	<!-- Modal para las redes sociales -->
+	<div class="modal fade" id="mySocialModal" tabindex="-1" role="dialog" aria-labelledby="mySocialModalLabel" aria-hidden="true">
+		<div class="modal-dialog-center">
+			<div class="modal-content ">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title" id="myModalLabel">Puedes iniciar sesión con:</h4>
+				</div>
+				<div class="modal-body center-text">
+					<%= link_to " | Facebook", user_omniauth_authorize_path(:facebook) ,class: "btn btn-facebook fa fa-facebook btn-lg-social"%>
+					<BR>
+						<BR>
+							<%= link_to " | Linkedin",user_omniauth_authorize_path(:linkedin) ,class: "btn btn-linkedin fa fa-linkedin btn-lg-social"%>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+		<!--Modal para explicar porque no hay más municipios-->
+		<!-- Button trigger modal -->
+		<div class="modal fade" id="myModalDialog" tabindex="-1" role="dialog" aria-labelledby="myModalDialogLabel" aria-hidden="true">
+			<div class="modal-dialog-center">
+				<div class="modal-content" >
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title bg-primary-verde" id="myModalLabel"><%=t('.titulo_modal')%></h4>
+					</div>
+					<div class="modal-body">
+						<%=t('.contenido_modal')%>
+					</div>
+				</div>
+			</div>
+		</div>
+	<div id="fb-root"></div>
+</div>
 <script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&appId=1499379517003281&version=v2.0";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>-->
+	var js, fjs = d.getElementsByTagName(s)[0];
+	if (d.getElementById(id)) return;
+	js = d.createElement(s); js.id = id;
+	js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&appId=1499379517003281&version=v2.0";
+	fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>

@@ -1,19 +1,28 @@
 
+  <div class="container bg-primary-verde">
 <h3 class="title"><%= @line%></h3>
 <h3 class="subtitle"><%= @procedure%></h3>
 
 <div style="border: 1px solid white;background-color: white;">
   <table class="table">
+    <tr>
+      <th></th>
+      <th><%= t('.nombre')%></th>
+      <th><%= t('.descripcion')%></th>
+      <th></th>
+    </tr>
     <tbody>
       <% @procedure_requirement.each_with_index do |procedure, k| %>
       <% @requirements.where(id: procedure.requirement_id).each do |tramite| %>
       <tr>
         <td>Paso <%= k+1%>:</td>
-        <td><%= tramite.nombre %></td>
-        <td><a target="_blank" href="<%=tramite.path%>">Tramita aqui</a></td>
+        <td class ="bg-primary-nergro"><%= tramite.nombre %></td>
+        <td class ="bg-primary-nergro"><%= tramite.descripcion %></td>
+        <td ><%=link_to t('.obtener_aqui'), tramite.path , {:style => 'color: #46AA6C'}%></td>
       </tr>
       <% end %> 
       <% end %>
     </tbody>
   </table>
+</div>
 </div>

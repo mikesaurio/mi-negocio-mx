@@ -1,5 +1,13 @@
 es:
+  views:
+    pagination:
+      first: "&laquo; Primero"
+      last: "último &raquo;"
+      previous: "&lsaquo; Anterior"
+      next: "Siguiente &rsaquo;"
+      truncate: "&hellip;"
   titles:
+    titulo: MiNegocio
     inspections: Inspecciones
     inspectors: Inspectores
     formation_steps: Tramites de Apertura
@@ -9,6 +17,18 @@ es:
     procedures: Requerimientos
   buttons:
     ok: Aceptar
+  navbar:
+    new: Nuevo negocio
+    tramite: Trámites
+    inspections: Inspecciones
+    inspectors: Inspectores
+    inicio: Inicio
+  footer:
+    municipio: Municipios
+    acerca_de: Acerca de
+    aviso: Aviso de privacidad
+  search:
+    buscar: Buscar
   form:
     actions:
       edit: Editar
@@ -127,7 +147,12 @@ es:
       title: Inspecciones
       search_inspections: Buscar inspecciones...
       no_inspections_available: No encontramos inspecciones en este municipio
+      nombre: Nombre
+      materia: Materia
+      duracion: Duración
     show:
+      nombre: Nombre
+      Descripcion: Descripción
       subject: Materia
       period: Duracion
       norm: Norma
@@ -136,19 +161,24 @@ es:
       after_tips: Tips (después)
       sanctions_tips: Sanciones
       more_info: Más información
-
+      requisitos: Requisitos
   inspectors:
     index:
       title: Inspectores
       search_inspectors: Buscar inspectores...
       no_inspectors_available: No encontramos inspectores en este municipio
+    show:
+      vigencia: Vigencia
+      Materia: Materia
+      supervisor: Supervisor
+      Contacto: Contacto
   formation_steps:
     index:
       title: Nuevo negocio
       no_formation_steps_available: No encontramos trámites para apertura con estos parámetros
       no_formation_steps_selected: Selecciona las opciones de busqueda
-      formation_steps_select_name: ¿Iniciaras un nuevo negocio?
-      formation_steps_radio_name: Mostrar para personas
+      formation_steps_select_name: 'Giro del negocio:'
+      formation_steps_radio_name: 'Tipo de persona:'
       radio_fisica: Física
       radio_moral: Moral
       pasos: Paso %{parameter}
@@ -156,22 +186,69 @@ es:
       link: Obtener aquí
   procedure_lines:
     index:
-      title: Tramites
+      title: Trámites
       no_procedure_lines_available: No encontramos trámites  con estos parámetros
       no_procedure_lines_selected: Selecciona las opciones de busqueda
       radio_fisica: Física
       radio_moral: Moral
       radio_ambas: Ambos
-      procedure_lines_radio_name: Mostrar para personas
+      procedure_lines_radio_name: Tipo de persona:'
+      nombre: Nombre
+      descripcion: Descripción
+      tipo: Tipo
+      costo: Costo
+      vigencia: Vigencia
   dependencies:
     index:
       no_dependencies: No encontramos ninguna dependencia
   municipios:
     index:
       title: Selecciona una opción
+    show:
+      nuevo: Nuevo negocio
+      tramite: Trámites
+      inspecciones: Inspecciones
+      inspeccion: Inspecciones
+      inspector: Inspectores
+      texto_nuevo: ¿Cómo puedo crear mi negocio?
+      texto_tramite: Ya tengo un negocio ¿Qué tramites puedo realizar?
+      texto_inspeccion: Ya tengo un negocio ¿Qué inspecciones me pueden realizar? y ¿Quien las puede realizar?
+  imcos:
+    index:
+      titulo_modal: Mi Negocio México
+      contenido_modal: Estamos trabajando con diversos municipios para poder darle más información de como puede abrir y mentener al día un negocio. Si tiene alguna duda porfavor escribanos a contacto@minegociomexico.mx 
+      iniciar_sesion: Iniciar sesión
+      subtitulo: Elige tu municipio
+      salir: Salir
+      no_municipio: ¿No encuentras tu municipio? da
+      click: clic aquí
+      Aceptar: Aceptar
   layouts:
     blanco:
       new: NUEVO NEGOCIO
       tramite: TRAMITES
       inspections: INSPECCIONES
       inspectors: INSPECTORES
+  activerecord:
+    errors:
+      messages:
+        accepted: "must be accepted"
+        blank: "can't be blank"
+        confirmation: "doesn't match confirmation"
+        empty: "can't be empty"
+        equal_to: "must be equal to {{count}}"
+        even: "must be even"
+        exclusion: "is reserved"
+        greater_than: "must be greater than {{count}}"
+        greater_than_or_equal_to: "must be greater than or equal to {{count}}"
+        inclusion: "is not included in the list"
+        invalid: "is invalid"
+        less_than: "must be less than {{count}}"
+        less_than_or_equal_to: "must be less than or equal to {{count}}"
+        not_a_number: "is not a number"
+        odd: "must be odd"
+        taken: "is already taken"
+        too_long: "is too long (maximum is {{count}} characters)"
+        too_short: "is too short (minimum is {{count}} characters)"
+        wrong_length: "is the wrong length (should be {{count}} characters)"
+        record_invalid: "falla, record invaliudo"

@@ -1,73 +1,64 @@
-<div class="row text-center">
-    <div class="col-lg-10 col-lg-offset-1">
-        <%= content_tag :h1,t('.title'), class: 'text-center' %>
-        <hr class="small">
-    </div>
-</div>
-<%= form_for :get, :html => {:method => :get}, :url => { :controller => :formation_steps, :action => :index }  do |f| %>
-	<p><%=t('.formation_steps_select_name')%>
-		<%= f.select :lines, Line.where(municipio_id: @municipio).map { |u| [u.nombre, u.id] },{ include_blank: true ,selected: @line }, { class: 'chosen-select' }%>
-	</p>
-
-	<br>
-	<%= t('.formation_steps_radio_name')%>
-	<div class="btn-group btn-toggle" data-toggle="buttons">
-		<%if @tipo == 'AF'%>
-	    	<label class= "btn btn-default active"><%= t('.radio_fisica')%> <%= radio_button_tag :rating, 'AF',true%></label>
-	    	<label class= "btn btn-default"><%= t('.radio_moral')%> <%= radio_button_tag :rating, 'AM'%></label>
-	    <%else%>
-			<label class= "btn btn-default "><%= t('.radio_fisica')%> <%= radio_button_tag :rating, 'AF'%></label>
-	    	<label class= "btn btn-default active"><%= t('.radio_moral')%> <%= radio_button_tag :rating, 'AM',true%></label>
-	    <%end%>
-  	</div>
-
-
-	<div class="actions">
-		<%= f.submit t('buttons.ok'),:class => 'btn btn-lg btn-light' %>
+<div class="container bg-primary-verde">
+		<br>
+		<br>
+	<div class="row text-center">
+		<div class="col-lg-10 col-lg-offset-1">
+			<%= content_tag :h1,t('.title'), class: 'text-center' %>
+			<hr class="small">
+			<br>
+		</div>
 	</div>
-	<div class="deck">
-		<% unless @line.nil? %>
-			<div class="row">
-				<div class="col-lg-12">
-					<ul class="timeline">
-						<% count = 0 %>
-						<% @formation_steps.each_with_index do |formation_step,index| %>
-							<% if formation_step.type == @tipo %>
-								<% count += 1 %>
-								<%if index.even? %>
-									<li/>
-								<%else %>
-									<li class="timeline-inverted">
-								<%end %>
-								<div class="timeline-image">
-									<br><br>
-									<h1><%=t('.pasos', parameter: count)%></h1>
-								</div>
-								<div class="timeline-panel">
-									<div class="timeline-heading">
-										<h4 class="subheading"> <%= formation_step.name %></h4>
-									</div>
-									<div class="timeline-body">
-										<p class="text-muted"><%= formation_step.description %><br>
-											<%=link_to t('.link'),formation_step.path, :target => "_blank"%></p>
-									</div>
-								</div>
-							<% end %>
-						<% end %>
-						<%if(count != 0)%>
-							<li class="timeline-inverted">
-								<div class="timeline-image">
-									<br><h2><%=t('.fin_steps')%></h2>
-								</div>
-							</li>
-						<%else%>
-							<%= render "shared/empty_resource", message: t('.no_formation_steps_available') %>
-						<%end%>
-						
-					</ul>
+	<%= form_for :get, :html => {:method => :get}, :url => { :controller => :formation_steps, :action => :index }  do |f| %>
+		<div class="col-md-6 col-md-offset-3 text-center">
+			<div class="row text-left">
+				<div class="row">
+					<div class="col-xs-6 col-sm-3">
+						<%=t('.formation_steps_select_name')%>
+					</div>
+					 <div class="clearfix visible-xs-block"></div>
+					<div class="col-md-offset-3">
+						<%= f.select :lines, Line.where(municipio_id: @municipio).map { |u| [u.nombre, u.id] },{ include_blank: true ,selected: @line }, { class: 'chosen-select' }%>
+					</div>
+				</div>
+				<br>
+				<div class="row">
+					<div class="col-xs-6 col-sm-3">
+						<%= t('.formation_steps_radio_name')%>
+					</div>
+					 <div class="clearfix visible-xs-block"></div>
+					<div class="col-md-offset-3">
+						<div class="btn-group btn-toggle" data-toggle="buttons">
+							<%if @tipo == 'AF'%>
+								<label class= "btn btn-default active"><%= t('.radio_fisica')%> <%= radio_button_tag :rating, 'AF',true%></label>
+								<label class= "btn btn-default"><%= t('.radio_moral')%> <%= radio_button_tag :rating, 'AM'%></label>
+							<%else%>
+								<label class= "btn btn-default "><%= t('.radio_fisica')%> <%= radio_button_tag :rating, 'AF'%></label>
+								<label class= "btn btn-default active"><%= t('.radio_moral')%> <%= radio_button_tag :rating, 'AM',true%></label>
+							<%end%>
+						</div>
+					</div>
+				</div>
+				<br>
+				<div class="row text-left">
+					<div class="col-xs-6 col-sm-3"></div>
+					 <div class="clearfix visible-xs-block"></div>
+					<div class="actions col-md-offset-3">
+						<%= f.submit t('buttons.ok'),:class => 'btn btn-success btn-lg outlineverde'%>
+					</div>
 				</div>
 			</div>
-			<% else %>
-			<%= render "shared/empty_resource", message: t('.no_formation_steps_selected') %>
-			<% end %>	
-<%end%>
+		</div>
+		<div class="row text-center">
+			<div class="col-lg-12">
+				<% unless @line.nil? %>
+					<%= render "shared/carrusel" %>
+				<% else %>
+				<br>
+				<br>
+					<%= render "shared/empty_resource", message: t('.no_formation_steps_selected') %>
+				<% end %>
+			</div>
+		</div>
+	<% end %>	
+</div>
+

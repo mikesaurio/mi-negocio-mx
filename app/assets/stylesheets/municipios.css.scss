@@ -1,3 +1,9 @@
+$verde-claro: #4EB976;
+$verde-obscuro: #46AA6C;
+$teal-500: #009688;
+$blanco: #ffffff;
+$negro: #000000;
+
 .timeline {
     position: relative;
     padding: 0;
@@ -205,7 +211,7 @@
 
 .team-member img {
     margin: 0 auto;
-    border: 7px solid #fff;
+    border: 7px solid $blanco;
 }
 
 .team-member h4 {
@@ -220,4 +226,72 @@
 
 aside.clients img {
     margin: 50px auto;
+}
+
+
+/*Para navBar */
+.navbar-custom {
+    color: $blanco;
+}
+
+
+
+
+
+.navbar-text-blanco{
+padding-left: 50px;
+     color: $blanco;
+     
+}
+
+.center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.navbar .navbar-nav {
+  display: inline-block;
+  float: none;
+  vertical-align: top;
+  padding-top: 10px;
+
+}
+
+.navbar .navbar-collapse {
+  text-align: center;
+}
+
+.bg-primary-verde {
+  color: $verde-obscuro;
+}
+
+.bg-primary-nergro {
+  color: $negro;
+}
+
+.dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active     >     a:focus {
+    background-color: #ffffff !important;
+    background-image: linear-gradient(to bottom, #ffffff, #ffffff) !important;
+    background-repeat: repeat-x !important;
+    color: #FFFFFF;
+    outline: 0 none;
+    text-decoration: none;
+}
+
+ul.dropdown-menu {
+    border-color: $verde-claro;
+    color: #fff;
+
+}
+.dropdown-menu a{
+    color: $verde-obscuro !important;
+}
+
+.divider {
+    height: 40px;
+    margin: 0 9px;
+    border-color: $verde-obscuro;
+    border-left: 1px solid $blanco;
+    border-right: 1px solid $blanco;
 }

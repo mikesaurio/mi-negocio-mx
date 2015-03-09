@@ -1,10 +1,9 @@
 module Dashboard
-  class ProceduresController < ApplicationController
+  class ProceduresController < Dashboard::BaseController
     before_action :set_procedure, only: [:edit, :update, :destroy]
-    before_action :authenticate_user!
     layout 'dashboard'
 
-    def index 
+    def index
       @procedures = policy_scope(Procedure)
 
        respond_to do |format|

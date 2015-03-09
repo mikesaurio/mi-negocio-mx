@@ -1,7 +1,7 @@
-<h3 class="title"><%= @inspection.nombre %></h3>
-
+  <div class="container bg-primary-verde">
+        <h4><%= @inspection.nombre %></h4>
 <div style="border: 1px solid white;background-color:white;">
-  <table class="table">
+  <table class="table bg-primary-nergro">
     <tbody>
       <tr>
         <td><%= t('.subject') %></td>
@@ -39,35 +39,47 @@
 
 <div class="deck">
   <% if @inspection.requirements.any? %>
-    <h4>Requisitos</h4>
-    <div class="table__card">
-      <ul>
-        <% @inspection.requirements.each do |requirement| %>
-          <li class="table--row">
-            <div class="row--title"><%= requirement.nombre %></div>
-            <div class="row--subtitle"><%= requirement.descripcion %></div>
-            <div class="row--footer"><%= link_to t('.more_info'), requirement.path, target: '_blank' %></div>
-          </li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+    <h4><%= t('.requisitos') %></h4>
+    <div style="border: 1px solid white;background-color: white;">
+  <table class="table">
+    <tr>
+      <th></th>
+      <th><%= t('.nombre') %></th>
+      <th><%= t('.descripcion') %></th>
+      <th></th>
+    </tr>
+    <tbody>
+      <% @inspection.requirements.each_with_index do |requirement, k| %>
+      <tr>
+        <td>Paso <%= k+1%>:</td>
+        <td class ="bg-primary-nergro"><%= requirement.nombre %></td>
+        <td class ="bg-primary-nergro"><%= requirement.descripcion %></td>
+        <td ><%=link_to t('.obtener_aqui'), requirement.path , {:style => 'color: #46AA6C'}%></td>
+      </tr>
+      <% end %> 
+    </tbody>
+  </table>
+  </div>
+<%end%>
 </div>
 
-
+<!-- 
 <div class="deck">
-  <% if @inspection.lines.any? %>
+  <% #if @inspection.lines.any? %>
     <h4>Giros</h4>
     <div class="table__card">
       <ul>
-        <% @inspection.lines.each do |line| %>
-        <li class="table--row">
-          <div class="row--title"><%= line.nombre %></div>
-          <div class="row--subtitle"><%= line.descripcion %></div>
-          <div class="row--footer"></div>
+        <%# @inspection.lines.each do |line| %>
+        <li class="tablerow">
+          <div class="row  title"><%#= line.nombre %></div>
+          <div class="row  subtitle"><%#= line.descripcion %></div>
+          <div class="row  footer"></div>
         </li>
-        <% end %>
+        <% #end %>
       </ul>
     </div>
-  <% end %>
+  <% #end %>
+</div> -->
+
 </div>
+

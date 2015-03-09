@@ -1,10 +1,9 @@
 module Dashboard
-  class RequirementsController < ApplicationController
+  class RequirementsController < Dashboard::BaseController
     before_action :set_requirement, only: [:edit, :update, :destroy]
-    before_action :authenticate_user!
     layout 'dashboard'
 
-    def index 
+    def index
       @requirements = policy_scope(Requirement).where(municipio_id: current_user.municipio).order(:nombre)
 
        respond_to do |format|

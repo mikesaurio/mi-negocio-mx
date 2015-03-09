@@ -37,10 +37,19 @@ gem 'devise'
 gem 'pundit'
 
 gem 'chosen-rails' #autocompletar
-gem 'bootstrap-switch-rails', '~> 3.0.0' 
+gem 'bootstrap-switch-rails', '~> 3.0.0'
+
 
 gem 'omniauth-facebook'
 gem 'omniauth-linkedin'
+
+gem 'kaminari' #para paginar
+
+# process files
+gem 'fog'
+gem 'carrierwave'
+gem 'mini_magick'
+
 group :development do
   # Thin server
   gem 'thin'
@@ -51,6 +60,8 @@ group :development do
   gem 'binding_of_caller'
   # Seeds
   gem 'seed_dump'
+  # Load env variables
+  gem 'figaro'
 end
 
 group :production do

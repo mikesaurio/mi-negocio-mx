@@ -5,6 +5,7 @@ class InspectionsController < ApplicationController
 
   def index
      valores  if params[:get]
+         @municipios = Municipio.all
  end
  
   def valores
@@ -20,6 +21,7 @@ class InspectionsController < ApplicationController
  end 
 
   def show
+        @municipios = Municipio.all
   end
 
   private
