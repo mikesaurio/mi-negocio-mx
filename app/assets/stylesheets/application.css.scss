@@ -37,12 +37,11 @@ $rojo: #ff0000;
 
 $user_default_color: #009688;
 $admin_default_color: #3B3C3C;
-$default_text_color: #fff;
+$default_text_color: #ffffff;
 
 // styles
 
 body.info {
- min-height: 2000px;
  padding-top: 70px;
  background-color: #f9f9f9;
 }
@@ -140,160 +139,64 @@ border-radius: 4px;
 }
 
 
+/******************************zona de A****************/
 
-
-/*links clase a sobrellamada a */
-/* unvisited link */
-m{
-   color: $verde-obscuro;
+/*************************a-verde******************/
+a-verde{
+   color: $verde-claro;
    cursor: pointer;
     width:100%;
 }
 
-m:link {
+a-verde:link {
     color: $verde-claro;
 }
 
 /* visited link */
-m:visited {
+a-verde:visited {
     color: $verde-claro;
 }
 
 /* mouse over link */
-m:hover {
+a-verde:hover {
     color: $verde-claro;
 }
 
 /* selected link */
-m:active {
+a-verde:active {
     color: $verde-claro;
 }
 
-/*links clase a sobrellamada a */
-/* unvisited link */
-r{
-   color: $rojo;
-   cursor: pointer;
-    width:100%;
-}
 
-r:link {
-    color: $rojo;
-}
-
-/* visited link */
-r:visited {
-    color: $rojo;
-}
-
-/* mouse over link */
-r:hover {
-    color: $rojo;
-}
-
-/* selected link */
-r:active {
-    color: $rojo;
-}
-
-
-
+/*************************a******************/
 a{
    color: $blanco;
-}
-a:link { 
-  color: $blanco;
-}
-a:visited { 
-  color: $blanco;
-}
-a:hover { 
-  color: $blanco;
-}
-a:active { 
-  color: $blanco;
-}
-
-
-
-
-
-
-.navbar-default {
-background-color: $verde-obscuro;
-}
-
-.navbar-blanco {
-background-color: $verde-obscuro;
-}
-.footer-above {
-    background-color: $verde-claro;
-}
-
-.carousel-content {
-    color:black;
-    display:flex;
-    align-items:center;
-}
-.carousel{
+   cursor: pointer;
     width:100%;
-    height:360px;
 }
 
-body,html{
- height:100%;
- font-family: "Gotham", Arial, sans-serif;
-}
-.container{
- min-height:92%;
-}
-.footer{
- height:100%;
+a:link {
+    color: $blanco;
 }
 
-.navbar-nav > li{
-  margin-left:30px;
-  margin-right:30px;
+/* visited link */
+a:visited {
+    color: $blanco;
 }
 
-.chosen-container ul.chosen-results li.highlighted {
-  background-color: $verde-obscuro;
-  background-image: none;
+/* mouse over link */
+a:hover {
+    color: $blanco;
 }
 
-body.modal-open {
-    overflow: visible;
+/* selected link */
+a:active {
+    color: $blanco;
 }
 
 
-/********************Tipografias *************************/
-h1 {
-font-family: Montserrat, sans-serif;
-font-weight: 700;
-font-size: 24pt;
-color: #62B372;
-}
-h2 {
-font-family: Montserrat, sans-serif;
-font-weight: 700;
-font-size: 18pt;
-color: #62B372;
-}
-h3 {
-font-family: Montserrat, sans-serif;
-font-weight: 700;
-font-size: 16pt;
-color: #62B372;
-}
-h3 {
-font-family: Montserrat, sans-serif;
-font-weight: 700;
-font-size: 14pt;
-color: #62B372;
-}
-p {
-font-family: Montserrat, sans-serif;
-font-weight: 400;
-font-size: 14pt;
-color: #777777
+/**********************textos de colores*****************/
+texto-blanco{
+   color: $blanco;
+    width:100%;
 }

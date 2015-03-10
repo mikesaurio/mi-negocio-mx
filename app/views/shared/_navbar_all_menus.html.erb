@@ -46,11 +46,11 @@
   </div>
   <div id="navbar" class="nav nav-pills topnav">
     <ul class="nav navbar-nav navbar-right">
-      <li> <m><%= link_to t('navbar.new'),municipio_formation_steps_path(@municipio)%></m></li>
-      <li> <m> <%= link_to t('navbar.tramite'),municipio_procedure_lines_path(@municipio)%></m></li>
-      <li> <m> <%= link_to t('navbar.inspections'),municipio_inspections_path(@municipio)%></m></li> 
-      <li> <m> <%= link_to t('navbar.inspectors'),municipio_inspectors_path(@municipio)%></m></li>
-      <li> | <m><%=link_to t('navbar.inicio'),municipio_path(@municipio), class: "m" %></m></li>
+      <li> <a-verde><%= link_to t('navbar.new'),municipio_formation_steps_path(@municipio)%></a-verde></li>
+      <li> <a-verde> <%= link_to t('navbar.tramite'),municipio_procedure_lines_path(@municipio)%></a-verde></li>
+      <li> <a-verde> <%= link_to t('navbar.inspections'),municipio_inspections_path(@municipio)%></a-verde></li> 
+      <li> <a-verde> <%= link_to t('navbar.inspectors'),municipio_inspectors_path(@municipio)%></a-verde></li>
+      <li> | <a-verde><%=link_to t('navbar.inicio'),municipio_path(@municipio), class: "a-verde" %></a-verde></li>
     </ul>
   </div>
 </div>
