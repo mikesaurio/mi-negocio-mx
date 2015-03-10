@@ -1,48 +1,38 @@
-<% if user_signed_in? %>
-<nav class="navbar navbar-blanco navbar-fixed-top" role="navigation">
-  <div class="container">
-    <div class="navbar-header">
-      <div class="dropdown nav navbar-nav navbar-left">
-        <%unless @municipio.nil?%>
-        <%=t('titles.titulo')%>  | <a href="" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true" ><%=@municipio.nombre%><span class="caret m" ></span></a>
-        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-          <%@municipios.each do |municipio|%>
-          <%unless municipio == @municipio%>
-          <li role="presentation"><%=link_to municipio.nombre,municipio_path(municipio), :role => "menuitem", :tabindex => "-1"%> </li>
-          <%end%>
-          <%end%>
-        </ul>
-        <%end%>
-      </div>
-    </div>
-    <div id="navbar" class="nav nav-pills topnav">
-      <ul class="nav navbar-nav navbar-right">
-       <m><%=link_to t('navbar.inicio'),root_path, class: "m" %></m>
-     </ul>
-   </div>
- </div>
-</nav> 
-<% else %>
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-  <div class="container">
-    <div class="navbar-header">
-      <div class="dropdown nav navbar-nav navbar-left">
-        <%unless @municipio.nil?%>
-        <%=t('titles.titulo')%> | <a href="" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true" ><%=@municipio.nombre%><span class="caret m" ></span></a>
-        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-          <%@municipios.each do |municipio|%>
-          <%unless municipio == @municipio%>
-          <li role="presentation"><%=link_to municipio.nombre,municipio_path(municipio), :role => "menuitem", :tabindex => "-1"%> </li>
-          <%end%>
-          <%end%>
-        </ul>
-        <%end%>
-      </div>
-    </div>
-    <div id="navbar" class="nav nav-pills topnav">
-      <ul class="nav navbar-nav navbar-right">
-       <a-verde><%=link_to t('navbar.inicio'),root_path, class: "a-verde" %></a-verde>
-     </ul>
-   </div>
-</nav>
-<% end %>
+ <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <ul class="nav navbar-nav navbar-left">
+                    <li >
+                    <div class="dropdown nav navbar-nav navbar-left">
+                        <%unless @municipio.nil?%>
+                            <%=t('titles.titulo')%>  | <a href="" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true" ><%=@municipio.nombre %><span class="caret a" ></span></a>
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                                <%@municipios.each do |municipio|%>
+                                    <%unless municipio == @municipio%>
+                                         <li role="presentation">
+                                            <%=link_to municipio.nombre,municipio_path(municipio), :role => "menuitem", :tabindex => "-1"%>
+                                         </li>
+                                    <%end%>
+                                <%end%>
+                            </ul>
+                        <%end%>
+                    </div>
+                    </li>
+               </ul>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <%=link_to t('navbar.inicio'),root_path , :class => 'a-verde'%>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>

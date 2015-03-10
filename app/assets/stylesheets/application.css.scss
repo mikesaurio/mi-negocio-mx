@@ -29,7 +29,7 @@ $grey-200: #EEEEEE;
 $grey-400: #BDBDBD;
 $grey-500: #9E9E9E;
 $verde-claro: #4EB976;
-$verde-obscuro: #46AA6C;
+$verde-obscuro: #46aa6c;
 $teal-500: #009688;
 $blanco: #ffffff;
 $negro: #000000;
@@ -55,27 +55,27 @@ body.info {
 }
 
 nav {
-  color: $default_text_color;
+  color: $blanco;
 }
 
 .navbar-nav > li > a {
   &:link {
-    color: $default_text_color;
+    color: $blanco;
   }
 
   /* visited link */
   &:visited {
-    color: $default_text_color;
+    color: $blanco;
   }
 
   /* mouse over link */
   &:hover {
-    color: $admin_default_color;
+    color: $blanco;
   }
 
   /* selected link */
   &:active {
-    color: $admin_default_color;
+    color: $blanco;
   }
 }
 .navbar-default .navbar-brand {
@@ -197,31 +197,48 @@ a:active {
 
 /**********************textos de colores*****************/
 texto-blanco{
-   color: $blanco;
+   color: $blanco !important;
+    width:100%;
+}
+
+.texto-verde{
+   color: $verde-obscuro !important;
     width:100%;
 }
 
 
+
+
+
+
+.navbar-nav {
+  margin: 10px 5px;
+}
+
+.nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
+  background-color: #009688;
+  border-color: #337ab7;
+}
+
 /*********************DROP DOWN****************************/
 .dropdown-menu {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  z-index: 1000;
-  display: none;
-  float: left;
-  min-width: 160px;
-  padding: 5px 0;
-  margin: 2px 0 0;
-  list-style: none;
-  font-size: 14px;
-  text-align: left;
-  background-color: white;
-  border: 1px solid #cccccc;
+  border: 1px solid$verde-obscuro;
   border: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: 4px;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
   background-clip: padding-box;
   border: 2px solid #4eb976;
 }
+.main-menu li a:focus + ul {
+    display: block;
+}
 
+ .navbar-default .navbar-nav .open .dropdown-menu>li>a,.navbar-default .navbar-nav .open .dropdown-menu {
+    background-color: $blanco;
+    color: $verde-obscuro;
+  }
+
+
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+    color: $blanco;
+}
