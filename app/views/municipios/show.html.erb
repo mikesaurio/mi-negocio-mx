@@ -26,11 +26,11 @@
                                 </h4>
                                 <p class="bg-primary-nergro"><%=t('.texto_ya_tengo')%><br><%=t('.texto_inspeccion')%></p>
                                 <div class="dropdown">
-                                    <button class="btn btn-success btn-lg outlineverde half-width" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+                                    <button class="btn btn-success btn-lg outlineverde half-width dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
                                         <%=t('.inspecciones')%>
                                         <span class="caret"></span>
                                     </button>
-                                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                                    <ul class="dropdown-menu half-width" role="menu" aria-labelledby="dropdownMenu1">
                                         <li role="presentation"><%= link_to t('.inspeccion'), municipio_inspections_path(@municipio) %></li>
                                         <hr class="divider">
                                         <li role="presentation"><%= link_to t('.inspector'), municipio_inspectors_path(@municipio) %></li>
