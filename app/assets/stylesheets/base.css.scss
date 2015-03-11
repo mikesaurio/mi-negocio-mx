@@ -9,12 +9,6 @@
 $blanco: #ffffff;
 $verde-obscuro: #46aa6c;
 $verde-claro: #4EB976;
-html,
-body {
-    width: 100%;
-    height: 100%;
-}
-
 
 .text-muted {
     color: #777;
@@ -685,13 +679,6 @@ section#contact .text-danger {
     min-height: -moz-calc(100% - 100px);     /* Firefox */
     min-height: calc(100% - 100px);     /* native */
 }
-footer {
-    position: relative;
-    clear:both;
-    background-color: $verde-claro;
-    text-align: center;
-}
-
 
 
 ul.social-buttons {
@@ -859,4 +846,11 @@ body {
 .btn-warning.btn-outline:hover,
 .btn-danger.btn-outline:hover {
     color: $blanco;
+}
+
+
+.center-block-padding {
+  display: block;
+  padding-left: 30%;
+  padding-right: 30%;
 }

@@ -41,6 +41,35 @@ $default_text_color: #ffffff;
 
 // styles
 
+html,body
+{
+height:100%;
+}
+
+#wrap
+{
+min-height: 100%;
+}
+
+#main
+{
+overflow:auto;
+padding-bottom:150px; /* this needs to be bigger than footer height*/
+}
+
+
+.footer
+{
+position: relative;
+margin-top: -80px; /* negative value of footer height */
+height: 150px;
+clear:both;
+padding-top:10px;
+color:#fff;
+background-color: $verde-claro;
+text-align: center;
+}
+
 body.info {
  padding-top: 70px;
  background-color: #f9f9f9;
@@ -98,7 +127,6 @@ width: 33%;
 
 .container {
 width: 100%;
-
 }
 
 body.info {
@@ -244,7 +272,6 @@ texto-blanco{
 }
 
 
-section {
-  height: 100%;
+section{
   width: 100%;
 }
