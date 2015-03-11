@@ -210,9 +210,11 @@ es:
       inspecciones: Inspecciones
       inspeccion: Inspecciones
       inspector: Inspectores
+      texto_no_tengo: No tengo un negocio.
+      texto_ya_tengo: Ya tengo un negocio.
       texto_nuevo: ¿Cómo puedo crear mi negocio?
-      texto_tramite: Ya tengo un negocio ¿Qué tramites puedo realizar?
-      texto_inspeccion: Ya tengo un negocio ¿Qué inspecciones me pueden realizar? y ¿Quien las puede realizar?
+      texto_tramite: ¿Qué tramites puedo realizar?
+      texto_inspeccion: ¿Quién y cómo me inspeccionará?
   imcos:
     index:
       titulo_modal: Mi Negocio México
