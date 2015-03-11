@@ -200,7 +200,6 @@ a-verde:active {
 a{
    color: $blanco;
    cursor: pointer;
-    width:100%;
 }
 
 a:link {
@@ -286,8 +285,39 @@ section{
 /*utilizado en el menu para centrar las bolitas*/
 .center-block-margin {
   display: block;
-  margin-top: 5%;
+  margin-top: 3%;
   margin-left: 10%;
   margin-right: 10%;
 
+}
+
+.center-block{
+  padding-top: 12%;
+}
+
+.full-width{
+width: 100%;
+}
+.half-width{
+width: 80%;
+}
+
+
+@media (min-width: 768px) {
+  /* line 233, /Users/mikesaurio/.rvm/gems/ruby-2.2.0/gems/bootstrap-sass-3.3.3/assets/stylesheets/bootstrap/_navbar.scss */
+  .navbar-nav {
+    float: left;
+    margin: 0;
+       padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  /* line 271, /Users/mikesaurio/.rvm/gems/ruby-2.2.0/gems/bootstrap-sass-3.3.3/assets/stylesheets/bootstrap/_navbar.scss */
+  .navbar-nav > li {
+    float: left;
+  }
+  /* line 273, /Users/mikesaurio/.rvm/gems/ruby-2.2.0/gems/bootstrap-sass-3.3.3/assets/stylesheets/bootstrap/_navbar.scss */
+  .navbar-nav > li > a {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
 }

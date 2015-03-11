@@ -11,14 +11,14 @@
                                     <%= image_tag "abrir.png", class: "img-responsive center-block" %>
                                 </h4>
                                 <p class="bg-primary-nergro"><%=t('.texto_no_tengo')%><br><%=t('.texto_nuevo')%></p>
-                                <%= link_to t('.nuevo'),municipio_formation_steps_path(@municipio), :class => 'btn btn-success btn-lg outlineverde'%>  
+                                <%= link_to t('.nuevo'),municipio_formation_steps_path(@municipio), :class => 'btn btn-success btn-lg outlineverde half-width'%>  
                             </div>
                             <div class="col-md-4">
                                 <h4>
                                     <%= image_tag "tramites.png", class: "img-responsive center-block" %>
                                 </h4>
                                 <p class="bg-primary-nergro"><%=t('.texto_ya_tengo')%><br><%=t('.texto_tramite')%> </p>
-                                <%= link_to t('.tramite'),municipio_procedure_lines_path(@municipio), :class => 'btn btn-success btn-lg outlineverde'%>
+                                <%= link_to t('.tramite'),municipio_procedure_lines_path(@municipio), :class => 'btn btn-success btn-lg outlineverde half-width'%>
                             </div>
                             <div class="col-md-4">
                                 <h4>
@@ -26,7 +26,7 @@
                                 </h4>
                                 <p class="bg-primary-nergro"><%=t('.texto_ya_tengo')%><br><%=t('.texto_inspeccion')%></p>
                                 <div class="dropdown">
-                                    <button class="btn btn-success btn-lg outlineverde" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+                                    <button class="btn btn-success btn-lg outlineverde half-width" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
                                         <%=t('.inspecciones')%>
                                         <span class="caret"></span>
                                     </button>
