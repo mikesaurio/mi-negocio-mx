@@ -1,0 +1,55 @@
+<div class="bs-example">
+  <div id="myCarousel" class="carousel slide" data-interval="false" data-ride="carousel">
+    <!-- Carousel indicators -->
+    <%= render "shared/cargar_bolitas_formation_step" %>
+    <!-- Carousel items -->
+    <div class="carousel-inner">
+      <% count = 0 %>
+      <% @procedure_requirement.each_with_index do |procedure,index| %>
+        <% @requirements.where(id: procedure.requirement_id).each do |tramite| %>
+          <% count += 1 %>
+          <%if count == 1 %>
+            <div class="active item">
+          <%else %>
+            <div class="item">
+            <%end %>
+              <div class="carousel-caption text-top">
+                <h4 class="texto-verde-wrap top-carrusel"><%=tramite.nombre%></h4>
+                <p class="texto-negro texto-padding-bottom"><%=tramite.descripcion[0..350] %>
+                <br>
+                <%=link_to t('.obtener_aqui'), tramite.path , {:style => 'color: #418F61', :target => '_blank'} %></p>
+              </div>
+              </div>
+            <%end%>
+          <%end%>
+        </div>
+        <!-- Carousel nav -->
+        <a class="carousel-control left" href="#myCarousel" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left" ></span>
+        </a>
+        <a class="carousel-control right" href="#myCarousel" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right"></span>
+        </a>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+    <script type="text/javascript">
+    $(document).ready(function(){
+      $(".tip-top").tooltip({placement : 'top'});
+      $(".tip-right").tooltip({placement : 'right'});
+      $(".tip-bottom").tooltip({placement : 'bottom'});
+      $(".tip-left").tooltip({ placement : 'left'});
+    });
+  </script>
+
+  <script type="text/javascript">
+  $(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();   
+  });
+</script>
