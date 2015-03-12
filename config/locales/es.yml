@@ -201,6 +201,7 @@ es:
       tipo: Tipo
       costo: Costo
       vigencia: Vigencia
+      procedure_lines_select_name: 'Giro del negocio:'
   dependencies:
     index:
       no_dependencies: No encontramos ninguna dependencia

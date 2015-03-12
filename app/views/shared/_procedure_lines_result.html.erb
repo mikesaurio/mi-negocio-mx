@@ -1,0 +1,39 @@
+  <% unless @tramites_del_giro.nil? || @tramites_del_giro.empty?%>
+    <div class="table__card">
+      <ul>
+        <% count = 0 %>
+        <% @tramites_del_giro.each do |tramite_de_giro| %>
+          <%if Procedure.find(tramite_de_giro.procedure_id).tipo == @tipo || @tipo == 'A' %>
+            <% count +=1 %>
+            <%if count == 1%>
+              <br>
+              <div class="col-xs-6 col-sm-4"><p class="text-center"><%= t('.nombre')%></p></div>
+              <div class="col-xs-6 col-sm-2"><p class="text-center"><%= t('.tipo')%></p></div>
+              <div class="col-xs-6 col-sm-2"><p class="text-center"><%= t('.costo')%></p></div>
+              <div class="col-xs-6 col-sm-2"><p class="text-center"><%= t('.vigencia')%></p></div>
+              <div class="col-xs-6 col-sm-2"><p class="text-center"><%= t('.duracion')%></p></div>
+            <%end%>
+            <%= link_to municipio_procedure_line_path(@municipio,tramite_de_giro) do %>
+              <li class="table--row">
+               <div class="row--">
+                <div class="col-xs-6 col-sm-4"><p class="text-left bg-primary-nergro" ><%= Procedure.find(tramite_de_giro.procedure_id).nombre %></p></div>
+                <div class="col-xs-6 col-sm-2"><p class="text-center bg-primary-nergro"><%= tipo(Procedure.find(tramite_de_giro.procedure_id).tipo) %></p></div>
+                <div class="col-xs-6 col-sm-2"><p class="text-center bg-primary-nergro"><%= Procedure.find(tramite_de_giro.procedure_id).costo %></p></div>
+                <div class="col-xs-6 col-sm-2"><p class="text-center bg-primary-nergro"><%= Procedure.find(tramite_de_giro.procedure_id).vigencia %></p></div>
+                <div class="col-xs-6 col-sm-2"><p class="text-center bg-primary-nergro"><%= Procedure.find(tramite_de_giro.procedure_id).duracion %></p></div>
+                </div> 
+                <% dialogo_sin_tramites = 'true'%>
+              </li>
+            <%end%>
+          <% end %>
+        <% end %>
+        <%if count == 0 %>
+          <br>
+          <%= render "shared/empty_resource", message: t('.no_procedure_lines_available') %>
+        <%end%>
+      </ul>
+    </div>
+  <% else %>
+    <br>
+    <%= render "shared/empty_resource", message: t('.no_procedure_lines_selected') %>
+  <% end %>
