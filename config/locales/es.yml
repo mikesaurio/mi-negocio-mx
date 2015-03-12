@@ -185,6 +185,8 @@ es:
       pasos: Paso %{parameter}
       fin_steps: Has terminado
       link: Obtener aquí
+      terminado: terminado
+      tengo_tramite: Ya tengo este tramite
   procedure_lines:
     index:
       title: Trámites
