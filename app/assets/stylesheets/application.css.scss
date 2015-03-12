@@ -376,7 +376,19 @@ width: 80%;
   background-color: $verde-claro;
   background-image: none;
 }
-
+.chosen-container {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 13px;
+  zoom: 1;
+  *display: inline;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+      user-select: none;
+  width: 100% !important;
+}
 
 /*carrucel*************/
 .item{
@@ -405,6 +417,18 @@ width: 80%;
   background-color: rgba(0, 0, 0, 0);
 }
 
+.carousel-indicators lir {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin: 1px;
+  text-indent: -999px;
+  border: 1px solid $rojo;
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: #46aa6c;
+  background-color: rgba(0, 0, 0, 0);
+}
 
 .carousel-indicators .active {
   margin: 0;

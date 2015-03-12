@@ -1,27 +1,7 @@
 <div class="bs-example">
     <div id="myCarousel" class="carousel slide" data-interval="false" data-ride="carousel">
       <!-- Carousel indicators -->
-      <ol class="carousel-indicators">
-            <% count = 0 %>
-            <% @formation_steps.each_with_index do |formation_step,index| %>
-              <% if formation_step.type == @tipo %>
-                <% count += 1 %>
-                <%if @tramites_realizados.nil?%>
-                    <%if count==1%>
-                        <li data-target="#myCarousel" data-slide-to=<%=count-1%> class="active" data-toggle="tooltip" data-placement="bottom" data-original-title='<%=formation_step.name%>'></li>
-                    <%else%>
-                        <li data-target="#myCarousel" data-slide-to=<%=count-1%> data-toggle="tooltip" data-placement="bottom" data-original-title='<%=formation_step.name%>'></li>
-                    <%end%>
-                <%else%>
-                  <%if @tramites_realizados.where(formation_step_id: formation_step,line_id: @line, tipo: @tipo).first.nil?%>
-                    <li data-target="#myCarousel" data-slide-to=<%=count-1%> data-toggle="tooltip" data-placement="bottom" data-original-title='<%=formation_step.name%>' ></li>
-                  <%else%>
-                    <li data-target="#myCarousel" data-slide-to=<%=count-1%> class="active" data-toggle="tooltip" data-placement="bottom" data-original-title='<%=formation_step.name%>' class="active"></li>
-                  <%end%>
-                <%end%>
-              <%end%>
-            <%end%>
-          </ol>
+      <%= render "shared/cargar_bolitas" %>
        <!-- Carousel items -->
         <div class="carousel-inner">
             <% count = 0 %>
@@ -49,7 +29,7 @@
                         <%if @tramites_realizados.where(formation_step_id: formation.id, line_id: @line, tipo: @tipo).first.nil?%>
                           <p class="text-right"> <%=link_to 'Ya tengo este tramite', @ruta,{:style => 'color: #f00'}  %> </p>
                         <%else%>
-                          <div class="col-md-4"><p class="text-right">Terminado</p></div>
+                          <div class="col-md-4"><p class="text-right texto-verde-wrap">Terminado</p></div>
                         <%end%>
                       </div>
                       <div class="col-md-6"><%=link_to t('.obtener_aqui'), formation.path , {:style => 'color: #418F61', :target => '_blank'} %></p>
@@ -58,9 +38,6 @@
                   <%else%>
                     <%=link_to t('.obtener_aqui'), formation.path , {:style => 'color: #418F61', :target => '_blank'} %></p>
                   <%end%>
-
-
-
                 </div>
                 </div>
               <%end%>
@@ -69,7 +46,7 @@
         </div>
         <!-- Carousel nav -->
         <a class="carousel-control left" href="#myCarousel" data-slide="prev">
-            <span class="glyphicon glyphicon-chevron-left" > </span>
+            <span class="glyphicon glyphicon-chevron-left" ></span>
         </a>
         <a class="carousel-control right" href="#myCarousel" data-slide="next">
             <span class="glyphicon glyphicon-chevron-right"></span>
