@@ -146,7 +146,7 @@ es:
   inspections:
     index:
       title: Inspecciones
-      search_inspections: Buscar inspecciones...
+      search_inspections: Buscar inspeccion por nombre
       no_inspections_available: No encontramos inspecciones en este municipio
       nombre: Nombre
       materia: Materia
@@ -166,7 +166,7 @@ es:
   inspectors:
     index:
       title: Inspectores
-      search_inspectors: Buscar inspectores...
+      search_inspectors: Buscar inspector por nombre
       no_inspectors_available: No encontramos inspectores en este municipio
     show:
       vigencia: Vigencia

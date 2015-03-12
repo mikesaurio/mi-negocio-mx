@@ -1,32 +1,53 @@
-<div class="container bg-primary-verde">
-  <div class="row text-center">
-    <div class="col-lg-10 col-lg-offset-1">
-      <%= content_tag :h1, t('.title'), class: 'text-center' %>
-    <hr class="small">
+<div id="wrap">
+  <div id="main" class="container clear-top">
+    <div class="row">
+      <div class="span12">
+        <section id="services ">
+          <div class="center-block-margin">
+            <div class="container">
+              <div class="row text-center">
+                <div class="col-lg-10 col-lg-offset-1">
+                  <%= content_tag :h1,t('.title'), class: 'text-center texto-verde ' %>
+                  <hr class="small">
+                  <br>
+                </div>
+              </div>
+              <div class="row">
+                <%= render "shared/search", custom_path: municipio_inspectors_path(@municipio), search_placeholder: t('.search_inspectors') %>
+                <BR><BR>
+                  <% if @inspectors.any? %>
+                  <% @inspectors.each do |inspector| %>
+                  <%= link_to municipio_inspector_path(@municipio,inspector) do %>
+                  <div class="col-sm-6 col-md-3">
+                    <div class="thumbnail">
+                      <%= image_tag inspector.foto_url(:thumb) || "missing-image.gif" %>
+                      <div class="caption">
+                        <h4 class="title text-center texto-verde"><%= inspector.nombre %></h4>
+                        <h4 class="subtitle text-center"><%= inspector.vigencia %></h4>
+                      </div>
+                    </div>
+                  </div>
+                  <% end %>
+                  <% end %>
+                  <div class="row text-center">
+                    <%=paginate @inspectors, :window => 2%>
+                  </div>
+                  <% else %>
+                  <%= render "shared/empty_resource", message: t('.no_inspectors_available') %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
     </div>
-<div class="row">
-  <%= render "shared/search", custom_path: municipio_inspectors_path(@municipio), search_placeholder: t('.search_inspectors') %>
-  <BR><BR>
-  <% if @inspectors.any? %>
-    <% @inspectors.each do |inspector| %>
-      <%= link_to municipio_inspector_path(@municipio,inspector) do %>
-      <div class="col-sm-6 col-md-3">
-        <div class="thumbnail">
-          <%= image_tag inspector.foto_url(:thumb) || "missing-image.gif" %>
-          <div class="caption">
-            <h4 class="title text-center"><%= inspector.nombre %></h4>
-            <h4 class="subtitle text-center"><%= inspector.vigencia %></h4>
-          </div>
-        </div>
-      </div>
-      <% end %>
-    <% end %>
-        <div class="row text-center">
-          <%=paginate @inspectors, :window => 2%>
-      </div>
-  <% else %>
-    <%= render "shared/empty_resource", message: t('.no_inspectors_available') %>
-  <% end %>
+  </div>
 </div>
-</div>
+
+
+
+
+
+
+
