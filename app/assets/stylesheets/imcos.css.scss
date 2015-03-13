@@ -1,21 +1,26 @@
+// colors
+$grey-200: #EEEEEE;
+$grey-400: #BDBDBD;
+$grey-500: #9E9E9E;
+$verde-claro: #4EB976;
+$verde-obscuro: #46AA6C;
+$teal-500: #009688;
 $blanco: #ffffff;
-.center-block {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
+$negro: #000000;
+$rojo: #ff0000;
+
+
+
+
 .img-responsive {
-padding-top: 10%;
-max-width: 70%; /* or to whatever you want here */
+padding-top: 0%;
+max-width: 100%; /* or to whatever you want here */
 max-height: auto; /* or to whatever you want here */
 }
 
-.modal-dialog-center {
-    margin-top: 25%;
-}
 .navbar-text-blanco{
-     color: #ffffff;
-      margin:40px 0px 20px 0px;
+    color: #ffffff;
+    margin:40px 0px 20px 0px;
     text-align:center;
 }
 
@@ -28,5 +33,11 @@ max-height: auto; /* or to whatever you want here */
     margin-left: 30%;
     margin-right: 30%;
 }
+
+.divide-8{
+  width: 10%;
+}
+
+
 
 
