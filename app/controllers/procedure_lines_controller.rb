@@ -4,7 +4,7 @@ class ProcedureLinesController < ApplicationController
 
  def index
      set_municipio(:municipio_id)
-     @procedure = Procedure.all
+     @procedure = Procedure.all.order('nombre DESC')
      @id_del_giro = "0"
      @tipo  = 'A'
      valores  if params[:get]
