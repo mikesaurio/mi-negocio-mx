@@ -24,6 +24,15 @@ es:
     inspectors: Inspectores
     inicio: Inicio
     menu: Menú
+    dashboard: Dashboard
+  dashboard:
+    dependencias: Dependencias
+    giros: Giros
+    apertura: Apertura
+    requerimientos: Requerimientos
+    tramites: Trámites
+    inspecciones: Inspecciones
+    inspectores: Inspectores
   footer:
     municipio: Municipios
     acerca_de: Acerca de
