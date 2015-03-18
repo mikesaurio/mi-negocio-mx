@@ -68,7 +68,17 @@ padding-top:10px;
 color:#fff;
 background-color: $verde-claro;
 text-align: center;
-padding: 10px 15%;
+padding: 10px 7%;
+}
+
+.img-responsive-footer {
+  display: block;
+  max-width: 65%;
+  height: auto;
+  margin-left: 25%;
+}
+.text-right {
+  text-align: right;
 }
 
 body.info {
@@ -341,7 +351,7 @@ section{
   display: block;
   padding-left: 5%;
   padding-right: 17%;
-  text-align: left
+  text-align: center
 
 }
 /*utilizado en el menu para centrar las bolitas*/
