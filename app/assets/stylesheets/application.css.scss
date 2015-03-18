@@ -410,6 +410,7 @@ width: 80%;
     text-align: top;
     height: 250px !important;
 
+
 }
 .carousel{
     padding-top: 0px;
@@ -449,6 +450,35 @@ width: 80%;
   width: 12px;
   height: 12px;
   background-color: $verde-obscuro;
+}
+
+.carousel-caption {
+  position: absolute;
+  left: 15%;
+  right: 15%;
+  bottom: 20px;
+  z-index: 10;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  color: white;
+  text-align: center;
+  text-shadow: 0 0px 0px rgba(0,0,0,.6) !important;
+}
+
+
+.carousel-control.right {
+  left: auto;
+  right: 0;
+  background-image: -webkit-linear-gradient(left, rgba(221, 221, 221, 1) 0%, rgba(221, 221, 221, 1) 100%);
+  background-image: linear-gradient(to right, rgba(221, 221, 221, 1) 0%, rgba(221, 221, 221, 1) 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#80000000', GradientType=1);
+}
+.carousel-control.left {
+  background-image: -webkit-linear-gradient(left, rgba(221, 221, 221, 1) 0%, rgba(221, 221, 221, 1) 100%);
+  background-image: linear-gradient(to right, rgba(221, 221, 221, 1) 0%, rgba(221, 221, 221, 1) 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#80000000', endColorstr='#00000000', GradientType=1);
 }
 
 .bs-example{
@@ -538,3 +568,6 @@ p {
   font-size: 14pt;
   color: #777777
 }
+
+
+

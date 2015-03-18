@@ -179,3 +179,21 @@ h5.title {
     }
   }
 }
+
+
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: content-box;
+     -moz-box-sizing: content-box;
+          box-sizing: content-box;
+}
+
+.container .row .col,
+.container .row .col:before,
+.container .row .col:after {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
