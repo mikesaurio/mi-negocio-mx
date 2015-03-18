@@ -54,7 +54,7 @@ min-height: 100%;
 #main
 {
 overflow:auto;
-padding-bottom:150px; /* this needs to be bigger than footer height*/
+padding-bottom: 0px; /* this needs to be bigger than footer height*/
 }
 
 
@@ -425,6 +425,7 @@ width: 80%;
 .carousel{
     padding-top: 0px;
 }
+
 .carousel-control{
     height: 250px !important;
 }
@@ -578,6 +579,5 @@ p {
   font-size: 14pt;
   color: #777777
 }
-
 
 
