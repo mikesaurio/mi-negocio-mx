@@ -268,9 +268,19 @@ padding-left: 10px;
 padding-top: 10px;
 
 }
+
+.texto-padding-center{
+  padding-left: 15%;
+  padding-right: 15%;
+  padding-top:10px;
+  padding-bottom: 10px;
+  text-align: center;
+  }
+
 .texto-padding-bottom{
 padding-bottom: 15px;
 }
+
 
 
 .texto-padding-top{
@@ -425,6 +435,12 @@ width: 80%;
     padding-top: 0px;
 }
 
+.carousel-content {
+    color:black;
+/*    display:flex;*/
+    align-items:center;
+}
+
 .carousel-control{
     height: 300px !important;
     color: rgb(78, 185, 118);
@@ -504,6 +520,11 @@ width: 80%;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#80000000', endColorstr='#00000000', GradientType=1);
 }
 
+
+.carousel-indicators {
+  bottom: 20px;
+  position: relative;
+}
 .bs-example{
   margin: 20px;
 }
