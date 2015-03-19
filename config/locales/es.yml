@@ -155,7 +155,7 @@ es:
   inspections:
     index:
       title: Inspecciones
-      search_inspections: Buscar inspeccion por nombre
+      search_inspections: Buscar inspección por nombre
       no_inspections_available: No encontramos inspecciones en este municipio
       nombre: Nombre
       materia: Materia
