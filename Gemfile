@@ -50,6 +50,7 @@ gem 'fog'
 gem 'carrierwave'
 gem 'mini_magick'
 
+
 group :development do
   # Thin server
   gem 'thin'

@@ -12,7 +12,7 @@
                     <li >
                     <div class="dropdown nav navbar-nav navbar-left">
                         <%unless @municipio.nil?%>
-                            <%=t('titles.titulo')%>  | <a href="" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true" ><%=@municipio.nombre %><span class="caret a" ></span></a>
+                        <%=t('titles.titulo') %>  | <a href="" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true" ><%=@municipio.nombre %><span class="caret a" ></span></a>
                             <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
                                 <%@municipios.each do |municipio|%>
                                     <%unless municipio == @municipio%>
