@@ -8,8 +8,12 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="">
 	<meta name="author" content="">
-
-	<title>MiNegocio</title>
+ 
+  <%if @municipio.nil? %>
+	 <title>Mi Negocio México</title>
+  <%else%>
+    <title>Mi Negocio México | <%=@municipio.nombre%></title>
+  <%end%>
 
   <%= stylesheet_link_tag 'application', media: 'all' %>
   <%= javascript_include_tag "application" %>

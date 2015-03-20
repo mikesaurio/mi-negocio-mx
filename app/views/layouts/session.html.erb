@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>MiNegocio</title>
+  <%if @municipio.nil? %>
+   <title>Mi Negocio México</title>
+  <%else%>
+    <title>Mi Negocio México | <%=@municipio.nombre%></title>
+  <%end%>
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
       <%= favicon_link_tag 'favicon.ico' %>
