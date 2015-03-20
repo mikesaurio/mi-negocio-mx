@@ -44,6 +44,10 @@ $default_text_color: #ffffff;
 html,body
 {
 height:100%;
+font-family: Montserrat, sans-serif;
+  font-weight: 400;
+  font-size: 14pt;
+  color: #777777
 }
 
 #wrap
@@ -66,7 +70,7 @@ height: 150px;
 clear:both;
 padding-top:10px;
 color:#fff;
-background-color: $verde-claro;
+background-color: #009688 !important;
 text-align: center;
 padding: 10px 7%;
 }
@@ -96,6 +100,9 @@ body.info {
 
 nav {
   color: $blanco;
+  font-family: Montserrat, sans-serif;
+  font-weight: 400;
+  font-size: 14pt;
 }
 
 .navbar-nav > li > a {
@@ -191,6 +198,9 @@ a-verde{
    color: $verde-claro;
    cursor: pointer;
     width:100%;
+    font-family: Montserrat, sans-serif;
+  font-weight: 400;
+  font-size: 14pt;
 }
 
 a-verde:link {
@@ -217,6 +227,9 @@ a-verde:active {
 a{
    color: $blanco;
    cursor: pointer;
+   font-family: Montserrat, sans-serif;
+  font-weight: 400;
+  font-size: 14pt;
 }
 
 a:link {
@@ -241,8 +254,11 @@ a:active {
 
 /**********************textos de colores*****************/
 texto-blanco{
-   color: $blanco !important;
-    width:100%;
+  color: $blanco !important;
+  width:100%;
+  font-family: Montserrat, sans-serif;
+  font-weight: 400;
+  font-size: 14pt;
 }
 
 .texto-verde{
@@ -535,6 +551,9 @@ width: 80%;
 
 .pagination a{
   color: #000;
+  font-family: Montserrat, sans-serif;
+  font-weight: 400;
+  font-size: 14pt;
 }
 
 .pagination a, .pagination span.current, .pagination span.gap {
@@ -613,3 +632,16 @@ p {
   color: #777777
 }
 
+p-blanco {
+  font-family: Montserrat, sans-serif;
+  font-weight: 400;
+  font-size: 14pt;
+  color: $blanco;
+}
+
+
+/***************************BR************************/
+espacio{
+    margin: 10px 0 10px 0;
+    display: block;
+}
