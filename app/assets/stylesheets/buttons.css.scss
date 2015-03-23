@@ -1,5 +1,5 @@
 $verde-claro: #4EB976;
-$verde-obscuro: #46AA6C;
+$verde-obscuro: #46aa6c;
 $blanco: #ffffff;
 $negro: #000000;
 /*********************************************************************
@@ -442,4 +442,12 @@ $negro: #000000;
 .btn-lg.btn-default, .btn-lg.outline {
 	padding: 18px 38px;
 			outline: none;
+}
+
+.btn-search{
+	
+margin: 0px 0px;
+	padding: 0px 0px;
+	border-radius: 4px;
+	outline: none;
 }

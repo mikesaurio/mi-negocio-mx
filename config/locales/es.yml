@@ -155,7 +155,7 @@ es:
   inspections:
     index:
       title: Inspecciones
-      search_inspections: Buscar inspeccion por nombre
+      search_inspections: Buscar inspección por nombre
       no_inspections_available: No encontramos inspecciones en este municipio
       nombre: Nombre
       materia: Materia
@@ -204,7 +204,7 @@ es:
       radio_fisica: Física
       radio_moral: Moral
       radio_ambas: Ambos
-      procedure_lines_radio_name: Tipo de persona:'
+      procedure_lines_radio_name: 'Tipo de persona:'
       nombre: Nombre
       descripcion: Descripción
       tipo: Tipo

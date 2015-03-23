@@ -11,6 +11,8 @@ class ApplicationController < ActionController::Base
     I18n.locale = params[:locale] || I18n.default_locale
   end
 
+
+
   #helper_method :current_user
 
   #def current_user
@@ -49,4 +51,8 @@ class ApplicationController < ActionController::Base
   def admin_is_logged_in?
     authenticate_user! && current_user.admin?
   end
+
+
+
+
 end

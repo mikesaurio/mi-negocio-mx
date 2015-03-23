@@ -1,3 +1,4 @@
+
 <div class="col-lg-12 text-center">
 	<%= form_for :post, :url => { :controller => :municipios, :action => :search } do |f| %>
 		<div class="navbar navbar-fixed-top">
@@ -20,14 +21,14 @@
 			</br>
 		</div>
 <!--Seccion Temporal!-->
-		<div class="row text-center">
+		<div class="row text-center ">
 			<div class="col-md-8 col-md-offset-2 ">
 				<div class="row">
 					<div class="col-xs-6 col-sm-3"><%= link_to 'Chalco', municipio_path('1'),  :class => 'btn btn-success btn-lg outline full-width' %>
 					</div>
 					<div class="col-xs-6 col-sm-3"><%= link_to 'Metepec', municipio_path('4'),  :class => 'btn btn-success btn-lg outline full-width' %>
 					</div>
-					<div class="clearfix visible-xs-block"><br></div>
+					   <div class="clearfix visible-xs-block"><espacio></div>
 					<div class="col-xs-6 col-sm-3"><%= link_to 'Tenango', municipio_path('5'),  :class => 'btn btn-success btn-lg outline full-width' %>
 					</div>
 					<div class="col-xs-6 col-sm-3"><%= link_to 'Toluca', municipio_path('6'),  :class => 'btn btn-success btn-lg outline full-width' %>
@@ -51,7 +52,7 @@
 			<div class="modal-content ">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-					<h4 class="modal-title" id="myModalLabel">Puedes iniciar sesión con:</h4>
+					<h4 class="modal-title texto-verde" id="myModalLabel">Puedes iniciar sesión con:</h4>
 				</div>
 				<div class="modal-body center-text">
 					<%= link_to " | Facebook", user_omniauth_authorize_path(:facebook) ,class: "btn btn-facebook fa fa-facebook btn-lg-social"%>
@@ -71,7 +72,7 @@
 			<div class="modal-content" >
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-					<h4 class="modal-title bg-primary-verde" id="myModalLabel"><%=t('.titulo_modal')%></h4>
+					<h4 class="modal-title bg-primary-verde texto-verde" id="myModalLabel"><%=t('.titulo_modal')%></h4>
 				</div>
 				<div class="modal-body">
 					<%=t('.contenido_modal')%>
@@ -82,6 +83,10 @@
 	<div id="fb-root"></div>
 
 </div>
+
+
+
+  
 <script>(function(d, s, id) {
 	var js, fjs = d.getElementsByTagName(s)[0];
 	if (d.getElementById(id)) return;

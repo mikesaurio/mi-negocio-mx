@@ -1,12 +1,12 @@
-<footer class="footer">
+<div class="footer">
   <div class="span12">   
     <div class="row">
       <div class="col-md-4 text-center">
-        <%= image_tag "Logoblanco.png", class: "img-responsive center-block-padding" %>
+        <%= image_tag "Logoblanco.png", class: "img-responsive-footer text-center" %>
       </div>
       <div class="clearfix visible-xs-block"></div>
-      <div class="col-md-4">
-        <ul class="list-inline">
+      <div class="col-md-4 text-center">
+        <ul class="list-inline padding-left-center">
           <li>
             <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-facebook"></i></a>
           </li>
@@ -22,7 +22,7 @@
         </ul>
       </div>
       <div class="clearfix visible-xs-block"></div>
-      <div class=".col-md-4 text-center"><ul class="list-inline">
+      <div class=".col-md-4 text-right"><ul class="list-inline">
         <li class="text-center">
           <a href="#" ><%= link_to t('footer.acerca_de'), municipio_about_path(@municipio) %></a>
         </li>
@@ -32,4 +32,4 @@
       </ul></div>
     </div>
   </div>
-</footer>
+</div>

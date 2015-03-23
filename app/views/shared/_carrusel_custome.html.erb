@@ -1,9 +1,16 @@
+<br>
+<br>
+<br>
+  <div id="main" class="container clear-top">
+    <div class="row ">
+      <div class="span12">
+        <section id="services ">
 <div class="bs-example">
     <div id="myCarousel" class="carousel slide" data-interval="false" data-ride="carousel">
       <!-- Carousel indicators -->
       <%= render "shared/cargar_bolitas" %>
        <!-- Carousel items -->
-        <div class="carousel-inner">
+        <div class="carousel-inner ">
             <% count = 0 %>
             <% @formation_steps.each_with_index do |formation,index| %>
               <% if formation.type == @tipo %>
@@ -13,10 +20,10 @@
                 <%else %>
                   <div class="item">
                 <%end %>
-                <div class="carousel-caption text-top">
+                <div class="carousel-content">
+                <div class ="texto-padding-center">
                   <h4 class="texto-verde-wrap top-carrusel"><%=formation.name%></h4>
-                  <p class="texto-negro texto-padding-bottom"><%=formation.description[0..350] %><br>
-                  
+                  <p class="texto-negro "><%=formation.description[0..350] %><br>
                   <%unless @tramites_realizados.nil?%>
                     <div class = "row">
                       <div class="col-md-6">
@@ -32,7 +39,7 @@
                           <div class="col-md-6"><p class="text-right texto-verde-wrap"><%=t('.terminado')%></p></div>
                         <%end%>
                       </div>
-                      <div class="col-md-6"><%=link_to t('.obtener_aqui'), formation.path , {:style => 'color: #418F61', :target => '_blank'} %></p>
+                      <div class="col-md-6 "><%=link_to t('.obtener_aqui'), formation.path , {:style => 'color: #418F61', :target => '_blank'} %></p>
                       </div>
                     </div>
                   <%else%>
@@ -40,19 +47,25 @@
                   <%end%>
                 </div>
                 </div>
+                </div>
               <%end%>
             <%end%>  
             
         </div>
         <!-- Carousel nav -->
-        <a class="carousel-control left" href="#myCarousel" data-slide="prev">
+        <a-verde class="carousel-control left" href="#myCarousel" data-slide="prev">
             <span class="glyphicon glyphicon-chevron-left" ></span>
-        </a>
-        <a class="carousel-control right" href="#myCarousel" data-slide="next">
+        </a-verde>
+        <a-verde class="carousel-control right" href="#myCarousel" data-slide="next">
             <span class="glyphicon glyphicon-chevron-right"></span>
-        </a>
+        </a-verde>
     </div>
 </div>
+    
+        </section>
+      </div>
+    </div>
+  </div>
 
 
 
