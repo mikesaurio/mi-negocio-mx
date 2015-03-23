@@ -72,14 +72,18 @@ padding-top:10px;
 color:#fff;
 background-color: #46aa6c !important;
 text-align: center;
-padding: 10px 17% 10px 7%;
+padding: 10px 17% 10px 12%;
+}
+
+.padding-left-center{
+  padding-left: 20%;
 }
 
 .img-responsive-footer {
   display: block;
   max-width: 65%;
   height: auto;
-  margin-left: 25%;
+   margin: 0 auto;
 }
 .text-right {
   text-align: right;
