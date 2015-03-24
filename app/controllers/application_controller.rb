@@ -5,19 +5,11 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :set_locale
   after_action :store_location
-  # after_filter :verify_authorized, except: [:index, :show, :new, :edit]
+  layout :layout_by_resource
 
   def set_locale
     I18n.locale = params[:locale] || I18n.default_locale
   end
-
-
-
-  #helper_method :current_user
-
-  #def current_user
-    #@current_user ||= User.find(session[:user_id]) if session[:user_id]
-  #end
 
   def verify_admin
     admin_is_logged_in? || not_found
@@ -47,13 +39,20 @@ class ApplicationController < ActionController::Base
     root_path
   end
 
+  protected
+
+  def layout_by_resource
+    # raise resource.inspect
+    if devise_controller? && resource && !resource.admin?
+      'session'
+    elsif devise_controller?
+      'session'
+    end
+  end
+
   private
 
   def admin_is_logged_in?
     authenticate_user! && current_user.admin?
   end
-
-
-
-
 end
