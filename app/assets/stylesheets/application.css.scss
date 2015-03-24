@@ -393,8 +393,19 @@ section{
 
 }
 
+.center-block-margin-login {
+  display: block;
+  padding: 3%;
+  margin-top: 3%;
+  margin-left: 25%;
+  margin-right: 25%;
+   border:2px solid #46aa6c;
+    outline-color:#46aa6c;  
+
+}
+
 .center-block{
-  padding-top: 12%;
+  padding-top: 10%;
 }
 
 .full-width{
