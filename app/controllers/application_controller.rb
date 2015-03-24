@@ -42,10 +42,13 @@ class ApplicationController < ActionController::Base
   protected
 
   def layout_by_resource
-    # raise resource.inspect
+    # Do we want a custom layout for views when there's a user
+    # involved but, is not an admin?
     if devise_controller? && resource && !resource.admin?
       'session'
     elsif devise_controller?
+      'session'
+    else
       'session'
     end
   end
