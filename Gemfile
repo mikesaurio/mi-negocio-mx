@@ -65,6 +65,14 @@ group :development do
   gem 'figaro'
 end
 
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'capybara'
+  gem 'launchy'
+  gem 'factory_girl_rails'
+  gem 'database_cleaner'
+end
+
 group :production do
   gem 'unicorn'
   gem 'rails_12factor'
