@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150324171400) do
+ActiveRecord::Schema.define(version: 20150324192149) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -166,8 +166,8 @@ ActiveRecord::Schema.define(version: 20150324171400) do
     t.datetime "oauth_expires_at"
     t.text     "address"
     t.string   "operation_license"
-    t.string   "operation_license_file"
-    t.string   "land_permission_file"
+    t.text     "operation_license_file"
+    t.text     "land_permission_file"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

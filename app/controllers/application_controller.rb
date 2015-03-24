@@ -48,8 +48,6 @@ class ApplicationController < ActionController::Base
       'session'
     elsif devise_controller?
       'session'
-    else
-      'session'
     end
   end
 

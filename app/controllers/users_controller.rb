@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_filter :set_user
+  layout 'session'
 
   def edit
     @user = current_user
