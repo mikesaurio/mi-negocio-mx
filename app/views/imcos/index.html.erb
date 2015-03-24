@@ -8,8 +8,7 @@
 				<p class="navbar-text pull-right navbar-custom"><texto-blanco><%="#{current_user.email}\t"%> |</texto-blanco> <%=link_to t('.salir'), destroy_user_session_path(:authenticity_token => form_authenticity_token()),:method => :delete, :class => 'a-verde'%>
 				</p>
 				<% else %>
-				<p class="navbar-text pull-right navbar-custom manita" data-toggle="modal" data-target="#mySocialModal" style="cursor:pointer;"><a><%=t('.iniciar_sesion')%></a>
-				</p>
+				 <%= link_to t('.iniciar_sesion'),new_user_registration_path, :class => 'navbar-text pull-right navbar-custom manita'%>
 				<% end %>
 			</div>
 		</div>
@@ -40,6 +39,7 @@
 		</div>
 	</div>
 </div>
+
 <div class="navbar-text-blanco">
 	<%=t('.no_municipio')%> <a-verde class = "m" href="" data-toggle="modal" data-target="#myModalDialog"> <%=t('.click')%></a-verde>
 </div>

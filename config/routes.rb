@@ -4,8 +4,7 @@ Rails.application.routes.draw do
   post "municipios/search"
    #resources :procedure_requirements, only: [:index]#Para pruebas
 
-  devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks" }
-
+  devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks", :registrations => "registrations" }
 
 
   resources :municipios, only: [:show] do
