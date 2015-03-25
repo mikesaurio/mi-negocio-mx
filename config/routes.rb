@@ -1,11 +1,8 @@
 Rails.application.routes.draw do
 
-  #devise_for :users
   post "municipios/search"
-   #resources :procedure_requirements, only: [:index]#Para pruebas
 
   devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks", :registrations => "registrations" }
-
 
   resources :municipios, only: [:show] do
     get 'about'
@@ -25,6 +22,8 @@ Rails.application.routes.draw do
     resources :requirements, only: [:index, :new, :create, :edit, :update, :destroy], controller: 'dashboard/requirements'
     resources :procedures, only: [:index, :new, :create, :edit, :update, :destroy], controller: 'dashboard/procedures'
   end
+
+  resources :users, only: [:edit, :update]
 
   root 'imcos#index'
 end

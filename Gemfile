@@ -61,8 +61,16 @@ group :development do
   gem 'binding_of_caller'
   # Seeds
   gem 'seed_dump'
+end
+
+group :development, :test do
   # Load env variables
   gem 'figaro'
+  gem 'rspec-rails'
+  gem 'capybara'
+  gem 'launchy'
+  gem 'factory_girl_rails'
+  gem 'database_cleaner'
 end
 
 group :production do

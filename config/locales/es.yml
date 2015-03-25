@@ -1,4 +1,7 @@
 es:
+  flash:
+    users:
+      updated: La información del usuario ha sido guardada satisfactoriamente.
   views:
     pagination:
       first: "&laquo; Primero"
@@ -231,7 +234,7 @@ es:
   imcos:
     index:
       titulo_modal: Mi Negocio México
-      contenido_modal: Estamos trabajando con diversos municipios para poder darle más información de como puede abrir y mentener al día un negocio. Si tiene alguna duda porfavor escribanos a contacto@minegociomexico.mx 
+      contenido_modal: Estamos trabajando con diversos municipios para poder darle más información de como puede abrir y mentener al día un negocio. Si tiene alguna duda porfavor escribanos a contacto@minegociomexico.mx
       iniciar_sesion: Iniciar sesión
       subtitulo: Elige tu municipio
       salir: Salir
