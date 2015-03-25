@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   layout 'session'
 
   def edit
+    redirect_to root_path if current_user.nil?
     @user = current_user
   end
 
